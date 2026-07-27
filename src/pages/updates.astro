@@ -6,7 +6,7 @@ const events = getEvents();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <BaseLayout title="Updates · Semaglutide Depot Tracker" activePath="/updates/">
-  <header class="page-heading"><div><p class="eyebrow">Change log</p><h1>업데이트 피드</h1></div></header>
+  <header class="page-heading"><div><p class="eyebrow">Change log</p><h1>Update Feed</h1></div></header>
   <section class="section panel panel-pad feed">
     {events.map((event) => (
       <article class="feed-item">
