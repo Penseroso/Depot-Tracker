@@ -10,7 +10,7 @@
 - **Astro**: 페이지와 프로그램 상세 화면 정적 생성
 - **React islands**: 검색·필터와 차트에만 선택적으로 사용
 - **TypeScript + Zod**: 개별 JSON 형식을 빌드 시 검증
-- **Node validation scripts**: 프로그램–이벤트 연결, 날짜, URL, 최신성 교차 검증
+- **Node validation scripts**: Program–Study–Event 연결, registry, 기간, 날짜, URL 교차 검증
 - **Tailwind CSS + CSS variables**: 디자인 토큰과 반응형 UI
 - **Recharts**: 개발 단계·제형군 시각화
 - **GitHub Pages**: `main` merge 후 자동 배포
@@ -37,12 +37,12 @@ blocked-source handover. 다중 도메인, ADR, 대규모 fixture·projection �
 
 ## 화면
 
-- `/` — 핵심 지표, 단계·제형 시각화, priority watchlist, 최근 변경
+- `/` — 핵심 지표, 단계·제형·제품 목표 간격 시각화, priority watchlist, 최근 변경
 - `/programs/` — 검색·다중 필터가 가능한 프로그램 레지스터
 - `/programs/[slug]/` — 프로그램별 근거·차별점·해석 제한 상세
 - `/updates/` — 프로그램에 연결된 material-change 피드
 - `/methodology/` — 단계·제형·출처·갱신 판단 기준
-- `/api/programs.csv`, `/api/snapshot.json` — 정적 다운로드 endpoint
+- `/api/programs.csv`, `/api/studies.csv`, `/api/snapshot.json` — 정적 다운로드 endpoint
 
 ## 실행과 검증
 
@@ -60,7 +60,8 @@ npm run check
 npm run build
 ```
 
-- `data:validate`: JSON·URL·날짜·프로그램/이벤트 연결을 실패 조건으로 검사
+- `data:validate`: strict 데이터·registry·Program/Study/Event 연결을 실패 조건으로 검사
+- `data:test`: 필수 음성 fixture로 validator 차단 규칙을 회귀 검사
 - `data:staleness`: 기본 90일 초과 미검증 레코드를 보고하는 advisory
 - `check`: 데이터 검증 + Astro 타입/콘텐츠 검사
 - `build`: 데이터 검증 + Astro 검사 + 정적 빌드
@@ -73,7 +74,9 @@ STALE_DAYS=45 npm run data:staleness
 
 ## 데이터 갱신
 
-- 프로그램: `src/data/assets/*.json`
+- 프로그램: `src/data/programs/*.json`
+- Study: `src/data/studies/*.json`
+- 제형 registry: `src/data/registries/delivery-technologies.json`
 - 이벤트: `src/data/events/*.json`
 - 형식: `src/lib/schema.ts`
 - 교차 검증: `scripts/validate-data.mjs`

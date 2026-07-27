@@ -24,8 +24,10 @@ authoritative home; other documents should link to it rather than restating it.
 
 ```text
 Human-edited canonical JSON
-src/data/assets/*.json
+src/data/programs/*.json
+src/data/studies/*.json
 src/data/events/*.json
+src/data/registries/*.json
   -> npm run data:validate
   -> Astro/Zod loading and npm run build
   -> static pages + CSV/JSON endpoints

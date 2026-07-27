@@ -1,14 +1,25 @@
 {
   "company": "Adocia",
-  "asset": "AdoXLong Sema",
-  "modality": "polymer–peptide conjugate",
-  "modalityGroup": "other depot",
-  "targetInterval": "월 1회; 플랫폼상 분기 1회 잠재력",
+  "programName": "AdoXLong Sema",
+  "payload": "semaglutide",
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "polymer-conjugate",
+  "deliveryTechnology": "polymer–peptide conjugate",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "demonstratedDuration": null,
+  "platformPotential": {
+    "description": "분기 1회 잠재력",
+    "minDays": 84,
+    "maxDays": 92
+  },
   "route": "피하주사(29G 이하 호환 저점도 수용액)",
-  "evidenceStage": "Preclinical",
-  "regulatoryStatus": "Preclinical POC achieved",
-  "registryId": null,
-  "geography": "프랑스",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "Preclinical POC achieved",
+  "programRegionContext": "프랑스",
   "latestUpdate": "2026년 신규 AdoXLong 플랫폼을 semaglutide에 적용해 positive preliminary in vitro/in vivo 결과와 월 1회 목표를 공개했다.",
   "latestUpdateDate": "2026-04-21",
   "lastVerifiedAt": "2026-07-27",
