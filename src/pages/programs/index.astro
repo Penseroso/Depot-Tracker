@@ -8,7 +8,7 @@ const asOfDate = programs.map((program) => program.lastVerifiedAt).sort().at(-1)
 ---
 <BaseLayout title="Programs · Semaglutide Depot Tracker" activePath="/programs/">
   <header class="page-heading">
-    <div><p class="eyebrow">Program register</p><h1>경쟁 프로그램</h1></div>
+    <div><p class="eyebrow">Program register</p><h1>Competitive Programs</h1></div>
     <div class="actions">
       <a class="button" href={`${base}/api/programs.csv`} download>CSV</a>
       <a class="button button-primary" href={`${base}/api/snapshot.json`} download>JSON snapshot</a>
