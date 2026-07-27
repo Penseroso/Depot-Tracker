@@ -1,4 +1,4 @@
-import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip, Bar, BarChart, XAxis, YAxis } from 'recharts';
+import { Pie, PieChart, ResponsiveContainer, Tooltip, Bar, BarChart, Rectangle, Sector, XAxis, YAxis } from 'recharts';
 import type { Program } from '../lib/schema';
 import { stageLabel } from '../lib/format';
 
@@ -24,29 +24,35 @@ export default function LandscapeCharts({ programs }: { programs: Program[] }) {
     <div className="panel-grid">
       <section className="panel panel-pad" aria-label="개발 단계 분포">
         <h3 className="panel-title">개발 단계 분포</h3>
-        <p className="panel-subtitle">공식 등록 임상과 사람 PK 파일럿을 구분합니다.</p>
         <div style={{ height: 280, marginTop: 14 }}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={stageData} layout="vertical" margin={{ top: 8, right: 18, left: 26, bottom: 4 }}>
               <XAxis type="number" allowDecimals={false} axisLine={false} tickLine={false} />
               <YAxis type="category" dataKey="name" width={108} axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#62706d' }} />
               <Tooltip cursor={{ fill: '#f1f6f5' }} />
-              <Bar dataKey="value" radius={[0, 7, 7, 0]}>
-                {stageData.map((_, index) => <Cell key={index} fill={stageColors[index % stageColors.length]} />)}
-              </Bar>
+              <Bar
+                dataKey="value"
+                radius={[0, 7, 7, 0]}
+                shape={(props: any) => <Rectangle {...props} fill={stageColors[props.index % stageColors.length]} />}
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </section>
       <section className="panel panel-pad" aria-label="제형군 분포">
         <h3 className="panel-title">제형군 분포</h3>
-        <p className="panel-subtitle">미립구 중심 경쟁구도와 비미립구 대안을 비교합니다.</p>
         <div style={{ height: 230, marginTop: 12 }}>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
-              <Pie data={modalityData} dataKey="value" nameKey="name" innerRadius={58} outerRadius={88} paddingAngle={3}>
-                {modalityData.map((_, index) => <Cell key={index} fill={modalityColors[index % modalityColors.length]} />)}
-              </Pie>
+              <Pie
+                data={modalityData}
+                dataKey="value"
+                nameKey="name"
+                innerRadius={58}
+                outerRadius={88}
+                paddingAngle={3}
+                shape={(props: any) => <Sector {...props} fill={modalityColors[props.index % modalityColors.length]} />}
+              />
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
