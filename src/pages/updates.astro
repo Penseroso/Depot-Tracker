@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     {events.map((event) => (
       <article class="feed-item">
         <time class="feed-date" datetime={event.date}>{formatDate(event.date)}</time>
-        <div><h2 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h2><div class="feed-meta">{event.company} · {event.asset} · {event.category} · 중요도 {event.significance}</div></div>
+        <div><h2 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h2><div class="feed-meta">{event.company} · {event.programName} · {event.category} · 중요도 {event.significance}</div></div>
         <a class="feed-source" href={event.source.url} target="_blank" rel="noreferrer">원문 ↗</a>
       </article>
     ))}

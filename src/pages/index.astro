@@ -2,12 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LandscapeCharts from '../components/LandscapeCharts';
 import StageBadge from '../components/StageBadge.astro';
-import { getEvents, getPrograms, getSummary } from '../lib/data';
-import { formatDate, modalityLabel } from '../lib/format';
+import { getDeliveryTechnologies, getEvents, getPrograms, getStudies, getSummary } from '../lib/data';
+import { formatDate, formatIntervalClaim } from '../lib/format';
 
 const programs = getPrograms();
+const studies = getStudies();
 const events = getEvents();
-const summary = getSummary(programs, events);
+const deliveryTechnologies = getDeliveryTechnologies();
+const technologyById = new Map(deliveryTechnologies.map((item) => [item.id, item]));
+const summary = getSummary(programs, events, studies);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const priority = programs.filter((program) => program.active).slice(0, 6);
 ---
@@ -23,12 +26,12 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
     <div class="metric"><div class="metric-label">TRACKED</div><div class="metric-value">{summary.total}</div><div class="metric-note">프로그램·기술 항목</div></div>
     <div class="metric"><div class="metric-label">ACTIVE</div><div class="metric-value">{summary.active}</div><div class="metric-note">활성 추적 항목</div></div>
     <div class="metric"><div class="metric-label">HUMAN / REGULATORY</div><div class="metric-value">{summary.clinicalOrHuman}</div><div class="metric-note">사람 PK·IND·등록 임상</div></div>
-    <div class="metric"><div class="metric-label">NON-MICROSPHERE</div><div class="metric-value">{summary.nonMicrosphere}</div><div class="metric-note">활성 비미립구 접근</div></div>
+    <div class="metric"><div class="metric-label">REGISTERED STUDIES</div><div class="metric-value">{summary.registeredStudies}</div><div class="metric-note">연결된 등록 임상</div></div>
   </section>
 
   <section class="section">
     <div class="section-head"><div><h2>Landscape</h2></div></div>
-    <LandscapeCharts programs={programs} client:visible />
+    <LandscapeCharts programs={programs} deliveryTechnologies={deliveryTechnologies} client:visible />
   </section>
 
   <section class="section">
@@ -42,10 +45,10 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
         <tbody>
           {priority.map((program) => (
             <tr>
-              <td><a class="row-link" href={`${base}/programs/${program.slug}/`}><span class="cell-title">{program.asset}</span><span class="cell-sub">{program.company}</span></a></td>
-              <td><span class="cell-title">{modalityLabel(program.modalityGroup)}</span><span class="cell-sub">{program.modality}</span></td>
-              <td>{program.targetInterval}</td>
-              <td><StageBadge stage={program.evidenceStage} /></td>
+              <td><a class="row-link" href={`${base}/programs/${program.slug}/`}><span class="cell-title">{program.programName}</span><span class="cell-sub">{program.company}</span></a></td>
+              <td><span class="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span class="cell-sub">{program.deliveryTechnology}</span></td>
+              <td>{formatIntervalClaim(program.productTarget)}</td>
+              <td><StageBadge stage={program.developmentStage} /></td>
               <td>{formatDate(program.latestUpdateDate)}</td>
             </tr>
           ))}
@@ -63,7 +66,7 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
       {events.slice(0, 5).map((event) => (
         <article class="feed-item">
           <time class="feed-date" datetime={event.date}>{formatDate(event.date)}</time>
-          <div><h3 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h3><div class="feed-meta">{event.company} · {event.asset} · {event.category}</div></div>
+          <div><h3 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h3><div class="feed-meta">{event.company} · {event.programName} · {event.category}</div></div>
           <a class="feed-source" href={event.source.url} target="_blank" rel="noreferrer">원문 ↗</a>
         </article>
       ))}

@@ -1,14 +1,25 @@
 {
   "company": "Mapi Pharma",
-  "asset": "SG Depot",
-  "modality": "PLGA microsphere",
-  "modalityGroup": "microsphere",
-  "targetInterval": "월 1회",
+  "programName": "SG Depot",
+  "payload": "semaglutide",
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "polymer-microparticle",
+  "deliveryTechnology": "PLGA microsphere",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "demonstratedDuration": null,
+  "platformPotential": {
+    "description": "특허상 4주~6개월",
+    "minDays": 28,
+    "maxDays": 184
+  },
   "route": "피하주사",
-  "evidenceStage": "Registered Phase I/IIa",
-  "regulatoryStatus": "ClinicalTrials.gov: Not yet recruiting",
-  "registryId": "NCT07563699",
-  "geography": "이스라엘",
+  "developmentStage": "Registered Phase I/IIa",
+  "developmentStatus": "공식 등록 임상 개발; 최신 운영 상태는 연결 Study에서 관리",
+  "programRegionContext": "이스라엘",
   "latestUpdate": "ClinicalTrials.gov 기록이 2026년 6월 30일 갱신됐고, 2·4·6·8 mg 순차 용량군의 제2형 당뇨병 대상 Phase I/IIa는 여전히 Not yet recruiting이다.",
   "latestUpdateDate": "2026-06-30",
   "lastVerifiedAt": "2026-07-27",

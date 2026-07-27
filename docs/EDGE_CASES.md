@@ -7,73 +7,68 @@ update-boundary: Update only for durable representational limits and explicit re
 
 # Edge Cases
 
-These are durable interpretation or representation limits. Ordinary missing
-evidence belongs in the run report or source-access handover, not here.
+## Product target versus demonstrated or platform duration
 
-## Patent interval versus product target
+**Limit:** patents, animal exposure, and platform concepts may support longer
+durations than the current product target.
 
-**Limit:** patents may claim monthly through multi-month release while the
-current sponsor program targets only monthly dosing.
+**Handling:** store each claim independently. Only `productTarget` drives the
+product interval filter/chart.
 
-**Current handling:** store the supported current target in `targetInterval` and
-place broader patent/platform potential in `differentiator` or `caveat`.
+**Re-entry:** direct sponsor or registry evidence changes the product target.
 
-**Re-entry trigger:** direct sponsor or clinical evidence establishing a new
-product target.
+## QnW versus calendar expressions
 
-## Human pilot without public IND or registered trial
+**Limit:** Q4W is exactly 28 days, while monthly can span 28–31 days.
 
-**Limit:** an abstract may disclose human PK/safety while public regulatory or
-registry status remains unclear.
+**Handling:** preserve source text and use the Data Contract conversion table;
+never collapse Q4W/Q8W/Q12W into calendar month/quarter values.
 
-**Current handling:** use `Human PK pilot`; do not promote to IND or registered
-clinical stage.
+**Re-entry:** a source supplies a more exact schedule.
 
-**Re-entry trigger:** direct regulator, registry, or sponsor evidence of the
-specific milestone.
+## Open range versus absent claim
 
-## Academic technology versus sponsor program
+**Limit:** “6 weeks or longer” is not the same as no public duration.
 
-**Limit:** semaglutide-specific animal data may be highly relevant but not an
-active company development program.
+**Handling:** use an object with a null open bound for the former and a null
+claim for the latter.
 
-**Current handling:** retain as a technology-watch item, identify the academic
-owner, and state productization limits in `caveat`.
+**Re-entry:** evidence closes the range or establishes the absent claim.
 
-**Re-entry trigger:** licensing, company formation, IND-enabling activity, or
-other direct sponsor-development evidence.
+## Program region versus Study country
 
-## Same molecule, distinct depot configuration
+**Limit:** development base, nonclinical location, and licensing territory are
+not Study-country facts.
 
-**Limit:** one semaglutide molecule may be developed in multiple sponsor-tracked
-routes or formulation platforms.
+**Handling:** retain the former in `programRegionContext`; only registry-derived
+English country names enter Study `countries`.
 
-**Current handling:** create a separate program only when official evidence
-independently establishes a distinct development configuration. Trial-arm or
-dose differences alone remain one program.
+**Re-entry:** registry location data changes.
 
-**Re-entry trigger:** sponsor-level evidence that resolves whether the
-configuration is independently tracked.
+## Human pilot without a registered Study
 
-## Unreported versus inaccessible
+**Limit:** human PK/safety may exist without a public registry or confirmed IND.
 
-**Limit:** blocked supplements, paywalls, bot blocks, or inaccessible registries
-cannot establish that no result or program exists.
+**Handling:** keep the Program at `Human PK pilot` and create no Study.
 
-**Current handling:** preserve the current supported state, report the access
-blocker, and create/update a source-access handover when material.
+**Re-entry:** a registry or direct regulatory source establishes the Study.
 
-**Re-entry trigger:** source access or an equivalent direct source supporting
-the affected claim.
+## Academic technology versus sponsor Program
+
+**Limit:** semaglutide-specific animal evidence may inform feasibility without a
+sponsor development Program.
+
+**Handling:** store it as `technology-watch` and keep product target null unless
+direct product intent exists.
+
+**Re-entry:** licensing, company formation, or sponsor-development evidence.
+
+## Inaccessible or unreported evidence
+
+Blocked sources do not prove nonexistence. Preserve supported state and use a
+source-access handover when a material claim remains unresolved.
 
 ## Derived PK or chart-transcribed values
 
-**Limit:** the compact tracker does not carry a full clinical evidence model for
-population, estimand, comparison, and endpoint provenance.
-
-**Current handling:** store only directly reported headline claims appropriate
-for the program summary. Do not derive values, read values from charts, or
-combine sources to create an undisclosed estimate.
-
-**Re-entry trigger:** a future evidence schema that can preserve the required
-analysis context and result-level provenance.
+The compact Study model lacks Arm/Endpoint/Outcome provenance. Store only direct
+headline claims and never derive or transcribe unsupported values.

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "polymer-microparticle",
+    "label": "Polymer microparticle",
+    "shortLabel": "Microparticle",
+    "sortRank": 10
+  },
+  {
+    "id": "in-situ-forming-depot",
+    "label": "In-situ-forming depot",
+    "shortLabel": "In-situ depot",
+    "sortRank": 20
+  },
+  {
+    "id": "injectable-hydrogel",
+    "label": "Injectable hydrogel",
+    "shortLabel": "Hydrogel",
+    "sortRank": 30
+  },
+  {
+    "id": "implant",
+    "label": "Implant",
+    "shortLabel": "Implant",
+    "sortRank": 40
+  },
+  {
+    "id": "polymer-conjugate",
+    "label": "Polymer conjugate",
+    "shortLabel": "Conjugate",
+    "sortRank": 50
+  },
+  {
+    "id": "crystal-or-suspension",
+    "label": "Crystal or suspension",
+    "shortLabel": "Crystal/suspension",
+    "sortRank": 60
+  },
+  {
+    "id": "other",
+    "label": "Other",
+    "shortLabel": "Other",
+    "sortRank": 99
+  }
+]

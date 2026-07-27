@@ -2,106 +2,135 @@
 role: data-contract
 status: active
 authority: authoritative
-update-boundary: Update when identity, field meaning, event semantics, or editable/generated boundaries change.
+update-boundary: Update when identity, field meaning, registry semantics, Study/Event links, or editable/generated boundaries change.
 ---
 
 # Data Contract
 
-The tracker stores the current competitive state and a concise material-change
-log. It is not a document archive, exhaustive clinical-evidence database, or
-news feed.
+The tracker stores the current semaglutide sustained-release/depot injectable
+landscape and a concise material-change log. It is not limited to monthly-or-
+longer dosing and is not an exhaustive clinical-outcome database.
 
-## Scope
+## Scope and record classes
 
-Include a named semaglutide sustained-release injectable program or a directly
-relevant technology-watch item when official or authoritative evidence supports
-at least one of the following:
+Include a named semaglutide sustained-release/depot injectable Program or a
+semaglutide-specific technology-watch item when authoritative evidence supports
+an active sponsor program, regulatory or human activity, nonclinical depot
+evidence, or a materially relevant academic/platform technology.
 
-- an active sponsor development program;
-- regulatory or registered clinical activity;
-- human PK/safety disclosure that is clearly attributable to the formulation;
-- a nonclinical depot platform with semaglutide-specific evidence;
-- an academic technology that materially informs non-microsphere feasibility.
+Every Program declares `payload: "semaglutide"` and one `recordType`:
 
-Generic copies, unsupported rumors, unrelated GLP-1 products, and platform
-claims without semaglutide-specific evidence are excluded. Patent-only concepts
-may be retained only as supporting context for an independently confirmed
-program, not as proof of active development.
+- `sponsor-program` — a sponsor-owned development Program, including a directly
+  supported paused Program;
+- `technology-watch` — academic or platform evidence that informs the landscape
+  without establishing a sponsor Program.
 
-## Stable identity and mutable state
+Generic copies, unrelated GLP-1 products, unsupported rumors, and platform claims
+without semaglutide-specific evidence remain excluded.
 
-- The filename under `src/data/assets/` is the stable `programSlug` and URL key.
-- A rename changes displayed company/asset text, not the stable slug.
-- Stage, regulatory status, activity, confidence, update text, and dates are
-  mutable state and never define identity.
-- A materially distinct sponsor-tracked formulation or route may justify a new
-  program record. A dose cohort, trial arm, enrolled population, or planned
-  interval alone does not.
-- Academic technology-watch items remain separate from company pipeline items.
+## Identity and storage
 
-## Program record
+- A filename under `src/data/programs/` is the stable `programSlug` and URL key.
+- A filename under `src/data/studies/` is the stable `studySlug`.
+- Display-name changes never change either slug.
+- Dose cohorts, trial arms, populations, or planned intervals do not create
+  separate Programs or Studies.
+- Editable canonical data comprises Programs, Studies, Events, and registries
+  under `src/data/`. Generated pages and API files under `dist/` are never edited.
 
-Each `src/data/assets/*.json` represents one tracked program or technology-watch
-item.
+## Program
 
-Key fields:
+Each `src/data/programs/*.json` stores one Program or technology-watch item.
 
-- `company`, `asset`: current canonical display names.
-- `modality`, `modalityGroup`: formulation description and broad comparison
-  group (`microsphere` or `other depot`).
-- `targetInterval`: the currently supported product target. Platform or patent
-  potential must be qualified in `differentiator` or `caveat`.
-- `evidenceStage`: maturity of public evidence, not an inferred development
-  ambition.
-- `regulatoryStatus`: current registry/regulatory operational state in plain
-  language.
-- `registryId`: direct trial identifier where applicable; otherwise `null`.
-- `latestUpdateDate`: date of the latest material event represented in the
-  current record.
-- `lastVerifiedAt`: date on which the current record was actually rechecked.
-- `latestUpdate`: concise current-state delta or last material development.
-- `readout`: decision-relevant current interpretation.
-- `differentiator`: formulation/platform distinction.
-- `caveat`: required limit against over-interpretation.
-- `confidence`: confidence in the stored current interpretation, not a score of
-  scientific quality.
-- `active`: current tracker status. Omission from a new pipeline deck alone is
-  not enough to set `false`.
-- `stageRank`: presentation-only sorting metadata. It is not a scientific or
-  regulatory claim and must not substitute for `evidenceStage`.
-- `sources`: directly reviewed sources with URL, source class, and access date.
+- `company`, `programName`: canonical display names.
+- `payload`: explicit payload; currently only `semaglutide`.
+- `recordType`: sponsor Program versus technology watch.
+- `deliveryTechnologyId`: foreign key to the delivery-technology registry.
+- `deliveryTechnology`: source-near free-text formulation description.
+- `productTarget`, `demonstratedDuration`, `platformPotential`: separate interval
+  claims; none may substitute for another.
+- `developmentStage`: overall Program maturity.
+- `developmentStatus`: Program-level development status, not Study recruitment.
+- `programRegionContext`: free-text development, nonclinical, or rights context.
+  It is searchable/displayable but never a Study-country fact.
+- `active`, `stageRank`, update dates, interpretation fields, confidence, and
+  sources retain their existing meanings.
 
-`latestUpdateDate` and `lastVerifiedAt` are intentionally different. A record
-may be reverified today with no new event; in that case only `lastVerifiedAt`
-and the reopened sources' `accessedOn` change.
+`human/regulatory` counts Programs whose `developmentStage` is one of
+`Registered Phase I/IIa`, `Registered Phase I`, `IND submitted`, or
+`Human PK pilot`. It is independent of Study count.
 
-## Event record
+## Delivery-technology registry
 
-Each `src/data/events/*.json` records one material state change, not one article.
+`src/data/registries/delivery-technologies.json` is the single authority for
+classification, UI labels, and order. Each strict record contains:
 
-- `programSlug` links the event to stable program identity.
-- `date` is the event or disclosure date supported by the cited source.
-- `company` and `asset` preserve reader-facing context at the time of entry.
-- `category`: `Clinical`, `Regulatory`, `Data`, `Partnership`, `Platform`, or
-  `Status`.
-- `headline` states what changed.
-- `significance` is editorial prioritization.
-- `source` is the direct source for that event.
+```json
+{
+  "id": "injectable-hydrogel",
+  "label": "Injectable hydrogel",
+  "shortLabel": "Hydrogel",
+  "sortRank": 30
+}
+```
 
-Create an event when a change would alter a reader's understanding of stage,
-operational state, formulation, interval, human evidence, partnership, or
-continuation. Routine reverification without semantic change does not create an
-event.
+Registered IDs are `polymer-microparticle`, `in-situ-forming-depot`,
+`injectable-hydrogel`, `implant`, `polymer-conjugate`,
+`crystal-or-suspension`, and `other`. Consumers must not maintain a parallel
+label or ordering table.
 
-## Source records
+## Interval claims
 
-A source record proves only the claims it directly supports. Co-location in a
-program's `sources` array is not proof for every field in that program. Source
-authority is field-specific under
-[`SOURCE_AND_ENTRY_POLICY.md`](SOURCE_AND_ENTRY_POLICY.md).
+An interval claim is either `null` or a strict object:
 
-## Editable and generated boundaries
+```json
+{
+  "description": "6주 이상",
+  "minDays": 42,
+  "maxDays": null
+}
+```
 
-- Editable: `src/data/assets/*.json`, `src/data/events/*.json`.
-- Generated: `dist/`, static pages, `/api/programs.csv`, `/api/snapshot.json`.
-- Never hand-edit `dist/` or treat a generated endpoint as independent evidence.
+- A `null` claim means the claim is absent or not public.
+- A null bound means an open range; both numeric bounds must be positive integers
+  and `minDays <= maxDays`.
+- Free text is authoritative for display; numeric bounds support filtering only.
+- Q4W=28–28, monthly=28–31, Q8W=56–56, two months=56–62,
+  Q12W=84–84, three months/quarterly=84–92, four months=112–123,
+  and six months=168–184 days.
+- Product-target buckets use only `productTarget`; demonstrated or platform
+  duration never promotes a Program into a product-target bucket.
+
+## Study
+
+Each strict `src/data/studies/*.json` contains:
+
+- `programSlug`: required Program foreign key;
+- `registryId`: direct NCT identifier;
+- `phase`: exact registry display text, not derived from Program stage;
+- `recruitmentStatus`: normalized operational enum;
+- `registryStatusRaw`: exact registry wording;
+- `countries`: canonical English country-name array.
+
+Program stage and Study phase/status are independent. Study countries never
+derive from `programRegionContext`. Arm, Endpoint, Outcome, and normalized phase
+models are intentionally absent.
+
+## Event
+
+Each `src/data/events/*.json` records one material state change.
+
+- `programSlug` is always required.
+- `studySlug` is optional and used only when the Event identifies one Study.
+- `company` and `programName` preserve reader-facing context.
+- category, significance, date, headline, and source retain their prior meanings.
+
+## Export boundary
+
+- `/api/programs.csv`: one Program per row with classification and all interval
+  text/numeric fields.
+- `/api/studies.csv`: one Study per row linked by `programSlug`.
+- `/api/snapshot.json`: `asOf`, `deliveryTechnologies`, `programs`, `studies`,
+  and `events`.
+- No legacy `asset`, `modalityGroup`, `targetInterval`, or embedded Study alias
+  is emitted.

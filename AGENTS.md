@@ -24,7 +24,7 @@ documentation tree by default.
 
 | Change | Update | Do not update by default |
 | --- | --- | --- |
-| Routine research refresh | `src/data/assets/*.json`, `src/data/events/*.json`; handover only for unresolved blockers | Contracts, workflow, UI, README |
+| Routine research refresh | `src/data/programs/*.json`, `src/data/studies/*.json`, `src/data/events/*.json`; handover only for unresolved blockers | Contracts, workflow, UI, README |
 | Research procedure | `docs/RESEARCH_WORKFLOW.md` | Data contract and UI |
 | Source or entry semantics | `docs/SOURCE_AND_ENTRY_POLICY.md`, relevant schema/validator when required | Historical event records |
 | Data identity or field meaning | `docs/DATA_CONTRACT.md`, schema, validator, consumers | Research workflow unless behavior changes |

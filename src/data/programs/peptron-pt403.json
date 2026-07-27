@@ -1,14 +1,25 @@
 {
   "company": "Peptron",
-  "asset": "PT403",
-  "modality": "PLGA microsphere",
-  "modalityGroup": "microsphere",
-  "targetInterval": "월 1회 (비임상상 Q8W 가능성도 탐색)",
+  "programName": "PT403",
+  "payload": "semaglutide",
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "polymer-microparticle",
+  "deliveryTechnology": "PLGA microsphere",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "demonstratedDuration": null,
+  "platformPotential": {
+    "description": "비임상상 Q8W 가능성 탐색",
+    "minDays": 56,
+    "maxDays": 56
+  },
   "route": "피하주사",
-  "evidenceStage": "Human PK pilot",
-  "regulatoryStatus": "국내 IND 준비; 제출 확인 전",
-  "registryId": null,
-  "geography": "대한민국",
+  "developmentStage": "Human PK pilot",
+  "developmentStatus": "국내 IND 준비; 제출 확인 전",
+  "programRegionContext": "대한민국",
   "latestUpdate": "ADA 2026에서 건강한 성인 16명 대상 PT403 4 mg 단회 투여의 중간 안전성·내약성 자료를 공개했다. 회사는 2026년 7월 국내 IND 준비 중이라고 밝혔다.",
   "latestUpdateDate": "2026-07-16",
   "lastVerifiedAt": "2026-07-27",

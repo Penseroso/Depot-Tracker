@@ -2,123 +2,86 @@
 role: source-and-entry-policy
 status: active
 authority: authoritative
-update-boundary: Update when source authority, stage/status entry, date, conflict, or provenance semantics change.
+update-boundary: Update when source authority, classification, interval, Program stage, Study status, date, conflict, or provenance semantics change.
 ---
 
 # Source and Entry Policy
 
-There is no single global source hierarchy. Use the source that most directly
-and authoritatively supports the specific field or claim. Recency matters only
-after relevance and authority.
+Use the source that most directly and authoritatively supports each field.
+Recency matters only after relevance and authority.
 
-## Field-specific source policy
+## Program intent, class, and status
 
-### Current sponsor intent and program status
+Prefer current sponsor pipeline pages, filings, investor/R&D materials, and
+official releases for sponsor intent, `recordType`, Program stage, activity, and
+development status. Academic evidence alone supports `technology-watch`, not a
+sponsor Program. Omission alone never proves inactivity.
 
-Prefer current company pipeline pages, investor/R&D presentations, regulatory
-filings, earnings materials, and official company releases.
+## Study facts
 
-### Preclinical and IND-enabling stage
+Use the applicable public registry for `registryId`, `phase`,
+`recruitmentStatus`, `registryStatusRaw`, and `countries`.
 
-Direct company pipeline, scientific presentation, conference disclosure, or
-peer-reviewed nonclinical evidence may support these stages. A trial registry is
-not required before clinical entry.
+- Preserve exact registry phase and status text.
+- Normalize recruitment status without discarding `registryStatusRaw`.
+- Store canonical English Study-country names.
+- Do not derive Study country from Program regional context.
+- A planned phase or sponsor announcement does not override current registry
+  operation.
 
-### Registered Phase I–III and trial operational status
+## Delivery technology
 
-Prefer the applicable public trial registry, supplemented by official
-trial-initiation or first-patient-dosed announcements. A planned future phase or
-recruitment announcement does not override a registry that still reports `Not
-yet recruiting`; preserve the difference in `regulatoryStatus` and `caveat`.
+Prefer sponsor scientific/platform material, conference evidence, and
+peer-reviewed publications. Store the source-near formulation description in
+`deliveryTechnology`, then author the closest registered
+`deliveryTechnologyId`. Use `other` only when direct evidence is insufficient
+for a more specific registered category; never infer from a product name alone.
 
-A registry record can establish a trial's phase/status but does not by itself
-prove that every dose, cohort, or study configuration is a separate program.
+## Interval claims
 
-### Regulatory milestones
+Keep these authorities and meanings separate:
 
-Treat `IND submitted`, `IND cleared/approved`, and first patient dosed as
-separate facts. Do not promote `IND submitted` to Phase I without separate
-evidence that clinical activity has begun or is officially current.
+- `productTarget`: sponsor or registered product intent;
+- `demonstratedDuration`: directly observed exposure/release duration;
+- `platformPotential`: broader platform, patent, or design potential.
 
-Prefer regulator records or official sponsor disclosures that directly identify
-the filing, jurisdiction, authority, and date.
+Patents may support platform potential but do not establish product target or
+active development. Preserve the supported free text and add numeric bounds
+using the Data Contract conversion table. Q4W/Q8W/Q12W must remain distinct from
+calendar month/quarter expressions.
 
-### Formulation, platform, and target interval
+## Human evidence and milestones
 
-Prefer company scientific/platform materials, conference presentations, and
-peer-reviewed publications. Patents are supporting evidence only:
+Human PK/safety disclosure may support `Human PK pilot` without an IND or
+registered Study. Keep IND submitted, clearance, first patient dosed, Program
+stage, and Study recruitment as separate facts.
 
-- a patent does not prove active development;
-- a patent's broad interval range does not establish the current product target;
-- platform potential must remain separate from demonstrated product performance.
+For results, prefer peer-reviewed publications, registry results, official
+scientific presentations, conference abstracts, then official topline releases.
+Store only directly reported claims; do not calculate or transcribe unreported
+values.
 
-### Human PK, safety, and clinical results
+## Discovery, source access, and conflict
 
-Default result-source priority:
+Search results and secondary reporting may discover candidates but do not
+confirm canonical fields. Source-access run terms remain:
 
-1. peer-reviewed publication;
-2. registry-posted results;
-3. official scientific presentation or poster;
-4. conference abstract;
-5. official company topline release.
+- `FULL_SOURCE_REVIEWED`
+- `PARTIAL_SOURCE_REVIEWED`
+- `SOURCE_IDENTIFIED_NOT_ACCESSED`
+- `SOURCE_NOT_LOCATED`
 
-Direct support for the exact reported value overrides this default order. Store
-only directly reported claims. Do not calculate, visually transcribe, infer,
-redistribute, or broaden results beyond the supported population, timepoint,
-analysis unit, or comparison.
+These terms are not Study fields; raw registry operation belongs in
+`registryStatusRaw`.
 
-A human PK/safety disclosure may support `Human PK pilot`; it does not establish
-registered clinical or IND status unless a separate authoritative source does.
+Do not invent conflict resolutions, delete a stronger confirmed value because a
+new source omits it, or classify a Program inactive without direct evidence.
+Use caveats, defer the update, or create a source-access handover when required.
 
-### Partnerships and rights
+## Dates
 
-Prefer regulatory filings and official announcements from the participating
-companies. Secondary reporting may aid discovery but must not override a primary
-transaction source.
-
-## Discovery versus confirmation
-
-- Search results, industry news, databases, and secondary articles may discover
-  candidates.
-- Core fields must be confirmed using claim-appropriate direct sources.
-- A search-result snippet is never a reviewed source.
-- A search that returns nothing is not proof of non-disclosure.
-- A source that cannot be reached is not proof that a program or result does not
-  exist.
-
-## Source access and fallback
-
-For a material claim, distinguish:
-
-- `FULL_SOURCE_REVIEWED` — required scope opened and read;
-- `PARTIAL_SOURCE_REVIEWED` — only part of the required scope reviewed;
-- `SOURCE_IDENTIFIED_NOT_ACCESSED` — source known but blocked;
-- `SOURCE_NOT_LOCATED` — no candidate source located at that tier.
-
-These are run/report terms, not operating-data fields. Persist a handover only
-when a blocked source leaves a material claim unresolved.
-
-A lower-priority source may stand in for a blocked source only for the exact
-claim it directly supports. For result claims, equivalence must match endpoint,
-timepoint, analysis unit/comparison, population, and estimand. Otherwise retain
-only the independently supported claim and leave the remainder unresolved.
-
-## Conflict handling
-
-- Prefer direct claim support over broad source prestige.
-- Prefer stronger evidence over weaker paraphrase.
-- Retain useful conflicting sources.
-- Do not invent a resolution.
-- Do not delete a confirmed value because a newer source merely omits it.
-- Do not classify a program as discontinued, paused, or inactive without direct
-  evidence for that program's own formulation/scope.
-- Use `caveat`, defer the update, or record a handover when authority and recency
-  cannot resolve the conflict.
-
-## Date and metadata effects
-
-- Change `latestUpdateDate` only when a material stored fact changes or a new
-  material event is added.
-- Change `lastVerifiedAt` only when the record is actually rechecked.
-- Change a source's `accessedOn` only when that source is reopened in the run.
-- Do not refresh dates mechanically across records that were not reviewed.
+- `latestUpdateDate` changes only for a material stored fact or Event.
+- `lastVerifiedAt` changes only when the Program is actually rechecked.
+- `sources[].accessedOn` changes only when that source is reopened.
+- Study operational changes require a material Event when they change the
+  reader's understanding.

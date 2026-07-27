@@ -1,14 +1,25 @@
 {
   "company": "Stanford Appel Lab (academic technology watch)",
-  "asset": "PNP hydrogel–semaglutide",
-  "modality": "cross-linked hydrogel",
-  "modalityGroup": "other depot",
-  "targetInterval": "6주 이상 동물 노출; 4개월 제품 개념",
+  "programName": "PNP hydrogel–semaglutide",
+  "payload": "semaglutide",
+  "recordType": "technology-watch",
+  "deliveryTechnologyId": "injectable-hydrogel",
+  "deliveryTechnology": "cross-linked hydrogel",
+  "productTarget": null,
+  "demonstratedDuration": {
+    "description": "6주 이상 동물 노출",
+    "minDays": 42,
+    "maxDays": null
+  },
+  "platformPotential": {
+    "description": "4개월 제품 개념",
+    "minDays": 112,
+    "maxDays": 123
+  },
   "route": "피하주사",
-  "evidenceStage": "Preclinical",
-  "regulatoryStatus": "Academic preclinical research",
-  "registryId": null,
-  "geography": "미국",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "Academic preclinical research",
+  "programRegionContext": "미국",
   "latestUpdate": "2026년 Advanced Therapeutics 논문에서 polymer–nanoparticle hydrogel의 semaglutide·tirzepatide 적용을 보고했다. 당뇨 rat에서 단회 투여 후 관련 약물 농도를 6주 이상 유지했다.",
   "latestUpdateDate": "2026-02-22",
   "lastVerifiedAt": "2026-07-27",
