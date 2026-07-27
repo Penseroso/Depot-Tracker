@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LandscapeCharts from '../components/LandscapeCharts';
+import StageBadge from '../components/StageBadge.astro';
+import { getEvents, getPrograms, getSummary } from '../lib/data';
+import { formatDate, modalityLabel } from '../lib/format';
+
+const programs = getPrograms();
+const events = getEvents();
+const summary = getSummary(programs, events);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const priority = programs.filter((program) => program.active).slice(0, 6);
+---
+<BaseLayout title="Semaglutide Depot Tracker" activePath="/">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Competitive intelligence · verified {summary.asOfDate ? formatDate(summary.asOfDate) : '—'}</p>
+      <h1>Semaglutide depot landscape, without the noise.</h1>
+      <div class="hero-meta">
+        <span class="meta-pill">임상·규제·제형 통합</span>
+        <span class="meta-pill">미립구·비미립구 비교</span>
+        <span class="meta-pill">근거 링크·변경 이력</span>
+      </div>
+    </div>
+    <p>월 1회 이상 세마글루티드 제형의 경쟁 프로그램을 동일한 기준으로 정리합니다. 사람 대상 공개 자료, 공식 임상 등록, IND 상태를 서로 다른 증거 단계로 유지합니다.</p>
+  </section>
+
+  <section class="metric-strip" aria-label="핵심 지표">
+    <div class="metric"><div class="metric-label">TRACKED</div><div class="metric-value">{summary.total}</div><div class="metric-note">프로그램·기술 항목</div></div>
+    <div class="metric"><div class="metric-label">ACTIVE</div><div class="metric-value">{summary.active}</div><div class="metric-note">활성 추적 항목</div></div>
+    <div class="metric"><div class="metric-label">HUMAN / REGULATORY</div><div class="metric-value">{summary.clinicalOrHuman}</div><div class="metric-note">사람 PK·IND·등록 임상</div></div>
+    <div class="metric"><div class="metric-label">NON-MICROSPHERE</div><div class="metric-value">{summary.nonMicrosphere}</div><div class="metric-note">활성 비미립구 접근</div></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>Landscape</h2><p>단계와 제형 편중을 한눈에 확인합니다.</p></div></div>
+    <LandscapeCharts programs={programs} client:visible />
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div><h2>Priority watchlist</h2><p>단계 진척도와 최근 업데이트를 기준으로 정렬합니다.</p></div>
+      <a class="text-link" href={`${base}/programs/`}>전체 프로그램 →</a>
+    </div>
+    <div class="panel data-table-wrap">
+      <table class="data-table">
+        <thead><tr><th>프로그램</th><th>제형군</th><th>목표 간격</th><th>증거 단계</th><th>최근 업데이트</th></tr></thead>
+        <tbody>
+          {priority.map((program) => (
+            <tr>
+              <td><a class="row-link" href={`${base}/programs/${program.slug}/`}><span class="cell-title">{program.asset}</span><span class="cell-sub">{program.company}</span></a></td>
+              <td><span class="cell-title">{modalityLabel(program.modalityGroup)}</span><span class="cell-sub">{program.modality}</span></td>
+              <td>{program.targetInterval}</td>
+              <td><StageBadge stage={program.evidenceStage} /></td>
+              <td>{formatDate(program.latestUpdateDate)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div><h2>Latest changes</h2><p>뉴스가 아니라 추적 항목의 변화 단위로 기록합니다.</p></div>
+      <a class="text-link" href={`${base}/updates/`}>변경 이력 →</a>
+    </div>
+    <div class="panel panel-pad feed">
+      {events.slice(0, 5).map((event) => (
+        <article class="feed-item">
+          <time class="feed-date" datetime={event.date}>{formatDate(event.date)}</time>
+          <div><h3 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h3><div class="feed-meta">{event.company} · {event.asset} · {event.category}</div></div>
+          <a class="feed-source" href={event.source.url} target="_blank" rel="noreferrer">원문 ↗</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

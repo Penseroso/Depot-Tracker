@@ -1,0 +1,41 @@
+{
+  "company": "Bostal Drug Delivery",
+  "asset": "Semaglutide ER Injectable Suspension",
+  "modality": "PLGA microsphere",
+  "modalityGroup": "microsphere",
+  "targetInterval": "월 1회 목표",
+  "route": "피하주사",
+  "evidenceStage": "Registered Phase I",
+  "regulatoryStatus": "ClinicalTrials.gov: Not yet recruiting; 장기 미갱신",
+  "registryId": "NCT06422624",
+  "geography": "호주 등록 계획",
+  "latestUpdate": "건강한 성인 14명에서 1·4·8 mg 단회 투여 PK/안전성을 보는 Phase 1이 등록돼 있으나 공개 상태가 2024년 이후 진전되지 않았다.",
+  "latestUpdateDate": "2024-05-20",
+  "lastVerifiedAt": "2026-07-27",
+  "readout": "공식 등록 임상은 존재하지만 최신 운영 신호가 없다.",
+  "differentiator": "Semaglutide 함유 polymer microsphere 특허와 1개월 LAI 제품 포트폴리오",
+  "caveat": "예정 종료 시점을 지난 뒤에도 Not yet recruiting으로 남아 있어 지연·중단 가능성을 별도 추적해야 한다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 85,
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT06422624",
+      "url": "https://clinicaltrials.gov/study/NCT06422624",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "Bostal Zpheres / Semaglutide LAI",
+      "url": "https://bostalpharma.com/",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "EP4591857A1 semaglutide microsphere",
+      "url": "https://patents.google.com/patent/EP4591857A1/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-07-27"
+    }
+  ]
+}

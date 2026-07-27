@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProgramExplorer from '../../components/ProgramExplorer';
+import { getPrograms } from '../../lib/data';
+const programs = getPrograms();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asOfDate = programs.map((program) => program.lastVerifiedAt).sort().at(-1) ?? '1970-01-01';
+---
+<BaseLayout title="Programs · Semaglutide Depot Tracker" activePath="/programs/">
+  <header class="page-heading">
+    <div><p class="eyebrow">Program register</p><h1>경쟁 프로그램</h1><p>프로그램, 제형 기술, 목표 투여 간격, 증거 단계, 규제 상태를 동일한 행 구조로 비교합니다.</p></div>
+    <div class="actions">
+      <a class="button" href={`${base}/api/programs.csv`} download>CSV</a>
+      <a class="button button-primary" href={`${base}/api/snapshot.json`} download>JSON snapshot</a>
+    </div>
+  </header>
+  <ProgramExplorer programs={programs} basePath={base} asOfDate={asOfDate} client:load />
+</BaseLayout>

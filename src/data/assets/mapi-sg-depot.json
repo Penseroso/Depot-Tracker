@@ -1,0 +1,41 @@
+{
+  "company": "Mapi Pharma",
+  "asset": "SG Depot",
+  "modality": "PLGA microsphere",
+  "modalityGroup": "microsphere",
+  "targetInterval": "월 1회",
+  "route": "피하주사",
+  "evidenceStage": "Registered Phase I/IIa",
+  "regulatoryStatus": "ClinicalTrials.gov: Not yet recruiting",
+  "registryId": "NCT07563699",
+  "geography": "이스라엘",
+  "latestUpdate": "ClinicalTrials.gov 기록이 2026년 6월 30일 갱신됐고, 2·4·6·8 mg 순차 용량군의 제2형 당뇨병 대상 Phase I/IIa는 여전히 Not yet recruiting이다.",
+  "latestUpdateDate": "2026-06-30",
+  "lastVerifiedAt": "2026-07-27",
+  "readout": "공개 경쟁군 중 가장 명확한 정식 임상 진입 프로그램. 24명 규모로 안전성·내약성·유효성을 평가한다.",
+  "differentiator": "저 burst biodegradable microparticle depot; 특허는 4주~6개월 범위를 포괄하나 현재 임상 목표는 월 1회",
+  "caveat": "회사는 2026년 6월 등록 개시 계획을 발표했지만 6월 30일 갱신 레지스트리는 Not yet recruiting이다. 실제 first-patient-in 확인 필요.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 100,
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT07563699",
+      "url": "https://clinicaltrials.gov/study/NCT07563699",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "Mapi Pharma, 2026-06-01",
+      "url": "https://mapi-pharma.com/mapi-pharma-to-participate-in-the-asco-annual-meeting-and-ada-2026-scientific-sessions/",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "US11865213B2 depot patent",
+      "url": "https://patents.google.com/patent/US11865213B2/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-07-27"
+    }
+  ]
+}

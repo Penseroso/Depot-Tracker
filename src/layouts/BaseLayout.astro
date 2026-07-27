@@ -1,0 +1,41 @@
+---
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  activePath?: string;
+}
+
+const {
+  title,
+  description = '세마글루티드 장기지속형 제형의 임상·규제·기술 개발 현황을 추적합니다.',
+  activePath = '/',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <Navigation activePath={activePath} />
+      <main class="page-main">
+        <div class="page-wrap"><slot /></div>
+      </main>
+      <footer class="footer">
+        <div class="page-wrap footer-inner">
+          <span>Semaglutide Depot Tracker · 공개 근거 기반 경쟁정보</span>
+          <span>사람 대상 공개 데이터와 공식 규제 단계는 분리해 표시합니다.</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

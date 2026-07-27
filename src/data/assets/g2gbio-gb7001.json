@@ -1,0 +1,41 @@
+{
+  "company": "G2GBIO / Samsung Bioepis",
+  "asset": "GB-7001",
+  "modality": "microparticle (polymer unspecified)",
+  "modalityGroup": "microsphere",
+  "targetInterval": "1개월; 별도 3개월 semaglutide 제형 연구",
+  "route": "피하주사",
+  "evidenceStage": "Preclinical",
+  "regulatoryStatus": "국내 비임상; 임상 준비 단계",
+  "registryId": null,
+  "geography": "대한민국 / 글로벌 라이선스",
+  "latestUpdate": "2026년 3월 삼성바이오에피스가 장기지속형 semaglutide를 포함한 후보 2종의 독점 개발권을 확보했다. G2GBIO는 1개월 GB-7001과 3개월 semaglutide PK 연구를 공개했다.",
+  "latestUpdateDate": "2026-04-20",
+  "lastVerifiedAt": "2026-07-27",
+  "readout": "GB-7001은 제형 개발 완료 및 미니피그 PK 자료를 보유한 비임상 프로그램이다.",
+  "differentiator": "InnoLAMP microsphere; 고함량 제형 및 1개월→3개월 확장 연구",
+  "caveat": "3개월 데이터는 비임상 PK 수준이며 GB-7001의 공식 제품 목표와 별도 연구를 혼동하면 안 된다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 61,
+  "sources": [
+    {
+      "label": "Samsung Bioepis partnership, 2026-03-16",
+      "url": "https://www.samsungbioepis.com/kr/newsroom/newsroomView.do?currentPage=1&idx=540",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "G2GBIO GB-7001 pipeline",
+      "url": "https://www.g2gbio.com/m31.php?cate=1",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "G2GBIO 1M/3M formulation update",
+      "url": "https://www.g2gbio.com/board/board.php?bo_table=news&idx=62",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    }
+  ]
+}

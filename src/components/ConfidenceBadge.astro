@@ -1,0 +1,6 @@
+---
+import { confidenceLabel } from '../lib/format';
+interface Props { confidence: string }
+const { confidence } = Astro.props;
+---
+<span class={`badge badge-confidence-${confidence.toLowerCase()}`}>{confidenceLabel(confidence)}</span>

@@ -1,0 +1,35 @@
+{
+  "company": "Peptron",
+  "asset": "PT403",
+  "modality": "PLGA microsphere",
+  "modalityGroup": "microsphere",
+  "targetInterval": "월 1회 (비임상상 Q8W 가능성도 탐색)",
+  "route": "피하주사",
+  "evidenceStage": "Human PK pilot",
+  "regulatoryStatus": "국내 IND 준비; 제출 확인 전",
+  "registryId": null,
+  "geography": "대한민국",
+  "latestUpdate": "ADA 2026에서 건강한 성인 16명 대상 PT403 4 mg 단회 투여의 중간 안전성·내약성 자료를 공개했다. 회사는 2026년 7월 국내 IND 준비 중이라고 밝혔다.",
+  "latestUpdateDate": "2026-07-16",
+  "lastVerifiedAt": "2026-07-27",
+  "readout": "중대한 이상반응은 없었고, 공개 초록상 PT403군에서는 주 1회 비교군에서 관찰된 오심·구토가 보고되지 않았다.",
+  "differentiator": "SmartDepot PLGA microsphere; 고함량·저 burst 및 상대적으로 가는 주사침 지향",
+  "caveat": "소규모 pilot이며 정식 등록 임상 여부와 전체 PK 수치가 공개되지 않았다. Q8W는 과거 비임상 가능성이지 현재 임상 목표가 아니다.",
+  "confidence": "Medium",
+  "active": true,
+  "stageRank": 77,
+  "sources": [
+    {
+      "label": "ADA 2026 abstract 2847-LB",
+      "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/2847-LB/167779/2847-LB-PT403-a-Once-Monthly-Long-Acting",
+      "sourceType": "conference",
+      "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "Peptron IR FAQ, 2026-07-16",
+      "url": "https://peptron.irupsite.co.kr/Default2.aspx?Page_Disclosure=7",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    }
+  ]
+}

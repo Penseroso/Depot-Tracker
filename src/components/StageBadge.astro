@@ -1,0 +1,15 @@
+---
+import { stageLabel } from '../lib/format';
+interface Props { stage: string }
+const { stage } = Astro.props;
+const className = stage.includes('Registered')
+  ? 'badge badge-clinical'
+  : stage === 'IND submitted'
+    ? 'badge badge-ind'
+    : stage === 'Human PK pilot'
+      ? 'badge badge-human'
+      : stage === 'Paused'
+        ? 'badge badge-paused'
+        : 'badge badge-preclinical';
+---
+<span class={className}>{stageLabel(stage)}</span>

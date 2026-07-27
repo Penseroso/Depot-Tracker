@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEvents } from '../lib/data';
+import { formatDate } from '../lib/format';
+const events = getEvents();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<BaseLayout title="Updates · Semaglutide Depot Tracker" activePath="/updates/">
+  <header class="page-heading"><div><p class="eyebrow">Change log</p><h1>업데이트 피드</h1><p>보도자료를 나열하지 않고, 임상 개시·IND 제출·데이터 공개·개발 보류 등 추적 대상의 상태 변화만 기록합니다.</p></div></header>
+  <section class="section panel panel-pad feed">
+    {events.map((event) => (
+      <article class="feed-item">
+        <time class="feed-date" datetime={event.date}>{formatDate(event.date)}</time>
+        <div><h2 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h2><div class="feed-meta">{event.company} · {event.asset} · {event.category} · 중요도 {event.significance}</div></div>
+        <a class="feed-source" href={event.source.url} target="_blank" rel="noreferrer">원문 ↗</a>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

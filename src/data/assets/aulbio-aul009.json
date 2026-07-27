@@ -1,0 +1,29 @@
+{
+  "company": "AULBIO / Kyungdong Pharmaceutical",
+  "asset": "AUL009",
+  "modality": "microparticle (polymer unspecified)",
+  "modalityGroup": "microsphere",
+  "targetInterval": "월 1회",
+  "route": "피하주사",
+  "evidenceStage": "Human PK pilot",
+  "regulatoryStatus": "정식 IND·등록 임상 미확인",
+  "registryId": null,
+  "geography": "대한민국",
+  "latestUpdate": "ADA 2026에서 건강한 남성 12명의 무작위 단회 PK 비교 결과를 공개했다. AUL009 4 mg과 주 1회 semaglutide 1 mg을 비교했다.",
+  "latestUpdateDate": "2026-06-05",
+  "lastVerifiedAt": "2026-07-27",
+  "readout": "AUL009은 지연 흡수·연장 노출과 더 낮은 Cmax를 보였고 월 1회 가능성을 지지했다. 표본은 매우 작다.",
+  "differentiator": "ExTenna 기반 semaglutide-loaded microsphere; peak-related effect 완화 지향",
+  "caveat": "학회 초록 수준이며 정식 임상 등록, IND 상태, 반복투여 데이터가 공개되지 않았다.",
+  "confidence": "Medium",
+  "active": true,
+  "stageRank": 78,
+  "sources": [
+    {
+      "label": "ADA 2026 abstract 2837-LB",
+      "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/2837-LB/167248/2837-LB-Pharmacokinetic-and-Safety-Evaluation-of",
+      "sourceType": "conference",
+      "accessedOn": "2026-07-27"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "company": "Sponsor unconfirmed",
+  "asset": "LEZ-001",
+  "modality": "PLGA microsphere",
+  "modalityGroup": "microsphere",
+  "targetInterval": "월 1회",
+  "route": "주사제",
+  "evidenceStage": "Preclinical",
+  "regulatoryStatus": "In vitro formulation study",
+  "registryId": null,
+  "geography": "대한민국",
+  "latestUpdate": "ADA 2026에서 semaglutide를 nanoparticulate한 뒤 PLGA microsphere에 봉입하는 고함량 제형을 발표했다.",
+  "latestUpdateDate": "2026-06-05",
+  "lastVerifiedAt": "2026-07-27",
+  "readout": "15%·25% loading에서 72시간 방출을 5~10%로 낮추고 28일에 80% 이상 누적 방출하는 in vitro profile을 보고했다.",
+  "differentiator": "nanoparticle-in-microsphere 구조로 고함량에서도 초기 burst 억제",
+  "caveat": "세포·동물·사람 자료가 없고, 초록에 기업 소속이 명시되지 않아 sponsor attribution을 보류했다.",
+  "confidence": "Low",
+  "active": true,
+  "stageRank": 35,
+  "sources": [
+    {
+      "label": "ADA 2026 abstract 1890-P",
+      "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/1890-P/167491/1890-P-Controlled-Release-without-Initial-Burst-in",
+      "sourceType": "publication",
+      "accessedOn": "2026-07-27"
+    }
+  ]
+}
