@@ -3,13 +3,13 @@ import assert from 'node:assert/strict';
 import { validateDatasetRecords } from './validation-core.mjs';
 
 const source = {
-  label: 'Fixture source',
+  label: 'Regression test source',
   url: 'https://example.com/source',
   sourceType: 'company',
   accessedOn: '2026-07-27',
 };
 
-function fixture() {
+function createValidDataset() {
   return {
     deliveryTechnologies: [{
       id: 'polymer-microparticle',
@@ -56,6 +56,13 @@ function fixture() {
         recruitmentStatus: 'not-yet-recruiting',
         registryStatusRaw: 'Not yet recruiting',
         countries: ['Australia'],
+        registrySource: {
+          ...source,
+          label: 'ClinicalTrials.gov NCT00000001',
+          url: 'https://clinicaltrials.gov/study/NCT00000001',
+          sourceType: 'registry',
+        },
+        lastVerifiedAt: '2026-07-27',
       },
     }],
     events: [{
@@ -76,36 +83,42 @@ function fixture() {
   };
 }
 
-test('valid fixture passes', () => {
-  assert.deepEqual(validateDatasetRecords(fixture()).errors, []);
+test('valid regression dataset passes', () => {
+  assert.deepEqual(validateDatasetRecords(createValidDataset()).errors, []);
 });
 
 test('unregistered delivery technology fails', () => {
-  const data = fixture();
+  const data = createValidDataset();
   data.programs[0].data.deliveryTechnologyId = 'missing-technology';
   assert.match(validateDatasetRecords(data).errors.join('\n'), /is not registered/);
 });
 
 test('reversed interval range fails', () => {
-  const data = fixture();
+  const data = createValidDataset();
   data.programs[0].data.productTarget = { description: 'bad range', minDays: 31, maxDays: 28 };
   assert.match(validateDatasetRecords(data).errors.join('\n'), /minDays cannot be greater/);
 });
 
 test('Study referencing a missing Program fails', () => {
-  const data = fixture();
+  const data = createValidDataset();
   data.studies[0].data.programSlug = 'missing-program';
   assert.match(validateDatasetRecords(data).errors.join('\n'), /missing Program reference/);
 });
 
 test('Event referencing a missing Study fails', () => {
-  const data = fixture();
+  const data = createValidDataset();
   data.events[0].data.studySlug = 'missing-study';
   assert.match(validateDatasetRecords(data).errors.join('\n'), /missing Study reference/);
 });
 
 test('legacy Program key fails', () => {
-  const data = fixture();
+  const data = createValidDataset();
   data.programs[0].data.asset = 'Legacy name';
   assert.match(validateDatasetRecords(data).errors.join('\n'), /legacy field asset/);
+});
+
+test('Study registry provenance must use a registry source', () => {
+  const data = createValidDataset();
+  data.studies[0].data.registrySource.sourceType = 'company';
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /sourceType must be registry/);
 });

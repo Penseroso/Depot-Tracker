@@ -204,6 +204,15 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
     if (!recruitmentStatuses.has(data.recruitmentStatus)) {
       errors.push(`${name}: recruitmentStatus is not allowed (${data.recruitmentStatus})`);
     }
+    if (!isDate(data.lastVerifiedAt)) errors.push(`${name}: lastVerifiedAt must be YYYY-MM-DD`);
+    validateSource(data.registrySource, `${name} registrySource`, errors);
+    if (data.registrySource?.sourceType !== 'registry') {
+      errors.push(`${name}: registrySource.sourceType must be registry`);
+    }
+    if (isDate(data.registrySource?.accessedOn) && isDate(data.lastVerifiedAt)
+      && data.registrySource.accessedOn > data.lastVerifiedAt) {
+      errors.push(`${name}: registrySource.accessedOn cannot be after lastVerifiedAt`);
+    }
     if (!Array.isArray(data.countries) || data.countries.length === 0) {
       errors.push(`${name}: countries must contain at least one country`);
     } else {

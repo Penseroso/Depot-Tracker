@@ -6,7 +6,10 @@ const programs = getPrograms();
 const studies = getStudies();
 const deliveryTechnologies = getDeliveryTechnologies();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const asOfDate = programs.map((program) => program.lastVerifiedAt).sort().at(-1) ?? '1970-01-01';
+const asOfDate = [
+  ...programs.map((program) => program.lastVerifiedAt),
+  ...studies.map((study) => study.lastVerifiedAt),
+].sort().at(-1) ?? '1970-01-01';
 ---
 <BaseLayout title="Programs · Semaglutide Depot Tracker" activePath="/programs/">
   <header class="page-heading">

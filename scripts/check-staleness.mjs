@@ -8,14 +8,24 @@ if (!Number.isFinite(threshold) || threshold < 1) {
   process.exit(1);
 }
 
-const dir = path.join(process.cwd(), 'src/data/programs');
 const now = new Date();
 const rows = [];
-for (const name of (await readdir(dir)).filter((file) => file.endsWith('.json')).sort()) {
-  const data = JSON.parse(await readFile(path.join(dir, name), 'utf8'));
-  const checked = new Date(`${data.lastVerifiedAt}T00:00:00Z`);
-  const ageDays = Math.floor((now.getTime() - checked.getTime()) / 86_400_000);
-  if (ageDays > threshold) rows.push({ slug: name.replace(/\.json$/, ''), company: data.company, programName: data.programName, lastVerifiedAt: data.lastVerifiedAt, ageDays });
+for (const recordType of ['programs', 'studies']) {
+  const dir = path.join(process.cwd(), `src/data/${recordType}`);
+  for (const name of (await readdir(dir)).filter((file) => file.endsWith('.json')).sort()) {
+    const data = JSON.parse(await readFile(path.join(dir, name), 'utf8'));
+    const checked = new Date(`${data.lastVerifiedAt}T00:00:00Z`);
+    const ageDays = Math.floor((now.getTime() - checked.getTime()) / 86_400_000);
+    if (ageDays > threshold) {
+      rows.push({
+        recordType: recordType === 'programs' ? 'Program' : 'Study',
+        slug: name.replace(/\.json$/, ''),
+        label: recordType === 'programs' ? `${data.company} / ${data.programName}` : data.registryId,
+        lastVerifiedAt: data.lastVerifiedAt,
+        ageDays,
+      });
+    }
+  }
 }
 
 if (!rows.length) {
@@ -23,6 +33,6 @@ if (!rows.length) {
 } else {
   console.log(`Staleness advisory: ${rows.length} record(s) older than ${threshold} days:`);
   for (const row of rows.sort((a, b) => b.ageDays - a.ageDays)) {
-    console.log(`- ${row.slug}: ${row.company} / ${row.programName} — ${row.lastVerifiedAt} (${row.ageDays} days)`);
+    console.log(`- ${row.recordType} ${row.slug}: ${row.label} — ${row.lastVerifiedAt} (${row.ageDays} days)`);
   }
 }

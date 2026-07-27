@@ -68,6 +68,10 @@ export const recruitmentStatusSchema = z.enum([
   'unknown',
 ]);
 
+const registrySourceSchema = sourceSchema.extend({
+  sourceType: z.literal('registry'),
+});
+
 export const studySchema = z.object({
   programSlug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   registryId: z.string().regex(/^NCT\d{8}$/),
@@ -75,6 +79,8 @@ export const studySchema = z.object({
   recruitmentStatus: recruitmentStatusSchema,
   registryStatusRaw: z.string().min(1),
   countries: z.array(z.string().min(1)).min(1),
+  registrySource: registrySourceSchema,
+  lastVerifiedAt: z.iso.date(),
 }).strict();
 
 export const eventSchema = z.object({

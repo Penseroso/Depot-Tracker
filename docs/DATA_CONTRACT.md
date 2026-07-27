@@ -110,7 +110,10 @@ Each strict `src/data/studies/*.json` contains:
 - `phase`: exact registry display text, not derived from Program stage;
 - `recruitmentStatus`: normalized operational enum;
 - `registryStatusRaw`: exact registry wording;
-- `countries`: canonical English country-name array.
+- `countries`: canonical English country-name array;
+- `registrySource`: the single registry source supporting phase, recruitment
+  status, raw registry status, and countries;
+- `lastVerifiedAt`: the date this Study was actually rechecked.
 
 Program stage and Study phase/status are independent. Study countries never
 derive from `programRegionContext`. Arm, Endpoint, Outcome, and normalized phase
@@ -129,7 +132,8 @@ Each `src/data/events/*.json` records one material state change.
 
 - `/api/programs.csv`: one Program per row with classification and all interval
   text/numeric fields.
-- `/api/studies.csv`: one Study per row linked by `programSlug`.
+- `/api/studies.csv`: one Study per row linked by `programSlug`, including its
+  registry source and verification date.
 - `/api/snapshot.json`: `asOf`, `deliveryTechnologies`, `programs`, `studies`,
   and `events`.
 - No legacy `asset`, `modalityGroup`, `targetInterval`, or embedded Study alias

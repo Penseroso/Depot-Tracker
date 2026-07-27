@@ -74,7 +74,10 @@ export function getSummary(programs = getPrograms(), events = getEvents(), studi
     ).length,
     registeredStudies: studies.length,
     latestEventDate: events[0]?.date ?? null,
-    asOfDate: programs.map((program) => program.lastVerifiedAt).sort().at(-1) ?? null,
+    asOfDate: [
+      ...programs.map((program) => program.lastVerifiedAt),
+      ...studies.map((study) => study.lastVerifiedAt),
+    ].sort().at(-1) ?? null,
   };
 }
 

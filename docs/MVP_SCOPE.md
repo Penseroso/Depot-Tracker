@@ -4,7 +4,7 @@
 
 - 세마글루티드 sustained-release/depot injectable 전체 간격 범위
 - sponsor Program과 technology-watch 분리
-- Program 전체 개발 단계와 최소 Study phase·모집 상태·국가 분리
+- Program 전체 개발 단계와 Study phase·모집 상태·국가·registry 근거·재검증일 분리
 - registry 기반 제형 분류와 자유문자 제형 설명
 - 제품 목표·입증 기간·플랫폼 잠재력 및 일수 범위
 - 검색, 단계, 제형, 목표 간격, record type, 활성 상태 필터
@@ -12,7 +12,7 @@
 - Program 상세와 연결 Study 표시
 - stable Program/Study slug에 연결된 Event
 - Program CSV, Study CSV, 통합 JSON snapshot
-- strict Zod와 교차-record validator 및 음성 fixture
+- strict Zod와 교차-record validator 및 validator regression tests
 - stale-record advisory와 GitHub Pages 배포
 - 주간 에이전트 조사 → Draft PR → 사람 승인 운영
 

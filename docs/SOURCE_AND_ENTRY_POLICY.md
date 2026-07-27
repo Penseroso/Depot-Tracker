@@ -20,7 +20,8 @@ sponsor Program. Omission alone never proves inactivity.
 ## Study facts
 
 Use the applicable public registry for `registryId`, `phase`,
-`recruitmentStatus`, `registryStatusRaw`, and `countries`.
+`recruitmentStatus`, `registryStatusRaw`, and `countries`, and store that
+registry as the Study's single `registrySource`.
 
 - Preserve exact registry phase and status text.
 - Normalize recruitment status without discarding `registryStatusRaw`.
@@ -81,7 +82,9 @@ Use caveats, defer the update, or create a source-access handover when required.
 ## Dates
 
 - `latestUpdateDate` changes only for a material stored fact or Event.
-- `lastVerifiedAt` changes only when the Program is actually rechecked.
+- `lastVerifiedAt` changes only when that Program or Study is actually rechecked.
 - `sources[].accessedOn` changes only when that source is reopened.
+- `registrySource.accessedOn` changes only when the Study registry source is
+  reopened.
 - Study operational changes require a material Event when they change the
   reader's understanding.
