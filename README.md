@@ -55,13 +55,14 @@ npm run dev
 
 ```bash
 npm run data:validate
+npm run data:test
 npm run data:staleness
 npm run check
 npm run build
 ```
 
 - `data:validate`: strict 데이터·registry·Program/Study/Event 연결을 실패 조건으로 검사
-- `data:test`: 필수 음성 fixture로 validator 차단 규칙을 회귀 검사
+- `data:test`: 소규모 validator regression tests로 핵심 차단 규칙을 회귀 검사
 - `data:staleness`: 기본 90일 초과 미검증 레코드를 보고하는 advisory
 - `check`: 데이터 검증 + Astro 타입/콘텐츠 검사
 - `build`: 데이터 검증 + Astro 검사 + 정적 빌드
@@ -84,14 +85,15 @@ STALE_DAYS=45 npm run data:staleness
 핵심 날짜는 분리합니다.
 
 - `latestUpdateDate`: 최근 material change 날짜
-- `lastVerifiedAt`: 해당 레코드를 실제로 다시 확인한 날짜
+- `lastVerifiedAt`: 해당 Program 또는 Study를 실제로 다시 확인한 날짜
 - `sources[].accessedOn`: 해당 출처를 실제로 연 날짜
+- `registrySource.accessedOn`: Study의 registry 출처를 실제로 연 날짜
 
 의미가 바뀌지 않은 재검증은 event를 만들지 않습니다. 의미 있는 단계,
 운영 상태, 투여 간격, 제형, 사람 자료, 파트너십, 지속 여부 변화만 event로
 기록합니다.
 
-## 권장 주간 운영
+## 권장 전체 landscape 갱신 운영
 
 ```text
 Scheduled agent research

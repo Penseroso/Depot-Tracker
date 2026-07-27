@@ -6,5 +6,12 @@
   "registryStatusRaw": "Not yet recruiting",
   "countries": [
     "Australia"
-  ]
+  ],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT06422624",
+    "url": "https://clinicaltrials.gov/study/NCT06422624",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-27"
+  },
+  "lastVerifiedAt": "2026-07-27"
 }

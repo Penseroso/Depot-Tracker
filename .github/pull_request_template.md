@@ -1,6 +1,6 @@
 ## Run scope
 
-- Mode: <!-- initial investigation / refresh -->
+- Mode: <!-- named-program refresh / full landscape refresh -->
 - Programs traversed:
 - Material changes:
 
@@ -11,7 +11,7 @@
 |  | STORED / EXCLUDED / DEFERRED |  |
 
 - Undispositioned candidates: <!-- must be 0 for GO -->
-- Independent coverage pass: <!-- complete / incomplete -->
+- Independent coverage pass: <!-- complete / incomplete / not required for named-program refresh -->
 
 ## Source access
 
@@ -22,6 +22,7 @@
 ## Validation
 
 - [ ] `npm run data:validate`
+- [ ] `npm run data:test`
 - [ ] `npm run data:staleness`
 - [ ] `npm run check`
 - [ ] `npm run build`
