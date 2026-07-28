@@ -23,12 +23,22 @@
 
 ## UI 표기 규칙
 
-- 가운뎃점(`·`)은 UI가 구성하는 구분자(날짜·category, KPI 보조 문구 등)로
-  사용하지 않는다. 여러 데이터 필드를 한 줄에 이어 붙일 때는 사이트 전역에서
-  이미 쓰는 `|` 구분자를 사용한다(예: 홈 히어로 eyebrow, feed-meta).
-- Program·Study·Event의 저장 텍스트(headline, summary, readout 등) 안에서
-  한국어 표기 관행으로 쓰인 가운뎃점(예: "안전성·내약성", "주사·삽입")은
-  데이터이지 UI 구분자가 아니므로 이 규칙과 무관하며 그대로 둔다.
+- 가운뎃점(`·`)은 렌더링되는 모든 화면 텍스트에서 금지한다. UI가 직접
+  구성하는 구분자(날짜와 category를 잇는 줄, KPI 보조 문구 등)뿐 아니라
+  Program·Study·Event의 저장 텍스트(headline, summary, readout,
+  differentiator, caveat, developmentStatus 등)에서도 사용하지 않는다.
+  열거는 쉼표로, 대안/양자택일은 "또는"으로, 병렬 개념 연결은 "및"으로
+  쓰고, 여러 데이터 필드를 한 줄에 이어 붙이는 UI 구분자는 사이트 전역에서
+  이미 쓰는 `|`를 쓴다(예: 홈 히어로 eyebrow, feed-meta). 재발을 막기
+  위해 `scripts/validation-core.mjs`가 지정된 Program/Event 텍스트
+  필드에서 `·`를 기계적으로 거부한다(`npm run data:validate` 실패).
+  이 규칙은 렌더링되는 제품 화면과 그 화면이 그대로 노출하는 저장 텍스트에
+  적용되며, 내부 문서(`docs/*.md`)의 낱말 결합용 가운뎃점에는 적용하지
+  않는다.
+- `confidence`는 High/Medium/Low 세 단계뿐이라 배지로 노출해도 의미가
+  잘 전달되지 않는다. Program detail 헤더에는 표시하지 않는다. 데이터
+  필드와 CSV/JSON export는 그대로 유지하며, 이 규칙은 UI 노출 여부에만
+  적용된다.
 
 ## 의도적으로 제외
 

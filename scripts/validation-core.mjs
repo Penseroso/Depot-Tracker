@@ -77,6 +77,13 @@ function rejectLegacyKeys(record, keys, file, errors) {
   }
 }
 
+function rejectMiddleDot(record, field, file, errors) {
+  const value = record?.[field];
+  if (typeof value === 'string' && value.includes('·')) {
+    errors.push(`${file}: ${field} must not contain a middle dot (·); use a comma, 또는, 및, or | instead`);
+  }
+}
+
 function validateSource(source, label, errors) {
   requireString(source, 'label', label, errors);
   requireString(source, 'sourceType', label, errors);
@@ -198,6 +205,9 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
       'caveat',
       'confidence',
     ]) requireString(data, field, name, errors);
+    for (const field of ['developmentStatus', 'readout', 'differentiator', 'caveat']) {
+      rejectMiddleDot(data, field, name, errors);
+    }
 
     validatePayloadComponents(data.payloadComponents, name, errors);
     if (!recordTypes.has(data.recordType)) errors.push(`${name}: recordType is not allowed (${data.recordType})`);
@@ -278,6 +288,9 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
     rejectLegacyKeys(data, legacyEventKeys, name, errors);
     for (const field of ['programSlug', 'company', 'programName', 'category', 'headline', 'summary', 'significance']) {
       requireString(data, field, name, errors);
+    }
+    for (const field of ['headline', 'summary']) {
+      rejectMiddleDot(data, field, name, errors);
     }
     if (!programMap.has(data.programSlug)) errors.push(`${name}: missing Program reference ${data.programSlug}`);
     if (data.studySlug !== undefined) {

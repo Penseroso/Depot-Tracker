@@ -5,7 +5,7 @@
   "programName": "LEZ-001",
   "category": "Status",
   "headline": "동일 명칭 실존 법인 확인에도 스폰서 귀속 미확인으로 sponsor-program에서 technology-watch로 재분류",
-  "summary": "동일 명칭의 실존 법인 '주식회사 레제피온'(강원 원주, 사업자등록번호 738-86-03445)을 확인했으나, ADA 2026 초록(1890-P)의 저자 소속과 스폰서 귀속을 직접 확인하지 못해 LEZ-001을 sponsor-program에서 technology-watch로 재분류했다. productTarget은 null로 변경하고, 월 1회 설계 목표는 platformPotential로 이동했다.",
+  "summary": "동일 명칭 실존 법인 '주식회사 레제피온'(강원 원주, 사업자등록번호 738-86-03445) 확인. ADA 2026 초록(1890-P) 저자 소속, 스폰서 귀속 미확인으로 LEZ-001 sponsor-program에서 technology-watch로 재분류. productTarget null 변경, 월 1회 설계 목표는 platformPotential로 이동.",
   "significance": "Medium",
   "sources": [
     {

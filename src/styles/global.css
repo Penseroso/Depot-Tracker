@@ -97,9 +97,6 @@ button { cursor: pointer; }
 .badge-human { color: #6c4c9d; background: #f0eaf8; }
 .badge-preclinical { color: #775f19; background: #f7efd1; }
 .badge-paused { color: #8c4540; background: #f8e5e3; }
-.badge-confidence-high { color: #176c61; background: #e1f2ee; }
-.badge-confidence-medium { color: #8b5e17; background: #fff0d8; }
-.badge-confidence-low { color: #9f433b; background: #fbe6e4; }
 
 .feed { display: grid; }
 .feed-item { display: grid; grid-template-columns: 96px 1fr auto; gap: 18px; align-items: start; padding: 16px 0; border-bottom: 1px solid var(--line); }
@@ -140,7 +137,7 @@ button { cursor: pointer; }
 .detail-subsection:first-child { margin-top: 0; }
 .evidence-grid .detail-subsection { margin-top: 0; }
 .detail-subsection h3 { margin: 0 0 8px; color: var(--muted); font-size: 11px; font-weight: 760; text-transform: uppercase; letter-spacing: .07em; }
-.detail-subsection p { margin: 0; color: #35413f; font-size: 13px; line-height: 1.75; }
+.subsection-text { margin: 0; color: #35413f; font-size: 13px; line-height: 1.75; }
 .fact-list { margin: 0; display: grid; }
 .fact-row { display: grid; grid-template-columns: 122px 1fr; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); }
 .fact-row:last-child { border-bottom: 0; }
@@ -162,9 +159,14 @@ button { cursor: pointer; }
 .event-source-link { color: var(--muted); font-size: 12px; font-weight: 600; }
 .event-source-link:hover { color: var(--accent); }
 
+ul.clause-list { list-style: none; padding: 0; display: grid; gap: 5px; }
+ul.clause-list li { position: relative; padding-left: 13px; }
+ul.clause-list li::before { content: "–"; position: absolute; left: 0; color: var(--muted); }
+
 .event-highlight { padding-top: 2px; }
-.event-highlight .event-headline-lg { margin-top: 8px; font-size: 22px; font-weight: 780; letter-spacing: -.025em; }
+.event-highlight .event-headline-lg { margin-top: 8px; font-size: 19px; font-weight: 780; letter-spacing: -.02em; }
 .event-highlight .event-summary { margin-top: 10px; font-size: 14px; }
+.event-highlight .event-sources { margin-top: 12px; }
 .event-empty { padding: 4px 0; color: var(--muted); font-size: 13px; }
 
 .chrono { list-style: none; margin: 4px 0 0; padding: 0; }

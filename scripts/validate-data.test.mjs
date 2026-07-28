@@ -290,6 +290,41 @@ test('legacy Program platformPotential field fails', () => {
   assert.match(validateDatasetRecords(data).errors.join('\n'), /legacy field platformPotential/);
 });
 
+test('middle dot in Program caveat fails', () => {
+  const data = createValidDataset();
+  data.programs[0].data.caveat = '정식 임상 등록·IND 상태 미공개.';
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /caveat must not contain a middle dot/);
+});
+
+test('middle dot in Program readout, differentiator, or developmentStatus fails', () => {
+  const readoutData = createValidDataset();
+  readoutData.programs[0].data.readout = '지연 흡수·연장 노출 확인.';
+  assert.match(validateDatasetRecords(readoutData).errors.join('\n'), /readout must not contain a middle dot/);
+
+  const differentiatorData = createValidDataset();
+  differentiatorData.programs[0].data.differentiator = 'PLGA microsphere·저 burst 지향';
+  assert.match(validateDatasetRecords(differentiatorData).errors.join('\n'), /differentiator must not contain a middle dot/);
+
+  const statusData = createValidDataset();
+  statusData.programs[0].data.developmentStatus = 'IND 준비·제출 전';
+  assert.match(validateDatasetRecords(statusData).errors.join('\n'), /developmentStatus must not contain a middle dot/);
+});
+
+test('middle dot in Event headline or summary fails', () => {
+  const headlineData = createValidDataset();
+  headlineData.events[0].data.headline = 'PK·안전성 pilot 공개';
+  assert.match(validateDatasetRecords(headlineData).errors.join('\n'), /headline must not contain a middle dot/);
+
+  const summaryData = createValidDataset();
+  summaryData.events[0].data.summary = '안전성·내약성 자료 공개.';
+  assert.match(validateDatasetRecords(summaryData).errors.join('\n'), /summary must not contain a middle dot/);
+});
+
+test('no stored Program or Event prose field contains a middle dot in the canonical dataset', async () => {
+  const validation = await validateDataset(process.cwd());
+  assert.deepEqual(validation.errors, []);
+});
+
 test('CAM2056 readout preserves the demonstratedDuration fact removed from the Program', async () => {
   const program = await readFile('src/data/programs/camurus-cam2056.json', 'utf8').then(JSON.parse);
   assert.doesNotMatch(JSON.stringify(program), /demonstratedDuration|platformPotential/);
@@ -327,8 +362,8 @@ test('lezepione caveat preserves the platformPotential design-target fact withou
   const program = await readFile('src/data/programs/lezepione-lez001.json', 'utf8').then(JSON.parse);
   assert.doesNotMatch(JSON.stringify(program), /demonstratedDuration|platformPotential/);
   assert.equal(program.productTarget, null);
-  assert.match(program.caveat, /월 1회 목표 제형 설계/);
-  assert.match(program.caveat, /공식 제품 목표로 표시하지 않는다/);
+  assert.match(program.caveat, /목표 투여 간격은 비공식/);
+  assert.match(program.caveat, /in vitro 방출 프로파일/);
 });
 
 test('CAM2056 latest Event and Phase 1b result Event both exist and are ordered by date', async () => {

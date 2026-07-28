@@ -1,0 +1,18 @@
+---
+import { splitClauses } from '../lib/format';
+
+interface Props {
+  text: string;
+  class?: string;
+}
+
+const { text, class: className } = Astro.props;
+const clauses = splitClauses(text);
+---
+{clauses.length > 1 ? (
+  <ul class:list={['clause-list', className]}>
+    {clauses.map((clause) => <li>{clause}</li>)}
+  </ul>
+) : (
+  <p class:list={[className]}>{text}</p>
+)}

@@ -66,6 +66,36 @@ duration claim but do not establish `productTarget` or active development for
 a specific payload; never present a platform generalization as if it were
 directly demonstrated for the current payload/Program.
 
+## Program and Event prose style
+
+This style applies to Program `readout` ("Evidence summary"), `differentiator`
+("Formulation rationale"), `caveat` ("Interpretation limits"), and Event
+`headline`/`summary` (Latest development and Development timeline) — every
+field the Program detail page renders as running prose. These read as a quick
+status scan, not a defensive essay.
+
+- Write short state-form phrases (개조식), not full narrative sentences.
+  Do not force every phrase to end in the same mechanical form (e.g. all
+  `~함`) — vary the ending naturally (확인됨, 미확인, 공개 전, 보류, 아님,
+  예정, 등) the way a status line would read.
+- Keep every material fact the field currently carries; shorten the wording,
+  not the substance. Advisory meta-commentary ("do not assume X", "should be
+  tracked with priority Y") may be compressed into the underlying state fact
+  it implies, since the compact phrasing itself communicates that the fact is
+  unconfirmed rather than asserted.
+- Never use a middle dot (`·`) to join or separate items — see the UI
+  notation rule in `docs/MVP_SCOPE.md`. Use a comma for enumeration, "또는"
+  for alternatives, "및" for parallel concepts.
+- `ClauseText` (`src/components/ClauseText.astro`, backed by
+  `splitClauses` in `src/lib/format.ts`) renders these fields on the
+  Program detail page: it splits the text on sentence-ending punctuation
+  (`.`/`?`/`!`) followed by whitespace, renders it as a bulleted list when
+  that produces two or more clauses, and as a single plain sentence when it
+  does not. Write each distinct fact as its own sentence so it lands as its
+  own bullet; do not artificially split a field that is genuinely one fact
+  into multiple sentences just to force a bullet, and do not run multiple
+  distinct facts into one sentence to avoid one.
+
 ## Human evidence and milestones
 
 Human PK/safety disclosure may support `Human PK pilot` without an IND or

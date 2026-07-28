@@ -22,6 +22,13 @@ export function formatIntervalClaim(claim: IntervalClaim | null) {
   return claim?.description ?? '—';
 }
 
+export function splitClauses(text: string): string[] {
+  return text
+    .split(/(?<=[.?!])\s+(?=\S)/)
+    .map((clause) => clause.trim())
+    .filter(Boolean);
+}
+
 export {
   getProductTargetIntervalBuckets,
   intervalBucketLabels,
@@ -29,7 +36,4 @@ export {
 export type { IntervalBucketId } from './interval-buckets.js';
 export { formatPayloadComponents } from './payload-format.js';
 
-export function confidenceLabel(value: string) {
-  return value === 'High' ? '높음' : value === 'Medium' ? '중간' : '낮음';
-}
 import type { IntervalClaim } from './schema';
