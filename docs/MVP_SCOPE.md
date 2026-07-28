@@ -7,7 +7,7 @@
 - Program 전체 개발 단계와 Study phase·모집 상태·국가·registry 근거·재검증일 분리
 - registry 기반 제형 분류와 자유문자 제형 설명
 - 제품 목표·입증 기간·플랫폼 잠재력 및 일수 범위
-- 검색, 단계, 제형, 목표 간격, record type, 활성 상태 필터
+- 검색, 단계, 제형, 목표 간격, 활성 상태 필터
 - 개발 단계·제형·제품 목표 간격 시각화
 - Program 상세와 연결 Study, Patent 표시
 - stable Program/Study slug에 연결된 Event

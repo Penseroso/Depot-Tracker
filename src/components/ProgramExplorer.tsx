@@ -4,6 +4,7 @@ import type { DeliveryTechnology, Program, Study } from '../lib/schema';
 import {
   formatDate,
   formatIntervalClaim,
+  formatPayload,
   getProductTargetIntervalBuckets,
   intervalBucketLabels,
   stageLabel,
@@ -16,10 +17,6 @@ function stageClass(stage: string) {
   if (stage === 'Human PK pilot') return 'badge badge-human';
   if (stage === 'Paused') return 'badge badge-paused';
   return 'badge badge-preclinical';
-}
-
-function recordTypeLabel(value: Program['recordType']) {
-  return value === 'sponsor-program' ? 'Sponsor program' : 'Technology watch';
 }
 
 type Props = {
@@ -35,7 +32,6 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
   const [stage, setStage] = useState('all');
   const [technology, setTechnology] = useState('all');
   const [interval, setInterval] = useState<IntervalBucketId | 'all'>('all');
-  const [recordType, setRecordType] = useState('all');
   const [activity, setActivity] = useState('active');
 
   const studiesByProgram = useMemo(() => {
@@ -56,6 +52,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
       const haystack = [
         program.company,
         program.programName,
+        program.payload,
         program.deliveryTechnology,
         program.productTarget?.description,
         program.demonstratedDuration?.description,
@@ -70,11 +67,10 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         && (stage === 'all' || program.developmentStage === stage)
         && (technology === 'all' || program.deliveryTechnologyId === technology)
         && (interval === 'all' || getProductTargetIntervalBuckets(program.productTarget).includes(interval))
-        && (recordType === 'all' || program.recordType === recordType)
         && (activity === 'all' || (activity === 'active' ? program.active : !program.active))
       );
     });
-  }, [programs, studiesByProgram, query, stage, technology, interval, recordType, activity]);
+  }, [programs, studiesByProgram, query, stage, technology, interval, activity]);
 
   return (
     <section className="filter-shell">
@@ -96,11 +92,6 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
           <option value="all">모든 간격</option>
           {Object.entries(intervalBucketLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
         </select>
-        <select className="control" value={recordType} onChange={(event: ChangeEvent<HTMLSelectElement>) => setRecordType(event.target.value)} aria-label="레코드 유형">
-          <option value="all">모든 유형</option>
-          <option value="sponsor-program">Sponsor program</option>
-          <option value="technology-watch">Technology watch</option>
-        </select>
         <select className="control" value={activity} onChange={(event: ChangeEvent<HTMLSelectElement>) => setActivity(event.target.value)} aria-label="활성 상태">
           <option value="active">활성 프로그램</option>
           <option value="all">전체</option>
@@ -112,12 +103,12 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         {filtered.length ? (
           <div className="data-table-wrap">
             <table className="data-table">
-              <thead><tr><th>프로그램</th><th>유형</th><th>제형</th><th>제품 목표</th><th>단계</th><th>상태</th><th>업데이트</th></tr></thead>
+              <thead><tr><th>프로그램</th><th>Payload</th><th>제형</th><th>제품 목표</th><th>단계</th><th>상태</th><th>업데이트</th></tr></thead>
               <tbody>
                 {filtered.map((program) => (
                   <tr key={program.slug}>
                     <td><a className="row-link" href={`${basePath}/programs/${program.slug}/`}><span className="cell-title">{program.programName}</span><span className="cell-sub">{program.company}</span></a></td>
-                    <td><span className="cell-sub">{recordTypeLabel(program.recordType)}</span></td>
+                    <td><span className="cell-title">{formatPayload(program.payload)}</span></td>
                     <td><span className="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span className="cell-sub">{program.deliveryTechnology}</span></td>
                     <td>{formatIntervalClaim(program.productTarget)}</td>
                     <td><span className={stageClass(program.developmentStage)}>{stageLabel(program.developmentStage)}</span></td>

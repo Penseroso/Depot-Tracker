@@ -14,11 +14,11 @@ const summary = getSummary(programs, events, studies);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const priority = programs.filter((program) => program.active).slice(0, 6);
 ---
-<BaseLayout title="Semaglutide Depot Tracker" activePath="/">
+<BaseLayout title="Obesity Depot Tracker" activePath="/">
   <section class="hero">
     <div>
       <p class="eyebrow">Competitive intelligence | verified {summary.asOfDate ? formatDate(summary.asOfDate) : '—'}</p>
-      <h1>Semaglutide depot landscape</h1>
+      <h1>Obesity depot landscape</h1>
     </div>
   </section>
 

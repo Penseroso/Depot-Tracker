@@ -1,4 +1,4 @@
-# Semaglutide Depot Tracker — Astro MVP
+# Obesity Depot Tracker — Astro MVP
 
 세마글루티드 장기지속형 제형의 임상·규제·제형 개발 현황을 추적하는
 **배포 가능한 정적 경쟁정보 트래커**입니다. 서버·DB 없이 운영하되,
