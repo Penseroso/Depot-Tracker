@@ -1,0 +1,15 @@
+{
+  "programSlug": "lezepione-lez001",
+  "date": "2026-07-28",
+  "company": "Sponsor unconfirmed",
+  "programName": "LEZ-001",
+  "category": "Status",
+  "headline": "동일 명칭 실존 법인 확인에도 스폰서 귀속 미확인으로 sponsor-program에서 technology-watch로 재분류",
+  "significance": "Medium",
+  "source": {
+    "label": "주식회사 레제피온 사업자등록 조회 (bizno.net)",
+    "url": "https://bizno.net/article/7388603445",
+    "sourceType": "secondary",
+    "accessedOn": "2026-07-28"
+  }
+}

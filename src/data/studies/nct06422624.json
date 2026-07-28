@@ -2,8 +2,8 @@
   "programSlug": "bostal-semaglutide-er",
   "registryId": "NCT06422624",
   "phase": "Phase 1",
-  "recruitmentStatus": "not-yet-recruiting",
-  "registryStatusRaw": "Not yet recruiting",
+  "recruitmentStatus": "unknown",
+  "registryStatusRaw": "Unknown status",
   "countries": [
     "Australia"
   ],
@@ -11,7 +11,7 @@
     "label": "ClinicalTrials.gov NCT06422624",
     "url": "https://clinicaltrials.gov/study/NCT06422624",
     "sourceType": "registry",
-    "accessedOn": "2026-07-27"
+    "accessedOn": "2026-07-28"
   },
-  "lastVerifiedAt": "2026-07-27"
+  "lastVerifiedAt": "2026-07-28"
 }

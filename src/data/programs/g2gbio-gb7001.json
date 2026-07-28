@@ -4,7 +4,7 @@
   "payload": "semaglutide",
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-microparticle",
-  "deliveryTechnology": "microparticle (polymer unspecified)",
+  "deliveryTechnology": "InnoLAMP microsphere (polymer unspecified)",
   "productTarget": {
     "description": "1개월",
     "minDays": 28,
@@ -22,7 +22,7 @@
   "programRegionContext": "대한민국 개발 / 글로벌 라이선스",
   "latestUpdate": "2026년 3월 삼성바이오에피스가 장기지속형 semaglutide를 포함한 후보 2종의 독점 개발권을 확보했다. G2GBIO는 1개월 GB-7001과 3개월 semaglutide PK 연구를 공개했다.",
   "latestUpdateDate": "2026-04-20",
-  "lastVerifiedAt": "2026-07-27",
+  "lastVerifiedAt": "2026-07-28",
   "readout": "GB-7001은 제형 개발 완료 및 미니피그 PK 자료를 보유한 비임상 프로그램이다.",
   "differentiator": "InnoLAMP microsphere; 고함량 제형 및 1개월→3개월 확장 연구",
   "caveat": "3개월 데이터는 비임상 PK 수준이며 GB-7001의 공식 제품 목표와 별도 연구를 혼동하면 안 된다.",
@@ -40,13 +40,19 @@
       "label": "G2GBIO GB-7001 pipeline",
       "url": "https://www.g2gbio.com/m31.php?cate=1",
       "sourceType": "company",
-      "accessedOn": "2026-07-27"
+      "accessedOn": "2026-07-28"
     },
     {
       "label": "G2GBIO 1M/3M formulation update",
       "url": "https://www.g2gbio.com/board/board.php?bo_table=news&idx=62",
       "sourceType": "company",
       "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "InnoLAMP Technology | G2GBIO | CPHI Online",
+      "url": "https://www.cphi-online.com/innolamp-technology-prod1244849.html",
+      "sourceType": "other",
+      "accessedOn": "2026-07-28"
     }
   ]
 }

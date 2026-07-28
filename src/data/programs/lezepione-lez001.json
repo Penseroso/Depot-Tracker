@@ -2,26 +2,26 @@
   "company": "Sponsor unconfirmed",
   "programName": "LEZ-001",
   "payload": "semaglutide",
-  "recordType": "sponsor-program",
+  "recordType": "technology-watch",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "PLGA microsphere",
-  "productTarget": {
-    "description": "월 1회",
+  "productTarget": null,
+  "demonstratedDuration": null,
+  "platformPotential": {
+    "description": "월 1회 목표 제형 설계 (스폰서 미확인)",
     "minDays": 28,
     "maxDays": 31
   },
-  "demonstratedDuration": null,
-  "platformPotential": null,
   "route": "주사제",
   "developmentStage": "Preclinical",
-  "developmentStatus": "In vitro formulation study",
+  "developmentStatus": "In vitro formulation study; 스폰서 소유 개발 프로그램으로 미확인",
   "programRegionContext": "대한민국",
-  "latestUpdate": "ADA 2026에서 semaglutide를 nanoparticulate한 뒤 PLGA microsphere에 봉입하는 고함량 제형을 발표했다.",
-  "latestUpdateDate": "2026-06-05",
-  "lastVerifiedAt": "2026-07-27",
+  "latestUpdate": "동일 명칭의 실존 법인(주식회사 레제피온, 강원 원주)을 확인했으나 ADA 초록의 저자 소속·스폰서 귀속을 직접 확인하지 못해, sponsor-program에서 technology-watch로 재분류했다.",
+  "latestUpdateDate": "2026-07-28",
+  "lastVerifiedAt": "2026-07-28",
   "readout": "15%·25% loading에서 72시간 방출을 5~10%로 낮추고 28일에 80% 이상 누적 방출하는 in vitro profile을 보고했다.",
   "differentiator": "nanoparticle-in-microsphere 구조로 고함량에서도 초기 burst 억제",
-  "caveat": "세포·동물·사람 자료가 없고, 초록에 기업 소속이 명시되지 않아 sponsor attribution을 보류했다.",
+  "caveat": "세포·동물·사람 자료가 없고, 초록에 기업 소속이 명시되지 않아 sponsor attribution을 보류했다. 강원 원주 소재 '주식회사 레제피온(Lezepione Inc, 사업자등록번호 738-86-03445)'이 실존하는 의약품 연구개발업 법인이며 프로그램 코드명(LEZ-001)과 명칭이 일치하지만, 초록 원문(저자 소속) 접근이 403으로 차단되어 있고 회사 측 파이프라인 페이지도 확인하지 못해 이 법인이 실제 스폰서라는 직접 확인은 없다. 스폰서 소유 개발 프로그램이라는 직접 근거가 없어 technology-watch로 유지하고, productTarget은 null로, 월 1회 설계 목표는 platformPotential로 옮겼다. company 필드는 미확정으로 유지한다.",
   "confidence": "Low",
   "active": true,
   "stageRank": 35,
@@ -31,6 +31,12 @@
       "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/1890-P/167491/1890-P-Controlled-Release-without-Initial-Burst-in",
       "sourceType": "publication",
       "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "주식회사 레제피온 사업자등록 조회 (bizno.net)",
+      "url": "https://bizno.net/article/7388603445",
+      "sourceType": "secondary",
+      "accessedOn": "2026-07-28"
     }
   ]
 }
