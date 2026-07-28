@@ -1,0 +1,16 @@
+{
+  "programSlug": "camurus-cam2056",
+  "registry": "CTIS",
+  "registryId": "2024-518040-21-00",
+  "phase": "Phase 1",
+  "recruitmentStatus": "completed",
+  "registryStatusRaw": "Ended",
+  "countries": [],
+  "registrySource": {
+    "label": "EMA CTIS 2024-518040-21-00",
+    "url": "https://euclinicaltrials.eu/ctis-public/view/2024-518040-21-00",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-28"
+  },
+  "lastVerifiedAt": "2026-07-28"
+}

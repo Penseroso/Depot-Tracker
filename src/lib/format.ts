@@ -22,15 +22,12 @@ export function formatIntervalClaim(claim: IntervalClaim | null) {
   return claim?.description ?? '—';
 }
 
-export function formatPayload(payload: string) {
-  return payload.charAt(0).toUpperCase() + payload.slice(1);
-}
-
 export {
   getProductTargetIntervalBuckets,
   intervalBucketLabels,
 } from './interval-buckets.js';
 export type { IntervalBucketId } from './interval-buckets.js';
+export { formatPayloadComponents } from './payload-format.js';
 
 export function confidenceLabel(value: string) {
   return value === 'High' ? '높음' : value === 'Medium' ? '중간' : '낮음';

@@ -1,7 +1,7 @@
 {
   "company": "Sponsor unconfirmed",
   "programName": "LEZ-001",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "technology-watch",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "PLGA microsphere",

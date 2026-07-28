@@ -1,7 +1,7 @@
 {
   "company": "G2GBIO / Samsung Bioepis",
   "programName": "GB-7001",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "InnoLAMP microsphere (polymer unspecified)",

@@ -1,7 +1,7 @@
 {
   "company": "Camurus",
   "programName": "CAM2056",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "in-situ-forming-depot",
   "deliveryTechnology": "FluidCrystal lipid liquid-crystal in-situ depot",
@@ -24,7 +24,7 @@
   "lastVerifiedAt": "2026-07-28",
   "readout": "FluidCrystal 지질 액정 depot 기반 월 1회 semaglutide로, sponsor-reported Phase 1b topline에서 Day 85 기준 주 1회 semaglutide군보다 더 큰 체중감소를 보였다.",
   "differentiator": "상용화 이력이 있는 FluidCrystal 플랫폼(CAM2038 부프레노르핀, CAM2029 옥트레오타이드 등 승인)을 semaglutide에 적용; 격주 유도 후 월 1회 유지 요법",
-  "caveat": "EMA CTIS 2024-518040-21-00의 Phase 1 연구는 종료 상태지만, 이 트래커의 Study 스키마는 NCT 형식 registryId만 지원해 별도 Study 레코드를 생성하지 못했다(DEFERRED_SCHEMA_CASE). Phase 1b는 총 80명, 코호트당 16명의 소규모 연구였고 CAM2056과 대조군의 투여 간격, 용량, 적정 요법이 달랐으므로 sponsor-reported topline 수치를 확정적 비교우월성으로 해석할 수 없다. Phase 2b는 준비 중이며 아직 개시되지 않았다.",
+  "caveat": "EMA CTIS 2024-518040-21-00의 Phase 1 연구는 종료 상태다. Phase 1b는 총 80명, 코호트당 16명의 소규모 연구였고 CAM2056과 대조군의 투여 간격, 용량, 적정 요법이 달랐으므로 sponsor-reported topline 수치를 확정적 비교우월성으로 해석할 수 없다. Phase 2b는 준비 중이며 아직 개시되지 않았다.",
   "confidence": "High",
   "active": true,
   "stageRank": 88,

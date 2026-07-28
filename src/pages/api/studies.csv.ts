@@ -10,6 +10,7 @@ export const GET: APIRoute = () => {
   const headers = [
     'studySlug',
     'programSlug',
+    'registry',
     'registryId',
     'phase',
     'recruitmentStatus',
@@ -23,6 +24,7 @@ export const GET: APIRoute = () => {
   const rows = getStudies().map((study) => [
     study.slug,
     study.programSlug,
+    study.registry,
     study.registryId,
     study.phase,
     study.recruitmentStatus,

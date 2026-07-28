@@ -1,7 +1,7 @@
 {
   "company": "AULBIO / Kyungdong Pharmaceutical",
   "programName": "AUL009",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "microparticle (polymer unspecified)",

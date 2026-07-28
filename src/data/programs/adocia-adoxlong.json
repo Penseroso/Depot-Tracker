@@ -1,7 +1,7 @@
 {
   "company": "Adocia",
   "programName": "AdoXLong Sema",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-conjugate",
   "deliveryTechnology": "polymer–peptide conjugate",

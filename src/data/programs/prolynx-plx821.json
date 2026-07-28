@@ -1,7 +1,7 @@
 {
   "company": "ProLynx",
   "programName": "PLX-821",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-conjugate",
   "deliveryTechnology": "hydrogel microsphere + tunable cleavable-linker conjugate",

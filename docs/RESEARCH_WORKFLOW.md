@@ -27,11 +27,15 @@ For a `named-program refresh`, reconcile the target Program, its linked Studies,
 relevant aliases, sponsor sources, registry/regulatory sources, and candidates
 surfaced within that bounded search.
 
-For a `full landscape refresh`, search company and Program names/codes,
-semaglutide depot/sustained-release technologies of every interval, registries,
-regulators, literature, congresses, patents, and partners as relevant. The scope
-is not limited to monthly-or-longer products. Complete an independent coverage
-pass and recheck prior deferred cases.
+For a `full landscape refresh`, search company and Program names/codes, obesity
+or overweight treatment payloads in explicitly sustained-release, extended-
+release, long-acting, or depot injection/implant technologies of every interval,
+registries, regulators, literature, congresses, patents, and partners as
+relevant. The scope is not limited to monthly-or-longer products. Ordinary
+weekly aqueous injections, non-injectable/non-implant DDS, diabetes-only
+candidates without obesity intent, and generic platforms without direct
+payload evidence remain excluded. Complete an independent coverage pass and
+recheck prior deferred cases.
 
 Every candidate ends as `STORED`, `EXCLUDED`, or `DEFERRED`. Nothing surfaced is
 silently dropped, and lack of evidence is not a catch-all exclusion.
@@ -39,11 +43,16 @@ silently dropped, and lack of evidence is not a catch-all exclusion.
 ## 3. Apply the contract
 
 - Reuse stable Program and Study slugs.
-- Declare `payload`, `recordType`, and a registered delivery-technology ID.
+- Declare ordered `payloadComponents`, `recordType`, and a registered
+  delivery-technology ID.
+- Keep payload combinations as separate Programs and never alphabetize
+  `payloadComponents` mechanically.
 - Preserve free-text delivery technology alongside its controlled ID.
 - Separate product target, demonstrated duration, and platform potential.
 - Apply calendar and QnW conversions exactly as defined in the Data Contract.
 - Keep Program stage/status separate from Study phase/recruitment.
+- Store each Study as one official `registry` plus its source-native
+  `registryId`; do not assume NCT identifiers.
 - Add `studySlug` to an Event only when the Event identifies that Study.
 - Use `DEFERRED_SCHEMA_CASE` when directly supported evidence is not representable.
 

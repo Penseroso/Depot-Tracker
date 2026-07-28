@@ -42,7 +42,7 @@ export function getPrograms(): Program[] {
 export function getStudies(): Study[] {
   return Object.entries(studyModules)
     .map(([path, data]) => ({ ...studySchema.parse(data), slug: slugFromPath(path) }))
-    .sort((a, b) => a.registryId.localeCompare(b.registryId));
+    .sort((a, b) => a.registry.localeCompare(b.registry) || a.registryId.localeCompare(b.registryId));
 }
 
 export function getStudiesForProgram(programSlug: string, studies = getStudies()) {

@@ -3,9 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Methodology | Obesity Depot Tracker" activePath="/methodology/">
   <header class="page-heading"><div><p class="eyebrow">Methodology</p><h1>Evaluation Criteria</h1></div></header>
+  <section class="detail-section"><h2>추적 범위</h2><p>비만 또는 과체중 치료 목적이 직접 확인된 sustained-release, extended-release, long-acting 또는 depot 주사·삽입 후보를 추적합니다. 일반 주 1회 수용액 주사제, 비만 목적이 확인되지 않은 당뇨 전용 후보, 직접 payload 근거가 없는 범용 플랫폼, 비주사·비삽입 DDS는 제외합니다. 구조는 Obesity Depot 전체를 수용하지만 현재 저장 데이터는 기존 semaglutide 중심이며 전체 후보 조사가 완료된 상태가 아닙니다.</p></section>
   <div class="method-grid">
     <section class="method-block"><h2>필드별 근거</h2><ul><li>단계, 모집 상태: 임상 레지스트리와 직접 회사 공시</li><li>규제: 규제기관 또는 구체적 공식 제출, 승인 공시</li><li>제형, 플랫폼: 회사 과학자료와 논문; 특허는 보조 근거</li><li>결과: 해당 값을 직접 보고한 출처</li></ul></section>
-    <section class="method-block"><h2>Program과 Study</h2><ul><li>Program에는 전체 개발 단계와 상태를 저장</li><li>Study에는 registry 원문 phase, 모집 상태, 국가를 저장</li><li>Human PK pilot은 등록 Study 없이도 유지 가능</li></ul></section>
+    <section class="method-block"><h2>Program과 Study</h2><ul><li>Program은 payload 조합별로 분리하고 전체 개발 단계와 상태를 저장</li><li>Study는 ClinicalTrials.gov, CTIS 등 공식 registry 이름과 원문 ID, phase, 모집 상태, 국가를 저장</li><li>각 Study는 하나의 registry 기록이며 등록 연구 수는 저장된 전체 Study 레코드 수</li><li>Human PK pilot은 등록 Study 없이도 유지 가능</li></ul></section>
     <section class="method-block"><h2>제형, 간격 해석</h2><ul><li>registry 기반 제형 ID와 원문 제형 설명을 병행</li><li>제품 목표, 입증 기간, 플랫폼 잠재력을 분리</li><li>Q4W와 달력 월 표현을 서로 다른 일수 범위로 보존</li></ul></section>
   </div>
   <section class="detail-section" style="margin-top:30px"><h2>갱신 원칙</h2><p>Program의 최근 의미 있는 변화일과 Program, Study의 실제 재검증일을 구분해 관리합니다. 검색 결과나 접근 실패는 비공개, 중단의 증거가 아니며, 모든 발견 후보는 선택한 조사 범위 안에서 저장, 제외, 보류 중 하나로 분류합니다. 전체 landscape 갱신은 별도의 독립 재검색까지 통과해야 완료로 판단합니다.</p></section>

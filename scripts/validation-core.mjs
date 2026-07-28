@@ -2,8 +2,12 @@ import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
-const nctPattern = /^NCT\d{8}$/;
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const canonicalRegistryNamePattern = /^[A-Z0-9][A-Za-z0-9]*(?:[ .-][A-Za-z0-9]+)*$/;
+const officialRegistryHosts = new Map([
+  ['ClinicalTrials.gov', new Set(['clinicaltrials.gov', 'www.clinicaltrials.gov'])],
+  ['CTIS', new Set(['euclinicaltrials.eu', 'www.euclinicaltrials.eu'])],
+]);
 const recruitmentStatuses = new Set([
   'not-yet-recruiting',
   'recruiting',
@@ -23,6 +27,7 @@ const legacyProgramKeys = [
   'targetInterval',
   'evidenceStage',
   'regulatoryStatus',
+  'payload',
   'registryId',
   'geography',
   'programRegionContext',
@@ -98,6 +103,44 @@ function validateIntervalClaim(claim, field, file, errors) {
   }
 }
 
+function validatePayloadComponents(components, file, errors) {
+  if (!Array.isArray(components) || components.length === 0) {
+    errors.push(`${file}: payloadComponents must be a non-empty array`);
+    return;
+  }
+  const seen = new Set();
+  for (const component of components) {
+    if (typeof component !== 'string' || !component) {
+      errors.push(`${file}: payloadComponents must contain non-empty strings`);
+      continue;
+    }
+    if (component !== component.trim()) {
+      errors.push(`${file}: payload component must not have surrounding whitespace (${component})`);
+    }
+    if (component !== component.toLowerCase()) {
+      errors.push(`${file}: payload component must be lower-case (${component})`);
+    }
+    if (component.includes('+')) {
+      errors.push(`${file}: payload component must not contain + (${component})`);
+    }
+    if (seen.has(component)) errors.push(`${file}: duplicate payload component ${component}`);
+    seen.add(component);
+  }
+}
+
+function validateRegistrySource(registry, source, file, errors) {
+  const allowedHosts = officialRegistryHosts.get(registry);
+  if (!canonicalRegistryNamePattern.test(registry ?? '') || !allowedHosts) {
+    errors.push(`${file}: registry must use a supported canonical official name (${registry})`);
+    return;
+  }
+  if (!isUrl(source?.url)) return;
+  const hostname = new URL(source.url).hostname.toLowerCase();
+  if (!allowedHosts.has(hostname)) {
+    errors.push(`${file}: registrySource URL is not an official ${registry} source`);
+  }
+}
+
 export function validateDatasetRecords({ programs, studies, events, deliveryTechnologies }) {
   const errors = [];
   const technologyIds = new Set();
@@ -140,7 +183,6 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
     for (const field of [
       'company',
       'programName',
-      'payload',
       'recordType',
       'deliveryTechnologyId',
       'deliveryTechnology',
@@ -154,7 +196,7 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
       'confidence',
     ]) requireString(data, field, name, errors);
 
-    if (data.payload !== 'semaglutide') errors.push(`${name}: payload must be semaglutide`);
+    validatePayloadComponents(data.payloadComponents, name, errors);
     if (!recordTypes.has(data.recordType)) errors.push(`${name}: recordType is not allowed (${data.recordType})`);
     if (!technologyIds.has(data.deliveryTechnologyId)) {
       errors.push(`${name}: deliveryTechnologyId is not registered (${data.deliveryTechnologyId})`);
@@ -188,19 +230,23 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
   }
 
   const studyMap = new Map();
-  const registryIds = new Set();
+  const registryIdentities = new Set();
   for (const { name, slug, data } of studies) {
     if (!data) continue;
     if (!slugPattern.test(slug)) errors.push(`${name}: study slug must be a lowercase slug`);
     if (studyMap.has(slug)) errors.push(`${name}: duplicate study slug ${slug}`);
     studyMap.set(slug, data);
-    for (const field of ['programSlug', 'registryId', 'phase', 'recruitmentStatus', 'registryStatusRaw']) {
+    for (const field of ['programSlug', 'registry', 'registryId', 'phase', 'recruitmentStatus', 'registryStatusRaw']) {
       requireString(data, field, name, errors);
     }
     if (!programMap.has(data.programSlug)) errors.push(`${name}: missing Program reference ${data.programSlug}`);
-    if (!nctPattern.test(data.registryId ?? '')) errors.push(`${name}: registryId must match NCT########`);
-    if (registryIds.has(data.registryId)) errors.push(`${name}: duplicate registryId ${data.registryId}`);
-    registryIds.add(data.registryId);
+    if (data.registry !== data.registry?.trim()) errors.push(`${name}: registry must not have surrounding whitespace`);
+    if (data.registryId !== data.registryId?.trim()) errors.push(`${name}: registryId must not have surrounding whitespace`);
+    const registryIdentity = `${data.registry}\u0000${data.registryId}`;
+    if (registryIdentities.has(registryIdentity)) {
+      errors.push(`${name}: duplicate registry identity ${data.registry} / ${data.registryId}`);
+    }
+    registryIdentities.add(registryIdentity);
     if (!recruitmentStatuses.has(data.recruitmentStatus)) {
       errors.push(`${name}: recruitmentStatus is not allowed (${data.recruitmentStatus})`);
     }
@@ -209,12 +255,13 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
     if (data.registrySource?.sourceType !== 'registry') {
       errors.push(`${name}: registrySource.sourceType must be registry`);
     }
+    validateRegistrySource(data.registry, data.registrySource, name, errors);
     if (isDate(data.registrySource?.accessedOn) && isDate(data.lastVerifiedAt)
       && data.registrySource.accessedOn > data.lastVerifiedAt) {
       errors.push(`${name}: registrySource.accessedOn cannot be after lastVerifiedAt`);
     }
-    if (!Array.isArray(data.countries) || data.countries.length === 0) {
-      errors.push(`${name}: countries must contain at least one country`);
+    if (!Array.isArray(data.countries)) {
+      errors.push(`${name}: countries must be an array`);
     } else {
       const countries = new Set();
       for (const country of data.countries) {

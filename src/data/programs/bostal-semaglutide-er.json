@@ -1,7 +1,7 @@
 {
   "company": "Bostal Drug Delivery",
   "programName": "Semaglutide ER Injectable Suspension",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "PLGA microsphere",

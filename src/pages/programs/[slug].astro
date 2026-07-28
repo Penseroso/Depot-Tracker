@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import StageBadge from '../../components/StageBadge.astro';
 import ConfidenceBadge from '../../components/ConfidenceBadge.astro';
 import { getDeliveryTechnologies, getPrograms, getStudies } from '../../lib/data';
-import { formatDate, formatIntervalClaim, formatPayload } from '../../lib/format';
+import { formatDate, formatIntervalClaim, formatPayloadComponents } from '../../lib/format';
 
 export function getStaticPaths() {
   const studies = getStudies();
@@ -37,14 +37,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <h2>연결 Study</h2>
           <div class="panel data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>등록번호</th><th>Phase</th><th>모집 상태</th><th>국가</th><th>마지막 검증</th></tr></thead>
+              <thead><tr><th>Registry / ID</th><th>Phase</th><th>모집 상태</th><th>국가</th><th>마지막 검증</th></tr></thead>
               <tbody>
                 {studies.map((study) => (
                   <tr>
-                    <td><a class="text-link" href={study.registrySource.url} target="_blank" rel="noreferrer">{study.registryId} ↗</a></td>
+                    <td><a class="text-link" href={study.registrySource.url} target="_blank" rel="noreferrer"><span class="cell-title">{study.registry}</span><span class="cell-sub">{study.registryId} ↗</span></a></td>
                     <td>{study.phase}</td>
                     <td><span class="cell-title">{study.registryStatusRaw}</span><span class="cell-sub">{study.recruitmentStatus}</span></td>
-                    <td>{study.countries.join(', ')}</td>
+                    <td>{study.countries.length ? study.countries.join(', ') : '—'}</td>
                     <td><span class="cell-title">{formatDate(study.lastVerifiedAt)}</span><span class="cell-sub">source accessed {study.registrySource.accessedOn}</span></td>
                   </tr>
                 ))}
@@ -70,7 +70,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <aside class="sidebar-panel">
       <h2 class="panel-title">Program facts</h2>
       <dl class="fact-list">
-        <div class="fact-row"><dt>Payload</dt><dd>{formatPayload(program.payload)}</dd></div>
+        <div class="fact-row"><dt>Payload</dt><dd>{formatPayloadComponents(program.payloadComponents)}</dd></div>
         <div class="fact-row"><dt>제형</dt><dd>{program.deliveryTechnology}</dd></div>
         <div class="fact-row"><dt>제품 목표</dt><dd>{formatIntervalClaim(program.productTarget)}</dd></div>
         <div class="fact-row"><dt>입증 기간</dt><dd>{formatIntervalClaim(program.demonstratedDuration)}</dd></div>

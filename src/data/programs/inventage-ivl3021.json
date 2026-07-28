@@ -1,7 +1,7 @@
 {
   "company": "Inventage Lab / Yuhan",
   "programName": "IVL3021",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "microparticle (polymer unspecified)",

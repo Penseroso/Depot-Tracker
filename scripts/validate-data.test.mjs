@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateDatasetRecords } from './validation-core.mjs';
+import { readFile } from 'node:fs/promises';
+import { validateDataset, validateDatasetRecords } from './validation-core.mjs';
 
 const source = {
   label: 'Regression test source',
@@ -23,7 +24,7 @@ function createValidDataset() {
       data: {
         company: 'Fixture Co',
         programName: 'Fixture Program',
-        payload: 'semaglutide',
+        payloadComponents: ['semaglutide'],
         recordType: 'sponsor-program',
         deliveryTechnologyId: 'polymer-microparticle',
         deliveryTechnology: 'PLGA microparticle',
@@ -50,6 +51,7 @@ function createValidDataset() {
       slug: 'nct00000001',
       data: {
         programSlug: 'fixture-program',
+        registry: 'ClinicalTrials.gov',
         registryId: 'NCT00000001',
         phase: 'Phase 1',
         recruitmentStatus: 'not-yet-recruiting',
@@ -82,8 +84,85 @@ function createValidDataset() {
   };
 }
 
-test('valid regression dataset passes', () => {
+test('single-component payload and ClinicalTrials.gov Study pass', () => {
   assert.deepEqual(validateDatasetRecords(createValidDataset()).errors, []);
+});
+
+test('combination payload passes without reordering components', () => {
+  const data = createValidDataset();
+  data.programs[0].data.payloadComponents = ['cagrilintide', 'semaglutide'];
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
+  assert.deepEqual(data.programs[0].data.payloadComponents, ['cagrilintide', 'semaglutide']);
+});
+
+test('upper-case payload component fails', () => {
+  const data = createValidDataset();
+  data.programs[0].data.payloadComponents = ['Semaglutide'];
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /must be lower-case/);
+});
+
+test('duplicate payload component fails', () => {
+  const data = createValidDataset();
+  data.programs[0].data.payloadComponents = ['semaglutide', 'semaglutide'];
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /duplicate payload component/);
+});
+
+test('empty payload component array fails', () => {
+  const data = createValidDataset();
+  data.programs[0].data.payloadComponents = [];
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /must be a non-empty array/);
+});
+
+test('payload component whitespace and + separator fail', () => {
+  const data = createValidDataset();
+  data.programs[0].data.payloadComponents = [' semaglutide', 'cagrilintide+semaglutide'];
+  const errors = validateDatasetRecords(data).errors.join('\n');
+  assert.match(errors, /must not have surrounding whitespace/);
+  assert.match(errors, /must not contain \+/);
+});
+
+test('legacy payload field fails', () => {
+  const data = createValidDataset();
+  data.programs[0].data.payload = 'semaglutide';
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /legacy field payload/);
+});
+
+test('CTIS Study passes', () => {
+  const data = createValidDataset();
+  data.studies[0].slug = 'ctis-2024-518040-21-00';
+  data.studies[0].name = 'ctis-2024-518040-21-00.json';
+  data.studies[0].data.registry = 'CTIS';
+  data.studies[0].data.registryId = '2024-518040-21-00';
+  data.studies[0].data.registrySource = {
+    ...data.studies[0].data.registrySource,
+    label: 'EMA CTIS 2024-518040-21-00',
+    url: 'https://euclinicaltrials.eu/ctis-public/view/2024-518040-21-00',
+  };
+  data.events[0].data.studySlug = 'ctis-2024-518040-21-00';
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
+});
+
+test('duplicate registry and registryId pair fails', () => {
+  const data = createValidDataset();
+  data.studies.push(structuredClone(data.studies[0]));
+  data.studies[1].name = 'duplicate-study.json';
+  data.studies[1].slug = 'duplicate-study';
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /duplicate registry identity/);
+});
+
+test('same registryId string in different registries does not conflict', () => {
+  const data = createValidDataset();
+  const second = structuredClone(data.studies[0]);
+  second.name = 'ctis-shared-id.json';
+  second.slug = 'ctis-shared-id';
+  second.data.registry = 'CTIS';
+  second.data.registrySource = {
+    ...second.data.registrySource,
+    label: 'CTIS shared ID',
+    url: 'https://euclinicaltrials.eu/ctis-public/view/NCT00000001',
+  };
+  data.studies.push(second);
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
 });
 
 test('unregistered delivery technology fails', () => {
@@ -126,4 +205,27 @@ test('Study registry provenance must use a registry source', () => {
   const data = createValidDataset();
   data.studies[0].data.registrySource.sourceType = 'company';
   assert.match(validateDatasetRecords(data).errors.join('\n'), /sourceType must be registry/);
+});
+
+test('Study registry must use a supported canonical official name and host', () => {
+  const data = createValidDataset();
+  data.studies[0].data.registry = 'Clinical trials registry';
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /supported canonical official name/);
+
+  const hostMismatch = createValidDataset();
+  hostMismatch.studies[0].data.registrySource.url = 'https://example.com/NCT00000001';
+  assert.match(validateDatasetRecords(hostMismatch).errors.join('\n'), /not an official ClinicalTrials.gov source/);
+});
+
+test('CAM2056 CTIS Study is linked to its Program in the canonical dataset', async () => {
+  const [study, program, validation] = await Promise.all([
+    readFile('src/data/studies/ctis-2024-518040-21-00.json', 'utf8').then(JSON.parse),
+    readFile('src/data/programs/camurus-cam2056.json', 'utf8').then(JSON.parse),
+    validateDataset(process.cwd()),
+  ]);
+  assert.equal(study.programSlug, 'camurus-cam2056');
+  assert.equal(study.registry, 'CTIS');
+  assert.equal(study.registryId, '2024-518040-21-00');
+  assert.equal(program.developmentStage, 'Registered Phase I');
+  assert.deepEqual(validation.errors, []);
 });

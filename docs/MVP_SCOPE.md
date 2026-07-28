@@ -2,9 +2,13 @@
 
 ## 포함
 
-- 세마글루티드 sustained-release/depot injectable 전체 간격 범위
+- 비만·과체중 치료 목적이 직접 확인된 sustained-release/depot 주사·삽입 제형
+- 주 1회라도 depot 또는 sustained-release 특성이 명시된 제형
+- microsphere, microparticle, injectable/in-situ depot, hydrogel, implant,
+  crystal/suspension, polymer conjugate 및 기타 장기지속형 주사·삽입 기술
+- 단일 및 복합 payload를 `payloadComponents` 배열로 저장
 - sponsor Program과 technology-watch 분리
-- Program 전체 개발 단계와 Study phase·모집 상태·국가·registry 근거·재검증일 분리
+- Program 전체 개발 단계와 여러 공식 registry의 Study phase·모집 상태·국가·registry 근거·재검증일 분리
 - registry 기반 제형 분류와 자유문자 제형 설명
 - 제품 목표·입증 기간·플랫폼 잠재력 및 일수 범위
 - 검색, 단계, 제형, 목표 간격, record type, 활성 상태 필터
@@ -25,6 +29,16 @@
 - 범용 웹 크롤러 또는 원문 저장소
 - 대규모 ADR·fixture·projection 체계
 - 프로그램 간 선택 비교와 알림 발송
+
+## 현재 데이터 경계
+
+현재 저장 데이터는 기존 semaglutide 중심이며, Obesity Depot 전체 후보
+조사가 완료된 상태를 의미하지 않습니다.
+
+일반 주 1회 수용액 주사제, depot 또는 sustained-release 특성이 없는
+통상 제형, 비만·과체중 목적이 확인되지 않은 당뇨 전용 후보, 특정
+비만 치료 payload의 직접 근거가 없는 범용 플랫폼, 비주사·비삽입 DDS는
+추적 범위에서 제외합니다.
 
 다음 확장 우선순위는 `주간 Draft PR 자동화 → 변경 전후 diff → 비교 선택
 → 검토 후보 큐`다. 자동 수집은 canonical 데이터가 아니라 후보 발견까지만

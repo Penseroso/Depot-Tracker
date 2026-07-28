@@ -17,12 +17,20 @@ official releases for sponsor intent, `recordType`, Program stage, activity, and
 development status. Academic evidence alone supports `technology-watch`, not a
 sponsor Program. Omission alone never proves inactivity.
 
+Store payloads as ordered `payloadComponents`. Prefer an INN or generic name;
+when none exists, use the public sponsor compound name/code. Store canonical
+lower-case component identifiers without brands, formulation, salt, route, or
+dose. Preserve the sponsor's component order and keep single-agent and
+combination Programs separate.
+
 ## Study facts
 
-Use the applicable public registry for `registryId`, `phase`,
+Use the applicable official registry for `registry`, `registryId`, `phase`,
 `recruitmentStatus`, `registryStatusRaw`, and `countries`, and store that
 registry as the Study's single `registrySource`.
 
+- Preserve the registry's canonical display name and source-native ID.
+- Treat `registry + registryId` as the registry identity.
 - Preserve exact registry phase and status text.
 - Normalize recruitment status without discarding `registryStatusRaw`.
 - Store canonical English Study-country names.

@@ -16,6 +16,21 @@ export const intervalClaimSchema = z.object({
   { message: 'minDays cannot be greater than maxDays' },
 );
 
+export const payloadComponentSchema = z.string()
+  .min(1)
+  .refine((value) => value === value.trim(), { message: 'payload component must not have surrounding whitespace' })
+  .refine((value) => value === value.toLowerCase(), { message: 'payload component must be lower-case' })
+  .refine((value) => !value.includes('+'), { message: 'payload component must not contain +' });
+
+export const payloadComponentsSchema = z.array(payloadComponentSchema)
+  .min(1)
+  .refine((values) => new Set(values).size === values.length, { message: 'payload components must be unique' });
+
+export const registryNameSchema = z.string()
+  .min(1)
+  .refine((value) => value === value.trim(), { message: 'registry must not have surrounding whitespace' })
+  .regex(/^[A-Z0-9][A-Za-z0-9]*(?:[ .-][A-Za-z0-9]+)*$/, 'registry must use a canonical display name');
+
 export const deliveryTechnologySchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   label: z.string().min(1),
@@ -26,7 +41,7 @@ export const deliveryTechnologySchema = z.object({
 export const programSchema = z.object({
   company: z.string().min(1),
   programName: z.string().min(1),
-  payload: z.literal('semaglutide'),
+  payloadComponents: payloadComponentsSchema,
   recordType: z.enum(['sponsor-program', 'technology-watch']),
   deliveryTechnologyId: deliveryTechnologySchema.shape.id,
   deliveryTechnology: z.string().min(1),
@@ -73,11 +88,14 @@ const registrySourceSchema = sourceSchema.extend({
 
 export const studySchema = z.object({
   programSlug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
-  registryId: z.string().regex(/^NCT\d{8}$/),
+  registry: registryNameSchema,
+  registryId: z.string()
+    .min(1)
+    .refine((value) => value === value.trim(), { message: 'registryId must not have surrounding whitespace' }),
   phase: z.string().min(1),
   recruitmentStatus: recruitmentStatusSchema,
   registryStatusRaw: z.string().min(1),
-  countries: z.array(z.string().min(1)).min(1),
+  countries: z.array(z.string().min(1)),
   registrySource: registrySourceSchema,
   lastVerifiedAt: z.iso.date(),
 }).strict();

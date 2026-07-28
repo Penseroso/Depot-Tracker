@@ -4,7 +4,7 @@ import type { DeliveryTechnology, Program, Study } from '../lib/schema';
 import {
   formatDate,
   formatIntervalClaim,
-  formatPayload,
+  formatPayloadComponents,
   getProductTargetIntervalBuckets,
   intervalBucketLabels,
   stageLabel,
@@ -57,7 +57,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
       const haystack = [
         program.company,
         program.programName,
-        program.payload,
+        ...program.payloadComponents,
         program.deliveryTechnology,
         program.productTarget?.description,
         program.demonstratedDuration?.description,
@@ -119,7 +119,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
                 {filtered.map((program) => (
                   <tr key={program.slug}>
                     <td><a className="row-link" href={`${basePath}/programs/${program.slug}/`}><span className="cell-title">{program.programName}</span><span className="cell-sub">{program.company}</span><span className="record-type-tag">{recordTypeLabel(program.recordType)}</span></a></td>
-                    <td><span className="cell-title">{formatPayload(program.payload)}</span></td>
+                    <td><span className="cell-title">{formatPayloadComponents(program.payloadComponents)}</span></td>
                     <td><span className="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span className="cell-sub">{program.deliveryTechnology}</span></td>
                     <td>{formatIntervalClaim(program.productTarget)}</td>
                     <td><span className={stageClass(program.developmentStage)}>{stageLabel(program.developmentStage)}</span></td>

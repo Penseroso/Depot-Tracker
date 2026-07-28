@@ -1,7 +1,7 @@
 {
   "company": "Peptron",
   "programName": "PT403",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "PLGA microsphere",

@@ -1,7 +1,7 @@
 {
   "company": "Stanford Appel Lab (academic technology watch)",
   "programName": "PNP hydrogel–semaglutide",
-  "payload": "semaglutide",
+  "payloadComponents": ["semaglutide"],
   "recordType": "technology-watch",
   "deliveryTechnologyId": "injectable-hydrogel",
   "deliveryTechnology": "cross-linked hydrogel",

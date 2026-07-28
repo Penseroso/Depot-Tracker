@@ -20,7 +20,9 @@ for (const recordType of ['programs', 'studies']) {
       rows.push({
         recordType: recordType === 'programs' ? 'Program' : 'Study',
         slug: name.replace(/\.json$/, ''),
-        label: recordType === 'programs' ? `${data.company} / ${data.programName}` : data.registryId,
+        label: recordType === 'programs'
+          ? `${data.company} / ${data.programName}`
+          : `${data.registry} / ${data.registryId}`,
         lastVerifiedAt: data.lastVerifiedAt,
         ageDays,
       });
