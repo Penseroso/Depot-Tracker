@@ -1,0 +1,17 @@
+{
+  "programSlug": "vivani-npm139",
+  "registryId": "NCT07430059",
+  "phase": "Phase 1",
+  "recruitmentStatus": "not-yet-recruiting",
+  "registryStatusRaw": "Not yet recruiting",
+  "countries": [
+    "Australia"
+  ],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07430059",
+    "url": "https://clinicaltrials.gov/study/NCT07430059",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-28"
+  },
+  "lastVerifiedAt": "2026-07-28"
+}

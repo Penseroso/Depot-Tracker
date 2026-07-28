@@ -1,0 +1,64 @@
+{
+  "company": "Vivani Medical",
+  "programName": "NPM-139",
+  "payload": "semaglutide",
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "implant",
+  "deliveryTechnology": "NanoPortal titanium subdermal implant",
+  "productTarget": {
+    "description": "연 1~2회(6개월~1년) 목표",
+    "minDays": 182,
+    "maxDays": 365
+  },
+  "demonstratedDuration": {
+    "description": "전임상 모델에서 1년간 지속 노출 및 20% 이상 sham-adjusted 체중감소 유지",
+    "minDays": 365,
+    "maxDays": 365
+  },
+  "platformPotential": null,
+  "route": "이식형 피하 삽입 (titanium subdermal implant)",
+  "developmentStage": "Registered Phase I",
+  "developmentStatus": "SLIM-1 Phase 1 등록 임상 진행 예정(호주 Bellberry HREC 승인); Novo Nordisk와 비독점 평가 계약 체결",
+  "programRegionContext": "미국 개발(Vivani Medical, 캘리포니아) / 호주 등록 임상",
+  "latestUpdate": "Vivani Medical은 2026년 6월 25일 호주 Bellberry 윤리위원회로부터 SLIM-1(NPM-139 semaglutide implant Phase 1) 임상 승인을 받았다고 발표했고, 2026년 7월 7일에는 Novo Nordisk와 NPM-139 평가를 위한 비독점 계약을 체결했다고 밝혔다. ClinicalTrials.gov NCT07430059가 2026년 2월 24일 등록됐으며 예상 개시일은 2026년 7월이다.",
+  "latestUpdateDate": "2026-07-07",
+  "lastVerifiedAt": "2026-07-28",
+  "readout": "Novo Nordisk이 비독점적으로 평가에 나선 최초의 semaglutide implant 후보. 전임상 모델에서 1년간 지속 노출과 20% 이상 sham-adjusted 체중감소를 보고했다.",
+  "differentiator": "NanoPortal titanium 이식형 플랫폼; 연 1~2회 투여를 지향하는 유일한 implant 기반 semaglutide 후보",
+  "caveat": "SLIM-1은 저용량 4주 PK 비교 임상이며 등록 시점 기준 Not yet recruiting이다. IND 승인 여부는 공개 확인되지 않았고, Novo Nordisk 계약은 비독점 평가 계약일 뿐 라이선스나 공동개발 약정이 아니다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 84,
+  "sources": [
+    {
+      "label": "Vivani Medical / Novo Nordisk non-exclusive evaluation agreement, 2026-07-07",
+      "url": "https://www.globenewswire.com/news-release/2026/07/07/3323068/0/en/vivani-medical-enters-into-agreement-with-novo-nordisk-to-evaluate-npm-139-a-miniature-ultra-long-acting-semaglutide-implant-for-chronic-weight-management.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "Vivani Medical Receives Regulatory Approval for SLIM-1, 2026-06-25",
+      "url": "https://www.biospace.com/press-releases/vivani-medical-receives-regulatory-approval-for-the-initiation-of-slim-1-a-phase-1-clinical-trial-of-npm-139-semaglutide-implant-in-obesity-and-chronic-weight-management",
+      "sourceType": "secondary",
+      "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07430059",
+      "url": "https://clinicaltrials.gov/study/NCT07430059",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "PharmaVoice, GLP-1 implant coverage",
+      "url": "https://www.pharmavoice.com/news/glp-1-big-pharma-biotech-implant-vivani-medical/758677/",
+      "sourceType": "secondary",
+      "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "Vivani Medical Announces Positive Preclinical Weight Loss Data for NPM-139 (once-yearly dosing potential)",
+      "url": "https://www.biospace.com/press-releases/vivani-medical-announces-positive-preclinical-weight-loss-data-for-npm-139-semaglutide-implant-with-potential-for-once-yearly-dosing",
+      "sourceType": "secondary",
+      "accessedOn": "2026-07-28"
+    }
+  ]
+}

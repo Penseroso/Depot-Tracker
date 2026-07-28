@@ -1,0 +1,56 @@
+{
+  "company": "ProLynx",
+  "programName": "PLX-821",
+  "payload": "semaglutide",
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "polymer-conjugate",
+  "deliveryTechnology": "hydrogel microsphere + tunable cleavable-linker conjugate",
+  "productTarget": {
+    "description": "월 1회 목표",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "demonstratedDuration": {
+    "description": "생쥐에서 약 30일 반감기 및 30일 시점 약 20% 체중감소 입증(2024년 8월 전임상 발표)",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "platformPotential": {
+    "description": "튜닝형 링커 아키텍처로 분기 1회 비만 프로그램까지 확장 목표",
+    "minDays": 84,
+    "maxDays": 92
+  },
+  "route": "피하주사",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "전임상; 2026년 IND-enabling 단계 목표로 7000만 달러 Series A 확보",
+  "programRegionContext": "미국 (샌프란시스코)",
+  "latestUpdate": "2025년 12월 ProLynx가 7000만 달러 Series A를 유치했다고 발표했다(5AM Ventures·OrbiMed 공동 리드, Monograph Capital 참여). 신임 CEO를 선임했으며 월 1회·분기 1회 비만 프로그램을 IND-enabling 단계로 진전시키는 것이 목표라고 밝혔다. 2024년 8월에는 semaglutide를 절단 가능한 튜닝형 링커로 hydrogel microsphere에 결합해 생쥐에서 약 30일 반감기와 30일 시점 약 20% 체중감소를 보고하는 전임상 결과를 공개했다.",
+  "latestUpdateDate": "2025-12-11",
+  "lastVerifiedAt": "2026-07-28",
+  "readout": "절단 가능한 튜닝형 링커로 반감기를 연장하는 hydrogel-microsphere 접근이며, 특허 만료 후 505(b)(2) 경로를 통한 월 1회 semaglutide 개발을 목표로 한다.",
+  "differentiator": "절단 가능한 튜닝형 링커 기반 hydrogel microsphere; 월 1회·분기 1회 프로그램을 동시에 추구하는 아키텍처",
+  "caveat": "전임상 생쥐 자료만 공개됐고 IND 신청이나 임상 진입 시점은 아직 공개되지 않았다. 505(b)(2) 경로를 활용해 특허 만료 이후 출시를 목표로 한다는 점에서 상업화 시점이 규제·특허 상황에 좌우된다.",
+  "confidence": "Medium",
+  "active": true,
+  "stageRank": 45,
+  "sources": [
+    {
+      "label": "BioPharma Dive, ProLynx $70M Series A, 2025-12-11",
+      "url": "https://www.biopharmadive.com/news/prolynx-obesity-drugs-biotech-startup-series-a/807611/",
+      "sourceType": "secondary",
+      "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "ProLynx preclinical monthly semaglutide results, 2024-08",
+      "url": "https://www.biospace.com/prolynx-announces-preclinical-results-of-long-acting-semaglutide-requiring-once-monthly-dosing",
+      "sourceType": "company",
+      "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "Lucid Diligence Brief: ProLynx $70m Series A",
+      "url": "https://www.lqventures.com/lucid-diligence-brief-prolynx-70m-series-a-for-long-acting-obesity-candidates/",
+      "sourceType": "secondary",
+      "accessedOn": "2026-07-28"
+    }
+  ]
+}
