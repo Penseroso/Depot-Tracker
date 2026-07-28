@@ -19,6 +19,10 @@ function stageClass(stage: string) {
   return 'badge badge-preclinical';
 }
 
+function recordTypeLabel(value: Program['recordType']) {
+  return value === 'sponsor-program' ? 'Sponsor program' : 'Technology watch';
+}
+
 type Props = {
   programs: Program[];
   studies: Study[];
@@ -32,6 +36,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
   const [stage, setStage] = useState('all');
   const [technology, setTechnology] = useState('all');
   const [interval, setInterval] = useState<IntervalBucketId | 'all'>('all');
+  const [recordType, setRecordType] = useState('all');
   const [activity, setActivity] = useState('active');
 
   const studiesByProgram = useMemo(() => {
@@ -67,10 +72,11 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         && (stage === 'all' || program.developmentStage === stage)
         && (technology === 'all' || program.deliveryTechnologyId === technology)
         && (interval === 'all' || getProductTargetIntervalBuckets(program.productTarget).includes(interval))
+        && (recordType === 'all' || program.recordType === recordType)
         && (activity === 'all' || (activity === 'active' ? program.active : !program.active))
       );
     });
-  }, [programs, studiesByProgram, query, stage, technology, interval, activity]);
+  }, [programs, studiesByProgram, query, stage, technology, interval, recordType, activity]);
 
   return (
     <section className="filter-shell">
@@ -78,7 +84,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         <label style={{ position: 'relative' }}>
           <span className="sr-only">검색</span>
           <Search size={16} style={{ position: 'absolute', left: 12, top: 13, color: '#62706d' }} />
-          <input className="control" style={{ paddingLeft: 38 }} value={query} onChange={(event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)} placeholder="회사, 프로그램, 제형, 지역 검색" />
+          <input className="control" style={{ paddingLeft: 38 }} value={query} onChange={(event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)} placeholder="회사, 프로그램, Payload, 제형, 임상 국가 검색" />
         </label>
         <select className="control" value={stage} onChange={(event: ChangeEvent<HTMLSelectElement>) => setStage(event.target.value)} aria-label="개발 단계">
           <option value="all">모든 단계</option>
@@ -92,13 +98,18 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
           <option value="all">모든 간격</option>
           {Object.entries(intervalBucketLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
         </select>
+        <select className="control" value={recordType} onChange={(event: ChangeEvent<HTMLSelectElement>) => setRecordType(event.target.value)} aria-label="레코드 유형">
+          <option value="all">모든 유형</option>
+          <option value="sponsor-program">Sponsor program</option>
+          <option value="technology-watch">Technology watch</option>
+        </select>
         <select className="control" value={activity} onChange={(event: ChangeEvent<HTMLSelectElement>) => setActivity(event.target.value)} aria-label="활성 상태">
           <option value="active">활성 프로그램</option>
           <option value="all">전체</option>
           <option value="inactive">보류, 비활성</option>
         </select>
       </div>
-      <div className="resultbar"><span>{filtered.length}개 항목</span><span>검증 기준일 {formatDate(asOfDate)}</span></div>
+      <div className="resultbar"><span>{filtered.length}개 항목</span><span>최근 검증일 {formatDate(asOfDate)}</span></div>
       <div className="panel" style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
         {filtered.length ? (
           <div className="data-table-wrap">
@@ -107,7 +118,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
               <tbody>
                 {filtered.map((program) => (
                   <tr key={program.slug}>
-                    <td><a className="row-link" href={`${basePath}/programs/${program.slug}/`}><span className="cell-title">{program.programName}</span><span className="cell-sub">{program.company}</span></a></td>
+                    <td><a className="row-link" href={`${basePath}/programs/${program.slug}/`}><span className="cell-title">{program.programName}</span><span className="cell-sub">{program.company}</span><span className="record-type-tag">{recordTypeLabel(program.recordType)}</span></a></td>
                     <td><span className="cell-title">{formatPayload(program.payload)}</span></td>
                     <td><span className="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span className="cell-sub">{program.deliveryTechnology}</span></td>
                     <td>{formatIntervalClaim(program.productTarget)}</td>
