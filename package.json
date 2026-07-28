@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "data:validate": "node scripts/validate-data.mjs",
-    "data:test": "node --test --experimental-test-isolation=none scripts/validate-data.test.mjs",
+    "data:test": "node --test --experimental-test-isolation=none scripts/validate-data.test.mjs scripts/interval-buckets.test.mjs",
     "data:staleness": "node scripts/check-staleness.mjs",
     "check": "npm run data:validate && npm run data:test && astro check",
     "build": "npm run check && astro build",

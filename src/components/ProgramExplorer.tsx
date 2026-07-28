@@ -4,10 +4,11 @@ import type { DeliveryTechnology, Program, Study } from '../lib/schema';
 import {
   formatDate,
   formatIntervalClaim,
-  getIntervalBucket,
+  getProductTargetIntervalBuckets,
   intervalBucketLabels,
   stageLabel,
 } from '../lib/format';
+import type { IntervalBucketId } from '../lib/format';
 
 function stageClass(stage: string) {
   if (stage.includes('Registered')) return 'badge badge-clinical';
@@ -33,7 +34,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
   const [query, setQuery] = useState('');
   const [stage, setStage] = useState('all');
   const [technology, setTechnology] = useState('all');
-  const [interval, setInterval] = useState('all');
+  const [interval, setInterval] = useState<IntervalBucketId | 'all'>('all');
   const [recordType, setRecordType] = useState('all');
   const [activity, setActivity] = useState('active');
 
@@ -68,7 +69,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         (!needle || haystack.includes(needle))
         && (stage === 'all' || program.developmentStage === stage)
         && (technology === 'all' || program.deliveryTechnologyId === technology)
-        && (interval === 'all' || getIntervalBucket(program.productTarget) === interval)
+        && (interval === 'all' || getProductTargetIntervalBuckets(program.productTarget).includes(interval))
         && (recordType === 'all' || program.recordType === recordType)
         && (activity === 'all' || (activity === 'active' ? program.active : !program.active))
       );
@@ -91,7 +92,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
           <option value="all">모든 제형</option>
           {deliveryTechnologies.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
         </select>
-        <select className="control" value={interval} onChange={(event: ChangeEvent<HTMLSelectElement>) => setInterval(event.target.value)} aria-label="투여 간격">
+        <select className="control" value={interval} onChange={(event: ChangeEvent<HTMLSelectElement>) => setInterval(event.target.value as IntervalBucketId | 'all')} aria-label="투여 간격">
           <option value="all">모든 간격</option>
           {Object.entries(intervalBucketLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
         </select>

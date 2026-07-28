@@ -96,8 +96,12 @@ An interval claim is either `null` or a strict object:
 - Q4W=28–28, monthly=28–31, Q8W=56–56, two months=56–62,
   Q12W=84–84, three months/quarterly=84–92, four months=112–123,
   and six months=168–184 days.
-- Product-target buckets use only `productTarget`; demonstrated or platform
-  duration never promotes a Program into a product-target bucket.
+- Product-target buckets use only the numeric bounds in `productTarget`;
+  demonstrated or platform duration never promotes a Program into a
+  product-target bucket. A target spanning multiple UI buckets is counted in
+  each overlapping bucket. Induction or loading schedules in descriptive text
+  do not create buckets; only the encoded maintenance or final product target
+  bounds are classified.
 
 ## Study
 
