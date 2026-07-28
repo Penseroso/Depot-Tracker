@@ -183,6 +183,41 @@ When a newly stored Program has a directly supported material milestone, use
 the milestone date rather than inventing a discovery Event. Do not duplicate an
 existing Event.
 
+### Append-only Events
+
+Treat Event as an append-only material-change record, per the Data Contract.
+Record a new material change as a new Event file. Never rewrite an existing
+Event's `headline` or `summary` to match the Program's current state, and
+never let a later-stage Event replace or shorten an earlier result Event. Edit
+an existing Event only to fix a typo, a broken link, an error against its own
+direct source, or to add previously missing source-supported context, and
+report the Event slug and reason in the run report. Delete an existing Event
+only when direct evidence shows a duplicate, an error, or a non-event, and
+report the slug and reason. A validator cannot fully enforce append-only
+behavior against prior Git history; this workflow and the PR completion gate
+are the enforcement point, so every Event edit or deletion must be reported.
+
+### Historical no-loss before overwriting current-state fields
+
+Before overwriting a Program's or linked Study's current-state field
+(`developmentStage`, `developmentStatus`, `readout`, `productTarget`,
+`differentiator`, `caveat`, Study `phase`, or Study recruitment/operational
+status), compare the old and
+new values. If the old value carried a material historical fact — a prior
+clinical or nonclinical result, a prior stage or operational status, a prior
+product target or dosing interval, a regulatory milestone, a
+partnership/license/hold/discontinuation/restart, or an interpretation limit
+that was material at the time — confirm it is already preserved in an Event
+before overwriting. If no sufficient Event exists, create a source-dated Event
+or extend an existing under-specified Event within its own direct sources
+first; never backfill an unsupported historical fact from memory or inference.
+A result Event's `summary` must retain enough of the study/stage, disclosure
+timing, evaluated subject and design context, key efficacy/PK/PD/safety
+findings, comparator/baseline, key figures and timepoints, and interpretation
+limits that the result's contemporaneous meaning survives after the Program's
+current fields move on. A later stage-entry Event never replaces or
+generalizes an earlier result Event; both remain as separate records.
+
 ## 7. Common completion gate and validation
 
 Either track is GO only when its track gate passes and:
@@ -192,7 +227,11 @@ Either track is GO only when its track gate passes and:
 3. no unsupported change, silent candidate drop, or unrecorded crossover
    remains;
 4. strict schema, cross-record validation, workflow regression tests, Astro
-   checks, build, and diff checks pass.
+   checks, build, and diff checks pass;
+5. no Program or Study current-state overwrite dropped a material historical
+   fact that is not preserved in an Event, no later-stage Event replaced or
+   shortened an earlier result Event, and every Event edit or deletion is
+   reported with its slug and reason (historical no-loss gate).
 
 A source blocker is NO-GO only when it prevents a required decision or the
 requested update. If the supported state can be preserved and the blocker is

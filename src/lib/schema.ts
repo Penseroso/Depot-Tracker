@@ -46,8 +46,6 @@ export const programSchema = z.object({
   deliveryTechnologyId: deliveryTechnologySchema.shape.id,
   deliveryTechnology: z.string().min(1),
   productTarget: intervalClaimSchema.nullable(),
-  demonstratedDuration: intervalClaimSchema.nullable(),
-  platformPotential: intervalClaimSchema.nullable(),
   route: z.string().min(1),
   developmentStage: z.enum([
     'Registered Phase I/IIa',
@@ -58,8 +56,6 @@ export const programSchema = z.object({
     'Paused',
   ]),
   developmentStatus: z.string().min(1),
-  latestUpdate: z.string().min(1),
-  latestUpdateDate: z.iso.date(),
   lastVerifiedAt: z.iso.date(),
   readout: z.string().min(1),
   differentiator: z.string().min(1),
@@ -108,8 +104,9 @@ export const eventSchema = z.object({
   programName: z.string().min(1),
   category: z.enum(['Clinical', 'Regulatory', 'Data', 'Partnership', 'Platform', 'Status']),
   headline: z.string().min(1),
+  summary: z.string().min(1),
   significance: z.enum(['High', 'Medium', 'Low']),
-  source: sourceSchema,
+  sources: z.array(sourceSchema).min(1),
 }).strict();
 
 export type Source = z.infer<typeof sourceSchema>;

@@ -21,6 +21,14 @@
 - Refresh handoffs from discovery:
 - Bounded crossovers completed:
 
+## Event integrity
+
+- New Events added:
+- Existing Events edited (slug + reason): <!-- typo/link fix, direct-source error, or added missing context only -->
+- Existing Events deleted (slug + reason): <!-- duplicate, error, or non-event, with direct evidence -->
+- Historical no-loss gate: <!-- pass / fail — no material historical fact dropped from an overwritten Program/Study field without a preserving Event -->
+
+
 ## Source access
 
 - Principal sources:

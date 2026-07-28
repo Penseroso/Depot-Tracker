@@ -25,9 +25,10 @@ type Props = {
   deliveryTechnologies: DeliveryTechnology[];
   basePath: string;
   asOfDate: string;
+  latestEventDateByProgram: Record<string, string | null>;
 };
 
-export default function ProgramExplorer({ programs, deliveryTechnologies, basePath, asOfDate }: Props) {
+export default function ProgramExplorer({ programs, deliveryTechnologies, basePath, asOfDate, latestEventDateByProgram }: Props) {
   const [query, setQuery] = useState('');
   const [stage, setStage] = useState('all');
   const [technology, setTechnology] = useState('all');
@@ -47,8 +48,6 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, basePa
         ...program.payloadComponents,
         program.deliveryTechnology,
         program.productTarget?.description,
-        program.demonstratedDuration?.description,
-        program.platformPotential?.description,
       ]
         .filter(Boolean)
         .join(' ')
@@ -89,19 +88,22 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, basePa
         {filtered.length ? (
           <div className="data-table-wrap">
             <table className="data-table">
-              <thead><tr><th>프로그램</th><th>Payload</th><th>제형</th><th>제품 목표</th><th>단계</th><th>상태</th><th>업데이트</th></tr></thead>
+              <thead><tr><th>프로그램</th><th>Payload</th><th>제형</th><th>제품 목표</th><th>단계</th><th>상태</th><th>최근 변화</th></tr></thead>
               <tbody>
-                {filtered.map((program) => (
-                  <tr key={program.slug}>
-                    <td><a className="row-link" href={`${basePath}/programs/${program.slug}/`}><span className="cell-title">{program.programName}</span><span className="cell-sub">{program.company}</span><span className="record-type-tag">{recordTypeLabel(program.recordType)}</span></a></td>
-                    <td><span className="cell-title">{formatPayloadComponents(program.payloadComponents)}</span></td>
-                    <td><span className="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span className="cell-sub">{program.deliveryTechnology}</span></td>
-                    <td>{formatIntervalClaim(program.productTarget)}</td>
-                    <td><span className={stageClass(program.developmentStage)}>{stageLabel(program.developmentStage)}</span></td>
-                    <td><span className="cell-sub" style={{ maxWidth: 260 }}>{program.developmentStatus}</span></td>
-                    <td>{formatDate(program.latestUpdateDate)}</td>
-                  </tr>
-                ))}
+                {filtered.map((program) => {
+                  const latestEventDate = latestEventDateByProgram[program.slug];
+                  return (
+                    <tr key={program.slug}>
+                      <td><a className="row-link" href={`${basePath}/programs/${program.slug}/`}><span className="cell-title">{program.programName}</span><span className="cell-sub">{program.company}</span><span className="record-type-tag">{recordTypeLabel(program.recordType)}</span></a></td>
+                      <td><span className="cell-title">{formatPayloadComponents(program.payloadComponents)}</span></td>
+                      <td><span className="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span className="cell-sub">{program.deliveryTechnology}</span></td>
+                      <td>{formatIntervalClaim(program.productTarget)}</td>
+                      <td><span className={stageClass(program.developmentStage)}>{stageLabel(program.developmentStage)}</span></td>
+                      <td><span className="cell-sub" style={{ maxWidth: 260 }}>{program.developmentStatus}</span></td>
+                      <td>{latestEventDate ? formatDate(latestEventDate) : '—'}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

@@ -5,11 +5,14 @@
   "programName": "PT403",
   "category": "Regulatory",
   "headline": "국내 IND 준비 중이며 FDA 사전 논의에서 505(b)(2) 활용 가능성을 확인했다고 회사가 안내",
+  "summary": "Peptron은 IR FAQ를 통해 PT403(SmartDepot PLGA microsphere)의 국내 IND 신청을 준비 중이며, FDA와의 사전 논의에서 505(b)(2) 경로 활용 가능성을 확인했다고 안내했다. 정식 IND 제출 여부는 아직 공개되지 않았다.",
   "significance": "High",
-  "source": {
-    "label": "Peptron IR FAQ",
-    "url": "https://peptron.irupsite.co.kr/Default2.aspx?Page_Disclosure=7",
-    "sourceType": "company",
-    "accessedOn": "2026-07-27"
-  }
+  "sources": [
+    {
+      "label": "Peptron IR FAQ",
+      "url": "https://peptron.irupsite.co.kr/Default2.aspx?Page_Disclosure=7",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    }
+  ]
 }

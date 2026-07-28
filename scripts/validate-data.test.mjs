@@ -29,13 +29,9 @@ function createValidDataset() {
         deliveryTechnologyId: 'polymer-microparticle',
         deliveryTechnology: 'PLGA microparticle',
         productTarget: { description: '월 1회', minDays: 28, maxDays: 31 },
-        demonstratedDuration: null,
-        platformPotential: null,
         route: 'Subcutaneous injection',
         developmentStage: 'Preclinical',
         developmentStatus: 'Preclinical',
-        latestUpdate: 'Fixture update',
-        latestUpdateDate: '2026-07-27',
         lastVerifiedAt: '2026-07-27',
         readout: 'Fixture readout',
         differentiator: 'Fixture differentiator',
@@ -77,8 +73,9 @@ function createValidDataset() {
         programName: 'Fixture Program',
         category: 'Clinical',
         headline: 'Fixture event',
+        summary: 'Fixture summary describing the material change and its interpretation.',
         significance: 'High',
-        source,
+        sources: [source],
       },
     }],
   };
@@ -228,4 +225,148 @@ test('CAM2056 CTIS Study is linked to its Program in the canonical dataset', asy
   assert.equal(study.registryId, '2024-518040-21-00');
   assert.equal(program.developmentStage, 'Registered Phase I');
   assert.deepEqual(validation.errors, []);
+});
+
+test('multi-source Event passes', () => {
+  const data = createValidDataset();
+  data.events[0].data.sources = [
+    source,
+    { ...source, label: 'Second source', url: 'https://example.com/second' },
+  ];
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
+});
+
+test('empty Event sources array fails', () => {
+  const data = createValidDataset();
+  data.events[0].data.sources = [];
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /sources must contain at least one source/);
+});
+
+test('legacy Event source field fails', () => {
+  const data = createValidDataset();
+  data.events[0].data.source = source;
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /legacy field source/);
+});
+
+test('Event missing summary fails', () => {
+  const data = createValidDataset();
+  delete data.events[0].data.summary;
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /summary must be a non-empty string/);
+});
+
+test('duplicate Event for the same Program, date, and headline fails', () => {
+  const data = createValidDataset();
+  const duplicate = structuredClone(data.events[0]);
+  duplicate.name = '2026-07-27-fixture-duplicate.json';
+  duplicate.slug = '2026-07-27-fixture-duplicate';
+  data.events.push(duplicate);
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /duplicate Event for the same Program, date, and headline/);
+});
+
+test('legacy Program latestUpdate and latestUpdateDate fields fail', () => {
+  const data = createValidDataset();
+  data.programs[0].data.latestUpdate = 'Legacy narrative';
+  data.programs[0].data.latestUpdateDate = '2026-07-27';
+  const errors = validateDatasetRecords(data).errors.join('\n');
+  assert.match(errors, /legacy field latestUpdate\b/);
+  assert.match(errors, /legacy field latestUpdateDate/);
+});
+
+test('Program detail page does not render demonstratedDuration or platformPotential', async () => {
+  const source = await readFile('src/pages/programs/[slug].astro', 'utf8');
+  assert.doesNotMatch(source, /demonstratedDuration/);
+  assert.doesNotMatch(source, /platformPotential/);
+});
+
+test('legacy Program demonstratedDuration field fails', () => {
+  const data = createValidDataset();
+  data.programs[0].data.demonstratedDuration = null;
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /legacy field demonstratedDuration/);
+});
+
+test('legacy Program platformPotential field fails', () => {
+  const data = createValidDataset();
+  data.programs[0].data.platformPotential = { description: '분기 1회', minDays: 84, maxDays: 92 };
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /legacy field platformPotential/);
+});
+
+test('CAM2056 readout preserves the demonstratedDuration fact removed from the Program', async () => {
+  const program = await readFile('src/data/programs/camurus-cam2056.json', 'utf8').then(JSON.parse);
+  assert.doesNotMatch(JSON.stringify(program), /demonstratedDuration|platformPotential/);
+  assert.match(program.readout, /Day 85/);
+  assert.match(program.readout, /80명/);
+  assert.match(program.readout, /반복 투여 PK\/PD/);
+});
+
+test('vivani NPM-139 readout already preserves the demonstratedDuration fact removed from the Program', async () => {
+  const program = await readFile('src/data/programs/vivani-npm139.json', 'utf8').then(JSON.parse);
+  assert.doesNotMatch(JSON.stringify(program), /demonstratedDuration|platformPotential/);
+  assert.match(program.readout, /1년간/);
+  assert.match(program.readout, /20% 이상 sham-adjusted/);
+});
+
+test('prolynx PLX-821 demonstratedDuration and platformPotential facts remain findable in an existing Event and differentiator', async () => {
+  const [program, event] = await Promise.all([
+    readFile('src/data/programs/prolynx-plx821.json', 'utf8').then(JSON.parse),
+    readFile('src/data/events/2025-12-11-prolynx.json', 'utf8').then(JSON.parse),
+  ]);
+  assert.doesNotMatch(JSON.stringify(program), /demonstratedDuration|platformPotential/);
+  assert.match(event.summary, /36일 반감기/);
+  assert.match(event.summary, /20% 체중감소/);
+  assert.match(program.differentiator, /분기 1회 프로그램을 동시에 추구/);
+});
+
+test('stanford PNP hydrogel demonstratedDuration and platformPotential facts remain findable in caveat', async () => {
+  const program = await readFile('src/data/programs/stanford-pnp-hydrogel.json', 'utf8').then(JSON.parse);
+  assert.doesNotMatch(JSON.stringify(program), /demonstratedDuration|platformPotential/);
+  assert.match(program.caveat, /6주 이상/);
+  assert.match(program.caveat, /4개월은 human-oriented 설계 개념/);
+});
+
+test('lezepione caveat preserves the platformPotential design-target fact without a stored interval field', async () => {
+  const program = await readFile('src/data/programs/lezepione-lez001.json', 'utf8').then(JSON.parse);
+  assert.doesNotMatch(JSON.stringify(program), /demonstratedDuration|platformPotential/);
+  assert.equal(program.productTarget, null);
+  assert.match(program.caveat, /월 1회 목표 제형 설계/);
+  assert.match(program.caveat, /공식 제품 목표로 표시하지 않는다/);
+});
+
+test('CAM2056 latest Event and Phase 1b result Event both exist and are ordered by date', async () => {
+  const [phase2bPrep, phase1bResult, program, validation] = await Promise.all([
+    readFile('src/data/events/2026-07-15-camurus-phase2b-preparation.json', 'utf8').then(JSON.parse),
+    readFile('src/data/events/2025-11-10-camurus-cam2056.json', 'utf8').then(JSON.parse),
+    readFile('src/data/programs/camurus-cam2056.json', 'utf8').then(JSON.parse),
+    validateDataset(process.cwd()),
+  ]);
+  assert.equal(phase2bPrep.programSlug, 'camurus-cam2056');
+  assert.equal(phase1bResult.programSlug, 'camurus-cam2056');
+  assert.ok(phase2bPrep.date > phase1bResult.date, 'Phase 2b preparation Event must be dated after the Phase 1b result Event');
+  assert.doesNotMatch(JSON.stringify(program), /latestUpdate/);
+  assert.deepEqual(validation.errors, []);
+});
+
+test('CAM2056 Phase 1b result Event preserves topline figures and interpretation limits after Phase 2b preparation Event exists', async () => {
+  const phase1bResult = await readFile('src/data/events/2025-11-10-camurus-cam2056.json', 'utf8').then(JSON.parse);
+  assert.match(phase1bResult.summary, /9\.3%/);
+  assert.match(phase1bResult.summary, /5\.2%/);
+  assert.match(phase1bResult.summary, /p=0\.008/);
+  assert.match(phase1bResult.summary, /확정적 비교우월성으로 해석할 수 없다/);
+  assert.ok(phase1bResult.sources.length >= 1);
+});
+
+test('backfilled migration Events preserve material facts removed from Program latestUpdate', async () => {
+  const [inventageEvent, inventageProgram, prolynxEvent, prolynxProgram] = await Promise.all([
+    readFile('src/data/events/2026-06-01-inventage.json', 'utf8').then(JSON.parse),
+    readFile('src/data/programs/inventage-ivl3021.json', 'utf8').then(JSON.parse),
+    readFile('src/data/events/2025-12-11-prolynx.json', 'utf8').then(JSON.parse),
+    readFile('src/data/programs/prolynx-plx821.json', 'utf8').then(JSON.parse),
+  ]);
+  assert.doesNotMatch(JSON.stringify(inventageProgram), /latestUpdate/);
+  assert.match(inventageEvent.summary, /DIO\)? rat/);
+  assert.equal(inventageEvent.programSlug, 'inventage-ivl3021');
+
+  assert.doesNotMatch(JSON.stringify(prolynxProgram), /latestUpdate/);
+  assert.match(prolynxEvent.summary, /Series A/);
+  assert.match(prolynxEvent.summary, /7000만 달러/);
+  assert.equal(prolynxEvent.programSlug, 'prolynx-plx821');
 });

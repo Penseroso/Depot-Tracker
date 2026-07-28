@@ -5,11 +5,14 @@
   "programName": "Monthly semaglutide LAI",
   "category": "Regulatory",
   "headline": "2026년 4월 한국 IND 신청 완료 및 연내 첫 환자 투여 목표 공개",
+  "summary": "대웅제약/TionLab은 2026년 4월 한국 식약처에 월 1회 semaglutide LAI(Quject Sphere coated microparticle)의 IND 신청을 완료했다고 5월 8일 발표하며, 2026년 내 첫 환자 투여를 목표로 제시했다. IND 승인 여부와 임상시험 등록번호는 아직 공개 확인되지 않았다.",
   "significance": "High",
-  "source": {
-    "label": "Daewoong press release",
-    "url": "https://www.daewoong.co.kr/ko/newsroom/news/7469",
-    "sourceType": "company",
-    "accessedOn": "2026-07-27"
-  }
+  "sources": [
+    {
+      "label": "Daewoong press release",
+      "url": "https://www.daewoong.co.kr/ko/newsroom/news/7469",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    }
+  ]
 }

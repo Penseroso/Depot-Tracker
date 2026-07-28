@@ -5,11 +5,14 @@
   "programName": "NPM-139",
   "category": "Partnership",
   "headline": "Novo Nordisk, NPM-139 semaglutide implant 비독점 평가 계약 체결",
+  "summary": "Vivani Medical은 2026년 7월 7일 Novo Nordisk와 NPM-139(NanoPortal titanium subdermal implant, 연 1~2회 목표) semaglutide implant에 대한 비독점 평가 계약을 체결했다고 발표했다. 계약은 독점적 라이선스가 아닌 평가 목적의 비독점 계약이다.",
   "significance": "High",
-  "source": {
-    "label": "Vivani Medical / Novo Nordisk non-exclusive evaluation agreement, 2026-07-07",
-    "url": "https://www.globenewswire.com/news-release/2026/07/07/3323068/0/en/vivani-medical-enters-into-agreement-with-novo-nordisk-to-evaluate-npm-139-a-miniature-ultra-long-acting-semaglutide-implant-for-chronic-weight-management.html",
-    "sourceType": "company",
-    "accessedOn": "2026-07-28"
-  }
+  "sources": [
+    {
+      "label": "Vivani Medical / Novo Nordisk non-exclusive evaluation agreement, 2026-07-07",
+      "url": "https://www.globenewswire.com/news-release/2026/07/07/3323068/0/en/vivani-medical-enters-into-agreement-with-novo-nordisk-to-evaluate-npm-139-a-miniature-ultra-long-acting-semaglutide-implant-for-chronic-weight-management.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-28"
+    }
+  ]
 }

@@ -10,19 +10,11 @@
     "minDays": 28,
     "maxDays": 31
   },
-  "demonstratedDuration": {
-    "description": "80명 대상 Phase 1b에서 월 1회 반복 투여 PK/PD를 Day 85까지 입증",
-    "minDays": 28,
-    "maxDays": 31
-  },
-  "platformPotential": null,
   "route": "피하주사",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "Phase 1b 인체 PK/PD/안전성 topline 결과 공개(EMA CTIS 2024-518040-21-00); Phase 2b 준비 중이며 2026년 하반기 개시 예정",
-  "latestUpdate": "Camurus는 2026년 7월 15일 Q2 보고서에서 CAM2056 Phase 2b 준비가 계속되고 있으며 2026년 하반기 개시 예정이라고 밝혔다. 앞서 공개한 sponsor-reported Phase 1b topline에서 Day 85 체중감소는 CAM2056 10 mg군 9.3%, 주 1회 semaglutide군 5.2%였고 치료군 차이는 p=0.008이었다.",
-  "latestUpdateDate": "2026-07-15",
   "lastVerifiedAt": "2026-07-28",
-  "readout": "FluidCrystal 지질 액정 depot 기반 월 1회 semaglutide로, sponsor-reported Phase 1b topline에서 Day 85 기준 주 1회 semaglutide군보다 더 큰 체중감소를 보였다.",
+  "readout": "FluidCrystal 지질 액정 depot 기반 월 1회 semaglutide로, 80명 대상 Phase 1b에서 월 1회 반복 투여 PK/PD를 Day 85까지 입증했고, sponsor-reported Phase 1b topline에서 Day 85 기준 주 1회 semaglutide군보다 더 큰 체중감소를 보였다.",
   "differentiator": "상용화 이력이 있는 FluidCrystal 플랫폼(CAM2038 부프레노르핀, CAM2029 옥트레오타이드 등 승인)을 semaglutide에 적용; 격주 유도 후 월 1회 유지 요법",
   "caveat": "EMA CTIS 2024-518040-21-00의 Phase 1 연구는 종료 상태다. Phase 1b는 총 80명, 코호트당 16명의 소규모 연구였고 CAM2056과 대조군의 투여 간격, 용량, 적정 요법이 달랐으므로 sponsor-reported topline 수치를 확정적 비교우월성으로 해석할 수 없다. Phase 2b는 준비 중이며 아직 개시되지 않았다.",
   "confidence": "High",

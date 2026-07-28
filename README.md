@@ -43,7 +43,9 @@ blocked-source handover. 다중 도메인, ADR, 대규모 fixture·projection �
 
 - `/` — 핵심 지표, 단계·제형·제품 목표 간격 시각화, priority watchlist, 최근 변경
 - `/programs/` — 검색·다중 필터가 가능한 프로그램 레지스터
-- `/programs/[slug]/` — 프로그램별 근거·차별점·해석 제한 상세
+- `/programs/[slug]/` — 현재 상태 스냅샷(Current state), 최신 Event
+  카드(Latest development), evidence snapshot, Event 타임라인, 연결 Study·
+  Patent·전체 Source
 - `/updates/` — 프로그램에 연결된 material-change 피드
 - `/methodology/` — 단계·제형·출처·갱신 판단 기준
 - `/api/programs.csv`, `/api/studies.csv`, `/api/snapshot.json` — 정적 다운로드 endpoint
@@ -86,16 +88,24 @@ STALE_DAYS=45 npm run data:staleness
 - 형식: `src/lib/schema.ts`
 - 교차 검증: `scripts/validate-data.mjs`
 
+Program은 현재 상태 스냅샷이고, Event는 실제로 발생한 material change를
+append-only로 누적합니다. Program에는 `latestUpdate`/`latestUpdateDate`가
+없습니다. Program의 최근 변화 날짜와 내용은 항상 해당 Program의 Event 중
+날짜가 가장 최근인 Event(`date`, `headline`, `summary`, `sources`)에서
+파생합니다.
+
 핵심 날짜는 분리합니다.
 
-- `latestUpdateDate`: 최근 material change 날짜
-- `lastVerifiedAt`: 해당 Program 또는 Study를 실제로 다시 확인한 날짜
+- Event `date`: 실제 material change가 발생하거나 공개된 날짜
+- `lastVerifiedAt`: 해당 Program 또는 Study를 실제로 다시 확인한 날짜(변화
+  여부와 무관)
 - `sources[].accessedOn`: 해당 출처를 실제로 연 날짜
 - `registrySource.accessedOn`: Study의 registry 출처를 실제로 연 날짜
 
-의미가 바뀌지 않은 재검증은 event를 만들지 않습니다. 의미 있는 단계,
-운영 상태, 투여 간격, 제형, 사람 자료, 파트너십, 지속 여부 변화만 event로
-기록합니다.
+의미가 바뀌지 않은 재검증은 event를 만들지 않고 `lastVerifiedAt`만
+갱신합니다. 의미 있는 단계, 운영 상태, 투여 간격, 제형, 사람 자료,
+파트너십, 지속 여부 변화만 event로 기록하며, 새 Event는 기존 Event를
+대체하지 않고 누적됩니다.
 
 ## 조사 트랙과 전체 landscape 운영
 

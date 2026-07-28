@@ -10,7 +10,8 @@
 - sponsor Program과 technology-watch 분리
 - Program 전체 개발 단계와 여러 공식 registry의 Study phase·모집 상태·국가·registry 근거·재검증일 분리
 - registry 기반 제형 분류와 자유문자 제형 설명
-- 제품 목표·입증 기간·플랫폼 잠재력 및 일수 범위
+- 목표 투여 간격(`productTarget`) 및 일수 범위; 입증된 노출·방출 기간이나
+  플랫폼 잠재력은 별도 필드가 아니라 readout·Event·caveat 등 근거 문맥에 보존
 - 회사·Program·Payload·제형 검색과 단계, 제형, record type 필터
 - 개발 단계·제형·제품 목표 간격 시각화
 - Program 상세와 연결 Study, Patent 표시

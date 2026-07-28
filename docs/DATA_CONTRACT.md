@@ -73,16 +73,44 @@ Each `src/data/programs/*.json` stores one Program or technology-watch item.
 - `recordType`: sponsor Program versus technology watch.
 - `deliveryTechnologyId`: foreign key to the delivery-technology registry.
 - `deliveryTechnology`: source-near free-text formulation description.
-- `productTarget`, `demonstratedDuration`, `platformPotential`: separate interval
-  claims; none may substitute for another.
+- `productTarget`: the sponsor or registered product's target dosing interval,
+  a strict interval claim (see `## Interval claims`). Program stores only this
+  one interval claim; it does not store a separate demonstrated-duration or
+  platform-potential interval. A directly observed exposure/release duration
+  or a broader platform/patent potential that is not the Program's current
+  product target belongs in prose (`readout`, `differentiator`, `caveat`, or a
+  supporting Event), not in a stored interval field, and must not be presented
+  as if it were the confirmed product target.
 - `developmentStage`: overall Program maturity.
 - `developmentStatus`: Program-level development status, not Study recruitment.
-- `active`, `stageRank`, update dates, interpretation fields, confidence, and
-  sources retain their existing meanings.
+- `active`, `stageRank`, interpretation fields, confidence, and sources retain
+  their existing meanings.
+- `lastVerifiedAt`: the date this Program was actually rechecked, not the date
+  of its most recent material change.
 
-`human/regulatory` counts Programs whose `developmentStage` is one of
-`Registered Phase I/IIa`, `Registered Phase I`, `IND submitted`, or
-`Human PK pilot`. It is independent of Study count.
+Program is a current-state snapshot. It does not store a narrative `latestUpdate`
+or a `latestUpdateDate`; legacy `latestUpdate`/`latestUpdateDate` fields are
+rejected. A Program's most recent material change is always derived from its
+most recent linked Event (see `## Event` below), never stored redundantly on
+the Program itself. A Program consumer must treat `lastVerifiedAt` and the
+latest linked Event date as distinct facts and must not present one as the
+other.
+
+The Overview page's three KPIs are derived aggregates, not stored fields, and
+every consumer must compute them through the shared helpers in
+`src/lib/program-stats.js` rather than reimplementing the rule:
+
+- `PROGRAMS`: the total Program count, with the count of Programs whose
+  `active` is `true` as a secondary figure.
+- `TRIAL REGISTRATIONS`: the total Study record count across every supported
+  registry (currently ClinicalTrials.gov and CTIS). This is a registration
+  count, not a deduplicated-trial count; the same underlying protocol
+  registered in two registries counts twice, consistent with the Study model
+  in `## Study` below.
+- `PATENT-LINKED PROGRAMS`: the count of Programs with at least one linked
+  `sources[].sourceType === 'patent'` record, counting each Program once
+  regardless of how many patents it links, with its share of the total
+  Program count as a secondary figure.
 
 ## Delivery-technology registry
 
@@ -122,12 +150,10 @@ An interval claim is either `null` or a strict object:
 - Q4W=28–28, monthly=28–31, Q8W=56–56, two months=56–62,
   Q12W=84–84, three months/quarterly=84–92, four months=112–123,
   and six months=168–184 days.
-- Product-target buckets use only the numeric bounds in `productTarget`;
-  demonstrated or platform duration never promotes a Program into a
-  product-target bucket. A target spanning multiple UI buckets is counted in
-  each overlapping bucket. Induction or loading schedules in descriptive text
-  do not create buckets; only the encoded maintenance or final product target
-  bounds are classified.
+- Product-target buckets use only the numeric bounds in `productTarget`. A
+  target spanning multiple UI buckets is counted in each overlapping bucket.
+  Induction or loading schedules in descriptive text do not create buckets;
+  only the encoded maintenance or final product target bounds are classified.
 
 ## Study
 
@@ -162,12 +188,87 @@ Study identity.
 
 ## Event
 
+Program stores current state; Event accumulates every material change that
+happened in the real world for that Program, in append-only order. The most
+recent Program-facing "what changed" text and date are always derived from the
+Program's most recent Event, never duplicated onto the Program record.
+
 Each `src/data/events/*.json` records one material state change.
 
 - `programSlug` is always required.
 - `studySlug` is optional and used only when the Event identifies one Study.
 - `company` and `programName` preserve reader-facing context.
-- category, significance, date, headline, and source retain their prior meanings.
+- `category`, `significance`, `date`, and `headline` retain their prior
+  meanings. `headline` is a concise title for the change.
+- `summary`: one to three sentences describing what changed and the
+  contemporaneous interpretation. Do not repeat a source's label or URL inside
+  `summary`; the source itself is stored in `sources`.
+- `sources`: a non-empty array of Source objects, ordered from the source that
+  most directly supports the Event first. Legacy singular `source` is rejected.
+
+### What creates an Event
+
+Accumulate an Event for: a clinical-trial registration, start, completion, or
+material operational-status change; a development-stage change; a material
+clinical or nonclinical result; a regulatory milestone; a development hold,
+discontinuation, or restart; a material change to dosing interval or
+formulation target; a partnership, license, or rights reversion; or a
+sponsor-stated entry into the next development stage or continuation.
+
+Do not create an Event for: an unchanged reverification; a change to only a
+source's `accessedOn`; a change to only `lastVerifiedAt`; a wording or UI
+copy edit; reconfirming an already-stored fact with a better source; the date
+an investigator discovered or stored a new candidate; or routine
+classification housekeeping.
+
+### Append-only discipline
+
+Event is an append-only material-change record.
+
+- Record a new material change as a new Event file; never overwrite an
+  existing Event's `headline` or `summary` to match the Program's current
+  state.
+- A later development-stage Event never replaces, shortens, or restates an
+  earlier result Event. Both remain as separate, independently readable
+  records — see the worked example below.
+- Edit an existing Event only to fix a typo, a broken link, an error that
+  conflicts with its own direct source, or to add previously missing
+  source-supported context; report every such edit and its reason.
+- Delete an existing Event only when direct evidence shows it is a duplicate,
+  an error, or an event that did not actually occur; report every deletion
+  and its reason.
+
+### Historical no-loss when updating Program current-state fields
+
+Before overwriting a Program's (or its linked Study's) current-state field —
+`developmentStage`, `developmentStatus`, `readout`, `productTarget`,
+`differentiator`, `caveat`, or a linked Study's `phase`/recruitment or
+operational status — confirm that any
+material historical fact the old value carried (a prior result, a prior
+stage/status, a prior product target or dosing interval, a regulatory
+milestone, a partnership/hold/discontinuation/restart, or a caveat that was
+material at the time) is already preserved in an Event. If it is not, create a
+source-dated Event, or extend an existing under-specified Event within the
+scope of its own direct sources, before the overwrite. A result Event's
+`summary` must preserve enough of the study/stage, disclosure timing, what was
+evaluated, key efficacy/PK/PD/safety findings, comparator/baseline, key
+figures and timepoints, and interpretation limits (sponsor-reported, topline,
+exploratory, small-study, etc.) that a reader can reconstruct the result's
+contemporaneous meaning purely from the Event after the Program's current
+`readout`/`developmentStatus` has moved on. A state-change Event should record
+both the prior and the new state when the prior state is available, not only
+the new state.
+
+**Worked example.** A Program completes Phase 2, discloses topline results,
+and later enters Phase 3:
+
+- The Phase 2 result Event is kept unchanged, with its figures, comparator,
+  and interpretation limits intact.
+- Phase 3 entry is recorded as a new, separate Event.
+- `developmentStage`/`developmentStatus` update to the Phase 3 current state;
+  `readout` may update to the current evidence snapshot.
+- The Phase 3 Event does not replace, shorten, or generalize the Phase 2
+  result Event.
 
 ## Export boundary
 
@@ -177,6 +278,9 @@ Each `src/data/events/*.json` records one material state change.
 - `/api/studies.csv`: one Study per row linked by `programSlug`, including its
   `registry`, source-native `registryId`, registry source, and verification date.
 - `/api/snapshot.json`: `asOf`, `deliveryTechnologies`, `programs`, `studies`,
-  and `events`.
-- No legacy `payload`, `asset`, `modalityGroup`, `targetInterval`, or embedded
-  Study alias is emitted.
+  and `events`, with each Event's full `sources` array retained (never reduced
+  to only the latest Event or a single primary source). `asOf` reflects
+  verification dates; it is not the latest Event date.
+- No legacy `payload`, `asset`, `modalityGroup`, `targetInterval`, embedded
+  Study alias, Program `latestUpdate`/`latestUpdateDate`, or singular Event
+  `source` is emitted.

@@ -5,11 +5,14 @@
   "programName": "AdoXLong Sema",
   "category": "Platform",
   "headline": "비미립구 polymer–peptide conjugate 기반 월 1회 semaglutide preclinical POC 공개",
+  "summary": "Adocia는 2026년 4월 신규 AdoXLong polymer–peptide conjugate 플랫폼을 semaglutide에 적용한 preclinical POC를 공개했다. 저점도 수용액 제형으로 in vitro/in vivo 초기 결과가 긍정적이었으며 월 1회 투여를 제품 목표로, 분기 1회는 플랫폼 잠재력으로 제시했다. 사람 PK, 면역원성, CMC 자료는 아직 공개되지 않았다.",
   "significance": "High",
-  "source": {
-    "label": "Adocia AdoXLong",
-    "url": "https://www.adocia.com/technology-platform/adoxlong/",
-    "sourceType": "company",
-    "accessedOn": "2026-07-27"
-  }
+  "sources": [
+    {
+      "label": "Adocia AdoXLong",
+      "url": "https://www.adocia.com/technology-platform/adoxlong/",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    }
+  ]
 }

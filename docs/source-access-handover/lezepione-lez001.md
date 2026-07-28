@@ -40,9 +40,12 @@ as printed on the abstract.
 
 **Current operating-data treatment:** `company` remains "Sponsor unconfirmed";
 `recordType` reclassified from `sponsor-program` to `technology-watch` since
-sponsor ownership is not directly established (`productTarget` moved to
-`platformPotential` accordingly, per Data Contract). Caveat updated to record
-the Lezepione Inc lead without treating it as confirmed. Disposition:
+sponsor ownership is not directly established, so `productTarget` is stored as
+`null`. The in vitro release profile's implied monthly design target is
+preserved as caveat context (not a stored interval field, since Program no
+longer carries a `platformPotential` field) without treating it as a confirmed
+sponsor product target. Caveat updated to record the Lezepione Inc lead
+without treating it as confirmed. Disposition:
 DEFERRED (identity/classification upgrade to sponsor-program only — the
 record itself is not excluded and remains STORED as technology-watch).
 

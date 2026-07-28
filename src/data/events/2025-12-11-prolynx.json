@@ -1,0 +1,24 @@
+{
+  "programSlug": "prolynx-plx821",
+  "date": "2025-12-11",
+  "company": "ProLynx",
+  "programName": "PLX-821",
+  "category": "Status",
+  "headline": "PLX-821 IND-enabling·임상 POC 진전 목표로 7000만 달러 Series A 유치",
+  "summary": "ProLynx는 2025년 12월 11일 5AM Ventures와 OrbiMed 공동 리드, Monograph Capital 참여로 7000만 달러 Series A를 유치했다고 발표했다. 회사는 이 자금을 월 1회, 분기 1회 비만 파이프라인(PLX-821 포함)의 IND-enabling 연구와 임상 POC 진전에 사용할 계획이라고 밝혔다. 2024년 발표된 원 전임상 논문은 절단 가능한 튜닝형 링커로 semaglutide를 hydrogel microsphere에 결합해 생쥐에서 약 36일 반감기와 1개월간 약 20% 체중감소를 보고했다.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "ProLynx Series A and portfolio development plan, 2025-12-11",
+      "url": "https://www.globenewswire.com/news-release/2025/12/11/3203754/30541/en/Prolynx-Secures-70-Million-Series-A-to-Advance-Portfolio-of-Ultra-Long-Acting-Obesity-Candidates-and-Appoints-Chris-Boulton-as-Chief-Executive-Officer.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "BioPharma Dive, ProLynx $70M Series A, 2025-12-11",
+      "url": "https://www.biopharmadive.com/news/prolynx-obesity-drugs-biotech-startup-series-a/807611/",
+      "sourceType": "secondary",
+      "accessedOn": "2026-07-28"
+    }
+  ]
+}

@@ -8,6 +8,17 @@ import {
   type Study,
   type TrackerEvent,
 } from './schema';
+import {
+  compareEvents,
+  compareProgramsByActivity,
+  getEventsForProgram as filterEventsForProgram,
+  getLatestEventForProgram as pickLatestEventForProgram,
+} from './event-order.js';
+import {
+  getActiveProgramCount,
+  getPatentLinkedRatio,
+  getTrialRegistrationCount,
+} from './program-stats.js';
 
 const programModules = import.meta.glob('../data/programs/*.json', {
   eager: true,
@@ -34,9 +45,16 @@ function slugFromPath(path: string) {
 }
 
 export function getPrograms(): Program[] {
+  const events = getEvents();
+  const latestEventDateBySlug = new Map<string, string>();
+  for (const event of events) {
+    if (!latestEventDateBySlug.has(event.programSlug)) {
+      latestEventDateBySlug.set(event.programSlug, event.date);
+    }
+  }
   return Object.entries(programModules)
     .map(([path, data]) => ({ ...programSchema.parse(data), slug: slugFromPath(path) }))
-    .sort((a, b) => b.stageRank - a.stageRank || b.latestUpdateDate.localeCompare(a.latestUpdateDate));
+    .sort((a, b) => compareProgramsByActivity(a, b, latestEventDateBySlug));
 }
 
 export function getStudies(): Study[] {
@@ -57,7 +75,15 @@ export function getDeliveryTechnologies(): DeliveryTechnology[] {
 export function getEvents(): TrackerEvent[] {
   return Object.entries(eventModules)
     .map(([path, data]) => ({ ...eventSchema.parse(data), slug: slugFromPath(path) }))
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .sort(compareEvents);
+}
+
+export function getEventsForProgram(programSlug: string, events = getEvents()): TrackerEvent[] {
+  return filterEventsForProgram(programSlug, events);
+}
+
+export function getLatestEventForProgram(programSlug: string, events = getEvents()): TrackerEvent | null {
+  return pickLatestEventForProgram(programSlug, events);
 }
 
 export function getProgram(slug: string) {
@@ -65,14 +91,13 @@ export function getProgram(slug: string) {
 }
 
 export function getSummary(programs = getPrograms(), events = getEvents(), studies = getStudies()) {
-  const active = programs.filter((program) => program.active);
+  const patentLinked = getPatentLinkedRatio(programs);
   return {
     total: programs.length,
-    active: active.length,
-    clinicalOrHuman: programs.filter((program) =>
-      ['Registered Phase I/IIa', 'Registered Phase I', 'IND submitted', 'Human PK pilot'].includes(program.developmentStage),
-    ).length,
-    registeredStudies: studies.length,
+    active: getActiveProgramCount(programs),
+    trialRegistrations: getTrialRegistrationCount(studies),
+    patentLinkedPrograms: patentLinked.linked,
+    patentLinkedPercent: patentLinked.percent,
     latestEventDate: events[0]?.date ?? null,
     asOfDate: [
       ...programs.map((program) => program.lastVerifiedAt),

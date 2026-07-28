@@ -1,15 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProgramExplorer from '../../components/ProgramExplorer';
-import { getDeliveryTechnologies, getPrograms, getStudies } from '../../lib/data';
+import { getDeliveryTechnologies, getEvents, getLatestEventForProgram, getPrograms, getStudies } from '../../lib/data';
 const programs = getPrograms();
 const studies = getStudies();
+const events = getEvents();
 const deliveryTechnologies = getDeliveryTechnologies();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const asOfDate = [
   ...programs.map((program) => program.lastVerifiedAt),
   ...studies.map((study) => study.lastVerifiedAt),
 ].sort().at(-1) ?? '1970-01-01';
+const latestEventDateByProgram = Object.fromEntries(
+  programs.map((program) => [program.slug, getLatestEventForProgram(program.slug, events)?.date ?? null]),
+);
 ---
 <BaseLayout title="Programs | Obesity Depot Tracker" activePath="/programs/">
   <header class="page-heading">
@@ -19,5 +23,5 @@ const asOfDate = [
       <a class="button button-primary" href={`${base}/api/snapshot.json`} download>JSON snapshot</a>
     </div>
   </header>
-  <ProgramExplorer programs={programs} deliveryTechnologies={deliveryTechnologies} basePath={base} asOfDate={asOfDate} client:load />
+  <ProgramExplorer programs={programs} deliveryTechnologies={deliveryTechnologies} basePath={base} asOfDate={asOfDate} latestEventDateByProgram={latestEventDateByProgram} client:load />
 </BaseLayout>

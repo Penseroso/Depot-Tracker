@@ -10,17 +10,9 @@
     "minDays": 28,
     "maxDays": 31
   },
-  "demonstratedDuration": null,
-  "platformPotential": {
-    "description": "별도 3개월 semaglutide 제형 연구",
-    "minDays": 84,
-    "maxDays": 92
-  },
   "route": "피하주사",
   "developmentStage": "Preclinical",
   "developmentStatus": "국내 비임상; 임상 준비 단계",
-  "latestUpdate": "2026년 3월 삼성바이오에피스가 장기지속형 semaglutide를 포함한 후보 2종의 독점 개발권을 확보했다. G2GBIO는 1개월 GB-7001과 3개월 semaglutide PK 연구를 공개했다.",
-  "latestUpdateDate": "2026-04-20",
   "lastVerifiedAt": "2026-07-28",
   "readout": "GB-7001은 제형 개발 완료 및 미니피그 PK 자료를 보유한 비임상 프로그램이다.",
   "differentiator": "InnoLAMP microsphere; 고함량 제형 및 1개월→3개월 확장 연구",

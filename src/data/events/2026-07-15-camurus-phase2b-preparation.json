@@ -5,11 +5,14 @@
   "programName": "CAM2056",
   "category": "Status",
   "headline": "CAM2056 Phase 2b 준비 지속, 2026년 하반기 개시 예정",
+  "summary": "Camurus는 2026년 7월 15일 Q2 보고서에서 CAM2056 Phase 2b 준비가 계속되고 있으며 2026년 하반기 개시 예정이라고 재확인했다. Phase 2b는 아직 개시되지 않았다.",
   "significance": "Medium",
-  "source": {
-    "label": "Camurus Interim Report Second Quarter 2026, 2026-07-15",
-    "url": "https://www.camurus.com/files/Main/13456/4374701/camurus-interim-report-second-quarter-2026.pdf",
-    "sourceType": "filing",
-    "accessedOn": "2026-07-28"
-  }
+  "sources": [
+    {
+      "label": "Camurus Interim Report Second Quarter 2026, 2026-07-15",
+      "url": "https://www.camurus.com/files/Main/13456/4374701/camurus-interim-report-second-quarter-2026.pdf",
+      "sourceType": "filing",
+      "accessedOn": "2026-07-28"
+    }
+  ]
 }

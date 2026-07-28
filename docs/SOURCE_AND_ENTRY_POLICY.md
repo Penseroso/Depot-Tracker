@@ -48,16 +48,23 @@ for a more specific registered category; never infer from a product name alone.
 
 ## Interval claims
 
-Keep these authorities and meanings separate:
+Program stores exactly one interval claim, `productTarget`: sponsor or
+registered product intent for this specific payload/Program. Preserve the
+supported free text and add numeric bounds using the Data Contract conversion
+table. Q4W/Q8W/Q12W must remain distinct from calendar month/quarter
+expressions.
 
-- `productTarget`: sponsor or registered product intent;
-- `demonstratedDuration`: directly observed exposure/release duration;
-- `platformPotential`: broader platform, patent, or design potential.
-
-Patents may support platform potential but do not establish product target or
-active development. Preserve the supported free text and add numeric bounds
-using the Data Contract conversion table. Q4W/Q8W/Q12W must remain distinct from
-calendar month/quarter expressions.
+A directly observed exposure/release duration (human PK, nonclinical release,
+or efficacy/exposure through a given timepoint) or a broader platform, patent,
+or design potential is never stored as its own interval field. Record it in
+`readout` (a demonstrated result relevant to the current evidence snapshot),
+in the `summary` of the Event that reported it, or in `caveat`/`differentiator`
+(a platform-level or unconfirmed claim), keeping the finding, its evidence
+level, and its timepoint attached to the prose so the distinction from the
+current product target survives. Patents may support a platform-level
+duration claim but do not establish `productTarget` or active development for
+a specific payload; never present a platform generalization as if it were
+directly demonstrated for the current payload/Program.
 
 ## Human evidence and milestones
 
@@ -89,10 +96,16 @@ Use caveats, defer the update, or create a source-access handover when required.
 
 ## Dates
 
-- `latestUpdateDate` changes only for a material stored fact or Event.
-- `lastVerifiedAt` changes only when that Program or Study is actually rechecked.
+- Program has no `latestUpdateDate`. A Program's most recent material change
+  date is always the `date` of its most recent linked Event, never a
+  separately stored Program field.
+- `lastVerifiedAt` changes only when that Program or Study is actually
+  rechecked; it must never be presented as a change date.
 - `sources[].accessedOn` changes only when that source is reopened.
 - `registrySource.accessedOn` changes only when the Study registry source is
   reopened.
+- An Event's `date` is the date the material change happened or was
+  disclosed, not the date it was entered into the tracker.
 - Study operational changes require a material Event when they change the
-  reader's understanding.
+  reader's understanding. A reverification that finds no change updates only
+  `lastVerifiedAt`/`accessedOn` and creates no Event.

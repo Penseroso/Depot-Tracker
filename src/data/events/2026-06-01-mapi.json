@@ -6,11 +6,14 @@
   "programName": "SG Depot",
   "category": "Clinical",
   "headline": "월 1회 SG Depot Phase I/IIa 환자 등록 개시 계획 발표",
+  "summary": "Mapi Pharma는 2026년 6월 1일 월 1회 SG Depot(PLGA microsphere, NCT07563699) Phase I/IIa 환자 등록을 개시할 계획이라고 발표했다. 시험은 2, 4, 6, 8 mg 순차 용량군으로 제2형 당뇨병 대상 안전성·내약성·유효성을 평가한다.",
   "significance": "High",
-  "source": {
-    "label": "Mapi Pharma",
-    "url": "https://mapi-pharma.com/mapi-pharma-to-participate-in-the-asco-annual-meeting-and-ada-2026-scientific-sessions/",
-    "sourceType": "company",
-    "accessedOn": "2026-07-27"
-  }
+  "sources": [
+    {
+      "label": "Mapi Pharma",
+      "url": "https://mapi-pharma.com/mapi-pharma-to-participate-in-the-asco-annual-meeting-and-ada-2026-scientific-sessions/",
+      "sourceType": "company",
+      "accessedOn": "2026-07-27"
+    }
+  ]
 }

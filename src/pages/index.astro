@@ -2,8 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LandscapeCharts from '../components/LandscapeCharts';
 import StageBadge from '../components/StageBadge.astro';
-import { getDeliveryTechnologies, getEvents, getPrograms, getStudies, getSummary } from '../lib/data';
+import { getDeliveryTechnologies, getEvents, getLatestEventForProgram, getPrograms, getStudies, getSummary } from '../lib/data';
 import { formatDate, formatIntervalClaim } from '../lib/format';
+import { getAdditionalSourceCount, getPrimarySource } from '../lib/event-order.js';
 
 const programs = getPrograms();
 const studies = getStudies();
@@ -24,10 +25,9 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
   </section>
 
   <section class="metric-strip" aria-label="핵심 지표">
-    <div class="metric"><div class="metric-label">TRACKED</div><div class="metric-value">{summary.total}</div><div class="metric-note">프로그램, 기술 항목</div></div>
-    <div class="metric"><div class="metric-label">ACTIVE</div><div class="metric-value">{summary.active}</div><div class="metric-note">활성 추적 항목</div></div>
-    <div class="metric"><div class="metric-label">HUMAN / REGULATORY</div><div class="metric-value">{summary.clinicalOrHuman}</div><div class="metric-note">사람 PK, IND, 등록 임상</div></div>
-    <div class="metric"><div class="metric-label">REGISTERED STUDIES</div><div class="metric-value">{summary.registeredStudies}</div><div class="metric-note">모든 registry의 Study</div></div>
+    <div class="metric"><div class="metric-label">PROGRAMS</div><div class="metric-value">{summary.total}</div><div class="metric-note">{summary.total} programs · {summary.active} currently active</div></div>
+    <div class="metric"><div class="metric-label">TRIAL REGISTRATIONS</div><div class="metric-value">{summary.trialRegistrations}</div><div class="metric-note">ClinicalTrials.gov, CTIS 등 전체 registry 등록 수</div></div>
+    <div class="metric"><div class="metric-label">PATENT-LINKED PROGRAMS</div><div class="metric-value">{summary.patentLinkedPrograms}</div><div class="metric-note">{summary.patentLinkedPrograms} of {summary.total} programs · {summary.patentLinkedPercent}%</div></div>
   </section>
 
   <section class="section">
@@ -42,17 +42,20 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
     </div>
     <div class="panel data-table-wrap">
       <table class="data-table">
-        <thead><tr><th>프로그램</th><th>제형군</th><th>목표 간격</th><th>개발 단계</th><th>최근 업데이트</th></tr></thead>
+        <thead><tr><th>프로그램</th><th>제형군</th><th>목표 간격</th><th>개발 단계</th><th>최근 변화</th></tr></thead>
         <tbody>
-          {priority.map((program) => (
-            <tr>
-              <td><a class="row-link" href={`${base}/programs/${program.slug}/`}><span class="cell-title">{program.programName}</span><span class="cell-sub">{program.company}</span></a></td>
-              <td><span class="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span class="cell-sub">{program.deliveryTechnology}</span></td>
-              <td>{formatIntervalClaim(program.productTarget)}</td>
-              <td><StageBadge stage={program.developmentStage} /></td>
-              <td>{formatDate(program.latestUpdateDate)}</td>
-            </tr>
-          ))}
+          {priority.map((program) => {
+            const latestEvent = getLatestEventForProgram(program.slug, events);
+            return (
+              <tr>
+                <td><a class="row-link" href={`${base}/programs/${program.slug}/`}><span class="cell-title">{program.programName}</span><span class="cell-sub">{program.company}</span></a></td>
+                <td><span class="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span class="cell-sub">{program.deliveryTechnology}</span></td>
+                <td>{formatIntervalClaim(program.productTarget)}</td>
+                <td><StageBadge stage={program.developmentStage} /></td>
+                <td>{latestEvent ? formatDate(latestEvent.date) : '—'}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
@@ -64,13 +67,19 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
       <a class="text-link" href={`${base}/updates/`}>변경 이력 →</a>
     </div>
     <div class="panel panel-pad feed">
-      {events.slice(0, 5).map((event) => (
-        <article class="feed-item">
-          <time class="feed-date" datetime={event.date}>{formatDate(event.date)}</time>
-          <div><h3 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h3><div class="feed-meta">{event.company} | {event.programName} | {event.category}</div></div>
-          <a class="feed-source" href={event.source.url} target="_blank" rel="noreferrer">원문 ↗</a>
-        </article>
-      ))}
+      {events.slice(0, 5).map((event) => {
+        const primarySource = getPrimarySource(event);
+        const additionalSourceCount = getAdditionalSourceCount(event);
+        return (
+          <article class="feed-item">
+            <time class="feed-date" datetime={event.date}>{formatDate(event.date)}</time>
+            <div><h3 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h3><div class="feed-meta">{event.company} | {event.programName} | {event.category}</div></div>
+            {primarySource && (
+              <a class="feed-source" href={primarySource.url} target="_blank" rel="noreferrer">원문 ↗{additionalSourceCount > 0 && ` 외 ${additionalSourceCount}개`}</a>
+            )}
+          </article>
+        );
+      })}
     </div>
   </section>
 </BaseLayout>

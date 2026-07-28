@@ -31,8 +31,12 @@ const legacyProgramKeys = [
   'registryId',
   'geography',
   'programRegionContext',
+  'latestUpdate',
+  'latestUpdateDate',
+  'demonstratedDuration',
+  'platformPotential',
 ];
-const legacyEventKeys = ['asset'];
+const legacyEventKeys = ['asset', 'source'];
 
 const isDate = (value) =>
   typeof value === 'string'
@@ -189,7 +193,6 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
       'route',
       'developmentStage',
       'developmentStatus',
-      'latestUpdate',
       'readout',
       'differentiator',
       'caveat',
@@ -201,15 +204,11 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
     if (!technologyIds.has(data.deliveryTechnologyId)) {
       errors.push(`${name}: deliveryTechnologyId is not registered (${data.deliveryTechnologyId})`);
     }
-    for (const field of ['productTarget', 'demonstratedDuration', 'platformPotential']) {
+    for (const field of ['productTarget']) {
       if (!Object.hasOwn(data, field)) errors.push(`${name}: ${field} is required`);
       else validateIntervalClaim(data[field], field, name, errors);
     }
-    if (!isDate(data.latestUpdateDate)) errors.push(`${name}: latestUpdateDate must be YYYY-MM-DD`);
     if (!isDate(data.lastVerifiedAt)) errors.push(`${name}: lastVerifiedAt must be YYYY-MM-DD`);
-    if (isDate(data.latestUpdateDate) && isDate(data.lastVerifiedAt) && data.latestUpdateDate > data.lastVerifiedAt) {
-      errors.push(`${name}: latestUpdateDate cannot be after lastVerifiedAt`);
-    }
     if (typeof data.active !== 'boolean') errors.push(`${name}: active must be boolean`);
     if (!Number.isInteger(data.stageRank) || data.stageRank < 0 || data.stageRank > 100) {
       errors.push(`${name}: stageRank must be an integer 0-100`);
@@ -273,11 +272,11 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
     }
   }
 
-  const latestEventByProgram = new Map();
+  const seenEventIdentities = new Set();
   for (const { name, data } of events) {
     if (!data) continue;
     rejectLegacyKeys(data, legacyEventKeys, name, errors);
-    for (const field of ['programSlug', 'company', 'programName', 'category', 'headline', 'significance']) {
+    for (const field of ['programSlug', 'company', 'programName', 'category', 'headline', 'summary', 'significance']) {
       requireString(data, field, name, errors);
     }
     if (!programMap.has(data.programSlug)) errors.push(`${name}: missing Program reference ${data.programSlug}`);
@@ -290,18 +289,22 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
       }
     }
     if (!isDate(data.date)) errors.push(`${name}: date must be YYYY-MM-DD`);
-    validateSource(data.source, `${name} source`, errors);
-    if (isDate(data.date) && isDate(data.source?.accessedOn) && data.date > data.source.accessedOn) {
-      errors.push(`${name}: event date cannot be after source accessedOn`);
+    if (!Array.isArray(data.sources) || data.sources.length === 0) {
+      errors.push(`${name}: sources must contain at least one source`);
+    } else {
+      data.sources.forEach((source, index) => {
+        validateSource(source, `${name} sources[${index}]`, errors);
+        if (isDate(data.date) && isDate(source?.accessedOn) && data.date > source.accessedOn) {
+          errors.push(`${name}: event date cannot be after sources[${index}] accessedOn`);
+        }
+      });
     }
-    const prior = latestEventByProgram.get(data.programSlug);
-    if (!prior || data.date > prior) latestEventByProgram.set(data.programSlug, data.date);
-  }
-
-  for (const [slug, latestEvent] of latestEventByProgram) {
-    const program = programMap.get(slug);
-    if (program && isDate(program.latestUpdateDate) && latestEvent > program.latestUpdateDate) {
-      errors.push(`${slug}: latestUpdateDate ${program.latestUpdateDate} is older than latest event ${latestEvent}`);
+    if (isDate(data.date) && typeof data.headline === 'string') {
+      const identity = `${data.programSlug} ${data.date} ${data.headline}`;
+      if (seenEventIdentities.has(identity)) {
+        errors.push(`${name}: duplicate Event for the same Program, date, and headline`);
+      }
+      seenEventIdentities.add(identity);
     }
   }
 

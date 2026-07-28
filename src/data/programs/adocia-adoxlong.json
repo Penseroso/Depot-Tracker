@@ -10,17 +10,9 @@
     "minDays": 28,
     "maxDays": 31
   },
-  "demonstratedDuration": null,
-  "platformPotential": {
-    "description": "분기 1회 잠재력",
-    "minDays": 84,
-    "maxDays": 92
-  },
   "route": "피하주사(29G 이하 호환 저점도 수용액)",
   "developmentStage": "Preclinical",
   "developmentStatus": "Preclinical POC achieved",
-  "latestUpdate": "2026년 신규 AdoXLong 플랫폼을 semaglutide에 적용해 positive preliminary in vitro/in vivo 결과와 월 1회 목표를 공개했다.",
-  "latestUpdateDate": "2026-04-21",
   "lastVerifiedAt": "2026-07-28",
   "readout": "현재 활성 경쟁군에서 가장 명확한 비미립구 접근이다.",
   "differentiator": "생체적합성 polymer를 peptide에 화학적으로 연결한 저점도 수용액; depot 입자 현탁액이 아님",

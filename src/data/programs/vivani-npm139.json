@@ -10,17 +10,9 @@
     "minDays": 182,
     "maxDays": 365
   },
-  "demonstratedDuration": {
-    "description": "전임상 모델에서 1년간 지속 노출 및 20% 이상 sham-adjusted 체중감소 유지",
-    "minDays": 365,
-    "maxDays": 365
-  },
-  "platformPotential": null,
   "route": "이식형 피하 삽입 (titanium subdermal implant)",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "SLIM-1 Phase 1 호주 등록 연구 준비 중(Bellberry HREC 연구윤리 승인); Novo Nordisk와 비독점 평가 계약 체결",
-  "latestUpdate": "Vivani Medical은 2026년 6월 25일 호주 Bellberry HREC로부터 SLIM-1(NPM-139 semaglutide implant Phase 1)의 연구윤리 승인을 받았다고 발표했다. 이는 국가 규제기관 승인이 아니다. 2026년 7월 7일에는 Novo Nordisk와 NPM-139 비독점 평가 계약을 체결했다. ClinicalTrials.gov NCT07430059는 Not yet recruiting이며 예상 개시일은 2026년 7월이다.",
-  "latestUpdateDate": "2026-07-07",
   "lastVerifiedAt": "2026-07-28",
   "readout": "Novo Nordisk와 비독점 평가 계약이 체결된 semaglutide implant 후보로, 전임상 모델에서 1년간 지속 노출과 20% 이상 sham-adjusted 체중감소를 보고했다.",
   "differentiator": "NanoPortal titanium 이식형 플랫폼; 연 1~2회 투여를 지향",
