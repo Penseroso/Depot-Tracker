@@ -1,17 +1,25 @@
 ## Run scope
 
-- Mode: <!-- named-program refresh / full landscape refresh -->
+- Primary track: <!-- program refresh / program discovery -->
+- Boundary: <!-- named stored Program(s), full stored roster, or discovery boundary -->
+- Combined full-landscape run: <!-- yes / no -->
 - Programs traversed:
 - Material changes:
 
-## Candidate disposition
+## Discovery disposition
 
 | Candidate | Disposition | Reason / re-entry condition |
 | --- | --- | --- |
 |  | STORED / EXCLUDED / DEFERRED |  |
 
-- Undispositioned candidates: <!-- must be 0 for GO -->
-- Independent coverage pass: <!-- complete / incomplete / not required for named-program refresh -->
+- Undispositioned candidates: <!-- must be 0 for discovery GO; N/A for refresh -->
+- Independent coverage pass: <!-- complete / incomplete / N/A for refresh -->
+
+## Crossover
+
+- Discovery handoffs from refresh:
+- Refresh handoffs from discovery:
+- Bounded crossovers completed:
 
 ## Source access
 
@@ -31,4 +39,5 @@
 ## Completion
 
 - Status: **GO / NO-GO**
+- Track gate(s) passed: <!-- refresh / discovery / both -->
 - Remaining blocker, if NO-GO:

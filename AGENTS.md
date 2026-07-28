@@ -15,7 +15,8 @@ documentation tree by default.
 
 | Task | Required reading | Read only when needed |
 | --- | --- | --- |
-| Weekly landscape refresh or named-program research | [`docs/RESEARCH_WORKFLOW.md`](docs/RESEARCH_WORKFLOW.md), [`docs/DATA_CONTRACT.md`](docs/DATA_CONTRACT.md), [`docs/SOURCE_AND_ENTRY_POLICY.md`](docs/SOURCE_AND_ENTRY_POLICY.md) | Unrepresentable case: [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md). Blocked source: [`docs/source-access-handover/README.md`](docs/source-access-handover/README.md). |
+| Program refresh (one named Program or the stored roster) | [`docs/RESEARCH_WORKFLOW.md`](docs/RESEARCH_WORKFLOW.md), [`docs/DATA_CONTRACT.md`](docs/DATA_CONTRACT.md), [`docs/SOURCE_AND_ENTRY_POLICY.md`](docs/SOURCE_AND_ENTRY_POLICY.md) | Unrepresentable case: [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md). Blocked source in scope: [`docs/source-access-handover/README.md`](docs/source-access-handover/README.md). |
+| Program discovery (candidates not currently stored) | [`docs/RESEARCH_WORKFLOW.md`](docs/RESEARCH_WORKFLOW.md), [`docs/DATA_CONTRACT.md`](docs/DATA_CONTRACT.md), [`docs/SOURCE_AND_ENTRY_POLICY.md`](docs/SOURCE_AND_ENTRY_POLICY.md) | Unrepresentable case: [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md). Blocked source after Program identity is stable: [`docs/source-access-handover/README.md`](docs/source-access-handover/README.md). |
 | Data shape or validator change | `src/lib/schema.ts`, [`docs/DATA_CONTRACT.md`](docs/DATA_CONTRACT.md), `scripts/validate-data.mjs` | Workflow only when operator behavior changes. |
 | UI or read-model change | Relevant page/component, `src/lib/data.ts`, `src/styles/global.css`, [`docs/MVP_SCOPE.md`](docs/MVP_SCOPE.md) | Data contract only when user-facing meaning changes. |
 | Deployment | `README.md`, `.github/workflows/deploy.yml`, `astro.config.mjs` | Research policy is not required. |
@@ -24,7 +25,8 @@ documentation tree by default.
 
 | Change | Update | Do not update by default |
 | --- | --- | --- |
-| Routine research refresh | `src/data/programs/*.json`, `src/data/studies/*.json`, `src/data/events/*.json`; handover only for unresolved blockers | Contracts, workflow, UI, README |
+| Routine Program refresh | Existing in-scope `src/data/programs/*.json`, linked Studies and material Events; handover only for unresolved blockers | Contracts, workflow, UI, README |
+| Routine Program discovery | Newly qualified Program, linked Study/Event records, and handover only when required | Existing Program records except bounded crossover; contracts, workflow, UI, README |
 | Research procedure | `docs/RESEARCH_WORKFLOW.md` | Data contract and UI |
 | Source or entry semantics | `docs/SOURCE_AND_ENTRY_POLICY.md`, relevant schema/validator when required | Historical event records |
 | Data identity or field meaning | `docs/DATA_CONTRACT.md`, schema, validator, consumers | Research workflow unless behavior changes |

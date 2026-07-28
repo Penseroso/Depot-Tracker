@@ -10,37 +10,149 @@ update-boundary: Update only when research execution, completion gates, validati
 ## 1. Establish the run
 
 1. Read `AGENTS.md` and the required authorities.
-2. Inspect Program, Study, Event, registry, and schema data before research.
-3. Select one run mode:
-   - `named-program refresh` for one identified Program and its bounded evidence
-     surface;
-   - `full landscape refresh` for a landscape-wide refresh or initial landscape
-     investigation.
-4. Treat an absent Program surfaced during a full landscape run as investigation
-   and an existing Program as refresh.
-5. Confirm that required direct sources are reachable before editing.
+2. Inspect the stored Program roster, aliases, linked Studies and Events,
+   delivery-technology registry, and schema before research.
+3. Declare one primary track and its bounded scope:
+   - `program refresh`: one or more named, already stored Programs, or the full
+     stored Program roster;
+   - `program discovery`: candidates not currently stored, within a declared
+     company, technology, evidence source, time window, or full-landscape scope.
+4. Record the starting Program roster. Existing records route to refresh;
+   absent candidates route to discovery.
+5. Confirm that the direct sources required by the selected track are reachable
+   or can be handled without an unsupported change.
 6. Work on a branch and draft PR; never write directly to `main`.
 
-## 2. Discover and classify
+`named-program refresh` is retained only as a plain-language description of a
+single-Program `program refresh`; it is no longer a separate run mode.
+`full landscape refresh` is retired as an atomic mode and replaced by the
+combined run in section 8.
 
-For a `named-program refresh`, reconcile the target Program, its linked Studies,
-relevant aliases, sponsor sources, registry/regulatory sources, and candidates
-surfaced within that bounded search.
+## 2. Track A: program refresh
 
-For a `full landscape refresh`, search company and Program names/codes, obesity
-or overweight treatment payloads in explicitly sustained-release, extended-
-release, long-acting, or depot injection/implant technologies of every interval,
-registries, regulators, literature, congresses, patents, and partners as
-relevant. The scope is not limited to monthly-or-longer products. Ordinary
-weekly aqueous injections, non-injectable/non-implant DDS, diabetes-only
-candidates without obesity intent, and generic platforms without direct
-payload evidence remain excluded. Complete an independent coverage pass and
-recheck prior deferred cases.
+### Purpose and entry
 
-Every candidate ends as `STORED`, `EXCLUDED`, or `DEFERRED`. Nothing surfaced is
-silently dropped, and lack of evidence is not a catch-all exclusion.
+Use `program refresh` when the requested subject is already stored. Its purpose
+is to reconcile the latest status and evidence for the declared Program set,
+not to search the landscape for new Programs. Entry is one or more stable
+Program slugs or the explicit full stored roster.
 
-## 3. Apply the contract
+### Required evidence surface
+
+For every in-scope Program, check:
+
+- stored aliases, codes, current sources, linked Studies, and material Events;
+- current sponsor pipeline/status pages and, when relevant, releases, filings,
+  investor/R&D materials, and partner statements;
+- every linked official registry record, plus regulator records when a
+  regulatory milestone is asserted;
+- publications, congress material, and patents only where they support a stored
+  or newly encountered material claim.
+
+Recheck unresolved deferred claims and source-access handovers only when their
+Program is in the declared refresh scope. A full-roster refresh includes every
+active unresolved handover tied to a stored Program. An independent discovery
+coverage pass is not required; complete coverage of the required surfaces for
+each in-scope Program is required.
+
+Refresh findings are claim outcomes (`UPDATED`, `UNCHANGED`, or claim-level
+`DEFERRED`), not candidate dispositions. Do not relabel an already stored
+Program as `STORED`, `EXCLUDED`, or `DEFERRED`. If direct evidence shows that a
+stored record no longer meets scope, handle removal or reclassification as a
+supported refresh change; never silently delete it as a discovery exclusion.
+
+### Refresh completion gate
+
+A refresh is GO only when:
+
+1. the declared Program set and required evidence surfaces were traversed;
+2. sponsor status and all linked registry/regulatory records were reconciled;
+3. every changed classification, interval, stage, or Study fact has direct
+   support;
+4. in-scope unresolved claims and blocked sources were preserved with a
+   re-entry condition or source-access handover where necessary;
+5. every crossover finding was resolved under section 4;
+6. Event and common validation gates pass.
+
+## 3. Track B: program discovery
+
+### Purpose and entry
+
+Use `program discovery` when the objective is to find and classify Obesity
+Depot candidates absent from the starting Program roster. Entry requires a
+declared discovery boundary. General revalidation of existing Programs is not
+part of this track.
+
+### Required evidence surface
+
+Within the declared boundary, search:
+
+- company pipelines, Program names/codes, payload and formulation aliases;
+- official registries and regulator sources;
+- sponsor releases, filings, R&D/investor materials, and partner disclosures;
+- peer-reviewed literature, congress material, patents, and relevant
+  delivery-technology/platform sources.
+
+Apply the scope in the Data Contract across all intervals; do not limit
+discovery to monthly-or-longer products. Search results and secondary sources
+may surface a candidate but cannot alone qualify canonical fields.
+
+Every surfaced absent candidate must end as:
+
+- `STORED`: direct evidence satisfies scope, identity, and entry requirements,
+  and a new Program record passes validation;
+- `EXCLUDED`: direct evidence establishes an exclusion rule; record the reason;
+- `DEFERRED`: inclusion, identity, or a required direct source remains
+  unresolved; record the missing evidence and re-entry condition.
+
+Lack of evidence is not a catch-all exclusion. The undispositioned candidate
+count must be zero. A second, independent coverage pass is mandatory within the
+declared discovery boundary and must vary the query, source class, or
+investigator path rather than repeat the first pass.
+
+Recheck prior deferred candidates only when they fall inside the declared
+discovery boundary. Full-landscape discovery rechecks all recorded candidate
+deferrals and relevant unresolved source handovers. Before storing, compare
+company, aliases, payload combination, and delivery platform against the
+starting roster to prevent duplicate Program creation.
+
+### Discovery completion gate
+
+A discovery run is GO only when:
+
+1. the declared boundary and required evidence surfaces were searched;
+2. the independent coverage pass is complete;
+3. every surfaced absent candidate is `STORED`, `EXCLUDED`, or `DEFERRED`, with
+   zero undispositioned candidates;
+4. every stored candidate has direct support for scope, identity, payload,
+   record type, and delivery technology, and is not a duplicate;
+5. every deferred candidate has missing evidence and a re-entry condition;
+6. every crossover finding was resolved under section 4;
+7. Event and common validation gates pass.
+
+## 4. Bounded crossover and handoff
+
+Never ignore a material fact merely because it belongs to the other track.
+Keep crossover bounded:
+
+- During refresh, capture an absent candidate's minimum identity, why it may be
+  in scope, and best source as `DISCOVERY_HANDOFF` in the run report or draft
+  PR. Do not expand into landscape search or assign a candidate disposition
+  unless the run explicitly adds a bounded discovery track.
+- During discovery, route a material fact about a stored Program as
+  `REFRESH_HANDOFF`. A bounded crossover may update only that Program, its
+  linked Study, and directly implicated Event after completing the refresh
+  evidence surface and refresh gate for that Program.
+- A handoff is not a source-access handover. Create
+  `docs/source-access-handover/<programSlug>.md` only when source access leaves a
+  material claim unresolved for a stable stored or newly stored Program under
+  that template. An absent candidate without a stable Program identity remains
+  a `DEFERRED` discovery disposition in the run report.
+- List every handoff and bounded crossover in the run report. An unrecorded
+  material crossover is NO-GO; a recorded handoff may remain for a later run
+  when it is outside the authorized scope.
+
+## 5. Apply the contract
 
 - Reuse stable Program and Study slugs.
 - Declare ordered `payloadComponents`, `recordType`, and a registered
@@ -56,34 +168,37 @@ silently dropped, and lack of evidence is not a catch-all exclusion.
 - Add `studySlug` to an Event only when the Event identifies that Study.
 - Use `DEFERRED_SCHEMA_CASE` when directly supported evidence is not representable.
 
-## 4. Protect existing records
+## 6. Protect existing records
 
 Do not replace stronger evidence with weaker reporting, guess an identity,
 classification, interval, stage, phase, country, or status, or mechanically
-refresh dates. Recheck deferred/source-blocked cases within the selected run
-scope; a full landscape refresh includes all prior deferred cases.
+refresh dates.
 
-## 5. Completion gate
+Create an Event only for a source-dated material change that alters reader
+understanding of a stored Program or Study: development or operational status,
+stage, regulatory milestone, material human/preclinical data, product interval
+or formulation, partnership, or continuation/hold. Discovery date, initial
+classification, source reverification, and unchanged facts are not Events.
+When a newly stored Program has a directly supported material milestone, use
+the milestone date rather than inventing a discovery Event. Do not duplicate an
+existing Event.
 
-A run is GO only when the common gate passes:
+## 7. Common completion gate and validation
 
-1. sponsor status and applicable registry/regulatory records are reconciled;
-2. the aliases and evidence surfaces required by the selected run mode were
-   searched;
-3. every surfaced candidate has a disposition and the undispositioned candidate
-   count is zero;
-4. every changed classification, interval, stage, or Study fact has direct support;
-5. material changes have Events and pure reverification does not;
-6. strict schema, cross-record validation, validator regression tests, Astro
+Either track is GO only when its track gate passes and:
+
+1. all edits follow the Data Contract and Source and Entry Policy;
+2. material changes have Events and pure reverification does not;
+3. no unsupported change, silent candidate drop, or unrecorded crossover
+   remains;
+4. strict schema, cross-record validation, workflow regression tests, Astro
    checks, build, and diff checks pass.
 
-A `full landscape refresh` is GO only when the common gate passes and:
-
-1. all relevant delivery technologies and intervals were searched;
-2. an independent second discovery pass is complete;
-3. prior deferred cases were rechecked.
-
-## 6. Validate
+A source blocker is NO-GO only when it prevents a required decision or the
+requested update. If the supported state can be preserved and the blocker is
+recorded with a re-entry condition, the run may still be GO. Any failed track
+gate, undispositioned discovery candidate, unresolved duplicate identity,
+unrepresentable required fact, or failed validation is NO-GO.
 
 ```bash
 npm run data:validate
@@ -96,9 +211,28 @@ git diff --check
 
 Staleness is advisory. Validation cannot replace source review.
 
-## 7. Report
+## 8. Full landscape combination
 
-Report investigation/refresh mode, traversed and changed Programs/Studies,
-candidate dispositions, undispositioned count, material Events, source blockers,
-validation results, and final GO/NO-GO. When nothing changed, do not edit data
-solely to create a commit.
+A full-landscape operation is a run plan, not a third research track:
+
+1. run `program refresh` across the full starting roster and all active
+   Program-linked source handovers;
+2. freeze the refreshed roster and aliases as the discovery collision baseline;
+3. run full-scope `program discovery`, including its independent coverage pass
+   and all recorded candidate deferrals;
+4. resolve discovery facts about stored Programs through bounded refresh
+   crossover or explicit handoff;
+5. run the common validation once over the combined diff and report GO only
+   when both track gates pass.
+
+This order reduces duplicate discovery and prevents stale aliases from creating
+new Program identities. A newly `STORED` candidate completes the discovery gate
+and does not require a redundant full refresh in the same run.
+
+## 9. Report
+
+Report the primary track and boundary; traversed and changed Programs/Studies;
+discovery dispositions and undispositioned count when applicable; independent
+coverage status when applicable; crossover handoffs; material Events; deferred
+and source-blocked claims; validation results; and final GO/NO-GO. When nothing
+changed, do not edit data solely to create a commit.

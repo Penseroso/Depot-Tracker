@@ -97,13 +97,15 @@ STALE_DAYS=45 npm run data:staleness
 운영 상태, 투여 간격, 제형, 사람 자료, 파트너십, 지속 여부 변화만 event로
 기록합니다.
 
-## 권장 전체 landscape 갱신 운영
+## 조사 트랙과 전체 landscape 운영
 
 ```text
 Scheduled agent research
-  -> existing JSON과 외부 직접 출처 비교
-  -> 모든 후보를 STORED / EXCLUDED / DEFERRED로 분류
-  -> 독립 coverage pass
+  -> program refresh: 저장된 Program과 직접 출처·registry 비교
+  -> refreshed roster와 alias를 discovery 기준선으로 고정
+  -> program discovery: 미저장 후보를 STORED / EXCLUDED / DEFERRED로 분류
+  -> discovery 독립 coverage pass
+  -> crossover fact를 bounded update 또는 handoff로 처리
   -> 필요한 JSON과 event만 수정
   -> validation + build
   -> Draft PR
