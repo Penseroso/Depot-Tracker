@@ -22,7 +22,7 @@
   "programRegionContext": "프랑스",
   "latestUpdate": "2026년 신규 AdoXLong 플랫폼을 semaglutide에 적용해 positive preliminary in vitro/in vivo 결과와 월 1회 목표를 공개했다.",
   "latestUpdateDate": "2026-04-21",
-  "lastVerifiedAt": "2026-07-27",
+  "lastVerifiedAt": "2026-07-28",
   "readout": "현재 활성 경쟁군에서 가장 명확한 비미립구 접근이다.",
   "differentiator": "생체적합성 polymer를 peptide에 화학적으로 연결한 저점도 수용액; depot 입자 현탁액이 아님",
   "caveat": "약물-고분자 결합체의 임상 PK, 면역원성, 대사·제거 및 CMC 데이터는 아직 공개되지 않았다. 분기 1회는 플랫폼 잠재력이지 제품 확정 목표가 아니다.",
@@ -41,6 +41,12 @@
       "url": "https://www.adocia.com/products-and-platform/pipeline-2/",
       "sourceType": "company",
       "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "Adocia current pipeline page (AdoXLong Sema: Preclinical POC achieved)",
+      "url": "https://www.adocia.com/products-and-platform/pipeline/",
+      "sourceType": "company",
+      "accessedOn": "2026-07-28"
     }
   ]
 }

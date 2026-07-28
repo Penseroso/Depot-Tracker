@@ -18,7 +18,7 @@
   "programRegionContext": "대한민국",
   "latestUpdate": "2026년 6월 공시 기준 비임상 독성 진행 중이며, ADA 2026에서 DIO rat의 용량 의존적 체중감소 비임상 결과를 공개했다.",
   "latestUpdateDate": "2026-06-01",
-  "lastVerifiedAt": "2026-07-27",
+  "lastVerifiedAt": "2026-07-28",
   "readout": "유한양행과 공동개발 중인 월 1회 semaglutide 프로그램으로 공시상 개발 단계가 추적 가능하다.",
   "differentiator": "IVL-DrugFluidic microfluidic microsphere; 초기 과방출 억제와 scale-up 재현성 지향",
   "caveat": "IND 계획은 일정 목표이며 제출·승인이 아니다. 사람 대상 데이터는 없다.",
@@ -43,6 +43,12 @@
       "url": "https://inventagelab.com/ko/press-room/67?tab=press-releases",
       "sourceType": "company",
       "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "팜이데일리, 인벤티지랩 IVL3021 임상 1상 IND 목표",
+      "url": "https://pharm.edaily.co.kr/News/Read?newsId=02102486639019136",
+      "sourceType": "secondary",
+      "accessedOn": "2026-07-28"
     }
   ]
 }
