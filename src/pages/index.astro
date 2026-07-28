@@ -25,9 +25,9 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
   </section>
 
   <section class="metric-strip" aria-label="핵심 지표">
-    <div class="metric"><div class="metric-label">PROGRAMS</div><div class="metric-value">{summary.total}</div><div class="metric-note">{summary.total} programs · {summary.active} currently active</div></div>
+    <div class="metric"><div class="metric-label">PROGRAMS</div><div class="metric-value">{summary.total}</div><div class="metric-note">{summary.total} programs | {summary.active} currently active</div></div>
     <div class="metric"><div class="metric-label">TRIAL REGISTRATIONS</div><div class="metric-value">{summary.trialRegistrations}</div><div class="metric-note">ClinicalTrials.gov, CTIS 등 전체 registry 등록 수</div></div>
-    <div class="metric"><div class="metric-label">PATENT-LINKED PROGRAMS</div><div class="metric-value">{summary.patentLinkedPrograms}</div><div class="metric-note">{summary.patentLinkedPrograms} of {summary.total} programs · {summary.patentLinkedPercent}%</div></div>
+    <div class="metric"><div class="metric-label">PATENT-LINKED PROGRAMS</div><div class="metric-value">{summary.patentLinkedPrograms}</div><div class="metric-note">{summary.patentLinkedPrograms} of {summary.total} programs | {summary.patentLinkedPercent}%</div></div>
   </section>
 
   <section class="section">

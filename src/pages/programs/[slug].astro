@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import StageBadge from '../../components/StageBadge.astro';
 import ConfidenceBadge from '../../components/ConfidenceBadge.astro';
 import EventEntry from '../../components/EventEntry.astro';
+import TimelineEntry from '../../components/TimelineEntry.astro';
 import { getDeliveryTechnologies, getEvents, getEventsForProgram, getPrograms, getStudies } from '../../lib/data';
 import { formatDate, formatIntervalClaim, formatPayloadComponents, stageLabel } from '../../lib/format';
 
@@ -26,8 +27,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const studyBySlug = new Map(studies.map((study) => [study.slug, study]));
 const latestEvent = events[0] ?? null;
-const timelineHead = events.slice(0, 5);
-const timelineRest = events.slice(5);
+const earlierEvents = events.slice(1);
+const timelineHead = earlierEvents.slice(0, 5);
+const timelineRest = earlierEvents.slice(5);
 ---
 <BaseLayout title={`${program.programName} | Obesity Depot Tracker`} activePath="/programs/">
   <a class="text-link" href={`${base}/programs/`}>← Program register</a>
@@ -41,7 +43,7 @@ const timelineRest = events.slice(5);
       <section class="detail-section">
         <p class="eyebrow">Latest development</p>
         {latestEvent ? (
-          <EventEntry event={latestEvent} study={latestEvent.studySlug ? studyBySlug.get(latestEvent.studySlug) : undefined} variant="highlight" />
+          <EventEntry event={latestEvent} study={latestEvent.studySlug ? studyBySlug.get(latestEvent.studySlug) : undefined} />
         ) : (
           <p class="event-empty">기록된 material change가 없습니다.</p>
         )}
@@ -49,35 +51,33 @@ const timelineRest = events.slice(5);
 
       <section class="detail-section">
         <h2>Evidence snapshot</h2>
-        <div class="detail-subsection"><h3>Evidence summary</h3><p>{program.readout}</p></div>
-        <div class="detail-subsection"><h3>Formulation rationale</h3><p>{program.differentiator}</p></div>
-        <div class="detail-subsection"><h3>Interpretation limits</h3><div class="alert-box">{program.caveat}</div></div>
+        <div class="evidence-grid">
+          <div class="detail-subsection"><h3>Evidence summary</h3><p>{program.readout}</p></div>
+          <div class="detail-subsection"><h3>Formulation rationale</h3><p>{program.differentiator}</p></div>
+          <div class="detail-subsection"><h3>Interpretation limits</h3><p>{program.caveat}</p></div>
+        </div>
       </section>
 
-      <section class="detail-section">
-        <h2>Development timeline</h2>
-        {events.length > 0 ? (
-          <>
-            <div class="timeline">
-              {timelineHead.map((event) => (
-                <EventEntry event={event} study={event.studySlug ? studyBySlug.get(event.studySlug) : undefined} />
-              ))}
-            </div>
-            {timelineRest.length > 0 && (
-              <details class="timeline-more">
-                <summary>이전 이력 {timelineRest.length}건 더 보기</summary>
-                <div class="timeline">
-                  {timelineRest.map((event) => (
-                    <EventEntry event={event} study={event.studySlug ? studyBySlug.get(event.studySlug) : undefined} />
-                  ))}
-                </div>
-              </details>
-            )}
-          </>
-        ) : (
-          <p class="event-empty">기록된 material change가 없습니다.</p>
-        )}
-      </section>
+      {earlierEvents.length > 0 && (
+        <section class="detail-section">
+          <h2>Earlier developments</h2>
+          <ol class="chrono">
+            {timelineHead.map((event) => (
+              <TimelineEntry event={event} study={event.studySlug ? studyBySlug.get(event.studySlug) : undefined} />
+            ))}
+          </ol>
+          {timelineRest.length > 0 && (
+            <details class="timeline-more">
+              <summary>이전 이력 {timelineRest.length}건 더 보기</summary>
+              <ol class="chrono">
+                {timelineRest.map((event) => (
+                  <TimelineEntry event={event} study={event.studySlug ? studyBySlug.get(event.studySlug) : undefined} />
+                ))}
+              </ol>
+            </details>
+          )}
+        </section>
+      )}
 
       {studies.length > 0 && (
         <section class="detail-section">
@@ -102,7 +102,7 @@ const timelineRest = events.slice(5);
       )}
       {patents.length > 0 && (
         <section class="detail-section">
-          <h2>연결 Patent</h2>
+          <h2>Linked patents</h2>
           <div class="panel panel-pad source-list">
             {patents.map((patent) => (
               <a class="source-link" href={patent.url} target="_blank" rel="noreferrer">

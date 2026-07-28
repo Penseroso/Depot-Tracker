@@ -5,15 +5,14 @@ import type { Study, TrackerEvent } from '../lib/schema';
 interface Props {
   event: TrackerEvent;
   study?: Study;
-  variant?: 'highlight' | 'timeline';
 }
 
-const { event, study, variant = 'timeline' } = Astro.props;
+const { event, study } = Astro.props;
 const sources = event.sources.filter((source) => source.url !== study?.registrySource.url);
 ---
-<article class={variant === 'highlight' ? 'event-highlight' : 'timeline-item'} id={variant === 'timeline' ? event.slug : undefined}>
-  <div class="event-meta">{formatDate(event.date)} · {event.category}</div>
-  <h3 class={variant === 'highlight' ? 'event-headline event-headline-lg' : 'event-headline'}>{event.headline}</h3>
+<article class="event-highlight">
+  <div class="event-meta">{formatDate(event.date)} | {event.category}</div>
+  <h3 class="event-headline event-headline-lg">{event.headline}</h3>
   <p class="event-summary">{event.summary}</p>
   {study && (
     <a class="event-study-link" href={study.registrySource.url} target="_blank" rel="noreferrer">

@@ -1,0 +1,33 @@
+---
+import { formatDate } from '../lib/format';
+import type { Study, TrackerEvent } from '../lib/schema';
+
+interface Props {
+  event: TrackerEvent;
+  study?: Study;
+}
+
+const { event, study } = Astro.props;
+const sources = event.sources.filter((source) => source.url !== study?.registrySource.url);
+---
+<li class="chrono-item" id={event.slug}>
+  <div class="chrono-date">{formatDate(event.date)}</div>
+  <div class="chrono-track"><span class="chrono-dot"></span><span class="chrono-line"></span></div>
+  <div class="chrono-body">
+    <div class="event-meta">{event.category}</div>
+    <h3 class="event-headline">{event.headline}</h3>
+    <p class="event-summary">{event.summary}</p>
+    {study && (
+      <a class="event-study-link" href={study.registrySource.url} target="_blank" rel="noreferrer">
+        연결 Study: {study.registry} {study.registryId} ↗
+      </a>
+    )}
+    {sources.length > 0 && (
+      <div class="event-sources">
+        {sources.map((source) => (
+          <a class="event-source-link" href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a>
+        ))}
+      </div>
+    )}
+  </div>
+</li>

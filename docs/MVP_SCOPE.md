@@ -21,6 +21,15 @@
 - stale-record advisory와 GitHub Pages 배포
 - 주간 에이전트 조사 → Draft PR → 사람 승인 운영
 
+## UI 표기 규칙
+
+- 가운뎃점(`·`)은 UI가 구성하는 구분자(날짜·category, KPI 보조 문구 등)로
+  사용하지 않는다. 여러 데이터 필드를 한 줄에 이어 붙일 때는 사이트 전역에서
+  이미 쓰는 `|` 구분자를 사용한다(예: 홈 히어로 eyebrow, feed-meta).
+- Program·Study·Event의 저장 텍스트(headline, summary, readout 등) 안에서
+  한국어 표기 관행으로 쓰인 가운뎃점(예: "안전성·내약성", "주사·삽입")은
+  데이터이지 UI 구분자가 아니므로 이 규칙과 무관하며 그대로 둔다.
+
 ## 의도적으로 제외
 
 - Arm·Endpoint·Outcome와 결과 수준 임상 모델
