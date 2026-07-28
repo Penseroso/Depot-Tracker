@@ -1,15 +1,12 @@
 import { useMemo, useState, type ChangeEvent } from 'react';
 import { Search } from 'lucide-react';
-import type { DeliveryTechnology, Program, Study } from '../lib/schema';
+import type { DeliveryTechnology, Program } from '../lib/schema';
 import {
   formatDate,
   formatIntervalClaim,
   formatPayloadComponents,
-  getProductTargetIntervalBuckets,
-  intervalBucketLabels,
   stageLabel,
 } from '../lib/format';
-import type { IntervalBucketId } from '../lib/format';
 
 function stageClass(stage: string) {
   if (stage.includes('Registered')) return 'badge badge-clinical';
@@ -25,25 +22,16 @@ function recordTypeLabel(value: Program['recordType']) {
 
 type Props = {
   programs: Program[];
-  studies: Study[];
   deliveryTechnologies: DeliveryTechnology[];
   basePath: string;
   asOfDate: string;
 };
 
-export default function ProgramExplorer({ programs, studies, deliveryTechnologies, basePath, asOfDate }: Props) {
+export default function ProgramExplorer({ programs, deliveryTechnologies, basePath, asOfDate }: Props) {
   const [query, setQuery] = useState('');
   const [stage, setStage] = useState('all');
   const [technology, setTechnology] = useState('all');
-  const [interval, setInterval] = useState<IntervalBucketId | 'all'>('all');
   const [recordType, setRecordType] = useState('all');
-  const [activity, setActivity] = useState('active');
-
-  const studiesByProgram = useMemo(() => {
-    const map = new Map<string, Study[]>();
-    studies.forEach((study) => map.set(study.programSlug, [...(map.get(study.programSlug) ?? []), study]));
-    return map;
-  }, [studies]);
 
   const technologyById = useMemo(
     () => new Map(deliveryTechnologies.map((item) => [item.id, item])),
@@ -53,7 +41,6 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
   const filtered = useMemo(() => {
     const needle = query.trim().toLocaleLowerCase('ko-KR');
     return programs.filter((program) => {
-      const linkedStudies = studiesByProgram.get(program.slug) ?? [];
       const haystack = [
         program.company,
         program.programName,
@@ -62,7 +49,6 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         program.productTarget?.description,
         program.demonstratedDuration?.description,
         program.platformPotential?.description,
-        ...linkedStudies.flatMap((study) => study.countries),
       ]
         .filter(Boolean)
         .join(' ')
@@ -71,12 +57,10 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         (!needle || haystack.includes(needle))
         && (stage === 'all' || program.developmentStage === stage)
         && (technology === 'all' || program.deliveryTechnologyId === technology)
-        && (interval === 'all' || getProductTargetIntervalBuckets(program.productTarget).includes(interval))
         && (recordType === 'all' || program.recordType === recordType)
-        && (activity === 'all' || (activity === 'active' ? program.active : !program.active))
       );
     });
-  }, [programs, studiesByProgram, query, stage, technology, interval, recordType, activity]);
+  }, [programs, query, stage, technology, recordType]);
 
   return (
     <section className="filter-shell">
@@ -84,7 +68,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         <label style={{ position: 'relative' }}>
           <span className="sr-only">검색</span>
           <Search size={16} style={{ position: 'absolute', left: 12, top: 13, color: '#62706d' }} />
-          <input className="control" style={{ paddingLeft: 38 }} value={query} onChange={(event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)} placeholder="회사, 프로그램, Payload, 제형, 임상 국가 검색" />
+          <input className="control" style={{ paddingLeft: 38 }} value={query} onChange={(event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)} placeholder="회사, 프로그램, Payload, 제형 검색" />
         </label>
         <select className="control" value={stage} onChange={(event: ChangeEvent<HTMLSelectElement>) => setStage(event.target.value)} aria-label="개발 단계">
           <option value="all">모든 단계</option>
@@ -94,19 +78,10 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
           <option value="all">모든 제형</option>
           {deliveryTechnologies.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
         </select>
-        <select className="control" value={interval} onChange={(event: ChangeEvent<HTMLSelectElement>) => setInterval(event.target.value as IntervalBucketId | 'all')} aria-label="투여 간격">
-          <option value="all">모든 간격</option>
-          {Object.entries(intervalBucketLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
-        </select>
         <select className="control" value={recordType} onChange={(event: ChangeEvent<HTMLSelectElement>) => setRecordType(event.target.value)} aria-label="레코드 유형">
           <option value="all">모든 유형</option>
           <option value="sponsor-program">Sponsor program</option>
           <option value="technology-watch">Technology watch</option>
-        </select>
-        <select className="control" value={activity} onChange={(event: ChangeEvent<HTMLSelectElement>) => setActivity(event.target.value)} aria-label="활성 상태">
-          <option value="active">활성 프로그램</option>
-          <option value="all">전체</option>
-          <option value="inactive">보류, 비활성</option>
         </select>
       </div>
       <div className="resultbar"><span>{filtered.length}개 항목</span><span>최근 검증일 {formatDate(asOfDate)}</span></div>

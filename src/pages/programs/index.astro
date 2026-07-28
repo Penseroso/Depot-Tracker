@@ -19,5 +19,5 @@ const asOfDate = [
       <a class="button button-primary" href={`${base}/api/snapshot.json`} download>JSON snapshot</a>
     </div>
   </header>
-  <ProgramExplorer programs={programs} studies={studies} deliveryTechnologies={deliveryTechnologies} basePath={base} asOfDate={asOfDate} client:load />
+  <ProgramExplorer programs={programs} deliveryTechnologies={deliveryTechnologies} basePath={base} asOfDate={asOfDate} client:load />
 </BaseLayout>

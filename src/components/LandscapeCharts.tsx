@@ -48,7 +48,7 @@ export default function LandscapeCharts({ programs, deliveryTechnologies }: { pr
               <XAxis type="number" allowDecimals={false} axisLine={false} tickLine={false} />
               <YAxis type="category" dataKey="name" width={108} axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#62706d' }} />
               <Tooltip cursor={{ fill: '#f1f6f5' }} />
-              <Bar dataKey="value" radius={[0, 7, 7, 0]} isAnimationActive={false} />
+              <Bar dataKey="value" name="asset" radius={[0, 7, 7, 0]} isAnimationActive={false} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -78,7 +78,7 @@ export default function LandscapeCharts({ programs, deliveryTechnologies }: { pr
               <XAxis type="number" allowDecimals={false} axisLine={false} tickLine={false} />
               <YAxis type="category" dataKey="name" width={100} axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#62706d' }} />
               <Tooltip cursor={{ fill: '#f1f6f5' }} />
-              <Bar dataKey="value" radius={[0, 7, 7, 0]} isAnimationActive={false} />
+              <Bar dataKey="value" name="asset" radius={[0, 7, 7, 0]} isAnimationActive={false} />
             </BarChart>
           </ResponsiveContainer>
         </div>
