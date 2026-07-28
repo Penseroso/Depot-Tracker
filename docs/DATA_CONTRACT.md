@@ -51,8 +51,6 @@ Each `src/data/programs/*.json` stores one Program or technology-watch item.
   claims; none may substitute for another.
 - `developmentStage`: overall Program maturity.
 - `developmentStatus`: Program-level development status, not Study recruitment.
-- `programRegionContext`: free-text development, nonclinical, or rights context.
-  It is searchable/displayable but never a Study-country fact.
 - `active`, `stageRank`, update dates, interpretation fields, confidence, and
   sources retain their existing meanings.
 
@@ -115,9 +113,8 @@ Each strict `src/data/studies/*.json` contains:
   status, raw registry status, and countries;
 - `lastVerifiedAt`: the date this Study was actually rechecked.
 
-Program stage and Study phase/status are independent. Study countries never
-derive from `programRegionContext`. Arm, Endpoint, Outcome, and normalized phase
-models are intentionally absent.
+Program stage and Study phase/status are independent. Arm, Endpoint, Outcome,
+and normalized phase models are intentionally absent.
 
 ## Event
 

@@ -17,15 +17,15 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
 <BaseLayout title="Semaglutide Depot Tracker" activePath="/">
   <section class="hero">
     <div>
-      <p class="eyebrow">Competitive intelligence · verified {summary.asOfDate ? formatDate(summary.asOfDate) : '—'}</p>
+      <p class="eyebrow">Competitive intelligence | verified {summary.asOfDate ? formatDate(summary.asOfDate) : '—'}</p>
       <h1>Semaglutide depot landscape</h1>
     </div>
   </section>
 
   <section class="metric-strip" aria-label="핵심 지표">
-    <div class="metric"><div class="metric-label">TRACKED</div><div class="metric-value">{summary.total}</div><div class="metric-note">프로그램·기술 항목</div></div>
+    <div class="metric"><div class="metric-label">TRACKED</div><div class="metric-value">{summary.total}</div><div class="metric-note">프로그램, 기술 항목</div></div>
     <div class="metric"><div class="metric-label">ACTIVE</div><div class="metric-value">{summary.active}</div><div class="metric-note">활성 추적 항목</div></div>
-    <div class="metric"><div class="metric-label">HUMAN / REGULATORY</div><div class="metric-value">{summary.clinicalOrHuman}</div><div class="metric-note">사람 PK·IND·등록 임상</div></div>
+    <div class="metric"><div class="metric-label">HUMAN / REGULATORY</div><div class="metric-value">{summary.clinicalOrHuman}</div><div class="metric-note">사람 PK, IND, 등록 임상</div></div>
     <div class="metric"><div class="metric-label">REGISTERED STUDIES</div><div class="metric-value">{summary.registeredStudies}</div><div class="metric-note">연결된 등록 임상</div></div>
   </section>
 
@@ -66,7 +66,7 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
       {events.slice(0, 5).map((event) => (
         <article class="feed-item">
           <time class="feed-date" datetime={event.date}>{formatDate(event.date)}</time>
-          <div><h3 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h3><div class="feed-meta">{event.company} · {event.programName} · {event.category}</div></div>
+          <div><h3 class="feed-title"><a class="row-link" href={`${base}/programs/${event.programSlug}/`}>{event.headline}</a></h3><div class="feed-meta">{event.company} | {event.programName} | {event.category}</div></div>
           <a class="feed-source" href={event.source.url} target="_blank" rel="noreferrer">원문 ↗</a>
         </article>
       ))}

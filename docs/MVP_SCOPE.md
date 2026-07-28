@@ -9,7 +9,7 @@
 - 제품 목표·입증 기간·플랫폼 잠재력 및 일수 범위
 - 검색, 단계, 제형, 목표 간격, record type, 활성 상태 필터
 - 개발 단계·제형·제품 목표 간격 시각화
-- Program 상세와 연결 Study 표시
+- Program 상세와 연결 Study, Patent 표시
 - stable Program/Study slug에 연결된 Event
 - Program CSV, Study CSV, 통합 JSON snapshot
 - strict Zod와 교차-record validator 및 validator regression tests

@@ -25,6 +25,7 @@ const legacyProgramKeys = [
   'regulatoryStatus',
   'registryId',
   'geography',
+  'programRegionContext',
 ];
 const legacyEventKeys = ['asset'];
 
@@ -146,7 +147,6 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
       'route',
       'developmentStage',
       'developmentStatus',
-      'programRegionContext',
       'latestUpdate',
       'readout',
       'differentiator',

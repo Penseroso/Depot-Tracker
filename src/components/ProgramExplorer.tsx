@@ -2,7 +2,6 @@ import { useMemo, useState, type ChangeEvent } from 'react';
 import { Search } from 'lucide-react';
 import type { DeliveryTechnology, Program, Study } from '../lib/schema';
 import {
-  confidenceLabel,
   formatDate,
   formatIntervalClaim,
   getIntervalBucket,
@@ -60,7 +59,6 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         program.productTarget?.description,
         program.demonstratedDuration?.description,
         program.platformPotential?.description,
-        program.programRegionContext,
         ...linkedStudies.flatMap((study) => study.countries),
       ]
         .filter(Boolean)
@@ -105,7 +103,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         <select className="control" value={activity} onChange={(event: ChangeEvent<HTMLSelectElement>) => setActivity(event.target.value)} aria-label="활성 상태">
           <option value="active">활성 프로그램</option>
           <option value="all">전체</option>
-          <option value="inactive">보류·비활성</option>
+          <option value="inactive">보류, 비활성</option>
         </select>
       </div>
       <div className="resultbar"><span>{filtered.length}개 항목</span><span>검증 기준일 {formatDate(asOfDate)}</span></div>
@@ -113,7 +111,7 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
         {filtered.length ? (
           <div className="data-table-wrap">
             <table className="data-table">
-              <thead><tr><th>프로그램</th><th>유형</th><th>제형</th><th>제품 목표</th><th>단계</th><th>상태</th><th>업데이트</th><th>신뢰도</th></tr></thead>
+              <thead><tr><th>프로그램</th><th>유형</th><th>제형</th><th>제품 목표</th><th>단계</th><th>상태</th><th>업데이트</th></tr></thead>
               <tbody>
                 {filtered.map((program) => (
                   <tr key={program.slug}>
@@ -124,7 +122,6 @@ export default function ProgramExplorer({ programs, studies, deliveryTechnologie
                     <td><span className={stageClass(program.developmentStage)}>{stageLabel(program.developmentStage)}</span></td>
                     <td><span className="cell-sub" style={{ maxWidth: 260 }}>{program.developmentStatus}</span></td>
                     <td>{formatDate(program.latestUpdateDate)}</td>
-                    <td><span className={`badge badge-confidence-${program.confidence.toLowerCase()}`}>{confidenceLabel(program.confidence)}</span></td>
                   </tr>
                 ))}
               </tbody>

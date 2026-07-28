@@ -33,7 +33,6 @@ function createValidDataset() {
         route: 'Subcutaneous injection',
         developmentStage: 'Preclinical',
         developmentStatus: 'Preclinical',
-        programRegionContext: 'South Korea',
         latestUpdate: 'Fixture update',
         latestUpdateDate: '2026-07-27',
         lastVerifiedAt: '2026-07-27',
@@ -115,6 +114,12 @@ test('legacy Program key fails', () => {
   const data = createValidDataset();
   data.programs[0].data.asset = 'Legacy name';
   assert.match(validateDatasetRecords(data).errors.join('\n'), /legacy field asset/);
+});
+
+test('removed Program region context fails', () => {
+  const data = createValidDataset();
+  data.programs[0].data.programRegionContext = 'South Korea';
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /legacy field programRegionContext/);
 });
 
 test('Study registry provenance must use a registry source', () => {

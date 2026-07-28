@@ -43,7 +43,6 @@ export const programSchema = z.object({
     'Paused',
   ]),
   developmentStatus: z.string().min(1),
-  programRegionContext: z.string().min(1),
   latestUpdate: z.string().min(1),
   latestUpdateDate: z.iso.date(),
   lastVerifiedAt: z.iso.date(),
