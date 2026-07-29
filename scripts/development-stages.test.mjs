@@ -19,6 +19,21 @@ test('all canonical stages have display labels', () => {
   }
 });
 
+test('registered clinical stages omit provenance wording in display labels', () => {
+  assert.deepEqual(
+    [
+      'Registered Phase I',
+      'Registered Phase I/II',
+      'Registered Phase I/IIa',
+      'Registered Phase II',
+      'Registered Phase II/III',
+      'Registered Phase III',
+      'Registered Phase IV',
+    ].map(getStageLabel),
+    ['1상', '1/2상', '1/2a상', '2상', '2/3상', '3상', '4상'],
+  );
+});
+
 test('stage badges cover lifecycle and terminal states', () => {
   assert.equal(getStageBadgeClass('Discovery'), 'badge badge-preclinical');
   assert.equal(getStageBadgeClass('IND cleared'), 'badge badge-ind');

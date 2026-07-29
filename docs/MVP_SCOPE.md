@@ -39,6 +39,12 @@
   잘 전달되지 않는다. Program detail 헤더에는 표시하지 않는다. 데이터
   필드와 CSV/JSON export는 그대로 유지하며, 이 규칙은 UI 노출 여부에만
   적용된다.
+- 홈의 Priority watchlist와 Program register는 개발 단계가 후기인
+  Program부터 기본 정렬한다. 같은 개발 단계에서는 최근 Event 날짜,
+  회사명, Program명 순으로 정렬한다.
+- 내부 `Registered Phase` 단계명은 registry 등록으로 단계가 확인됐다는
+  provenance를 보존하지만, 화면에는 `등록` 없이 `1상`, `1/2상`, `3상`
+  같은 간결한 개발 단계 라벨로 표시한다.
 
 ## 의도적으로 제외
 

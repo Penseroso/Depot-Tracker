@@ -1,4 +1,7 @@
+import { stageOrder } from './development-stages.js';
+
 const significanceRank = { High: 0, Medium: 1, Low: 2 };
+const developmentStageRank = new Map(stageOrder.map((stage, index) => [stage, index]));
 
 export function compareEvents(a, b) {
   return (
@@ -28,12 +31,13 @@ export function getAdditionalSourceCount(event) {
   return Math.max(event.sources.length - 1, 0);
 }
 
-export function compareProgramsByActivity(a, b, latestEventDateBySlug) {
+export function compareProgramsByDevelopmentStage(a, b, latestEventDateBySlug) {
   const aDate = latestEventDateBySlug.get(a.slug) ?? '';
   const bDate = latestEventDateBySlug.get(b.slug) ?? '';
   return (
-    bDate.localeCompare(aDate)
-    || b.stageRank - a.stageRank
+    (developmentStageRank.get(a.developmentStage) ?? stageOrder.length)
+      - (developmentStageRank.get(b.developmentStage) ?? stageOrder.length)
+    || bDate.localeCompare(aDate)
     || a.company.localeCompare(b.company)
     || a.programName.localeCompare(b.programName)
   );
