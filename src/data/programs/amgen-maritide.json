@@ -1,0 +1,37 @@
+{
+  "company": "Amgen",
+  "programName": "MariTide (maridebart cafraglutide; AMG 133)",
+  "payloadComponents": ["maridebart cafraglutide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "long-acting antibody-peptide conjugate",
+  "productTarget": {
+    "description": "4주, 8주 또는 12주 간격",
+    "minDays": 28,
+    "maxDays": 84
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase III",
+  "developmentStatus": "MARITIME Phase III 프로그램 진행 중",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "비당뇨 비만 Phase II에서 52주 efficacy estimand 평균 체중감소가 최대 19.9%였고, Phase III 연장시험은 Q4W, Q8W 또는 Q12W 유지 투여를 평가한다.",
+  "differentiator": "GLP-1R agonist peptide와 GIPR antagonist antibody를 결합한 장기작용 conjugate.",
+  "caveat": "12주 간격은 Phase III 연장시험의 평가군이며 승인된 간격이나 확정 상용 용법이 아니다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 100,
+  "sources": [
+    {
+      "label": "Amgen Q1 2026 MariTide update",
+      "url": "https://investors.amgen.com/news-releases/news-release-details/c-o-r-r-e-c-t-i-o-n-amgen-0/",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT06858839",
+      "url": "https://clinicaltrials.gov/study/NCT06858839",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "programSlug": "pfizer-berobenatide",
+  "studySlug": "nct07595549",
+  "date": "2026-06-06",
+  "company": "Pfizer",
+  "programName": "berobenatide",
+  "category": "Clinical",
+  "headline": "월 1회 berobenatide Phase III VESPER-6 개시",
+  "summary": "Pfizer는 월 1회 유지 투여를 평가하는 pivotal Phase III VESPER-6가 모집을 시작했다고 발표했다. 이는 주 1회 Phase III와 별도의 월간 등록개발 경로다.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "Pfizer berobenatide ADA update, 2026-06-06",
+      "url": "https://www.pfizer.com/news/press-release/press-release-detail/robust-phase-2b-efficacy-and-favorable-tolerability-support",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

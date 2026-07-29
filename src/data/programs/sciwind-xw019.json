@@ -1,0 +1,31 @@
+{
+  "company": "Sciwind Biosciences",
+  "programName": "XW019",
+  "payloadComponents": ["xw019"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "undisclosed once-monthly injectable technology",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "주사(세부 경로 미공개)",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "비임상; 2027년 상반기 IND 제출 계획",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "복수 표적을 겨냥하는 월 1회 비만 주사 후보로 비임상 단계다.",
+  "differentiator": "표적과 제형은 비공개지만 sponsor filing이 QM injection으로 명시한다.",
+  "caveat": "표적, 제형 및 비임상 수치가 공개되지 않았고 IND 일정은 계획이다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 35,
+  "sources": [
+    {
+      "label": "Sciwind HKEX draft prospectus, 2026-03-23",
+      "url": "https://www.hkexnews.hk/app/sehk/2026/108322/documents/sehk26032301281.pdf",
+      "sourceType": "filing",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

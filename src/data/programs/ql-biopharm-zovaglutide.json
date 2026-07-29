@@ -1,0 +1,37 @@
+{
+  "company": "QL Biopharm",
+  "programName": "zovaglutide (ZT002)",
+  "payloadComponents": ["zovaglutide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "QLLong dual-fatty-acid half-life extension",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase III",
+  "developmentStatus": "중국 HORIZON-1 Phase III 등록; sponsor는 첫 투여 완료 보고",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "약 12일 사람 반감기를 갖도록 설계된 월 1회 GLP-1RA peptide이며 중국 비만 Phase III가 등록됐다.",
+  "differentiator": "두 C18 fatty-acid chain과 C-terminal extension으로 albumin 결합과 월간 노출을 지향한다.",
+  "caveat": "ClinicalTrials.gov는 2025년 12월 갱신 이후 not-yet-recruiting으로 남아 sponsor의 2026년 1월 첫 투여 보고와 상태 시차가 있다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 100,
+  "sources": [
+    {
+      "label": "QL Biopharm HKEX draft prospectus, 2026-04-24",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108464/documents/sehk26042404195.pdf",
+      "sourceType": "filing",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07230119",
+      "url": "https://clinicaltrials.gov/study/NCT07230119",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "programSlug": "pfizer-berobenatide-pf08653945",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT06924320",
+  "phase": "Phase 1 | Phase 2",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
+  "countries": ["Canada", "United States"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT06924320",
+    "url": "https://clinicaltrials.gov/study/NCT06924320",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-29"
+  },
+  "lastVerifiedAt": "2026-07-29"
+}

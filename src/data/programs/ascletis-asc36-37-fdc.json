@@ -1,0 +1,31 @@
+{
+  "company": "Ascletis Pharma",
+  "programName": "ASC36_37 FDC",
+  "payloadComponents": ["asc36", "asc37"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "in-situ-forming-depot",
+  "deliveryTechnology": "Self-Assembling Lipid Depot (SALD) co-formulation",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "비임상 co-formulation 개발",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "ASC36 amylin agonist와 ASC37 GLP-1R/GIPR/GCGR agonist를 결합한 월 1회 FDC다.",
+  "differentiator": "amylin과 세 incretin 및 glucagon 표적을 하나의 월간 depot 조합에 통합한다.",
+  "caveat": "임상시험, IND 제출 및 사람 PK 자료가 공개되지 않은 비임상 조합이다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 40,
+  "sources": [
+    {
+      "label": "Ascletis March 2026 corporate presentation",
+      "url": "https://www.ascletis.com/data/upload/admin/20260331/69cbee34ceaf0.pdf",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

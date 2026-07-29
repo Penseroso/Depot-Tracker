@@ -1,0 +1,33 @@
+{
+  "company": "Sciwind Biosciences",
+  "programName": "XW020",
+  "payloadComponents": ["xw020"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "long-acting injectable peptide",
+  "productTarget": null,
+  "route": "주사(세부 경로 미공개)",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "비임상; 2026년 하반기 IND 제출 계획",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "체중 감소와 근육 보존을 함께 겨냥하는 장기작용 주사 peptide 후보다.",
+  "differentiator": "기존 incretin과 다른 미공개 기전으로 지방 감소와 근육 보존을 지향한다.",
+  "caveat": "sponsor가 투여 간격, 표적 및 제형을 공개하지 않았으므로 productTarget을 비웠고 IND 제출은 계획이다.",
+  "confidence": "Medium",
+  "active": true,
+  "stageRank": 35,
+  "sources": [
+    {
+      "label": "Sciwind current pipeline",
+      "url": "https://www.sciwindbio.com/portal/index/pipeline/category_id/3.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "Sciwind HKEX draft prospectus, 2026-03-23",
+      "url": "https://www.hkexnews.hk/app/sehk/2026/108322/documents/sehk26032301281.pdf",
+      "sourceType": "filing",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

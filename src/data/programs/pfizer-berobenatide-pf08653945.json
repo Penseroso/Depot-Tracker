@@ -1,0 +1,37 @@
+{
+  "company": "Pfizer",
+  "programName": "berobenatide + PF-08653945",
+  "payloadComponents": ["berobenatide", "pf-08653945"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "ultra-long-acting peptide combination",
+  "productTarget": {
+    "description": "주 1회 또는 월 1회 유지 투여",
+    "minDays": 7,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase I/II",
+  "developmentStatus": "Phase I/II 병용시험 및 SOLIS-1 Phase IIb 모집 중",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "SOLIS-1에서 GLP-1R agonist berobenatide와 amylin analog PF-08653945의 단독 및 병용 dose-ranging을 진행한다.",
+  "differentiator": "두 초장기 작용 peptide를 결합해 주간 및 월간 유지 투여 선택지를 평가한다.",
+  "caveat": "병용의 유효성 및 안전성 결과와 최종 고정용량 제품 간격은 아직 확정되지 않았다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 100,
+  "sources": [
+    {
+      "label": "Pfizer pipeline, 2026-05-05",
+      "url": "https://www.pfizer.com/science/drug-product-pipeline?developement_phase=phase_2",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07575932",
+      "url": "https://clinicaltrials.gov/study/NCT07575932",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

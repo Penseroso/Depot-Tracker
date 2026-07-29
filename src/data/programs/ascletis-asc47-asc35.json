@@ -1,0 +1,31 @@
+{
+  "company": "Ascletis Pharma",
+  "programName": "ASC47 + ASC35",
+  "payloadComponents": ["asc47", "asc35"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "in-situ-forming-depot",
+  "deliveryTechnology": "monthly SALD/ULAP peptide-small molecule combination",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "2026년 Phase II 병용시험 개시 계획",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "월 1회 ASC47 THRβ depot와 월 1회 ASC35 GLP-1R/GIPR peptide의 병용 개발 계획이다.",
+  "differentiator": "지방 표적 및 근육 보존 기전과 dual incretin 기전을 같은 월간 간격으로 결합한다.",
+  "caveat": "병용 등록시험이나 실제 개시는 확인되지 않았으며 Phase II 일정은 sponsor 계획이다.",
+  "confidence": "Medium",
+  "active": true,
+  "stageRank": 40,
+  "sources": [
+    {
+      "label": "Ascletis 2025 annual results, 2026-03-31",
+      "url": "https://www.ascletis.com/data/upload/admin/20260331/69cbd952b59b8.pdf",
+      "sourceType": "filing",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

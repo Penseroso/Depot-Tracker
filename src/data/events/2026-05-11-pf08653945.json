@@ -1,0 +1,19 @@
+{
+  "programSlug": "pfizer-pf08653945",
+  "studySlug": "nct07575932-pf08653945",
+  "date": "2026-05-11",
+  "company": "Pfizer",
+  "programName": "PF-08653945",
+  "category": "Clinical",
+  "headline": "PF-08653945 단독 Phase IIb SOLIS-1 개시",
+  "summary": "SOLIS-1이 PF-08653945 단독요법의 주간 및 월간 유지 투여와 berobenatide 병용을 평가하기 시작했다.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT07575932",
+      "url": "https://clinicaltrials.gov/study/NCT07575932",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

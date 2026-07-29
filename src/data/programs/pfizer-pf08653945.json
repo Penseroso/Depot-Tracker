@@ -1,0 +1,37 @@
+{
+  "company": "Pfizer",
+  "programName": "PF-08653945 (PF'3945; MET-233i)",
+  "payloadComponents": ["pf-08653945"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "ultra-long-acting amylin analog",
+  "productTarget": {
+    "description": "주 1회 또는 월 1회",
+    "minDays": 7,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase II",
+  "developmentStatus": "SOLIS-1 Phase IIb 모집 중",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "Phase I에서 주간 적정 뒤 월간 투여를 평가했고, SOLIS-1은 단독요법의 주간 및 월간 유지 투여를 dose-ranging한다.",
+  "differentiator": "초장기 작용 amylin analog를 단독 및 berobenatide 병용으로 개발한다.",
+  "caveat": "월간 투여의 확정 효능 결과는 아직 공개되지 않았고 SOLIS-1은 dose-finding 단계다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 100,
+  "sources": [
+    {
+      "label": "Pfizer berobenatide and PF'3945 ADA update, 2026-06-06",
+      "url": "https://www.pfizer.com/news/press-release/press-release-detail/robust-phase-2b-efficacy-and-favorable-tolerability-support",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07575932",
+      "url": "https://clinicaltrials.gov/study/NCT07575932",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

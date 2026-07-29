@@ -1,0 +1,37 @@
+{
+  "company": "Pfizer",
+  "programName": "berobenatide (PF-08653944; PF'3944)",
+  "payloadComponents": ["berobenatide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "ultra-long-acting lipidated peptide",
+  "productTarget": {
+    "description": "주 1회 또는 월 1회",
+    "minDays": 7,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase III",
+  "developmentStatus": "주 1회 및 월 1회 글로벌 Phase III 진행 중",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "Phase IIb에서 주간 적정 뒤 월간 유지 투여로 전환한 뒤에도 28주까지 체중감소가 지속됐고, 월 1회 VESPER-6 Phase III가 모집 중이다.",
+  "differentiator": "fully biased GLP-1R agonist를 초장기 작용 peptide로 설계해 주간과 월간 제품 개발을 병행한다.",
+  "caveat": "월간 Phase III의 유효성 및 안전성 결과는 아직 없으며 Phase IIb 결과는 주간 적정 뒤 월간 유지 투여 설계다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 100,
+  "sources": [
+    {
+      "label": "Pfizer berobenatide ADA update, 2026-06-06",
+      "url": "https://www.pfizer.com/news/press-release/press-release-detail/robust-phase-2b-efficacy-and-favorable-tolerability-support",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07595549",
+      "url": "https://clinicaltrials.gov/study/NCT07595549",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

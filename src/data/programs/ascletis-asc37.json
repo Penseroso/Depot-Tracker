@@ -1,0 +1,31 @@
+{
+  "company": "Ascletis Pharma",
+  "programName": "ASC37",
+  "payloadComponents": ["asc37"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "in-situ-forming-depot",
+  "deliveryTechnology": "Self-Assembling Lipid Depot (SALD)",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "IND-enabling",
+  "developmentStatus": "개발후보 선정; 2026년 3분기 IND 제출 예정",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "GLP-1R/GIPR/GCGR triple agonist peptide의 SALD 제형이며 비인간 영장류에서 약 17일 관찰 반감기를 보였다.",
+  "differentiator": "세 incretin 및 glucagon 경로를 월 1회 피하 depot peptide에 결합한다.",
+  "caveat": "IND 제출은 아직 확인되지 않았고 공개 효능은 비임상 동물 자료다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 60,
+  "sources": [
+    {
+      "label": "Ascletis ASC37 update, 2026-07-27",
+      "url": "https://www.ascletis.com/news_detail/200/id/1430.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}
