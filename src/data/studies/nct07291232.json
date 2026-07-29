@@ -1,0 +1,16 @@
+{
+  "programSlug": "abbvie-abbv295",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT07291232",
+  "phase": "Phase 1",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
+  "countries": ["United States"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07291232",
+    "url": "https://clinicaltrials.gov/study/NCT07291232",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-29"
+  },
+  "lastVerifiedAt": "2026-07-29"
+}

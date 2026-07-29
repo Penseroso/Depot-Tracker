@@ -1,0 +1,16 @@
+{
+  "programSlug": "mbx-mbx4291",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT07142707",
+  "phase": "Phase 1",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
+  "countries": ["United States"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07142707",
+    "url": "https://clinicaltrials.gov/study/NCT07142707",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-29"
+  },
+  "lastVerifiedAt": "2026-07-29"
+}

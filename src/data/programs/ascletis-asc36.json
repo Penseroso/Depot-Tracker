@@ -1,0 +1,31 @@
+{
+  "company": "Ascletis Pharma",
+  "programName": "ASC36",
+  "payloadComponents": ["asc36"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "in-situ-forming-depot",
+  "deliveryTechnology": "Self-Assembling Lipid Depot (SALD)",
+  "productTarget": {
+    "description": "월 1회~분기 1회",
+    "minDays": 28,
+    "maxDays": 92
+  },
+  "route": "피하주사",
+  "developmentStage": "IND submitted",
+  "developmentStatus": "미국 FDA IND 제출",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "비인간 영장류에서 eloralintide 대비 약 6배 긴 관찰 반감기; 비만 대상 미국 IND 제출.",
+  "differentiator": "amylin receptor peptide agonist를 SALD 제형으로 월 1회~분기 1회 투여하도록 설계.",
+  "caveat": "사람 대상 투여 및 IND clearance는 아직 공개되지 않았다. 비교 효능 수치는 DIO rat 비임상 결과다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 82,
+  "sources": [
+    {
+      "label": "Ascletis ASC36 and ASC36_35 FDC IND submissions, 2026-07-06",
+      "url": "https://www.ascletis.com/news_detail/200/id/1415.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

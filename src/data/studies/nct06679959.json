@@ -1,0 +1,16 @@
+{
+  "programSlug": "ascletis-asc30",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT06679959",
+  "phase": "Phase 1 | Phase 2",
+  "recruitmentStatus": "completed",
+  "registryStatusRaw": "Completed",
+  "countries": ["United States"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT06679959",
+    "url": "https://clinicaltrials.gov/study/NCT06679959",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-29"
+  },
+  "lastVerifiedAt": "2026-07-29"
+}
