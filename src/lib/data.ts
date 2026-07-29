@@ -106,11 +106,4 @@ export function getSummary(programs = getPrograms(), events = getEvents(), studi
   };
 }
 
-export const stageOrder = [
-  'Registered Phase I/IIa',
-  'Registered Phase I',
-  'IND submitted',
-  'Human PK pilot',
-  'Preclinical',
-  'Paused',
-] as const;
+export { stageOrder } from './development-stages.js';

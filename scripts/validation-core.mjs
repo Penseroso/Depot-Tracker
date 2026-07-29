@@ -1,5 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { developmentStages } from '../src/lib/development-stages.js';
 
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -20,6 +21,7 @@ const recruitmentStatuses = new Set([
   'unknown',
 ]);
 const recordTypes = new Set(['sponsor-program', 'technology-watch']);
+const allowedDevelopmentStages = new Set(developmentStages);
 const legacyProgramKeys = [
   'asset',
   'modality',
@@ -211,6 +213,9 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
 
     validatePayloadComponents(data.payloadComponents, name, errors);
     if (!recordTypes.has(data.recordType)) errors.push(`${name}: recordType is not allowed (${data.recordType})`);
+    if (!allowedDevelopmentStages.has(data.developmentStage)) {
+      errors.push(`${name}: developmentStage is not allowed (${data.developmentStage})`);
+    }
     if (!technologyIds.has(data.deliveryTechnologyId)) {
       errors.push(`${name}: deliveryTechnologyId is not registered (${data.deliveryTechnologyId})`);
     }
@@ -239,12 +244,14 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
   }
 
   const studyMap = new Map();
+  const studyProgramSlugs = new Set();
   const registryIdentities = new Set();
   for (const { name, slug, data } of studies) {
     if (!data) continue;
     if (!slugPattern.test(slug)) errors.push(`${name}: study slug must be a lowercase slug`);
     if (studyMap.has(slug)) errors.push(`${name}: duplicate study slug ${slug}`);
     studyMap.set(slug, data);
+    studyProgramSlugs.add(data.programSlug);
     for (const field of ['programSlug', 'registry', 'registryId', 'phase', 'recruitmentStatus', 'registryStatusRaw']) {
       requireString(data, field, name, errors);
     }
@@ -279,6 +286,12 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
         if (countries.has(country)) errors.push(`${name}: duplicate country ${country}`);
         countries.add(country);
       }
+    }
+  }
+
+  for (const [slug, program] of programMap) {
+    if (program.developmentStage?.startsWith('Registered Phase ') && !studyProgramSlugs.has(slug)) {
+      errors.push(`${slug}: registered developmentStage requires a linked official Study`);
     }
   }
 

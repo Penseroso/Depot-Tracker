@@ -81,7 +81,18 @@ Each `src/data/programs/*.json` stores one Program or technology-watch item.
   product target belongs in prose (`readout`, `differentiator`, `caveat`, or a
   supporting Event), not in a stored interval field, and must not be presented
   as if it were the confirmed product target.
-- `developmentStage`: overall Program maturity.
+- `developmentStage`: canonical overall Program maturity across the full
+  lifecycle. Allowed values are `Discovery`, `Preclinical`, `IND-enabling`,
+  `IND submitted`, `IND cleared`, `Human PK pilot`, `Registered Phase I`,
+  `Registered Phase I/II`, `Registered Phase I/IIa`, `Registered Phase II`,
+  `Registered Phase II/III`, `Registered Phase III`, `Regulatory review`,
+  `Approved`, `Registered Phase IV`, `Paused`, and `Discontinued`.
+  `Registered Phase ...` requires a linked official Study at that phase.
+  `Regulatory review` means a marketing application has been submitted and is
+  under review; `Approved` means a regulator has granted marketing
+  authorization. `Paused` and `Discontinued` are terminal operational
+  classifications retained in this field for compatibility, while
+  `developmentStatus` preserves the source-near detail.
 - `developmentStatus`: Program-level development status, not Study recruitment.
 - `active`, `stageRank`, interpretation fields, confidence, and sources retain
   their existing meanings.

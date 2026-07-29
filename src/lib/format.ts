@@ -1,3 +1,5 @@
+import { getStageLabel } from './development-stages.js';
+
 export function formatDate(date: string) {
   return new Intl.DateTimeFormat('ko-KR', {
     year: 'numeric',
@@ -7,15 +9,7 @@ export function formatDate(date: string) {
 }
 
 export function stageLabel(stage: string) {
-  const labels: Record<string, string> = {
-    'Registered Phase I/IIa': '등록 1/2a상',
-    'Registered Phase I': '등록 1상',
-    'IND submitted': 'IND 제출',
-    'Human PK pilot': '사람 PK 파일럿',
-    Preclinical: '비임상',
-    Paused: '보류',
-  };
-  return labels[stage] ?? stage;
+  return getStageLabel(stage);
 }
 
 export function formatIntervalClaim(claim: IntervalClaim | null) {

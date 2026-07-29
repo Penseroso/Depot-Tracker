@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { developmentStages } from './development-stages.js';
 
 export const sourceSchema = z.object({
   label: z.string().min(1),
@@ -47,14 +48,7 @@ export const programSchema = z.object({
   deliveryTechnology: z.string().min(1),
   productTarget: intervalClaimSchema.nullable(),
   route: z.string().min(1),
-  developmentStage: z.enum([
-    'Registered Phase I/IIa',
-    'Registered Phase I',
-    'IND submitted',
-    'Human PK pilot',
-    'Preclinical',
-    'Paused',
-  ]),
+  developmentStage: z.enum(developmentStages),
   developmentStatus: z.string().min(1),
   lastVerifiedAt: z.iso.date(),
   readout: z.string().min(1),
