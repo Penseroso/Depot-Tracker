@@ -1,0 +1,37 @@
+{
+  "company": "Ascletis Pharma",
+  "programName": "ASC36_35 FDC",
+  "payloadComponents": ["asc36", "asc35"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "in-situ-forming-depot",
+  "deliveryTechnology": "Self-Assembling Lipid Depot (SALD) co-formulation",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "IND submitted",
+  "developmentStatus": "미국 FDA IND 제출",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "ASC36 amylin agonist와 ASC35 GLP-1R/GIPR agonist의 단일 SALD co-formulation; 비만 대상 미국 IND 제출.",
+  "differentiator": "amylin, GLP-1R, GIPR 세 표적을 한 번의 월간 피하주사로 겨냥하는 고정용량 depot 조합.",
+  "caveat": "사람 대상 투여 및 IND clearance는 아직 공개되지 않았다. 51% 상대 체중감소 우위 주장은 DIO rat 비교다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 82,
+  "sources": [
+    {
+      "label": "Ascletis ASC36 and ASC36_35 FDC IND submissions, 2026-07-06",
+      "url": "https://www.ascletis.com/news_detail/200/id/1415.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "Ascletis ASC36_35 FDC EASD update, 2026-07-23",
+      "url": "https://www.ascletis.com/news_detail/200/id/1427.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

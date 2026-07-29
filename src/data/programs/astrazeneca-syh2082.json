@@ -1,0 +1,37 @@
+{
+  "company": "AstraZeneca / CSPC",
+  "programName": "SYH2082",
+  "payloadComponents": ["syh2082"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "LiquidGel long-acting formulation",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase I",
+  "developmentStatus": "미국 Phase I 등록; 아직 모집 전",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "GLP-1R/GIPR dual agonist의 월 1회 장기작용 주사로, 미국 단회 용량상승 Phase I이 등록됐다.",
+  "differentiator": "CSPC LiquidGel 플랫폼을 적용한 월간 체중관리 후보로 AstraZeneca가 중국 외 권리를 확보했다.",
+  "caveat": "등록시험은 not-yet-recruiting이며 사람 투여 및 효능 데이터는 아직 없다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 85,
+  "sources": [
+    {
+      "label": "AstraZeneca-CSPC obesity agreement, 2026-01-30",
+      "url": "https://news.cision.com/astrazeneca/r/astrazeneca-agrees-obesity-and-t2d-deal-with-cspc%2Cc4300178",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07532655",
+      "url": "https://clinicaltrials.gov/study/NCT07532655",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "programSlug": "abbvie-abbv295",
+  "studySlug": "nct06144684",
+  "date": "2026-03-09",
+  "company": "AbbVie",
+  "programName": "ABBV-295",
+  "category": "Clinical",
+  "headline": "ABBV-295 Phase I 월간 투여 cohort topline 공개",
+  "summary": "AbbVie는 장기지속형 amylin analog ABBV-295의 선행 Phase I MAD 결과를 공개했다. 5주차 이후 월간 투여 cohort의 LS mean 체중변화는 13주 -7.86%였으며, 후속 비만 Phase Ib가 별도 등록돼 모집 중이다.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "AbbVie ABBV-295 Phase I topline, 2026-03-09",
+      "url": "https://news.abbvie.com/2026-03-09-AbbVie-Announces-Positive-Topline-Results-from-a-Phase-1-Multiple-Ascending-Dose-Study-of-ABBV-295%2C-a-Long-Acting-Amylin-Analog%2C-in-Adults",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

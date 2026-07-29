@@ -1,0 +1,31 @@
+{
+  "company": "Ascletis Pharma",
+  "programName": "ASC35",
+  "payloadComponents": ["asc35"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "in-situ-forming-depot",
+  "deliveryTechnology": "Self-Assembling Lipid Depot (SALD)",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "IND cleared",
+  "developmentStatus": "미국 FDA Phase I IND 승인",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "GLP-1R/GIPR dual agonist peptide의 월 1회 SALD 제형으로 FDA가 Phase I 개시를 허용했다.",
+  "differentiator": "14일의 비인간 영장류 관찰 반감기를 보인 41-amino-acid dual agonist peptide depot.",
+  "caveat": "등록 임상시험과 사람 투여 및 효능 자료는 아직 공개되지 않았다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 83,
+  "sources": [
+    {
+      "label": "Ascletis ASC35 FDA IND clearance, 2026-06-23",
+      "url": "https://www.ascletis.com/news_detail/200/id/1404.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

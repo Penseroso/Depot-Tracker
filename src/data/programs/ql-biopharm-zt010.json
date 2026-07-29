@@ -1,0 +1,31 @@
+{
+  "company": "QL Biopharm",
+  "programName": "ZT010",
+  "payloadComponents": ["zt010"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "QLLong fatty-acid half-life extension",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "비임상; 2027년 3분기 first-in-human 개시 계획",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "월 1회 투여를 목표로 하는 선택적 amylin analog injection으로 비임상 개발 중이다.",
+  "differentiator": "GLP-1 비반응 또는 불내약 환자의 단독요법과 zovaglutide 월간 FDC의 amylin 성분을 함께 지향한다.",
+  "caveat": "사람 PK 및 효능과 IND 제출은 없고 first-in-human 일정은 sponsor 계획이다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 45,
+  "sources": [
+    {
+      "label": "QL Biopharm HKEX draft prospectus, 2026-04-24",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108464/documents/sehk26042404195.pdf",
+      "sourceType": "filing",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

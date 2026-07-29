@@ -1,0 +1,43 @@
+{
+  "company": "MBX Biosciences",
+  "programName": "MBX 4291",
+  "payloadComponents": ["mbx 4291"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "Precision Endocrine Peptide (PEP) prodrug",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase I",
+  "developmentStatus": "미국 Phase I 모집 중",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "초기 blinded MAD cohort에서 8주 평균 체중감소 7%(n=8, placebo 2명 포함), 관찰 반감기 약 26일.",
+  "differentiator": "GLP-1/GIP co-agonist PEP prodrug의 점진적 active-peptide 방출과 월 1회 유지 투여를 함께 설계.",
+  "caveat": "초기 수치는 소규모 blinded cohort로 active/placebo가 분리되지 않았다. 12주 MAD Part C 자료는 2026년 4분기 예정.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 89,
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT07142707",
+      "url": "https://clinicaltrials.gov/study/NCT07142707",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "MBX obesity portfolio update, 2026-05-11",
+      "url": "https://investors.mbxbio.com/news-releases/news-release-details/mbx-biosciences-provides-obesity-portfolio-update-including",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "MBX current pipeline",
+      "url": "https://mbxbio.com/our-pipeline/",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

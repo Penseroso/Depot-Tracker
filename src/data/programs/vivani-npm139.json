@@ -6,17 +6,17 @@
   "deliveryTechnologyId": "implant",
   "deliveryTechnology": "NanoPortal titanium subdermal implant",
   "productTarget": {
-    "description": "연 1~2회(6개월~1년) 목표",
-    "minDays": 182,
-    "maxDays": 365
+    "description": "6개월 1회",
+    "minDays": 168,
+    "maxDays": 184
   },
   "route": "이식형 피하 삽입 (titanium subdermal implant)",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "SLIM-1 Phase 1 호주 등록 연구 준비 중(Bellberry HREC 연구윤리 승인); Novo Nordisk와 비독점 평가 계약 체결",
   "lastVerifiedAt": "2026-07-29",
-  "readout": "Novo Nordisk와 비독점 평가 계약 체결된 semaglutide implant 후보. 전임상 모델에서 1년간 지속 노출, 20% 이상 sham-adjusted 체중감소 확인.",
-  "differentiator": "NanoPortal titanium 이식형 플랫폼; 연 1~2회 투여를 지향",
-  "caveat": "SLIM-1(호주, 저용량 4주 PK 비교)은 Not yet recruiting. Bellberry HREC 승인은 연구윤리 승인, 국가 규제기관 승인 아님. 미국 IND는 2027년 제출 계획(Phase 2 용량범위용), SLIM-1과 별개. Novo Nordisk 계약은 비독점 평가 계약.",
+  "readout": "Novo Nordisk와 비독점 평가 계약을 체결한 6개월 semaglutide implant 후보. 전임상 모델의 1년간 지속 노출과 20% 이상 sham-adjusted 체중감소는 연 1회 잠재력 근거.",
+  "differentiator": "NanoPortal titanium implant의 현재 제품 목표는 6개월 1회. 연 1회는 별도 전임상 설계 잠재력.",
+  "caveat": "SLIM-1(호주, 저용량 4주 PK 비교)은 Not yet recruiting. Bellberry HREC 승인은 연구윤리 승인, 국가 규제기관 승인 아님. 미국 IND는 2027년 제출 계획이며 SLIM-1과 별개. 연 1회는 전임상 잠재력으로 현재 6개월 제품 목표와 구분. Novo Nordisk 계약은 비독점 평가 계약.",
   "confidence": "High",
   "active": true,
   "stageRank": 84,

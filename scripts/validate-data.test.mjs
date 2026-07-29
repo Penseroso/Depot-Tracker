@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { validateDataset, validateDatasetRecords } from './validation-core.mjs';
+import { developmentStages } from '../src/lib/development-stages.js';
 
 const source = {
   label: 'Regression test source',
@@ -83,6 +84,31 @@ function createValidDataset() {
 
 test('single-component payload and ClinicalTrials.gov Study pass', () => {
   assert.deepEqual(validateDatasetRecords(createValidDataset()).errors, []);
+});
+
+test('every canonical development stage passes validation', () => {
+  for (const stage of developmentStages) {
+    const data = createValidDataset();
+    data.programs[0].data.developmentStage = stage;
+    assert.deepEqual(validateDatasetRecords(data).errors, [], stage);
+  }
+});
+
+test('unknown development stage fails validation', () => {
+  const data = createValidDataset();
+  data.programs[0].data.developmentStage = 'Phase 5';
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /developmentStage is not allowed/);
+});
+
+test('registered development stage requires a linked official Study', () => {
+  const data = createValidDataset();
+  data.programs[0].data.developmentStage = 'Registered Phase III';
+  data.studies = [];
+  data.events[0].data.studySlug = undefined;
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /registered developmentStage requires a linked official Study/,
+  );
 });
 
 test('combination payload passes without reordering components', () => {

@@ -1,0 +1,19 @@
+{
+  "programSlug": "pfizer-berobenatide-pf08653945",
+  "studySlug": "nct06924320",
+  "date": "2025-03-06",
+  "company": "Pfizer",
+  "programName": "berobenatide + PF-08653945",
+  "category": "Clinical",
+  "headline": "berobenatide 및 PF-08653945 병용 Phase I/II 개시",
+  "summary": "Pfizer의 Phase I/II 등록시험이 두 초장기 작용 peptide의 병용과 주간에서 월간으로 전환하는 투여군을 평가하기 시작했다.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT06924320",
+      "url": "https://clinicaltrials.gov/study/NCT06924320",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

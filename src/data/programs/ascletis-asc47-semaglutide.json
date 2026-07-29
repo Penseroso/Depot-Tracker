@@ -1,0 +1,33 @@
+{
+  "company": "Ascletis Pharma",
+  "programName": "ASC47 + semaglutide",
+  "payloadComponents": ["asc47", "semaglutide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "in-situ-forming-depot",
+  "deliveryTechnology": "ASC47 ULAP depot plus conventional semaglutide",
+  "productTarget": null,
+  "route": "피하주사",
+  "developmentStage": "Registered Phase I",
+  "developmentStatus": "미국 병용 Phase I 완료",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "ASC47 단회 depot와 semaglutide 주 1회 4회 병용 Phase I에서 29일 체중감소를 평가. 개발 개념은 ASC47 월 1회와 semaglutide 주 1회의 성분별 일정.",
+  "differentiator": "지방 표적 THRβ depot를 GLP-1RA와 병용해 체중감소와 근육 보존을 분리해 겨냥한다.",
+  "caveat": "ASC47 월 1회와 semaglutide 주 1회는 서로 다른 성분별 일정으로 하나의 제품 interval이 아님. 28명 단기 Phase I이며 고정 병용 제품 목표가 확정되지 않아 productTarget은 null.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 89,
+  "sources": [
+    {
+      "label": "Ascletis ASC47 plus semaglutide topline, 2025-09-22",
+      "url": "https://www.ascletis.com/news_detail/192/id/1252.html",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT06972992",
+      "url": "https://clinicaltrials.gov/study/NCT06972992",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

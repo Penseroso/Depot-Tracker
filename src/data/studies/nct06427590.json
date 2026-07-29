@@ -1,0 +1,16 @@
+{
+  "programSlug": "ascletis-asc47",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT06427590",
+  "phase": "Phase 1",
+  "recruitmentStatus": "completed",
+  "registryStatusRaw": "Completed",
+  "countries": ["Australia"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT06427590",
+    "url": "https://clinicaltrials.gov/study/NCT06427590",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-29"
+  },
+  "lastVerifiedAt": "2026-07-29"
+}

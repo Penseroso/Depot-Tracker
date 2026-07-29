@@ -10,7 +10,7 @@ import {
 } from './schema';
 import {
   compareEvents,
-  compareProgramsByActivity,
+  compareProgramsByDevelopmentStage,
   getEventsForProgram as filterEventsForProgram,
   getLatestEventForProgram as pickLatestEventForProgram,
 } from './event-order.js';
@@ -54,7 +54,7 @@ export function getPrograms(): Program[] {
   }
   return Object.entries(programModules)
     .map(([path, data]) => ({ ...programSchema.parse(data), slug: slugFromPath(path) }))
-    .sort((a, b) => compareProgramsByActivity(a, b, latestEventDateBySlug));
+    .sort((a, b) => compareProgramsByDevelopmentStage(a, b, latestEventDateBySlug));
 }
 
 export function getStudies(): Study[] {
@@ -106,11 +106,4 @@ export function getSummary(programs = getPrograms(), events = getEvents(), studi
   };
 }
 
-export const stageOrder = [
-  'Registered Phase I/IIa',
-  'Registered Phase I',
-  'IND submitted',
-  'Human PK pilot',
-  'Preclinical',
-  'Paused',
-] as const;
+export { stageOrder } from './development-stages.js';

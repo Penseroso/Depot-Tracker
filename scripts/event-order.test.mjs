@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  compareProgramsByActivity,
+  compareProgramsByDevelopmentStage,
   getAdditionalSourceCount,
   getEventsForProgram,
   getLatestEventForProgram,
@@ -58,18 +58,39 @@ test('same-date events sort by significance then slug ascending', () => {
   assert.deepEqual(events.map((item) => item.slug), ['a-high', 'b-medium-1', 'm-medium-2', 'z-low']);
 });
 
-test('compareProgramsByActivity ranks by latest event date, then stageRank, then name', () => {
+test('compareProgramsByDevelopmentStage ranks by stage, then latest event date, then name', () => {
   const programs = [
-    { slug: 'no-event-high-stage', stageRank: 90, company: 'Zeta', programName: 'Z' },
-    { slug: 'recent-event', stageRank: 10, company: 'Alpha', programName: 'A' },
-    { slug: 'older-event', stageRank: 50, company: 'Beta', programName: 'B' },
+    {
+      slug: 'phase-three-older',
+      developmentStage: 'Registered Phase III',
+      company: 'Zeta',
+      programName: 'Z',
+    },
+    {
+      slug: 'phase-one-recent',
+      developmentStage: 'Registered Phase I',
+      company: 'Alpha',
+      programName: 'A',
+    },
+    {
+      slug: 'phase-three-recent',
+      developmentStage: 'Registered Phase III',
+      company: 'Beta',
+      programName: 'B',
+    },
   ];
   const latestEventDateBySlug = new Map([
-    ['recent-event', '2026-07-01'],
-    ['older-event', '2026-01-01'],
+    ['phase-one-recent', '2026-07-01'],
+    ['phase-three-recent', '2026-06-01'],
+    ['phase-three-older', '2026-01-01'],
   ]);
-  const sorted = [...programs].sort((a, b) => compareProgramsByActivity(a, b, latestEventDateBySlug));
-  assert.deepEqual(sorted.map((item) => item.slug), ['recent-event', 'older-event', 'no-event-high-stage']);
+  const sorted = [...programs].sort(
+    (a, b) => compareProgramsByDevelopmentStage(a, b, latestEventDateBySlug),
+  );
+  assert.deepEqual(
+    sorted.map((item) => item.slug),
+    ['phase-three-recent', 'phase-three-older', 'phase-one-recent'],
+  );
 });
 
 test('Update Feed selects sources[0] as the primary link and counts the remainder', () => {

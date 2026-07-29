@@ -1,0 +1,16 @@
+{
+  "programSlug": "pfizer-pf08653945",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT07575932",
+  "phase": "Phase 2",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
+  "countries": ["Canada", "United States"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07575932",
+    "url": "https://clinicaltrials.gov/study/NCT07575932",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-29"
+  },
+  "lastVerifiedAt": "2026-07-29"
+}

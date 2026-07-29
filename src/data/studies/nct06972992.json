@@ -1,0 +1,16 @@
+{
+  "programSlug": "ascletis-asc47-semaglutide",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT06972992",
+  "phase": "Phase 1",
+  "recruitmentStatus": "completed",
+  "registryStatusRaw": "Completed",
+  "countries": ["United States"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT06972992",
+    "url": "https://clinicaltrials.gov/study/NCT06972992",
+    "sourceType": "registry",
+    "accessedOn": "2026-07-29"
+  },
+  "lastVerifiedAt": "2026-07-29"
+}

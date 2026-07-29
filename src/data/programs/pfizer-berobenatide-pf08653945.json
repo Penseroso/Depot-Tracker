@@ -1,0 +1,39 @@
+{
+  "company": "Pfizer",
+  "programName": "berobenatide + PF-08653945",
+  "payloadComponents": ["berobenatide", "pf-08653945"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "ultra-long-acting peptide combination",
+  "productTarget": null,
+  "route": "피하주사",
+  "developmentStage": "Registered Phase II",
+  "developmentStatus": "SOLIS-1 Phase IIb에서 단독 및 병용 dose-ranging 모집 중",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "SOLIS-1 Phase IIb에서 GLP-1R agonist berobenatide와 amylin analog PF-08653945의 단독 및 병용 dose-ranging 진행 중. 주 1회와 월 1회 유지요법을 이산적으로 평가한다.",
+  "differentiator": "두 초장기 작용 peptide 병용의 주 1회와 월 1회 유지요법을 별도 cohort로 개발.",
+  "caveat": "주력 단일 제품 간격, 병용 유효성, 안전성 및 최종 고정용량은 미확정으로 productTarget은 null. DEFERRED_SCHEMA_CASE: NCT07575932가 PF-08653945 단독과 berobenatide 병용을 함께 평가하지만 Study는 현재 단일 programSlug만 지원하므로 registry record는 pfizer-pf08653945에만 연결했으며 복제하지 않음.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 100,
+  "sources": [
+    {
+      "label": "Pfizer pipeline, 2026-05-05",
+      "url": "https://www.pfizer.com/science/drug-product-pipeline?developement_phase=phase_2",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "Pfizer berobenatide and PF'3945 ADA update, 2026-06-06",
+      "url": "https://www.pfizer.com/news/press-release/press-release-detail/robust-phase-2b-efficacy-and-favorable-tolerability-support",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07575932",
+      "url": "https://clinicaltrials.gov/study/NCT07575932",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

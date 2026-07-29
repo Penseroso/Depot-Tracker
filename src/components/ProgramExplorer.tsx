@@ -7,14 +7,7 @@ import {
   formatPayloadComponents,
   stageLabel,
 } from '../lib/format';
-
-function stageClass(stage: string) {
-  if (stage.includes('Registered')) return 'badge badge-clinical';
-  if (stage === 'IND submitted') return 'badge badge-ind';
-  if (stage === 'Human PK pilot') return 'badge badge-human';
-  if (stage === 'Paused') return 'badge badge-paused';
-  return 'badge badge-preclinical';
-}
+import { getStageBadgeClass } from '../lib/development-stages.js';
 
 function recordTypeLabel(value: Program['recordType']) {
   return value === 'sponsor-program' ? 'Sponsor program' : 'Technology watch';
@@ -88,7 +81,7 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, basePa
         {filtered.length ? (
           <div className="data-table-wrap">
             <table className="data-table">
-              <thead><tr><th>프로그램</th><th>Payload</th><th>제형</th><th>제품 목표</th><th>단계</th><th>상태</th><th>최근 변화</th></tr></thead>
+              <thead><tr><th>프로그램</th><th>Payload</th><th>제형</th><th>제품 목표</th><th>단계</th><th>상태</th><th className="program-latest-date">최근 변화</th></tr></thead>
               <tbody>
                 {filtered.map((program) => {
                   const latestEventDate = latestEventDateByProgram[program.slug];
@@ -98,9 +91,9 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, basePa
                       <td><span className="cell-title">{formatPayloadComponents(program.payloadComponents)}</span></td>
                       <td><span className="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span className="cell-sub">{program.deliveryTechnology}</span></td>
                       <td>{formatIntervalClaim(program.productTarget)}</td>
-                      <td><span className={stageClass(program.developmentStage)}>{stageLabel(program.developmentStage)}</span></td>
+                      <td><span className={getStageBadgeClass(program.developmentStage)}>{stageLabel(program.developmentStage)}</span></td>
                       <td><span className="cell-sub" style={{ maxWidth: 260 }}>{program.developmentStatus}</span></td>
-                      <td>{latestEventDate ? formatDate(latestEventDate) : '—'}</td>
+                      <td className="program-latest-date">{latestEventDate ? formatDate(latestEventDate) : '—'}</td>
                     </tr>
                   );
                 })}

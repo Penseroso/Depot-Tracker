@@ -1,0 +1,39 @@
+{
+  "company": "AbbVie",
+  "programName": "ABBV-295",
+  "payloadComponents": ["abbv-295"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "long-acting amylin analog",
+  "productTarget": null,
+  "route": "피하주사",
+  "developmentStage": "Registered Phase I",
+  "developmentStatus": "미국 비만 Phase Ib 모집 중",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "선행 MAD에서 5주차 이후 월간 투여 cohort의 13주 LS mean 체중변화 -7.86%; 후속 비만 Phase Ib 모집 중.",
+  "differentiator": "amylin 및 calcitonin receptor를 선택적으로 활성화하는 장기지속 analog로 월간 투여 cohort를 임상 평가.",
+  "caveat": "월간 투여는 특정 임상 cohort에서 관찰된 간격이며 sponsor가 확정한 제품 목표가 아니다. 후속 시험은 안전성 및 PK 중심이다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 88,
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT07291232",
+      "url": "https://clinicaltrials.gov/study/NCT07291232",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT06144684",
+      "url": "https://clinicaltrials.gov/study/NCT06144684",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "AbbVie ABBV-295 Phase I topline, 2026-03-09",
+      "url": "https://news.abbvie.com/2026-03-09-AbbVie-Announces-Positive-Topline-Results-from-a-Phase-1-Multiple-Ascending-Dose-Study-of-ABBV-295%2C-a-Long-Acting-Amylin-Analog%2C-in-Adults",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "company": "QL Biopharm",
+  "programName": "zovaglutide + ZT010 FDC",
+  "payloadComponents": ["zovaglutide", "zt010"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "QLLong synchronized monthly peptide combination",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "월간 고정용량 복합제 비임상 계획",
+  "lastVerifiedAt": "2026-07-29",
+  "readout": "월 1회 GLP-1RA zovaglutide와 월 1회 선택적 amylin analog ZT010을 동기화한 FDC로 개발 중이다.",
+  "differentiator": "GLP-1과 amylin 경로를 한 번의 월간 주사로 결합한다.",
+  "caveat": "임상시험, 확정 용량 및 사람 데이터는 없고 prospectus에 제시된 개발 의도 단계다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 35,
+  "sources": [
+    {
+      "label": "QL Biopharm HKEX draft prospectus, 2026-04-24",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108464/documents/sehk26042404195.pdf",
+      "sourceType": "filing",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}
