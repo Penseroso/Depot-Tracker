@@ -23,6 +23,14 @@ lower-case component identifiers without brands, formulation, salt, route, or
 dose. Preserve the sponsor's component order and keep single-agent and
 combination Programs separate.
 
+Exclude an RNA-based candidate when persistence is attributable to RNA
+silencing or target turnover and the evidence identifies no depot,
+sustained-release formulation, implant, or long-acting delivery technology
+coupled to the product. Dosing interval alone is insufficient. Keep
+conjugation, lipidation, implant, microsphere, in-situ depot, and other
+directly supported long-acting delivery or half-life-extension designs in
+scope when the technology is part of the product itself.
+
 ## Study facts
 
 Use the applicable official registry for `registry`, `registryId`, `phase`,
@@ -37,6 +45,10 @@ registry as the Study's single `registrySource`.
 - Do not derive Study country from Program regional context.
 - A planned phase or sponsor announcement does not override current registry
   operation.
+- If one registry record evaluates multiple separately stored Programs, store
+  that Study once. Do not duplicate the registry record to manufacture a
+  second Program link; keep the single supported link and record the other
+  relationship as `DEFERRED_SCHEMA_CASE`.
 
 ## Delivery technology
 
@@ -53,6 +65,14 @@ registered product intent for this specific payload/Program. Preserve the
 supported free text and add numeric bounds using the Data Contract conversion
 table. Q4W/Q8W/Q12W must remain distinct from calendar month/quarter
 expressions.
+
+Do not collapse discrete alternatives into a continuous range. When weekly and
+monthly, or Q4W, Q8W, and Q12W, are separate cohorts or schedules, store only
+the directly supported current primary or registered product target and retain
+the other schedules in `readout` or `caveat`. When combination components have
+different schedules, set `productTarget` to `null` and state each component
+schedule in prose unless a fixed combination product interval is directly
+supported.
 
 A directly observed exposure/release duration (human PK, nonclinical release,
 or efficacy/exposure through a given timepoint) or a broader platform, patent,

@@ -1,0 +1,18 @@
+{
+  "programSlug": "sciwind-xw020",
+  "date": "2026-03-23",
+  "company": "Sciwind Biosciences",
+  "programName": "XW020",
+  "category": "Data",
+  "headline": "XW020 DIO mouse 지방감소 및 근육보존 결과 공개",
+  "summary": "Sciwind filing에서 XW020 단독요법의 fat mass 최대 40% 감소와 GLP-1 병용 시 70% 초과 감소를 DIO mouse에서 보고했고 muscle loss는 관찰되지 않았다고 밝혔다. 비임상 결과이며 표적과 투여 간격은 공개하지 않았고 2026년 하반기 IND 제출은 별도 계획이다.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "Sciwind HKEX draft prospectus, 2026-03-23",
+      "url": "https://www.hkexnews.hk/app/sehk/2026/108322/documents/sehk26032301281.pdf",
+      "sourceType": "filing",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

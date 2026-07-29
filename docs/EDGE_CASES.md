@@ -51,3 +51,17 @@ stored Program and Study linkages.
 **Re-entry:** add a protocol-level identity and explicit cross-registry linkage
 only when a confirmed duplicate appears and the product requires deduplicated
 Study counts or unified protocol presentation.
+
+## One registry Study evaluates multiple Programs
+
+**Limit:** Study currently has one `programSlug`, while one official registry
+record can evaluate a single-agent Program and a separately stored combination
+Program. NCT07575932 evaluates PF-08653945 alone and with berobenatide.
+
+**Handling:** store the registry Study once and link it to the Program with the
+most direct single-Program representation. Do not clone the Study or alter its
+registry identity. Mark every unrepresented additional Program relationship as
+`DEFERRED_SCHEMA_CASE` in the affected Program caveat.
+
+**Re-entry:** replace the single foreign key with an explicit many-to-many
+Program-Study linkage when the product needs complete arm-to-Program navigation.

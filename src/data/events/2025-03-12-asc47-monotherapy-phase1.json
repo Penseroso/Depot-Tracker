@@ -1,0 +1,25 @@
+{
+  "programSlug": "ascletis-asc47",
+  "studySlug": "nct06427590",
+  "date": "2025-03-12",
+  "company": "Ascletis Pharma",
+  "programName": "ASC47",
+  "category": "Data",
+  "headline": "ASC47 단독 Phase Ib 완료 및 사람 PK 결과 공개",
+  "summary": "호주 ASC47 단회 피하 Phase Ib가 완료됐고 건강한 고 LDL-C 참여자와 비만 참여자에서 각각 최대 26일과 40일 반감기, dose-proportional exposure 및 양호한 내약성이 sponsor topline으로 보고됐다. 월 1회에서 2개월 1회 가능성을 지지하는 소규모 단회투여 PK 결과이며 ASC47와 semaglutide 병용 결과와 별개다.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "Ascletis ASC47 Phase Ib monotherapy topline, 2025-03-12",
+      "url": "https://www.ascletis.com/news_detail/192/id/1150/l/en-us",
+      "sourceType": "company",
+      "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT06427590",
+      "url": "https://clinicaltrials.gov/study/NCT06427590",
+      "sourceType": "registry",
+      "accessedOn": "2026-07-29"
+    }
+  ]
+}

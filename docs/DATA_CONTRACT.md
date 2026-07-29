@@ -38,6 +38,15 @@ obesity/overweight intent, generic platforms without direct evidence for a
 specific obesity-treatment payload, and oral, nasal, patch, or other
 non-injection/non-implant DDS remain excluded.
 
+Exclude RNA-based candidates when the sustained effect arises from RNA
+silencing or target turnover and no explicit depot, sustained-release
+formulation, implant, or long-acting delivery technology is directly coupled
+to the product design. A long dosing interval alone does not qualify. A
+conjugate, lipidation, implant, microsphere, in-situ depot, or other directly
+supported long-acting delivery or half-life-extension technology remains in
+scope when it is part of the product design rather than only a consequence of
+the pharmacodynamic mechanism.
+
 ## Identity and storage
 
 - A filename under `src/data/programs/` is the stable `programSlug` and URL key.
@@ -161,6 +170,14 @@ An interval claim is either `null` or a strict object:
 - Q4W=28–28, monthly=28–31, Q8W=56–56, two months=56–62,
   Q12W=84–84, three months/quarterly=84–92, four months=112–123,
   and six months=168–184 days.
+- Discrete alternatives such as Q4W, Q8W, and Q12W, or weekly and monthly,
+  must never be encoded as one continuous numeric range. Store only the single
+  interval directly supported as the current primary or registered product
+  target; preserve other evaluated schedules in `readout` or `caveat`.
+- A combination whose components use different schedules does not have one
+  Program interval claim. Set `productTarget` to `null` and preserve each
+  component schedule in prose unless a directly supported fixed combination
+  product interval exists.
 - Product-target buckets use only the numeric bounds in `productTarget`. A
   target spanning multiple UI buckets is counted in each overlapping bucket.
   Induction or loading schedules in descriptive text do not create buckets;
@@ -191,6 +208,12 @@ NCT Study slugs remain stable; new non-NCT Studies use a stable registry-prefixe
 slug such as `ctis-2024-518040-21-00`. Each Study represents one official
 registry record. Cross-registry protocol merging is intentionally deferred as
 documented in `docs/EDGE_CASES.md`.
+
+The current Study model has one `programSlug`. When one registry record
+evaluates more than one separately stored Program, store the Study once, link
+it to the most directly represented Program, do not clone or alter the
+registry identity, and mark the additional Program relationship as
+`DEFERRED_SCHEMA_CASE` as documented in `docs/EDGE_CASES.md`.
 
 `registry` uses canonical display-name syntax rather than a permanent Zod enum.
 The validator maintains the current official name-to-host provenance mapping;

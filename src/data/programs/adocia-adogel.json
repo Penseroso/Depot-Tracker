@@ -6,17 +6,17 @@
   "deliveryTechnologyId": "injectable-hydrogel",
   "deliveryTechnology": "cross-linked hydrogel",
   "productTarget": {
-    "description": "1~3개월",
+    "description": "월 1회",
     "minDays": 28,
-    "maxDays": 92
+    "maxDays": 31
   },
   "route": "피하주사",
   "developmentStage": "Paused",
   "developmentStatus": "2025년 7월 개발 보류 발표",
   "lastVerifiedAt": "2026-07-29",
-  "readout": "비미립구 depot의 유의미한 선례. 현재 활성 파이프라인 아님.",
+  "readout": "Rat depot PK에서 semaglutide의 1개월 규칙적 방출과 제한된 초기 burst를 확인. 1개월에서 3개월은 platform 설계 범위이며 현재 활성 파이프라인은 아님.",
   "differentiator": "주사 후 형성되는 biodegradable cross-linked hydrogel matrix",
-  "caveat": "개발 보류 중. 재개 신호 미확인, watch-only 유지.",
+  "caveat": "개발 보류 중이며 재개 신호 미확인. 월 1회와 3개월 일정은 연속 범위가 아니며 분기 용법은 확정 제품 목표가 아님.",
   "confidence": "High",
   "active": false,
   "stageRank": 10,

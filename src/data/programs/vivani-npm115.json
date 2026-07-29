@@ -7,8 +7,8 @@
   "deliveryTechnology": "NanoPortal titanium subdermal implant",
   "productTarget": {
     "description": "6개월 1회",
-    "minDays": 180,
-    "maxDays": 183
+    "minDays": 168,
+    "maxDays": 184
   },
   "route": "피하 임플란트",
   "developmentStage": "Human PK pilot",
