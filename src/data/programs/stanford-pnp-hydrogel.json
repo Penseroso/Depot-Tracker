@@ -9,7 +9,7 @@
   "route": "피하주사",
   "developmentStage": "Preclinical",
   "developmentStatus": "Academic preclinical research",
-  "lastVerifiedAt": "2026-07-29",
+  "lastVerifiedAt": "2026-07-30",
   "readout": "비미립구 depot 기술 레이더 항목. 단회 hydrogel semaglutide, 일일 수용액 투여 대비 유사한 혈당, 체중 조절 확인.",
   "differentiator": "상용 및 GRAS 계열 재료의 물리적 혼합으로 형성되는 injectable polymer–nanoparticle hydrogel",
   "caveat": "기업 개발 프로그램 아님(academic technology-watch). 4개월은 human-oriented 설계 개념, rat 직접 노출 확인 기간은 6주 이상.",
@@ -28,6 +28,12 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12236481/",
       "sourceType": "publication",
       "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "WO2025024455A1 semaglutide PNP hydrogel",
+      "url": "https://patents.google.com/patent/WO2025024455A1/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-07-30"
     }
   ]
 }

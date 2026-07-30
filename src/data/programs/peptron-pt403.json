@@ -13,7 +13,7 @@
   "route": "피하주사",
   "developmentStage": "Human PK pilot",
   "developmentStatus": "국내 IND 준비; 제출 확인 전",
-  "lastVerifiedAt": "2026-07-29",
+  "lastVerifiedAt": "2026-07-30",
   "readout": "중대한 이상반응 없음. 주 1회 비교군에서 관찰된 오심, 구토, PT403군에서는 미보고.",
   "differentiator": "SmartDepot PLGA microsphere; 고함량, 저 burst 및 상대적으로 가는 주사침 지향",
   "caveat": "소규모 pilot 자료. 정식 등록 임상 여부, 전체 PK 수치 공개 전. Q8W는 과거 비임상 가능성, 현재 임상 목표 아님.",
@@ -32,6 +32,12 @@
       "url": "https://peptron.irupsite.co.kr/Default2.aspx?Page_Disclosure=7",
       "sourceType": "company",
       "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "US20240307500A1 PT403 semaglutide microspheres",
+      "url": "https://patents.google.com/patent/US20240307500A1/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-07-30"
     }
   ]
 }

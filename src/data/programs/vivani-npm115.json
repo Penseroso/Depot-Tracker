@@ -13,7 +13,7 @@
   "route": "피하 임플란트",
   "developmentStage": "Human PK pilot",
   "developmentStatus": "LIBERATE-1 사람 PK 파일럿 완료; NPM-139 우선순위화",
-  "lastVerifiedAt": "2026-07-29",
+  "lastVerifiedAt": "2026-07-30",
   "readout": "24명 규모 LIBERATE-1에서 9주 안전성, 내약성 및 PK 목표를 충족했고 임상적으로 유의한 초기 burst 없이 exenatide 방출을 확인했다.",
   "differentiator": "고용량 exenatide를 miniature NanoPortal implant로 6개월 지속 전달한다.",
   "caveat": "공개 등록번호를 확인하지 못해 Registered Phase I 대신 Human PK pilot로 분류했다. Vivani는 현재 NPM-139를 우선 개발하고 있다.",
@@ -32,6 +32,12 @@
       "url": "https://investors.vivani.com/investors/news-events/press-releases/detail/167/vivani-medical-announces-positive-npm-115-preclinical",
       "sourceType": "company",
       "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "US20200330394A1 exenatide implant formulations",
+      "url": "https://patents.google.com/patent/US20200330394A1/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-07-30"
     }
   ]
 }

@@ -13,7 +13,7 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "Phase 1b 인체 PK/PD/안전성 topline 결과 공개(EMA CTIS 2024-518040-21-00); Phase 2b 준비 중이며 2026년 하반기 개시 예정",
-  "lastVerifiedAt": "2026-07-29",
+  "lastVerifiedAt": "2026-07-30",
   "readout": "FluidCrystal 지질 액정 depot 기반 월 1회 semaglutide. 80명 대상 Phase 1b, 월 1회 반복 투여 PK/PD를 Day 85까지 입증. Sponsor-reported topline, Day 85 기준 주 1회 semaglutide군 대비 더 큰 체중감소.",
   "differentiator": "상용화 이력이 있는 FluidCrystal 플랫폼(CAM2038 부프레노르핀, CAM2029 옥트레오타이드 등 승인)을 semaglutide에 적용; 격주 유도 후 월 1회 유지 요법",
   "caveat": "Phase 1b 연구 종료(80명, 코호트당 16명 소규모). 대조군과 투여 간격, 용량, 적정 요법 상이, sponsor-reported topline은 확정적 비교우월성 근거 아님. Phase 2b는 준비 중, 개시 전.",
@@ -44,6 +44,12 @@
       "url": "https://euclinicaltrials.eu/ctis-public/view/2024-518040-21-00",
       "sourceType": "registry",
       "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "WO2025229403A1 Camurus semaglutide lipid composition",
+      "url": "https://patents.google.com/patent/WO2025229403A1/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-07-30"
     }
   ]
 }

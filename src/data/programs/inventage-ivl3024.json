@@ -9,7 +9,7 @@
   "route": "피하주사",
   "developmentStage": "Preclinical",
   "developmentStatus": "비임상 PK 평가",
-  "lastVerifiedAt": "2026-07-29",
+  "lastVerifiedAt": "2026-07-30",
   "readout": "미니피그 단회 투여 후 2개월 평가 기간 동안 초기 방출 없이 지속적이고 안정적인 tirzepatide 노출.",
   "differentiator": "고함량 peptide loading을 지원하는 microfluidic microsphere 기반 GLP-1/GIP dual-agonist LAI.",
   "caveat": "2개월 노출은 비임상 관찰 기간이지 확정 제품 투여 목표가 아니다. IND 일정과 사람 자료는 공개되지 않았다.",
@@ -28,6 +28,12 @@
       "url": "https://inventagelab.com/ko/press-room/67?tab=press-releases",
       "sourceType": "company",
       "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "WO2025150965A1 Inventage tirzepatide microparticles",
+      "url": "https://patents.google.com/patent/WO2025150965A1/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-07-30"
     }
   ]
 }
