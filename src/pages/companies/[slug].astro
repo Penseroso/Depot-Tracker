@@ -83,20 +83,22 @@ const relationshipLabel = {
                 {relationship.status === 'former' && <span class="meta-pill">Former</span>}
               </div>
             ))}
-            <div class="patent-evidence-list">
-              {platform.patentEvidence.map((patent) => (
-                <a class="patent-evidence" href={patent.url} target="_blank" rel="noreferrer">
-                  <span>
-                    <strong>{patent.familyId}</strong>
-                    <small>{patent.publicationNumber}{patent.grantNumber ? ` / ${patent.grantNumber}` : ''}</small>
-                  </span>
-                  <span>
-                    <small>Earliest priority</small>
-                    <strong>{formatDate(patent.earliestPriority)}</strong>
-                  </span>
-                </a>
-              ))}
-            </div>
+            {platform.patentEvidence.length > 0 && (
+              <div class="patent-evidence-list">
+                {platform.patentEvidence.map((patent) => (
+                  <a class="patent-evidence" href={patent.url} target="_blank" rel="noreferrer">
+                    <span>
+                      <strong>{patent.familyId}</strong>
+                      <small>{patent.publicationNumber}{patent.grantNumber ? ` / ${patent.grantNumber}` : ''}</small>
+                    </span>
+                    <span>
+                      <small>Earliest priority</small>
+                      <strong>{formatDate(patent.earliestPriority)}</strong>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            )}
           </article>
         );
       })}

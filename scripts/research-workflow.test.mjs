@@ -37,7 +37,10 @@ test('research workflow defines all track gates and bounded crossover', async ()
   assert.match(workflow, /full-landscape refresh-and-discovery operation is a run plan, not a fourth\s+research track/i);
   assert.match(workflow, /zero unaudited Programs/i);
   assert.match(workflow, /Create a missing Company record once/i);
+  assert.match(workflow, /make one bounded pass over the\s+company's official technology pages/i);
+  assert.match(workflow, /Patent evidence is optional at\s+this point/i);
   assert.match(workflow, /Patent audit never creates a Company page/i);
+  assert.match(workflow, /updates\s+representative platform-level patent evidence/i);
   assert.match(workflow, /remain separate from `Program\.sources` and the\s+`PATENT-LINKED PROGRAMS` KPI/i);
 });
 

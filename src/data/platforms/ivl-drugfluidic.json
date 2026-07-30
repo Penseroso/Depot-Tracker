@@ -1,0 +1,25 @@
+{
+  "name": "IVL-DrugFluidic",
+  "aliases": [
+    "DrugFluidic",
+    "IVL-DrugFluidic long-acting injectable platform"
+  ],
+  "officialUrl": "https://inventagelab.com/en/science/DrugFluidic",
+  "relationships": [
+    {
+      "companySlug": "inventage-lab",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Inventagelab Inc.",
+      "basis": "Inventage Lab identifies IVL-DrugFluidic as one of its three proprietary microfluidic drug-delivery platforms.",
+      "source": {
+        "label": "Inventage Lab IVL-DrugFluidic",
+        "url": "https://inventagelab.com/en/science/DrugFluidic",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

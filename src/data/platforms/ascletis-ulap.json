@@ -1,0 +1,25 @@
+{
+  "name": "Ultra-Long-Acting Platform",
+  "aliases": [
+    "ULAP",
+    "Ultra-Long-Acting Platform technology"
+  ],
+  "officialUrl": "https://www.ascletis.com/Index/index/index/l/en-us.html",
+  "relationships": [
+    {
+      "companySlug": "ascletis-pharma",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Ascletis Pharma Inc.",
+      "basis": "Ascletis identifies ULAP as its proprietary ultra-long-acting platform for small molecules and peptides.",
+      "source": {
+        "label": "Ascletis corporate overview and proprietary platforms",
+        "url": "https://www.ascletis.com/Index/index/index/l/en-us.html",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

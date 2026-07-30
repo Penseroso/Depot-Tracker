@@ -1,0 +1,25 @@
+{
+  "name": "IVL-GeneFluidic",
+  "aliases": [
+    "GeneFluidic",
+    "IVL-GeneFluidic nucleic-acid delivery platform"
+  ],
+  "officialUrl": "https://inventagelab.com/en/science/GeneFluidic",
+  "relationships": [
+    {
+      "companySlug": "inventage-lab",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Inventagelab Inc.",
+      "basis": "Inventage Lab identifies IVL-GeneFluidic as one of its three proprietary microfluidic drug-delivery platforms.",
+      "source": {
+        "label": "Inventage Lab IVL-GeneFluidic",
+        "url": "https://inventagelab.com/en/science/GeneFluidic",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

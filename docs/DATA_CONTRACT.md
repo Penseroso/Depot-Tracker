@@ -157,19 +157,23 @@ in the JSON snapshot but do not generate or link to Company UI routes.
 Company records are created once when a Program is first stored or when direct
 Program research establishes a newly participating company. Later Program
 runs reuse the stable `companySlug` and update static links only when they
-materially change. Patent audit does not create Company records. It may add or
-update a Platform and its representative patent evidence for an existing
-Company, subject to the platform attribution gate.
+materially change. The first Company reference pass also records each platform
+that the company's official source identifies directly, whether or not
+representative patent evidence has been found. Patent audit does not create
+Company records; it updates attributable patent evidence and rights details on
+the matching Platform reference.
 
 A Platform record is eligible only when an official source directly identifies
-the platform and representative patent evidence supports the same company and
-technology. It stores the canonical name, aliases, official URL, one or more
-Company-Platform relationships, representative patent-family evidence, and a
-verification date. `relationships[].relationship` is `ownership`, `license`,
-or `access`; `status` is `current` or `former`. Multiple relationships may
-represent joint development or licensing, while a former ownership relation
-preserves a past rights holder. `rightsHolderName` preserves the legal entity
-named in the evidence even when it differs from the display Company.
+the platform and supports its current Company relationship. It stores the
+canonical name, aliases, official URL, one or more Company-Platform
+relationships, zero or more representative patent-family evidence records, and
+a verification date. An empty `patentEvidence` array means only that no
+representative family is currently stored; it is not a no-patent conclusion.
+`relationships[].relationship` is `ownership`, `license`, or `access`; `status`
+is `current` or `former`. Multiple relationships may represent joint
+development or licensing, while a former ownership relation preserves a past
+rights holder. `rightsHolderName` preserves the legal entity named in the
+evidence even when it differs from the display Company.
 
 The validator requires every relationship to resolve to a stored Company,
 requires at least one current relationship, and rejects reuse of a

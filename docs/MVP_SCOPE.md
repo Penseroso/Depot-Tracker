@@ -29,8 +29,9 @@
 - Generate pages for every identified sponsor, developer, and disclosed
   partner represented by stored Programs; partnership Programs may appear on
   more than one Company page.
-- Show only directly verified Company-Platform relationships and representative
-  platform-level patent evidence.
+- Show directly verified Company-Platform relationships whether or not patent
+  evidence is available, and show representative platform-level patent
+  evidence only when stored.
 - Keep platform-level patents separate from Program patent sources and the
   `PATENT-LINKED PROGRAMS` KPI.
 - Treat Company and Platform records as low-frequency static references.

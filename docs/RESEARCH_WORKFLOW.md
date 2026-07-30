@@ -128,6 +128,12 @@ search-result mentions or unresolved counterparties; retain non-company labels
 in the internal `other` bucket. Routine later runs must reuse the stable
 Company record rather than recreate it.
 
+When a public Company record is first created, make one bounded pass over the
+company's official technology pages and store every directly named Platform
+with a supported current Company relationship. Patent evidence is optional at
+this point. Later Program runs do not repeat this platform inventory unless the
+official Company reference materially changes.
+
 ### Discovery completion gate
 
 A discovery run is GO only when:
@@ -168,13 +174,13 @@ in-scope Program, report one audit outcome:
 - `ATTRIBUTION_DEFERRED`: a potentially relevant family was found but Program
   identity, rights chain, scope, or source access prevents reliable linkage.
 
-Patent audit never creates a Company page. For an existing Company, it may
-create or update only directly supported Platform relationships and
-representative platform-level patent evidence. Those updates surface through
-the existing Company page and remain separate from `Program.sources` and the
+Patent audit never creates a Company page. For an existing Company, it updates
+representative platform-level patent evidence and directly supported rights
+details on the matching Platform reference. Those updates surface through the
+existing Company page and remain separate from `Program.sources` and the
 `PATENT-LINKED PROGRAMS` KPI. A patent finding naming an absent or unresolved
-company identity remains a handoff until Program research establishes the
-Company record.
+company or platform identity remains a handoff until the official reference is
+established.
 
 An absent candidate encountered in patent searching is always a
 `DISCOVERY_HANDOFF` unless the run explicitly adds a bounded `program

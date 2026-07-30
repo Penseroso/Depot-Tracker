@@ -375,8 +375,8 @@ export function validateDatasetRecords({
       if (!hasCurrentRelationship) errors.push(`${name}: at least one current relationship is required`);
     }
 
-    if (!Array.isArray(data.patentEvidence) || data.patentEvidence.length === 0) {
-      errors.push(`${name}: patentEvidence must contain at least one representative family`);
+    if (!Array.isArray(data.patentEvidence)) {
+      errors.push(`${name}: patentEvidence must be an array`);
     } else {
       const evidenceUrls = new Set();
       data.patentEvidence.forEach((evidence, index) => {

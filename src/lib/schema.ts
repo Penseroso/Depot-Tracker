@@ -76,7 +76,7 @@ export const platformSchema = z.object({
   aliases: z.array(z.string().min(1)),
   officialUrl: z.url(),
   relationships: z.array(companyPlatformRelationshipSchema).min(1),
-  patentEvidence: z.array(platformPatentEvidenceSchema).min(1),
+  patentEvidence: z.array(platformPatentEvidenceSchema),
   lastVerifiedAt: z.iso.date(),
 }).strict();
 

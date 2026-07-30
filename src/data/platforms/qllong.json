@@ -1,0 +1,24 @@
+{
+  "name": "QLLong",
+  "aliases": [
+    "Long-acting technology platform"
+  ],
+  "officialUrl": "https://www.qlbiopharm.com/technology.html",
+  "relationships": [
+    {
+      "companySlug": "ql-biopharm",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "QL Biopharm",
+      "basis": "QL Biopharm identifies QLLong as its site-specific fatty-acid modification platform for half-life extension.",
+      "source": {
+        "label": "QL Biopharm technology platforms",
+        "url": "https://www.qlbiopharm.com/technology.html",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

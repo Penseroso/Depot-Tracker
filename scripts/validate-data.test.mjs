@@ -140,6 +140,12 @@ test('platform patent evidence cannot be reused as Program patent evidence', () 
   );
 });
 
+test('officially verified Platform may be stored before patent evidence is found', () => {
+  const data = createValidDataset();
+  data.platforms[0].data.patentEvidence = [];
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
+});
+
 test('one partnership Program company may map to multiple Company pages', () => {
   const data = createValidDataset();
   data.companies.push(structuredClone(data.companies[0]));

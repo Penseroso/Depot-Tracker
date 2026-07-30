@@ -1,0 +1,26 @@
+{
+  "name": "HaleVantage",
+  "aliases": [
+    "HaleVantage Half-life Extension Platform",
+    "LipoVantage",
+    "APCVantage"
+  ],
+  "officialUrl": "https://www.sciwindbio.com/portal/index/tech.html",
+  "relationships": [
+    {
+      "companySlug": "sciwind-biosciences",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Hangzhou Sciwind Biosciences Co., Ltd.",
+      "basis": "Sciwind identifies HaleVantage as its half-life extension platform encompassing LipoVantage and APCVantage.",
+      "source": {
+        "label": "Sciwind technology platforms",
+        "url": "https://www.sciwindbio.com/portal/index/tech.html",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

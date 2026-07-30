@@ -1,0 +1,24 @@
+{
+  "name": "QLFold",
+  "aliases": [
+    "Inclusion-body protein refolding platform"
+  ],
+  "officialUrl": "https://www.qlbiopharm.com/technology.html",
+  "relationships": [
+    {
+      "companySlug": "ql-biopharm",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "QL Biopharm",
+      "basis": "QL Biopharm lists QLFold among its four proprietary technology platforms.",
+      "source": {
+        "label": "QL Biopharm technology platforms",
+        "url": "https://www.qlbiopharm.com/technology.html",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

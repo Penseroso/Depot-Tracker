@@ -1,0 +1,25 @@
+{
+  "name": "IVL-BioFluidic",
+  "aliases": [
+    "BioFluidic",
+    "IVL-BioFluidic high-concentration biologics platform"
+  ],
+  "officialUrl": "https://inventagelab.com/en/science/BioFluidic",
+  "relationships": [
+    {
+      "companySlug": "inventage-lab",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Inventagelab Inc.",
+      "basis": "Inventage Lab identifies IVL-BioFluidic as one of its three proprietary microfluidic drug-delivery platforms.",
+      "source": {
+        "label": "Inventage Lab IVL-BioFluidic",
+        "url": "https://inventagelab.com/en/science/BioFluidic",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}
