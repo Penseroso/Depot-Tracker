@@ -21,6 +21,8 @@ const recruitmentStatuses = new Set([
   'unknown',
 ]);
 const recordTypes = new Set(['sponsor-program', 'technology-watch']);
+const companyPlatformRelationships = new Set(['ownership', 'license', 'access']);
+const relationshipStatuses = new Set(['current', 'former']);
 const allowedDevelopmentStages = new Set(developmentStages);
 const legacyProgramKeys = [
   'asset',
@@ -154,7 +156,14 @@ function validateRegistrySource(registry, source, file, errors) {
   }
 }
 
-export function validateDatasetRecords({ programs, studies, events, deliveryTechnologies }) {
+export function validateDatasetRecords({
+  programs,
+  studies,
+  events,
+  deliveryTechnologies,
+  companies = [],
+  platforms = [],
+}) {
   const errors = [];
   const technologyIds = new Set();
   const technologyLabels = new Set();
@@ -186,11 +195,14 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
   }
 
   const programMap = new Map();
+  const programSourceUrls = new Set();
+  const storedProgramCompanyNames = new Set();
   for (const { name, slug, data } of programs) {
     if (!data) continue;
     if (!slugPattern.test(slug)) errors.push(`${name}: program slug must be a lowercase slug`);
     if (programMap.has(slug)) errors.push(`${name}: duplicate program slug ${slug}`);
     programMap.set(slug, data);
+    storedProgramCompanyNames.add(data.company);
     rejectLegacyKeys(data, legacyProgramKeys, name, errors);
 
     for (const field of [
@@ -234,10 +246,149 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
       const urls = new Set();
       data.sources.forEach((source, index) => {
         validateSource(source, `${name} source[${index}]`, errors);
+        programSourceUrls.add(source.url);
         if (urls.has(source.url)) errors.push(`${name}: duplicate source URL ${source.url}`);
         urls.add(source.url);
         if (isDate(source.accessedOn) && isDate(data.lastVerifiedAt) && source.accessedOn > data.lastVerifiedAt) {
           errors.push(`${name}: source accessedOn cannot be after lastVerifiedAt`);
+        }
+      });
+    }
+  }
+
+  const companyMap = new Map();
+  const mappedProgramCompanyNames = new Map();
+  for (const { name, slug, data } of companies) {
+    if (!data) continue;
+    if (!slugPattern.test(slug)) errors.push(`${name}: company slug must be a lowercase slug`);
+    if (companyMap.has(slug)) errors.push(`${name}: duplicate company slug ${slug}`);
+    companyMap.set(slug, data);
+    for (const key of Object.keys(data)) {
+      if (!['name', 'homepageUrl', 'pipelineUrl', 'programCompanyNames', 'lastVerifiedAt'].includes(key)) {
+        errors.push(`${name}: unknown key ${key}`);
+      }
+    }
+    requireString(data, 'name', name, errors);
+    if (!isUrl(data.homepageUrl)) errors.push(`${name}: homepageUrl must be http(s)`);
+    if (!isUrl(data.pipelineUrl)) errors.push(`${name}: pipelineUrl must be http(s)`);
+    if (!isDate(data.lastVerifiedAt)) errors.push(`${name}: lastVerifiedAt must be YYYY-MM-DD`);
+    if (!Array.isArray(data.programCompanyNames) || data.programCompanyNames.length === 0) {
+      errors.push(`${name}: programCompanyNames must be a non-empty array`);
+    } else {
+      const localNames = new Set();
+      for (const companyName of data.programCompanyNames) {
+        if (typeof companyName !== 'string' || !companyName.trim()) {
+          errors.push(`${name}: programCompanyNames must contain non-empty strings`);
+          continue;
+        }
+        if (localNames.has(companyName)) errors.push(`${name}: duplicate programCompanyName ${companyName}`);
+        localNames.add(companyName);
+        if (!storedProgramCompanyNames.has(companyName)) {
+          errors.push(`${name}: programCompanyName does not match a stored Program company (${companyName})`);
+        }
+        if (mappedProgramCompanyNames.has(companyName)) {
+          errors.push(`${name}: programCompanyName is already mapped by ${mappedProgramCompanyNames.get(companyName)}`);
+        }
+        mappedProgramCompanyNames.set(companyName, slug);
+      }
+    }
+  }
+
+  const platformSlugs = new Set();
+  for (const { name, slug, data } of platforms) {
+    if (!data) continue;
+    if (!slugPattern.test(slug)) errors.push(`${name}: platform slug must be a lowercase slug`);
+    if (platformSlugs.has(slug)) errors.push(`${name}: duplicate platform slug ${slug}`);
+    platformSlugs.add(slug);
+    for (const key of Object.keys(data)) {
+      if (!['name', 'aliases', 'officialUrl', 'relationships', 'patentEvidence', 'lastVerifiedAt'].includes(key)) {
+        errors.push(`${name}: unknown key ${key}`);
+      }
+    }
+    requireString(data, 'name', name, errors);
+    if (!isUrl(data.officialUrl)) errors.push(`${name}: officialUrl must be http(s)`);
+    if (!isDate(data.lastVerifiedAt)) errors.push(`${name}: lastVerifiedAt must be YYYY-MM-DD`);
+    if (!Array.isArray(data.aliases)) {
+      errors.push(`${name}: aliases must be an array`);
+    } else if (new Set(data.aliases).size !== data.aliases.length) {
+      errors.push(`${name}: aliases must be unique`);
+    }
+
+    if (!Array.isArray(data.relationships) || data.relationships.length === 0) {
+      errors.push(`${name}: relationships must contain at least one relationship`);
+    } else {
+      const relationshipKeys = new Set();
+      let hasCurrentRelationship = false;
+      data.relationships.forEach((relationship, index) => {
+        const label = `${name} relationship[${index}]`;
+        for (const key of Object.keys(relationship ?? {})) {
+          if (!['companySlug', 'relationship', 'status', 'rightsHolderName', 'basis', 'source'].includes(key)) {
+            errors.push(`${label}: unknown key ${key}`);
+          }
+        }
+        for (const field of ['companySlug', 'relationship', 'status', 'rightsHolderName', 'basis']) {
+          requireString(relationship, field, label, errors);
+        }
+        if (!companyMap.has(relationship.companySlug)) {
+          errors.push(`${label}: missing Company reference ${relationship.companySlug}`);
+        }
+        if (!companyPlatformRelationships.has(relationship.relationship)) {
+          errors.push(`${label}: relationship is not allowed (${relationship.relationship})`);
+        }
+        if (!relationshipStatuses.has(relationship.status)) {
+          errors.push(`${label}: status is not allowed (${relationship.status})`);
+        }
+        if (relationship.status === 'current') hasCurrentRelationship = true;
+        const identity = `${relationship.companySlug}\u0000${relationship.relationship}\u0000${relationship.status}`;
+        if (relationshipKeys.has(identity)) errors.push(`${label}: duplicate Company-Platform relationship`);
+        relationshipKeys.add(identity);
+        validateSource(relationship.source, `${label} source`, errors);
+        if (isDate(relationship.source?.accessedOn) && isDate(data.lastVerifiedAt)
+          && relationship.source.accessedOn > data.lastVerifiedAt) {
+          errors.push(`${label}: source accessedOn cannot be after lastVerifiedAt`);
+        }
+      });
+      if (!hasCurrentRelationship) errors.push(`${name}: at least one current relationship is required`);
+    }
+
+    if (!Array.isArray(data.patentEvidence) || data.patentEvidence.length === 0) {
+      errors.push(`${name}: patentEvidence must contain at least one representative family`);
+    } else {
+      const evidenceUrls = new Set();
+      data.patentEvidence.forEach((evidence, index) => {
+        const label = `${name} patentEvidence[${index}]`;
+        for (const key of Object.keys(evidence ?? {})) {
+          if (![
+            'familyId',
+            'publicationNumber',
+            'grantNumber',
+            'earliestPriority',
+            'currentAssignee',
+            'jurisdiction',
+            'legalStatus',
+            'url',
+            'accessedOn',
+          ].includes(key)) errors.push(`${label}: unknown key ${key}`);
+        }
+        for (const field of [
+          'familyId',
+          'publicationNumber',
+          'currentAssignee',
+          'jurisdiction',
+          'legalStatus',
+        ]) requireString(evidence, field, label, errors);
+        if (evidence.grantNumber !== null) requireString(evidence, 'grantNumber', label, errors);
+        if (!isDate(evidence.earliestPriority)) errors.push(`${label}: earliestPriority must be YYYY-MM-DD`);
+        if (!isDate(evidence.accessedOn)) errors.push(`${label}: accessedOn must be YYYY-MM-DD`);
+        if (!isUrl(evidence.url)) errors.push(`${label}: url must be http(s)`);
+        if (evidenceUrls.has(evidence.url)) errors.push(`${name}: duplicate patent evidence URL ${evidence.url}`);
+        evidenceUrls.add(evidence.url);
+        if (programSourceUrls.has(evidence.url)) {
+          errors.push(`${name}: platform-level patent evidence must not be linked from Program.sources (${evidence.url})`);
+        }
+        if (isDate(evidence.accessedOn) && isDate(data.lastVerifiedAt)
+          && evidence.accessedOn > data.lastVerifiedAt) {
+          errors.push(`${label}: accessedOn cannot be after lastVerifiedAt`);
         }
       });
     }
@@ -341,13 +492,15 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
       studies: studies.length,
       events: events.length,
       deliveryTechnologies: Array.isArray(deliveryTechnologies) ? deliveryTechnologies.length : 0,
+      companies: companies.length,
+      platforms: platforms.length,
     },
   };
 }
 
 export async function validateDataset(root) {
   const errors = [];
-  const [programs, studies, events, deliveryTechnologies] = await Promise.all([
+  const [programs, studies, events, deliveryTechnologies, companies, platforms] = await Promise.all([
     readJsonDir(path.join(root, 'src/data/programs'), errors),
     readJsonDir(path.join(root, 'src/data/studies'), errors),
     readJsonDir(path.join(root, 'src/data/events'), errors),
@@ -357,7 +510,16 @@ export async function validateDataset(root) {
         errors.push(`delivery-technologies.json: invalid JSON (${error.message})`);
         return [];
       }),
+    readJsonDir(path.join(root, 'src/data/companies'), errors),
+    readJsonDir(path.join(root, 'src/data/platforms'), errors),
   ]);
-  const result = validateDatasetRecords({ programs, studies, events, deliveryTechnologies });
+  const result = validateDatasetRecords({
+    programs,
+    studies,
+    events,
+    deliveryTechnologies,
+    companies,
+    platforms,
+  });
   return { ...result, errors: [...errors, ...result.errors] };
 }

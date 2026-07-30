@@ -1,0 +1,37 @@
+{
+  "name": "NanoPortal",
+  "aliases": [
+    "NanoPortal implant technology",
+    "NPM NanoPortal"
+  ],
+  "officialUrl": "https://vivani.com/nanoportal/",
+  "relationships": [
+    {
+      "companySlug": "vivani-medical",
+      "relationship": "access",
+      "status": "current",
+      "rightsHolderName": "Nano Precision Medical, Inc.",
+      "basis": "Vivani identifies NanoPortal as proprietary technology and reports that Nano Precision Medical became its wholly owned subsidiary in the 2022 business combination; the representative family remains assigned to Nano Precision Medical.",
+      "source": {
+        "label": "Vivani 2026 Form 10-Q, organization and NanoPortal",
+        "url": "https://www.sec.gov/Archives/edgar/data/1266806/000175392626000852/vani-20260331.htm",
+        "sourceType": "filing",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [
+    {
+      "familyId": "WO2025147462",
+      "publicationNumber": "WO2025147462A1",
+      "grantNumber": null,
+      "earliestPriority": "2024-01-04",
+      "currentAssignee": "Nano Precision Medical, Inc.",
+      "jurisdiction": "WO (PCT); representative family record only",
+      "legalStatus": "Pending PCT record; national-phase status not exhaustively checked",
+      "url": "https://patents.google.com/patent/WO2025147462A1/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
+  "lastVerifiedAt": "2026-07-30"
+}

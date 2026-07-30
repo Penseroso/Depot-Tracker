@@ -11,5 +11,6 @@ if (result.errors.length) {
 
 console.log(
   `Data validation passed: ${result.counts.programs} programs, ${result.counts.studies} studies, `
-  + `${result.counts.events} events, ${result.counts.deliveryTechnologies} delivery technologies.`,
+  + `${result.counts.events} events, ${result.counts.deliveryTechnologies} delivery technologies, `
+  + `${result.counts.companies} companies, ${result.counts.platforms} platforms.`,
 );

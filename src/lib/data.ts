@@ -1,9 +1,13 @@
 import {
+  companySchema,
   deliveryTechnologySchema,
   eventSchema,
+  platformSchema,
   programSchema,
   studySchema,
+  type Company,
   type DeliveryTechnology,
+  type Platform,
   type Program,
   type Study,
   type TrackerEvent,
@@ -40,6 +44,16 @@ const deliveryTechnologyModules = import.meta.glob('../data/registries/delivery-
   import: 'default',
 }) as Record<string, unknown>;
 
+const companyModules = import.meta.glob('../data/companies/*.json', {
+  eager: true,
+  import: 'default',
+}) as Record<string, unknown>;
+
+const platformModules = import.meta.glob('../data/platforms/*.json', {
+  eager: true,
+  import: 'default',
+}) as Record<string, unknown>;
+
 function slugFromPath(path: string) {
   return path.split('/').at(-1)?.replace(/\.json$/, '') ?? path;
 }
@@ -55,6 +69,36 @@ export function getPrograms(): Program[] {
   return Object.entries(programModules)
     .map(([path, data]) => ({ ...programSchema.parse(data), slug: slugFromPath(path) }))
     .sort((a, b) => compareProgramsByDevelopmentStage(a, b, latestEventDateBySlug));
+}
+
+export function getCompanies(): Company[] {
+  return Object.entries(companyModules)
+    .map(([path, data]) => ({ ...companySchema.parse(data), slug: slugFromPath(path) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getPlatforms(): Platform[] {
+  return Object.entries(platformModules)
+    .map(([path, data]) => ({ ...platformSchema.parse(data), slug: slugFromPath(path) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getCompany(slug: string) {
+  return getCompanies().find((company) => company.slug === slug);
+}
+
+export function getCompanyForProgram(program: Program, companies = getCompanies()) {
+  return companies.find((company) => company.programCompanyNames.includes(program.company));
+}
+
+export function getProgramsForCompany(company: Company, programs = getPrograms()) {
+  const names = new Set(company.programCompanyNames);
+  return programs.filter((program) => names.has(program.company));
+}
+
+export function getPlatformsForCompany(companySlug: string, platforms = getPlatforms()) {
+  return platforms.filter((platform) =>
+    platform.relationships.some((relationship) => relationship.companySlug === companySlug));
 }
 
 export function getStudies(): Study[] {

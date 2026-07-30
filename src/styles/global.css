@@ -199,11 +199,35 @@ ul.clause-list li::before { content: "–"; position: absolute; left: 0; color: 
 .method-block p, .method-block li { color: var(--muted); font-size: 13px; line-height: 1.7; }
 .method-block ul { margin: 0; padding-left: 18px; }
 
+.company-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.company-card { display: grid; gap: 8px; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow); }
+.company-card:hover { border-color: #b7c8c4; transform: translateY(-1px); }
+.company-card-name { font-size: 17px; font-weight: 780; letter-spacing: -.025em; }
+.company-card-meta { color: var(--muted); font-size: 12px; }
+.company-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
+.company-program-list, .platform-list { display: grid; gap: 12px; }
+.company-program-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 15px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.company-program-row:hover { border-color: #b7c8c4; }
+.company-program-row strong, .company-program-row small { display: block; }
+.company-program-row strong { font-size: 14px; }
+.company-program-row small { margin-top: 5px; color: var(--muted); font-size: 11px; }
+.platform-card { padding: 20px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow); }
+.platform-card-head { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; }
+.platform-card h3 { margin: 0; font-size: 17px; letter-spacing: -.025em; }
+.platform-card-head p { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
+.platform-relation { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; color: #35413f; font-size: 12px; }
+.patent-evidence-list { display: grid; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+.patent-evidence { display: flex; justify-content: space-between; gap: 20px; padding: 11px 12px; border-radius: 10px; background: var(--surface-soft); }
+.patent-evidence:hover { background: var(--surface-strong); }
+.patent-evidence span:last-child { text-align: right; }
+.patent-evidence strong, .patent-evidence small { display: block; font-size: 12px; }
+.patent-evidence small { margin-bottom: 4px; color: var(--muted); font-size: 10px; }
+
 .footer { border-top: 1px solid var(--line); padding: 26px 0 38px; color: var(--muted); font-size: 12px; }
 .footer-inner { display: flex; gap: 20px; }
 
 @media (max-width: 960px) {
-  .detail-layout, .panel-grid, .chart-grid, .evidence-grid { grid-template-columns: 1fr; }
+  .detail-layout, .panel-grid, .chart-grid, .evidence-grid, .company-grid { grid-template-columns: 1fr; }
   .metric-strip { grid-template-columns: repeat(2,1fr); }
   .metric:nth-child(2) { border-right: 0; }
   .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -225,6 +249,8 @@ ul.clause-list li::before { content: "–"; position: absolute; left: 0; color: 
   .metric { padding: 18px; }
   .metric-value { font-size: 26px; }
   .page-heading { display: block; }
+  .company-head, .platform-card-head { display: block; }
+  .company-head .actions, .platform-card-head .text-link { margin-top: 16px; }
   .actions { margin-top: 18px; }
   .filterbar { grid-template-columns: 1fr; }
   .feed-item { grid-template-columns: 76px 1fr; }

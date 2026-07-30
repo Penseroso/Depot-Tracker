@@ -43,6 +43,46 @@ function createValidDataset() {
         sources: [source],
       },
     }],
+    companies: [{
+      name: 'fixture-co.json',
+      slug: 'fixture-co',
+      data: {
+        name: 'Fixture Co',
+        homepageUrl: 'https://example.com/',
+        pipelineUrl: 'https://example.com/pipeline',
+        programCompanyNames: ['Fixture Co'],
+        lastVerifiedAt: '2026-07-27',
+      },
+    }],
+    platforms: [{
+      name: 'fixture-platform.json',
+      slug: 'fixture-platform',
+      data: {
+        name: 'Fixture Platform',
+        aliases: ['Fixture delivery platform'],
+        officialUrl: 'https://example.com/platform',
+        relationships: [{
+          companySlug: 'fixture-co',
+          relationship: 'ownership',
+          status: 'current',
+          rightsHolderName: 'Fixture Co',
+          basis: 'Fixture Co identifies and owns the fixture platform.',
+          source,
+        }],
+        patentEvidence: [{
+          familyId: 'WO2026000001',
+          publicationNumber: 'WO2026000001A1',
+          grantNumber: null,
+          earliestPriority: '2025-01-01',
+          currentAssignee: 'Fixture Co',
+          jurisdiction: 'WO (PCT)',
+          legalStatus: 'Pending',
+          url: 'https://patents.example.com/WO2026000001A1',
+          accessedOn: '2026-07-27',
+        }],
+        lastVerifiedAt: '2026-07-27',
+      },
+    }],
     studies: [{
       name: 'nct00000001.json',
       slug: 'nct00000001',
@@ -84,6 +124,27 @@ function createValidDataset() {
 
 test('single-component payload and ClinicalTrials.gov Study pass', () => {
   assert.deepEqual(validateDatasetRecords(createValidDataset()).errors, []);
+});
+
+test('platform patent evidence cannot be reused as Program patent evidence', () => {
+  const data = createValidDataset();
+  data.programs[0].data.sources.push({
+    ...source,
+    sourceType: 'patent',
+    url: data.platforms[0].data.patentEvidence[0].url,
+  });
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /platform-level patent evidence must not be linked from Program\.sources/,
+  );
+});
+
+test('Company program mapping must be unique and match stored Program data', () => {
+  const data = createValidDataset();
+  data.companies.push(structuredClone(data.companies[0]));
+  data.companies[1].name = 'duplicate-company.json';
+  data.companies[1].slug = 'duplicate-company';
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /programCompanyName is already mapped/);
 });
 
 test('every canonical development stage passes validation', () => {

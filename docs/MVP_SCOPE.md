@@ -21,6 +21,19 @@
 - stale-record advisory와 GitHub Pages 배포
 - 주간 에이전트 조사 → Draft PR → 사람 승인 운영
 
+## Company reference UI
+
+- Provide a Company directory and concise Company detail pages with official
+  website and pipeline links.
+- Derive each Company page's stored Program list from canonical Program data.
+- Show only directly verified Company-Platform relationships and representative
+  platform-level patent evidence.
+- Keep platform-level patents separate from Program patent sources and the
+  `PATENT-LINKED PROGRAMS` KPI.
+- Treat Company and Platform records as low-frequency static references.
+- Exclude long-form company profiles, news, financial coverage, and a separate
+  Platform detail UI.
+
 ## UI 표기 규칙
 
 - 가운뎃점(`·`)은 렌더링되는 모든 화면 텍스트에서 금지한다. UI가 직접
