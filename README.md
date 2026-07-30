@@ -136,8 +136,3 @@ Scheduled agent research
 
 프로젝트 저장소와 `<username>.github.io` 저장소의 base path 차이는 workflow가
 자동 처리합니다.
-
-## 디자인 미리보기
-
-`design-preview/index.html`은 패키지 설치 없이 볼 수 있는 독립형 화면
-미리보기입니다. 실제 배포 소스와 데이터 기준은 `src/`입니다.
