@@ -4,15 +4,17 @@ import test from 'node:test';
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), 'utf8');
 
-test('agent entry point routes refresh and discovery separately', async () => {
+test('agent entry point routes all three canonical tracks separately', async () => {
   const agents = await read('AGENTS.md');
 
   assert.match(agents, /Program refresh \(one named Program or the stored roster\)/);
   assert.match(agents, /Program discovery \(candidates not currently stored\)/);
+  assert.match(agents, /Patent coverage audit \(one named Program or the stored roster\)/);
+  assert.match(agents, /docs\/PATENT_AUDIT\.md/);
   assert.doesNotMatch(agents, /Weekly landscape refresh or named-program research/);
 });
 
-test('research workflow defines both track gates and bounded crossover', async () => {
+test('research workflow defines all track gates and bounded crossover', async () => {
   const workflow = await read('docs/RESEARCH_WORKFLOW.md');
 
   for (const required of [
@@ -20,17 +22,41 @@ test('research workflow defines both track gates and bounded crossover', async (
     '### Refresh completion gate',
     '## 3. Track B: program discovery',
     '### Discovery completion gate',
-    '## 4. Bounded crossover and handoff',
+    '## 4. Track C: patent coverage audit',
+    '### Patent audit completion gate',
+    '## 5. Bounded crossover and handoff',
     '`DISCOVERY_HANDOFF`',
     '`REFRESH_HANDOFF`',
-    '## 8. Full landscape combination',
+    '## 9. Full landscape combination',
   ]) {
     assert.ok(workflow.includes(required), `missing workflow contract: ${required}`);
   }
 
   assert.match(workflow, /undispositioned candidate\s+count must be zero/i);
   assert.match(workflow, /independent coverage pass is mandatory/i);
-  assert.match(workflow, /full-landscape operation is a run plan, not a third research track/i);
+  assert.match(workflow, /full-landscape refresh-and-discovery operation is a run plan, not a fourth\s+research track/i);
+  assert.match(workflow, /zero unaudited Programs/i);
+});
+
+test('patent audit authority defines search, attribution, refresh, and claim limits', async () => {
+  const patentAudit = await read('docs/PATENT_AUDIT.md');
+
+  for (const required of [
+    '## 2. Search matrix',
+    '## 3. Families and document status',
+    '## 4. Attribution',
+    '## 5. Claim limits and discovery handoff',
+    '## 7. Periodic minimum refresh',
+    '`PATENT_LINKED`',
+    '`NO_LINK_FOUND`',
+    '`ATTRIBUTION_DEFERRED`',
+    '`DISCOVERY_HANDOFF`',
+  ]) {
+    assert.ok(patentAudit.includes(required), `missing patent audit contract: ${required}`);
+  }
+
+  assert.match(patentAudit, /Patent evidence alone never creates\s+a sponsor Program/i);
+  assert.match(patentAudit, /KPI, not an audit-completeness or\s+portfolio KPI/i);
 });
 
 test('pull request gate reports track, boundary, crossover, and GO status', async () => {
@@ -41,6 +67,9 @@ test('pull request gate reports track, boundary, crossover, and GO status', asyn
     'Boundary:',
     'Combined full-landscape run:',
     'Independent coverage pass:',
+    'Audit baseline / as-of:',
+    'Unaudited Programs:',
+    'Discovery handoffs from patent audit:',
     'Discovery handoffs from refresh:',
     'Refresh handoffs from discovery:',
     'Track gate(s) passed:',

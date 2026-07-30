@@ -130,7 +130,9 @@ every consumer must compute them through the shared helpers in
 - `PATENT-LINKED PROGRAMS`: the count of Programs with at least one linked
   `sources[].sourceType === 'patent'` record, counting each Program once
   regardless of how many patents it links, with its share of the total
-  Program count as a secondary figure.
+  Program count as a secondary figure. This measures stored representative
+  links, not completed patent-audit coverage, patent-family count, portfolio
+  breadth, ownership, enforceability, or legal status.
 
 ## Delivery-technology registry
 

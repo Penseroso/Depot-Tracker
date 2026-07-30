@@ -16,9 +16,12 @@ update-boundary: Update only when research execution, completion gates, validati
    - `program refresh`: one or more named, already stored Programs, or the full
      stored Program roster;
    - `program discovery`: candidates not currently stored, within a declared
-     company, technology, evidence source, time window, or full-landscape scope.
-4. Record the starting Program roster. Existing records route to refresh;
-   absent candidates route to discovery.
+     company, technology, evidence source, time window, or full-landscape scope;
+   - `patent coverage audit`: one or more named, already stored Programs, or the
+     full stored Program roster.
+4. Record the starting Program roster. In refresh/discovery work, existing
+   records route to refresh and absent candidates route to discovery. Patent
+   audit remains stored-roster work and hands absent candidates to discovery.
 5. Confirm that the direct sources required by the selected track are reachable
    or can be handled without an unsupported change.
 6. Work on a branch and draft PR; never write directly to `main`.
@@ -26,7 +29,7 @@ update-boundary: Update only when research execution, completion gates, validati
 `named-program refresh` is retained only as a plain-language description of a
 single-Program `program refresh`; it is no longer a separate run mode.
 `full landscape refresh` is retired as an atomic mode and replaced by the
-combined run in section 8.
+combined run in section 9.
 
 ## 2. Track A: program refresh
 
@@ -71,7 +74,7 @@ A refresh is GO only when:
    support;
 4. in-scope unresolved claims and blocked sources were preserved with a
    re-entry condition or source-access handover where necessary;
-5. every crossover finding was resolved under section 4;
+5. every crossover finding was resolved under section 5;
 6. Event and common validation gates pass.
 
 ## 3. Track B: program discovery
@@ -127,12 +130,61 @@ A discovery run is GO only when:
 4. every stored candidate has direct support for scope, identity, payload,
    record type, and delivery technology, and is not a duplicate;
 5. every deferred candidate has missing evidence and a re-entry condition;
-6. every crossover finding was resolved under section 4;
+6. every crossover finding was resolved under section 5;
 7. Event and common validation gates pass.
 
-## 4. Bounded crossover and handoff
+## 4. Track C: patent coverage audit
 
-Never ignore a material fact merely because it belongs to the other track.
+### Purpose and entry
+
+Use `patent coverage audit` to assess patent-source coverage for a declared set
+of already stored Programs. It is neither a general current-state refresh nor
+a patent-bounded discovery run. Entry is one or more stable Program slugs or
+the explicit full stored roster. The initial landscape-wide audit uses the full
+stored roster; later audits may use the delta scope defined in
+`docs/PATENT_AUDIT.md`.
+
+### Required evidence surface
+
+Follow `docs/PATENT_AUDIT.md`, the sole authority for the search matrix, family
+deduplication, document and legal-status distinctions, Program-versus-platform
+attribution, evidence thresholds, and periodic minimum rechecks. For every
+in-scope Program, report one audit outcome:
+
+- `PATENT_LINKED`: at least one family is attributable under that authority,
+  with representative public patent source links stored or reconfirmed;
+- `NO_LINK_FOUND`: the required search surface was completed without an
+  attributable family; this is a search result, not proof that no patent
+  exists;
+- `ATTRIBUTION_DEFERRED`: a potentially relevant family was found but Program
+  identity, rights chain, scope, or source access prevents reliable linkage.
+
+An absent candidate encountered in patent searching is always a
+`DISCOVERY_HANDOFF` unless the run explicitly adds a bounded `program
+discovery` track. Patent evidence alone does not create a Program or assign a
+discovery disposition.
+
+### Patent audit completion gate
+
+A patent audit is GO only when:
+
+1. every Program in the declared audit roster has one reported audit outcome,
+   with zero unaudited Programs;
+2. the required identifier, payload, platform, sponsor, and assignee search
+   paths were traversed and family duplicates were collapsed;
+3. application, publication, grant, and jurisdiction-specific legal status
+   were not conflated;
+4. every stored patent link meets the Program-attribution threshold, while
+   platform-only findings remain platform-level;
+5. no patent alone was used to assert active development, `productTarget`,
+   development stage/status, or a new Program;
+6. every absent candidate and unresolved stored-Program attribution was routed
+   under section 5;
+7. the patent-specific and common validation gates pass.
+
+## 5. Bounded crossover and handoff
+
+Never ignore a material fact merely because it belongs to another track.
 Keep crossover bounded:
 
 - During refresh, capture an absent candidate's minimum identity, why it may be
@@ -143,6 +195,10 @@ Keep crossover bounded:
   `REFRESH_HANDOFF`. A bounded crossover may update only that Program, its
   linked Study, and directly implicated Event after completing the refresh
   evidence surface and refresh gate for that Program.
+- During patent audit, route any non-patent current-state fact about a stored
+  Program as `REFRESH_HANDOFF`; do not broaden the audit into sponsor or
+  registry reconciliation. Route an absent candidate as `DISCOVERY_HANDOFF`
+  with only the minimum evidence required by `docs/PATENT_AUDIT.md`.
 - A handoff is not a source-access handover. Create
   `docs/source-access-handover/<programSlug>.md` only when source access leaves a
   material claim unresolved for a stable stored or newly stored Program under
@@ -152,7 +208,7 @@ Keep crossover bounded:
   material crossover is NO-GO; a recorded handoff may remain for a later run
   when it is outside the authorized scope.
 
-## 5. Apply the contract
+## 6. Apply the contract
 
 - Reuse stable Program and Study slugs.
 - Declare ordered `payloadComponents`, `recordType`, and a registered
@@ -168,7 +224,7 @@ Keep crossover bounded:
 - Add `studySlug` to an Event only when the Event identifies that Study.
 - Use `DEFERRED_SCHEMA_CASE` when directly supported evidence is not representable.
 
-## 6. Protect existing records
+## 7. Protect existing records
 
 Do not replace stronger evidence with weaker reporting, guess an identity,
 classification, interval, stage, phase, country, or status, or mechanically
@@ -218,9 +274,9 @@ limits that the result's contemporaneous meaning survives after the Program's
 current fields move on. A later stage-entry Event never replaces or
 generalizes an earlier result Event; both remain as separate records.
 
-## 7. Common completion gate and validation
+## 8. Common completion gate and validation
 
-Either track is GO only when its track gate passes and:
+Any track is GO only when its track gate passes and:
 
 1. all edits follow the Data Contract and Source and Entry Policy;
 2. material changes have Events and pure reverification does not;
@@ -250,9 +306,10 @@ git diff --check
 
 Staleness is advisory. Validation cannot replace source review.
 
-## 8. Full landscape combination
+## 9. Full landscape combination
 
-A full-landscape operation is a run plan, not a third research track:
+A full-landscape refresh-and-discovery operation is a run plan, not a fourth
+research track:
 
 1. run `program refresh` across the full starting roster and all active
    Program-linked source handovers;
@@ -262,16 +319,21 @@ A full-landscape operation is a run plan, not a third research track:
 4. resolve discovery facts about stored Programs through bounded refresh
    crossover or explicit handoff;
 5. run the common validation once over the combined diff and report GO only
-   when both track gates pass.
+   when both included track gates pass.
 
 This order reduces duplicate discovery and prevents stale aliases from creating
 new Program identities. A newly `STORED` candidate completes the discovery gate
 and does not require a redundant full refresh in the same run.
 
-## 9. Report
+Patent audit is not implied by this combination. Add it as an explicit third
+track when patent coverage is in scope, using the refreshed roster as its audit
+baseline and routing its findings through section 5.
+
+## 10. Report
 
 Report the primary track and boundary; traversed and changed Programs/Studies;
 discovery dispositions and undispositioned count when applicable; independent
-coverage status when applicable; crossover handoffs; material Events; deferred
-and source-blocked claims; validation results; and final GO/NO-GO. When nothing
-changed, do not edit data solely to create a commit.
+coverage status when applicable; patent audit baseline, outcomes, family count,
+and unaudited count when applicable; crossover handoffs; material Events;
+deferred and source-blocked claims; validation results; and final GO/NO-GO.
+When nothing changed, do not edit data solely to create a commit.

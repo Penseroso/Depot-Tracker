@@ -86,6 +86,10 @@ duration claim but do not establish `productTarget` or active development for
 a specific payload; never present a platform generalization as if it were
 directly demonstrated for the current payload/Program.
 
+Patent search, family deduplication, document-status handling, and attribution
+rules are authoritative in `docs/PATENT_AUDIT.md`. This policy remains the
+authority for which Program fields a patent may support.
+
 ## Program and Event prose style
 
 This style applies to Program `readout` ("Evidence summary"), `differentiator`

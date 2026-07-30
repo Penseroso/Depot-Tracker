@@ -16,6 +16,7 @@ authoritative home; other documents should link to it rather than restating it.
 | Dataset identity, mutable state, fields, dates, events | [`DATA_CONTRACT.md`](DATA_CONTRACT.md) |
 | Field-specific source authority and entry thresholds | [`SOURCE_AND_ENTRY_POLICY.md`](SOURCE_AND_ENTRY_POLICY.md) |
 | Research execution, completion gate, validation, reporting | [`RESEARCH_WORKFLOW.md`](RESEARCH_WORKFLOW.md) |
+| Patent search, family handling, attribution, and audit refresh | [`PATENT_AUDIT.md`](PATENT_AUDIT.md) |
 | Current representational limits and re-entry triggers | [`EDGE_CASES.md`](EDGE_CASES.md) |
 | Unresolved source-access handover | [`source-access-handover/README.md`](source-access-handover/README.md) |
 | Product scope and intentionally excluded features | [`MVP_SCOPE.md`](MVP_SCOPE.md) |
