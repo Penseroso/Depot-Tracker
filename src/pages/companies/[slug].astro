@@ -41,8 +41,8 @@ const relationshipLabel = {
       <p class="detail-company">Reference checked {formatDate(company.lastVerifiedAt)}</p>
     </div>
     <div class="actions">
-      <a class="button" href={company.homepageUrl} target="_blank" rel="noreferrer">Official website ↗</a>
-      <a class="button button-primary" href={company.pipelineUrl} target="_blank" rel="noreferrer">Official pipeline ↗</a>
+      {company.homepageUrl && <a class="button" href={company.homepageUrl} target="_blank" rel="noreferrer">Official website ↗</a>}
+      {company.pipelineUrl && <a class="button button-primary" href={company.pipelineUrl} target="_blank" rel="noreferrer">Official pipeline ↗</a>}
     </div>
   </header>
 

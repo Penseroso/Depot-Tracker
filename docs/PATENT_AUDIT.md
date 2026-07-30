@@ -153,11 +153,20 @@ and the as-of date. `NO_LINK_FOUND` means the required search surface returned
 no attributable family; it does not assert patent absence.
 
 The Program Source model can store representative patent documents and is
-adequate for the current UI. It cannot store a complete family ledger or legal
-status history. Therefore:
+adequate for Program-specific evidence. The static Platform model can store a
+reviewed representative family and Company-Platform rights relationship. It
+does not replace a complete family ledger or legal-status history. Therefore:
 
 - add or reconfirm only attributable representative documents as
   `sourceType: "patent"`;
+- for a platform-level finding, update `src/data/platforms/` only when an
+  existing public Company, official platform identifier, current rights
+  holder, and `ownership`/`license`/`access` relationship are directly
+  supported;
+- patent audit never creates `src/data/companies/` records; an absent or
+  unresolved company identity remains a discovery handoff;
+- never copy platform-level patent evidence into `Program.sources` or count it
+  in `PATENT-LINKED PROGRAMS`;
 - do not encode family count, audit outcome, assignee, legal status, or audit
   completion in labels or unrelated Program fields;
 - preserve the audit matrix, family deduplication, no-link outcomes, and

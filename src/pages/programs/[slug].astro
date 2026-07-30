@@ -4,7 +4,7 @@ import StageBadge from '../../components/StageBadge.astro';
 import ClauseText from '../../components/ClauseText.astro';
 import EventEntry from '../../components/EventEntry.astro';
 import TimelineEntry from '../../components/TimelineEntry.astro';
-import { getCompanies, getCompanyForProgram, getDeliveryTechnologies, getEvents, getEventsForProgram, getPrograms, getStudies } from '../../lib/data';
+import { getCompanies, getCompaniesForProgram, getDeliveryTechnologies, getEvents, getEventsForProgram, getPrograms, getStudies } from '../../lib/data';
 import { formatDate, formatIntervalClaim, formatPayloadComponents, stageLabel } from '../../lib/format';
 
 export function getStaticPaths() {
@@ -22,7 +22,7 @@ export function getStaticPaths() {
 
 const { program, studies, events } = Astro.props;
 const technology = getDeliveryTechnologies().find((item) => item.id === program.deliveryTechnologyId);
-const company = getCompanyForProgram(program, getCompanies());
+const companies = getCompaniesForProgram(program, getCompanies()).filter((company) => company.visibility === 'public');
 const patents = program.sources.filter((source) => source.sourceType === 'patent');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -38,8 +38,10 @@ const timelineRest = earlierEvents.slice(5);
     <div class="detail-topline"><StageBadge stage={program.developmentStage} /><span class="meta-pill">{technology?.label ?? program.deliveryTechnologyId}</span><span class="meta-pill">{program.recordType === 'sponsor-program' ? 'Sponsor program' : 'Technology watch'}</span></div>
     <h1>{program.programName}</h1>
     <p class="detail-company">
-      {company?.visibility === 'public'
-        ? <a class="text-link" href={`${base}/companies/${company.slug}/`}>{program.company}</a>
+      {companies.length > 0
+        ? companies.map((company, index) => (
+          <><a class="text-link" href={`${base}/companies/${company.slug}/`}>{company.name}</a>{index < companies.length - 1 ? ' / ' : ''}</>
+        ))
         : program.company}
     </p>
   </header>

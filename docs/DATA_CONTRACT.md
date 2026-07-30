@@ -146,11 +146,20 @@ reference data, not a third Program research track. A Company record stores its
 display name, `visibility`, official homepage and pipeline URLs, exact
 `programCompanyNames`, and `lastVerifiedAt`. Its Program list is always derived
 by exact match against existing `Program.company` values; Program records do
-not gain a Company foreign key solely for this UI. Every stored Program company
-must map exactly once. Values without a dedicated verified Company reference
-map to the `other` record with `visibility: internal` and null official URLs.
-Internal Company records remain in the JSON snapshot but do not generate or
-link to Company UI routes.
+not gain a Company foreign key solely for this UI. A partnership display value
+may appear in multiple Company records so the same Program is derived onto
+every participating Company page. Every stored Program company must map at
+least once. Actual sponsor, developer, and disclosed partner companies use
+`visibility: public`; non-company or unresolved labels map to `other` with
+`visibility: internal` and null official URLs. Internal Company records remain
+in the JSON snapshot but do not generate or link to Company UI routes.
+
+Company records are created once when a Program is first stored or when direct
+Program research establishes a newly participating company. Later Program
+runs reuse the stable `companySlug` and update static links only when they
+materially change. Patent audit does not create Company records. It may add or
+update a Platform and its representative patent evidence for an existing
+Company, subject to the platform attribution gate.
 
 A Platform record is eligible only when an official source directly identifies
 the platform and representative patent evidence supports the same company and

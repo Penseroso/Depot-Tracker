@@ -48,11 +48,7 @@ export const companySchema = z.object({
   pipelineUrl: z.url().nullable(),
   programCompanyNames: z.array(z.string().min(1)).min(1),
   lastVerifiedAt: z.iso.date(),
-}).strict().refine(
-  ({ visibility, homepageUrl, pipelineUrl }) =>
-    visibility === 'internal' || (homepageUrl !== null && pipelineUrl !== null),
-  { message: 'public Company requires homepageUrl and pipelineUrl' },
-);
+}).strict();
 
 export const companyPlatformRelationshipSchema = z.object({
   companySlug: slugSchema,

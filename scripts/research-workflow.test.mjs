@@ -36,6 +36,9 @@ test('research workflow defines all track gates and bounded crossover', async ()
   assert.match(workflow, /independent coverage pass is mandatory/i);
   assert.match(workflow, /full-landscape refresh-and-discovery operation is a run plan, not a fourth\s+research track/i);
   assert.match(workflow, /zero unaudited Programs/i);
+  assert.match(workflow, /Create a missing Company record once/i);
+  assert.match(workflow, /Patent audit never creates a Company page/i);
+  assert.match(workflow, /remain separate from `Program\.sources` and the\s+`PATENT-LINKED PROGRAMS` KPI/i);
 });
 
 test('patent audit authority defines search, attribution, refresh, and claim limits', async () => {
@@ -56,6 +59,8 @@ test('patent audit authority defines search, attribution, refresh, and claim lim
   }
 
   assert.match(patentAudit, /Patent evidence alone never creates\s+a sponsor Program/i);
+  assert.match(patentAudit, /patent audit never creates `src\/data\/companies\/` records/i);
+  assert.match(patentAudit, /never copy platform-level patent evidence into `Program\.sources`/i);
   assert.match(patentAudit, /KPI, not an audit-completeness or\s+portfolio KPI/i);
 });
 

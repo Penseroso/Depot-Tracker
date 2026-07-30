@@ -91,8 +91,8 @@ export function getCompany(slug: string) {
   return getCompanies().find((company) => company.slug === slug);
 }
 
-export function getCompanyForProgram(program: Program, companies = getCompanies()) {
-  return companies.find((company) => company.programCompanyNames.includes(program.company));
+export function getCompaniesForProgram(program: Program, companies = getCompanies()) {
+  return companies.filter((company) => company.programCompanyNames.includes(program.company));
 }
 
 export function getProgramsForCompany(company: Company, programs = getPrograms()) {

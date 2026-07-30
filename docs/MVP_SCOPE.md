@@ -26,6 +26,9 @@
 - Provide a Company directory and concise Company detail pages with official
   website and pipeline links.
 - Derive each Company page's stored Program list from canonical Program data.
+- Generate pages for every identified sponsor, developer, and disclosed
+  partner represented by stored Programs; partnership Programs may appear on
+  more than one Company page.
 - Show only directly verified Company-Platform relationships and representative
   platform-level patent evidence.
 - Keep platform-level patents separate from Program patent sources and the

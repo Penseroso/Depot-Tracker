@@ -119,6 +119,15 @@ deferrals and relevant unresolved source handovers. Before storing, compare
 company, aliases, payload combination, and delivery platform against the
 starting roster to prevent duplicate Program creation.
 
+When a candidate becomes `STORED`, resolve every directly identified sponsor,
+developer, and disclosed partner against `src/data/companies/`. Reuse existing
+Company slugs. Create a missing Company record once, with its official homepage
+and pipeline links when directly available, and map the Program display company
+to every participating Company page. Do not create Company records for
+search-result mentions or unresolved counterparties; retain non-company labels
+in the internal `other` bucket. Routine later runs must reuse the stable
+Company record rather than recreate it.
+
 ### Discovery completion gate
 
 A discovery run is GO only when:
@@ -159,6 +168,14 @@ in-scope Program, report one audit outcome:
 - `ATTRIBUTION_DEFERRED`: a potentially relevant family was found but Program
   identity, rights chain, scope, or source access prevents reliable linkage.
 
+Patent audit never creates a Company page. For an existing Company, it may
+create or update only directly supported Platform relationships and
+representative platform-level patent evidence. Those updates surface through
+the existing Company page and remain separate from `Program.sources` and the
+`PATENT-LINKED PROGRAMS` KPI. A patent finding naming an absent or unresolved
+company identity remains a handoff until Program research establishes the
+Company record.
+
 An absent candidate encountered in patent searching is always a
 `DISCOVERY_HANDOFF` unless the run explicitly adds a bounded `program
 discovery` track. Patent evidence alone does not create a Program or assign a
@@ -175,7 +192,8 @@ A patent audit is GO only when:
 3. application, publication, grant, and jurisdiction-specific legal status
    were not conflated;
 4. every stored patent link meets the Program-attribution threshold, while
-   platform-only findings remain platform-level;
+   platform-only findings remain platform-level and update only an existing
+   Company's Platform reference;
 5. no patent alone was used to assert active development, `productTarget`,
    development stage/status, or a new Program;
 6. every absent candidate and unresolved stored-Program attribution was routed

@@ -140,12 +140,13 @@ test('platform patent evidence cannot be reused as Program patent evidence', () 
   );
 });
 
-test('Company program mapping must be unique and match stored Program data', () => {
+test('one partnership Program company may map to multiple Company pages', () => {
   const data = createValidDataset();
   data.companies.push(structuredClone(data.companies[0]));
-  data.companies[1].name = 'duplicate-company.json';
-  data.companies[1].slug = 'duplicate-company';
-  assert.match(validateDatasetRecords(data).errors.join('\n'), /programCompanyName is already mapped/);
+  data.companies[1].name = 'partner-company.json';
+  data.companies[1].slug = 'partner-company';
+  data.companies[1].data.name = 'Partner Company';
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
 });
 
 test('every stored Program company must map to a public Company or internal other bucket', () => {
@@ -153,6 +154,17 @@ test('every stored Program company must map to a public Company or internal othe
   data.companies[0].data.programCompanyNames = ['Different Co'];
   const errors = validateDatasetRecords(data).errors.join('\n');
   assert.match(errors, /Program company must map to a Company or the internal other bucket/);
+});
+
+test('sponsor Program cannot map only to the internal other bucket', () => {
+  const data = createValidDataset();
+  data.companies[0].data.visibility = 'internal';
+  data.companies[0].data.homepageUrl = null;
+  data.companies[0].data.pipelineUrl = null;
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /Sponsor Program company must map to at least one public Company page/,
+  );
 });
 
 test('every canonical development stage passes validation', () => {

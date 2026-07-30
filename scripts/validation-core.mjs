@@ -197,12 +197,14 @@ export function validateDatasetRecords({
   const programMap = new Map();
   const programSourceUrls = new Set();
   const storedProgramCompanyNames = new Set();
+  const sponsorProgramCompanyNames = new Set();
   for (const { name, slug, data } of programs) {
     if (!data) continue;
     if (!slugPattern.test(slug)) errors.push(`${name}: program slug must be a lowercase slug`);
     if (programMap.has(slug)) errors.push(`${name}: duplicate program slug ${slug}`);
     programMap.set(slug, data);
     storedProgramCompanyNames.add(data.company);
+    if (data.recordType === 'sponsor-program') sponsorProgramCompanyNames.add(data.company);
     rejectLegacyKeys(data, legacyProgramKeys, name, errors);
 
     for (const field of [
@@ -274,8 +276,12 @@ export function validateDatasetRecords({
       errors.push(`${name}: visibility must be public or internal`);
     }
     if (data.visibility === 'public') {
-      if (!isUrl(data.homepageUrl)) errors.push(`${name}: public Company homepageUrl must be http(s)`);
-      if (!isUrl(data.pipelineUrl)) errors.push(`${name}: public Company pipelineUrl must be http(s)`);
+      if (data.homepageUrl !== null && !isUrl(data.homepageUrl)) {
+        errors.push(`${name}: public Company homepageUrl must be http(s) or null`);
+      }
+      if (data.pipelineUrl !== null && !isUrl(data.pipelineUrl)) {
+        errors.push(`${name}: public Company pipelineUrl must be http(s) or null`);
+      }
     } else if (data.homepageUrl !== null || data.pipelineUrl !== null) {
       errors.push(`${name}: internal Company homepageUrl and pipelineUrl must be null`);
     }
@@ -294,10 +300,9 @@ export function validateDatasetRecords({
         if (!storedProgramCompanyNames.has(companyName)) {
           errors.push(`${name}: programCompanyName does not match a stored Program company (${companyName})`);
         }
-        if (mappedProgramCompanyNames.has(companyName)) {
-          errors.push(`${name}: programCompanyName is already mapped by ${mappedProgramCompanyNames.get(companyName)}`);
-        }
-        mappedProgramCompanyNames.set(companyName, slug);
+        const mappedSlugs = mappedProgramCompanyNames.get(companyName) ?? [];
+        mappedSlugs.push(slug);
+        mappedProgramCompanyNames.set(companyName, mappedSlugs);
       }
     }
   }
@@ -305,6 +310,9 @@ export function validateDatasetRecords({
   for (const companyName of storedProgramCompanyNames) {
     if (!mappedProgramCompanyNames.has(companyName)) {
       errors.push(`Program company must map to a Company or the internal other bucket (${companyName})`);
+    } else if (sponsorProgramCompanyNames.has(companyName)
+      && !mappedProgramCompanyNames.get(companyName).some((slug) => companyMap.get(slug)?.visibility === 'public')) {
+      errors.push(`Sponsor Program company must map to at least one public Company page (${companyName})`);
     }
   }
 
