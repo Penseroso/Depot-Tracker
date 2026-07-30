@@ -16,12 +16,13 @@ function recordTypeLabel(value: Program['recordType']) {
 type Props = {
   programs: Program[];
   deliveryTechnologies: DeliveryTechnology[];
+  companyLinksByProgramCompany: Record<string, { name: string; slug: string }[]>;
   basePath: string;
   asOfDate: string;
   latestEventDateByProgram: Record<string, string | null>;
 };
 
-export default function ProgramExplorer({ programs, deliveryTechnologies, basePath, asOfDate, latestEventDateByProgram }: Props) {
+export default function ProgramExplorer({ programs, deliveryTechnologies, companyLinksByProgramCompany, basePath, asOfDate, latestEventDateByProgram }: Props) {
   const [query, setQuery] = useState('');
   const [stage, setStage] = useState('all');
   const [technology, setTechnology] = useState('all');
@@ -85,9 +86,23 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, basePa
               <tbody>
                 {filtered.map((program) => {
                   const latestEventDate = latestEventDateByProgram[program.slug];
+                  const companyLinks = companyLinksByProgramCompany[program.company] ?? [];
                   return (
                     <tr key={program.slug}>
-                      <td><a className="row-link" href={`${basePath}/programs/${program.slug}/`}><span className="cell-title">{program.programName}</span><span className="cell-sub">{program.company}</span><span className="record-type-tag">{recordTypeLabel(program.recordType)}</span></a></td>
+                      <td>
+                        <a className="row-link" href={`${basePath}/programs/${program.slug}/`}><span className="cell-title">{program.programName}</span></a>
+                        <span className="cell-sub">
+                          {companyLinks.length > 0
+                            ? companyLinks.map((company, index) => (
+                              <span key={company.slug}>
+                                <a className="company-cell-link" href={`${basePath}/companies/${company.slug}/`}>{company.name}</a>
+                                {index < companyLinks.length - 1 ? ' / ' : ''}
+                              </span>
+                            ))
+                            : program.company}
+                        </span>
+                        <span className="record-type-tag">{recordTypeLabel(program.recordType)}</span>
+                      </td>
                       <td><span className="cell-title">{formatPayloadComponents(program.payloadComponents)}</span></td>
                       <td><span className="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span className="cell-sub">{program.deliveryTechnology}</span></td>
                       <td>{formatIntervalClaim(program.productTarget)}</td>

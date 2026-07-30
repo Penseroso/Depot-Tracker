@@ -88,6 +88,8 @@ button { cursor: pointer; }
 .program-latest-date { width: 1%; white-space: nowrap; }
 .cell-title { display: block; font-weight: 760; letter-spacing: -.015em; }
 .cell-sub { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
+.company-cell-link { color: var(--muted); text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: 2px; }
+.company-cell-link:hover { color: var(--accent); text-decoration-color: currentColor; }
 .row-link:hover .cell-title { color: var(--accent); }
 
 .badge { display: inline-flex; align-items: center; width: fit-content; gap: 6px; padding: 5px 8px; border-radius: 999px; font-size: 11px; line-height: 1; font-weight: 760; white-space: nowrap; }
