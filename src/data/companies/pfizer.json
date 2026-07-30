@@ -1,0 +1,8 @@
+{
+  "name": "Pfizer",
+  "visibility": "public",
+  "homepageUrl": "https://www.pfizer.com/",
+  "pipelineUrl": "https://www.pfizer.com/science/drug-product-pipeline",
+  "programCompanyNames": ["Pfizer"],
+  "lastVerifiedAt": "2026-07-30"
+}

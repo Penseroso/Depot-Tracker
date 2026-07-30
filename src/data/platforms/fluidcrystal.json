@@ -1,0 +1,37 @@
+{
+  "name": "FluidCrystal",
+  "aliases": [
+    "FluidCrystal injection depot",
+    "FluidCrystal technology"
+  ],
+  "officialUrl": "https://www.camurus.com/science/technology/",
+  "relationships": [
+    {
+      "companySlug": "camurus",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Camurus AB",
+      "basis": "Camurus identifies FluidCrystal as its proprietary lipid-based long-acting injection depot technology.",
+      "source": {
+        "label": "Camurus FluidCrystal technology",
+        "url": "https://www.camurus.com/science/technology/",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [
+    {
+      "familyId": "WO2005117830",
+      "publicationNumber": "WO2005117830A1",
+      "grantNumber": "US8236292B2",
+      "earliestPriority": "2004-06-04",
+      "currentAssignee": "Camurus AB",
+      "jurisdiction": "WO (PCT), US; selected family records reviewed",
+      "legalStatus": "PCT record ceased; US grant shown active; other national-phase status not exhaustively checked",
+      "url": "https://patents.google.com/patent/US8236292B2/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
+  "lastVerifiedAt": "2026-07-30"
+}

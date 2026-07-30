@@ -39,6 +39,47 @@ export const deliveryTechnologySchema = z.object({
   sortRank: z.number().int().min(0),
 }).strict();
 
+const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+
+export const companySchema = z.object({
+  name: z.string().min(1),
+  visibility: z.enum(['public', 'internal']),
+  homepageUrl: z.url().nullable(),
+  pipelineUrl: z.url().nullable(),
+  programCompanyNames: z.array(z.string().min(1)).min(1),
+  lastVerifiedAt: z.iso.date(),
+}).strict();
+
+export const companyPlatformRelationshipSchema = z.object({
+  companySlug: slugSchema,
+  relationship: z.enum(['ownership', 'license', 'access']),
+  status: z.enum(['current', 'former']),
+  rightsHolderName: z.string().min(1),
+  basis: z.string().min(1),
+  source: sourceSchema,
+}).strict();
+
+export const platformPatentEvidenceSchema = z.object({
+  familyId: z.string().min(1),
+  publicationNumber: z.string().min(1),
+  grantNumber: z.string().min(1).nullable(),
+  earliestPriority: z.iso.date(),
+  currentAssignee: z.string().min(1),
+  jurisdiction: z.string().min(1),
+  legalStatus: z.string().min(1),
+  url: z.url(),
+  accessedOn: z.iso.date(),
+}).strict();
+
+export const platformSchema = z.object({
+  name: z.string().min(1),
+  aliases: z.array(z.string().min(1)),
+  officialUrl: z.url(),
+  relationships: z.array(companyPlatformRelationshipSchema).min(1),
+  patentEvidence: z.array(platformPatentEvidenceSchema),
+  lastVerifiedAt: z.iso.date(),
+}).strict();
+
 export const programSchema = z.object({
   company: z.string().min(1),
   programName: z.string().min(1),
@@ -106,9 +147,13 @@ export const eventSchema = z.object({
 export type Source = z.infer<typeof sourceSchema>;
 export type IntervalClaim = z.infer<typeof intervalClaimSchema>;
 export type DeliveryTechnology = z.infer<typeof deliveryTechnologySchema>;
+export type CompanyRecord = z.infer<typeof companySchema>;
+export type PlatformRecord = z.infer<typeof platformSchema>;
 export type ProgramRecord = z.infer<typeof programSchema>;
 export type StudyRecord = z.infer<typeof studySchema>;
 export type EventRecord = z.infer<typeof eventSchema>;
 export type Program = ProgramRecord & { slug: string };
+export type Company = CompanyRecord & { slug: string };
+export type Platform = PlatformRecord & { slug: string };
 export type Study = StudyRecord & { slug: string };
 export type TrackerEvent = EventRecord & { slug: string };

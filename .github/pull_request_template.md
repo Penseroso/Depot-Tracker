@@ -1,6 +1,6 @@
 ## Run scope
 
-- Primary track: <!-- program refresh / program discovery -->
+- Primary track: <!-- program refresh / program discovery / patent coverage audit -->
 - Boundary: <!-- named stored Program(s), full stored roster, or discovery boundary -->
 - Combined full-landscape run: <!-- yes / no -->
 - Programs traversed:
@@ -12,13 +12,27 @@
 | --- | --- | --- |
 |  | STORED / EXCLUDED / DEFERRED |  |
 
-- Undispositioned candidates: <!-- must be 0 for discovery GO; N/A for refresh -->
-- Independent coverage pass: <!-- complete / incomplete / N/A for refresh -->
+- Undispositioned candidates: <!-- must be 0 for discovery GO; N/A otherwise -->
+- Independent coverage pass: <!-- complete / incomplete / N/A outside discovery -->
+
+## Patent audit
+
+- Audit baseline / as-of:
+- Programs by outcome: <!-- PATENT_LINKED / NO_LINK_FOUND / ATTRIBUTION_DEFERRED -->
+- Bounded Platform queue:
+- Platforms by outcome: <!-- PATENT_LINKED / NO_LINK_FOUND / ATTRIBUTION_DEFERRED; separate from Program outcomes -->
+- Attributable families:
+- Unaudited Programs: <!-- must be 0 for patent audit GO; N/A otherwise -->
+- Unaudited queued Platforms: <!-- must be 0 for patent audit GO; N/A otherwise -->
+- Periodic minimum refresh completed: <!-- yes / no / N/A -->
 
 ## Crossover
 
 - Discovery handoffs from refresh:
+- Discovery handoffs from patent audit:
+- Platform/rights handoffs from patent audit:
 - Refresh handoffs from discovery:
+- Refresh handoffs from patent audit:
 - Bounded crossovers completed:
 
 ## Event integrity
@@ -47,5 +61,5 @@
 ## Completion
 
 - Status: **GO / NO-GO**
-- Track gate(s) passed: <!-- refresh / discovery / both -->
+- Track gate(s) passed: <!-- refresh / discovery / patent audit / included tracks -->
 - Remaining blocker, if NO-GO:

@@ -1,0 +1,24 @@
+{
+  "name": "Peptide Oral Transport ENhancement Technology",
+  "aliases": [
+    "POTENT"
+  ],
+  "officialUrl": "https://www.ascletis.com/Index/index/index/l/en-us.html",
+  "relationships": [
+    {
+      "companySlug": "ascletis-pharma",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Ascletis Pharma Inc.",
+      "basis": "Ascletis identifies POTENT as its proprietary oral peptide delivery enhancement technology.",
+      "source": {
+        "label": "Ascletis corporate overview and proprietary platforms",
+        "url": "https://www.ascletis.com/Index/index/index/l/en-us.html",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

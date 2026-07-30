@@ -1,0 +1,37 @@
+{
+  "name": "Tunable-release hydrogel microsphere platform",
+  "aliases": [
+    "ProLynx long-acting delivery platform",
+    "beta-eliminative linker platform"
+  ],
+  "officialUrl": "https://prolynxinc.com/",
+  "relationships": [
+    {
+      "companySlug": "prolynx",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "ProLynx LLC",
+      "basis": "ProLynx describes its proprietary hydrogel microsphere and tunable-linker platform, and the representative family lists ProLynx as both current and original assignee.",
+      "source": {
+        "label": "ProLynx platform and portfolio",
+        "url": "https://prolynxinc.com/",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [
+    {
+      "familyId": "WO2020206358",
+      "publicationNumber": "WO2020206358A1",
+      "grantNumber": "US12364771B2",
+      "earliestPriority": "2019-04-05",
+      "currentAssignee": "ProLynx LLC",
+      "jurisdiction": "WO (PCT) representative; US grant confirmed",
+      "legalStatus": "PCT record ceased; US grant published; other national phases not exhaustively checked",
+      "url": "https://patents.google.com/patent/WO2020206358A1/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
+  "lastVerifiedAt": "2026-07-30"
+}

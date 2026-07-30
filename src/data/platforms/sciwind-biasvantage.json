@@ -1,0 +1,24 @@
+{
+  "name": "BiasVantage",
+  "aliases": [
+    "BiasVantage Biased Agonist Discovery Platform"
+  ],
+  "officialUrl": "https://www.sciwindbio.com/portal/index/tech.html",
+  "relationships": [
+    {
+      "companySlug": "sciwind-biosciences",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Hangzhou Sciwind Biosciences Co., Ltd.",
+      "basis": "Sciwind lists BiasVantage as one of its three SciwindCore technology platforms.",
+      "source": {
+        "label": "Sciwind technology platforms",
+        "url": "https://www.sciwindbio.com/portal/index/tech.html",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

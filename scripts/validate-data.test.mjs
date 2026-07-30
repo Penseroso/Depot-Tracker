@@ -43,6 +43,47 @@ function createValidDataset() {
         sources: [source],
       },
     }],
+    companies: [{
+      name: 'fixture-co.json',
+      slug: 'fixture-co',
+      data: {
+        name: 'Fixture Co',
+        visibility: 'public',
+        homepageUrl: 'https://example.com/',
+        pipelineUrl: 'https://example.com/pipeline',
+        programCompanyNames: ['Fixture Co'],
+        lastVerifiedAt: '2026-07-27',
+      },
+    }],
+    platforms: [{
+      name: 'fixture-platform.json',
+      slug: 'fixture-platform',
+      data: {
+        name: 'Fixture Platform',
+        aliases: ['Fixture delivery platform'],
+        officialUrl: 'https://example.com/platform',
+        relationships: [{
+          companySlug: 'fixture-co',
+          relationship: 'ownership',
+          status: 'current',
+          rightsHolderName: 'Fixture Co',
+          basis: 'Fixture Co identifies and owns the fixture platform.',
+          source,
+        }],
+        patentEvidence: [{
+          familyId: 'WO2026000001',
+          publicationNumber: 'WO2026000001A1',
+          grantNumber: null,
+          earliestPriority: '2025-01-01',
+          currentAssignee: 'Fixture Co',
+          jurisdiction: 'WO (PCT)',
+          legalStatus: 'Pending',
+          url: 'https://patents.example.com/WO2026000001A1',
+          accessedOn: '2026-07-27',
+        }],
+        lastVerifiedAt: '2026-07-27',
+      },
+    }],
     studies: [{
       name: 'nct00000001.json',
       slug: 'nct00000001',
@@ -84,6 +125,101 @@ function createValidDataset() {
 
 test('single-component payload and ClinicalTrials.gov Study pass', () => {
   assert.deepEqual(validateDatasetRecords(createValidDataset()).errors, []);
+});
+
+test('platform patent evidence cannot be reused as Program patent evidence', () => {
+  const data = createValidDataset();
+  data.programs[0].data.sources.push({
+    ...source,
+    sourceType: 'patent',
+    url: data.platforms[0].data.patentEvidence[0].url,
+  });
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /platform-level patent evidence must not be linked from Program\.sources/,
+  );
+});
+
+test('officially verified Platform may be stored before patent evidence is found', () => {
+  const data = createValidDataset();
+  data.platforms[0].data.patentEvidence = [];
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
+});
+
+test('duplicate familyId within one Platform fails', () => {
+  const data = createValidDataset();
+  data.platforms[0].data.patentEvidence.push({
+    ...structuredClone(data.platforms[0].data.patentEvidence[0]),
+    url: 'https://patents.example.com/WO2026000001A1-alt',
+  });
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /duplicate patent familyId WO2026000001/,
+  );
+});
+
+test('one family assigned to multiple Platforms requires attribution review', () => {
+  const data = createValidDataset();
+  data.platforms.push(structuredClone(data.platforms[0]));
+  data.platforms[1].name = 'second-platform.json';
+  data.platforms[1].slug = 'second-platform';
+  data.platforms[1].data.name = 'Second Platform';
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /assigned to multiple Platforms.*cross-Platform attribution review is required/,
+  );
+});
+
+test('one partnership Program company may map to multiple Company pages', () => {
+  const data = createValidDataset();
+  data.companies.push(structuredClone(data.companies[0]));
+  data.companies[1].name = 'partner-company.json';
+  data.companies[1].slug = 'partner-company';
+  data.companies[1].data.name = 'Partner Company';
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
+});
+
+test('public Company promotion cannot leave the same Program company in other', () => {
+  const data = createValidDataset();
+  data.companies.push(structuredClone(data.companies[0]));
+  data.companies[1].name = 'other.json';
+  data.companies[1].slug = 'other';
+  data.companies[1].data.name = 'Other';
+  data.companies[1].data.visibility = 'internal';
+  data.companies[1].data.homepageUrl = null;
+  data.companies[1].data.pipelineUrl = null;
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /must not remain in the internal other bucket/,
+  );
+});
+
+test('joint Program company must map every named participant publicly', () => {
+  const data = createValidDataset();
+  data.programs[0].data.company = 'Fixture Co / Partner Co';
+  data.companies[0].data.programCompanyNames = ['Fixture Co / Partner Co'];
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /Joint Program company must map every named participant/,
+  );
+});
+
+test('every stored Program company must map to a public Company or internal other bucket', () => {
+  const data = createValidDataset();
+  data.companies[0].data.programCompanyNames = ['Different Co'];
+  const errors = validateDatasetRecords(data).errors.join('\n');
+  assert.match(errors, /Program company must map to a Company or the internal other bucket/);
+});
+
+test('sponsor Program cannot map only to the internal other bucket', () => {
+  const data = createValidDataset();
+  data.companies[0].data.visibility = 'internal';
+  data.companies[0].data.homepageUrl = null;
+  data.companies[0].data.pipelineUrl = null;
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /Sponsor Program company must map to at least one public Company page/,
+  );
 });
 
 test('every canonical development stage passes validation', () => {

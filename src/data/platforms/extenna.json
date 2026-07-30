@@ -1,0 +1,37 @@
+{
+  "name": "ExTenna",
+  "aliases": [
+    "EXTENNA",
+    "ExTenna microsphere technology"
+  ],
+  "officialUrl": "https://aulbio.com/main/page.html?pid=2",
+  "relationships": [
+    {
+      "companySlug": "aulbio",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "AULBIO Co., Ltd.",
+      "basis": "AULBIO identifies ExTenna as its platform technology, and the representative family lists AULBIO as both current and original assignee.",
+      "source": {
+        "label": "AULBIO platform technology",
+        "url": "https://aulbio.com/main/page.html?pid=2",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [
+    {
+      "familyId": "WO2024210646",
+      "publicationNumber": "WO2024210646A1",
+      "grantNumber": null,
+      "earliestPriority": "2023-04-05",
+      "currentAssignee": "AULBIO Co., Ltd.",
+      "jurisdiction": "WO (PCT); representative family record only",
+      "legalStatus": "PCT record ceased; national-phase status not exhaustively checked",
+      "url": "https://patents.google.com/patent/WO2024210646A1/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
+  "lastVerifiedAt": "2026-07-30"
+}

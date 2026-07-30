@@ -13,7 +13,7 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase III",
   "developmentStatus": "MARITIME Phase III 프로그램 진행 중",
-  "lastVerifiedAt": "2026-07-29",
+  "lastVerifiedAt": "2026-07-30",
   "readout": "비당뇨 비만 Phase II에서 52주 efficacy estimand 평균 체중감소 최대 19.9%. Phase III MARITIME 진행 중이며 장기 연장시험은 월 1회, Q8W, 분기 1회 유지요법을 이산적으로 평가한다.",
   "differentiator": "GLP-1R agonist peptide와 GIPR antagonist antibody를 결합한 장기작용 conjugate.",
   "caveat": "Q8W와 분기 1회는 Phase III 연장시험 평가군이며 승인 간격이나 확정 제품 용법이 아님. 월 1회, Q8W, 분기 1회는 연속 범위가 아닌 별도 일정.",
@@ -32,6 +32,12 @@
       "url": "https://clinicaltrials.gov/study/NCT06858839",
       "sourceType": "registry",
       "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "WO2024102742A1 AMG 133 obesity regimens",
+      "url": "https://patents.google.com/patent/WO2024102742A1/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-07-30"
     }
   ]
 }

@@ -13,7 +13,7 @@
   "route": "피하주사",
   "developmentStage": "IND submitted",
   "developmentStatus": "한국 IND 신청 완료; 승인 여부 미공개",
-  "lastVerifiedAt": "2026-07-29",
+  "lastVerifiedAt": "2026-07-30",
   "readout": "국내 공개 프로그램 중 규제 진척이 가장 명확한 축.",
   "differentiator": "Quject Sphere의 표면 코팅 미립자와 대웅 CURE 제조 플랫폼 결합; 초기 과방출 억제 지향",
   "caveat": "IND 승인, 임상시험 등록번호 공개 전. first-patient-in 미확인.",
@@ -26,6 +26,12 @@
       "url": "https://www.daewoong.co.kr/ko/newsroom/news/7469",
       "sourceType": "company",
       "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "WO2025165146A1 TionLab coated semaglutide microspheres",
+      "url": "https://patents.google.com/patent/WO2025165146A1/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-07-30"
     }
   ]
 }

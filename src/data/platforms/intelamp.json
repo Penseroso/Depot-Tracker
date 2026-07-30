@@ -1,0 +1,24 @@
+{
+  "name": "InteLAMP",
+  "aliases": [
+    "Intelligent Local-Acting Microsphere Platform"
+  ],
+  "officialUrl": "https://www.g2gbio.com/en/m21.php",
+  "relationships": [
+    {
+      "companySlug": "g2gbio",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "G2GBIO, Inc.",
+      "basis": "G2GBIO identifies InteLAMP as its proprietary local-acting microsphere platform.",
+      "source": {
+        "label": "G2GBIO InteLAMP technology",
+        "url": "https://www.g2gbio.com/en/m21.php",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

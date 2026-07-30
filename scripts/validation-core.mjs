@@ -21,6 +21,8 @@ const recruitmentStatuses = new Set([
   'unknown',
 ]);
 const recordTypes = new Set(['sponsor-program', 'technology-watch']);
+const companyPlatformRelationships = new Set(['ownership', 'license', 'access']);
+const relationshipStatuses = new Set(['current', 'former']);
 const allowedDevelopmentStages = new Set(developmentStages);
 const legacyProgramKeys = [
   'asset',
@@ -154,7 +156,14 @@ function validateRegistrySource(registry, source, file, errors) {
   }
 }
 
-export function validateDatasetRecords({ programs, studies, events, deliveryTechnologies }) {
+export function validateDatasetRecords({
+  programs,
+  studies,
+  events,
+  deliveryTechnologies,
+  companies = [],
+  platforms = [],
+}) {
   const errors = [];
   const technologyIds = new Set();
   const technologyLabels = new Set();
@@ -186,11 +195,16 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
   }
 
   const programMap = new Map();
+  const programSourceUrls = new Set();
+  const storedProgramCompanyNames = new Set();
+  const sponsorProgramCompanyNames = new Set();
   for (const { name, slug, data } of programs) {
     if (!data) continue;
     if (!slugPattern.test(slug)) errors.push(`${name}: program slug must be a lowercase slug`);
     if (programMap.has(slug)) errors.push(`${name}: duplicate program slug ${slug}`);
     programMap.set(slug, data);
+    storedProgramCompanyNames.add(data.company);
+    if (data.recordType === 'sponsor-program') sponsorProgramCompanyNames.add(data.company);
     rejectLegacyKeys(data, legacyProgramKeys, name, errors);
 
     for (const field of [
@@ -234,10 +248,203 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
       const urls = new Set();
       data.sources.forEach((source, index) => {
         validateSource(source, `${name} source[${index}]`, errors);
+        programSourceUrls.add(source.url);
         if (urls.has(source.url)) errors.push(`${name}: duplicate source URL ${source.url}`);
         urls.add(source.url);
         if (isDate(source.accessedOn) && isDate(data.lastVerifiedAt) && source.accessedOn > data.lastVerifiedAt) {
           errors.push(`${name}: source accessedOn cannot be after lastVerifiedAt`);
+        }
+      });
+    }
+  }
+
+  const companyMap = new Map();
+  const mappedProgramCompanyNames = new Map();
+  for (const { name, slug, data } of companies) {
+    if (!data) continue;
+    if (!slugPattern.test(slug)) errors.push(`${name}: company slug must be a lowercase slug`);
+    if (companyMap.has(slug)) errors.push(`${name}: duplicate company slug ${slug}`);
+    companyMap.set(slug, data);
+    for (const key of Object.keys(data)) {
+      if (!['name', 'visibility', 'homepageUrl', 'pipelineUrl', 'programCompanyNames', 'lastVerifiedAt'].includes(key)) {
+        errors.push(`${name}: unknown key ${key}`);
+      }
+    }
+    requireString(data, 'name', name, errors);
+    requireString(data, 'visibility', name, errors);
+    if (!['public', 'internal'].includes(data.visibility)) {
+      errors.push(`${name}: visibility must be public or internal`);
+    }
+    if (data.visibility === 'public') {
+      if (data.homepageUrl !== null && !isUrl(data.homepageUrl)) {
+        errors.push(`${name}: public Company homepageUrl must be http(s) or null`);
+      }
+      if (data.pipelineUrl !== null && !isUrl(data.pipelineUrl)) {
+        errors.push(`${name}: public Company pipelineUrl must be http(s) or null`);
+      }
+    } else if (data.homepageUrl !== null || data.pipelineUrl !== null) {
+      errors.push(`${name}: internal Company homepageUrl and pipelineUrl must be null`);
+    }
+    if (!isDate(data.lastVerifiedAt)) errors.push(`${name}: lastVerifiedAt must be YYYY-MM-DD`);
+    if (!Array.isArray(data.programCompanyNames) || data.programCompanyNames.length === 0) {
+      errors.push(`${name}: programCompanyNames must be a non-empty array`);
+    } else {
+      const localNames = new Set();
+      for (const companyName of data.programCompanyNames) {
+        if (typeof companyName !== 'string' || !companyName.trim()) {
+          errors.push(`${name}: programCompanyNames must contain non-empty strings`);
+          continue;
+        }
+        if (localNames.has(companyName)) errors.push(`${name}: duplicate programCompanyName ${companyName}`);
+        localNames.add(companyName);
+        if (!storedProgramCompanyNames.has(companyName)) {
+          errors.push(`${name}: programCompanyName does not match a stored Program company (${companyName})`);
+        }
+        const mappedSlugs = mappedProgramCompanyNames.get(companyName) ?? [];
+        mappedSlugs.push(slug);
+        mappedProgramCompanyNames.set(companyName, mappedSlugs);
+      }
+    }
+  }
+
+  for (const companyName of storedProgramCompanyNames) {
+    if (!mappedProgramCompanyNames.has(companyName)) {
+      errors.push(`Program company must map to a Company or the internal other bucket (${companyName})`);
+    } else if (sponsorProgramCompanyNames.has(companyName)
+      && !mappedProgramCompanyNames.get(companyName).some((slug) => companyMap.get(slug)?.visibility === 'public')) {
+      errors.push(`Sponsor Program company must map to at least one public Company page (${companyName})`);
+    }
+
+    const mappedSlugs = mappedProgramCompanyNames.get(companyName) ?? [];
+    const hasPublicMapping = mappedSlugs.some((slug) => companyMap.get(slug)?.visibility === 'public');
+    const hasInternalMapping = mappedSlugs.some((slug) => companyMap.get(slug)?.visibility === 'internal');
+    if (hasPublicMapping && hasInternalMapping) {
+      errors.push(`Program company mapped to a public Company must not remain in the internal other bucket (${companyName})`);
+    }
+
+    const namedParticipants = companyName.split(/\s+\/\s+/).filter(Boolean);
+    const publicMappingCount = new Set(
+      mappedSlugs.filter((slug) => companyMap.get(slug)?.visibility === 'public'),
+    ).size;
+    if (namedParticipants.length > 1 && publicMappingCount < namedParticipants.length) {
+      errors.push(`Joint Program company must map every named participant to a public Company page (${companyName})`);
+    }
+  }
+
+  const platformSlugs = new Set();
+  const platformFamilyOwners = new Map();
+  for (const { name, slug, data } of platforms) {
+    if (!data) continue;
+    if (!slugPattern.test(slug)) errors.push(`${name}: platform slug must be a lowercase slug`);
+    if (platformSlugs.has(slug)) errors.push(`${name}: duplicate platform slug ${slug}`);
+    platformSlugs.add(slug);
+    for (const key of Object.keys(data)) {
+      if (!['name', 'aliases', 'officialUrl', 'relationships', 'patentEvidence', 'lastVerifiedAt'].includes(key)) {
+        errors.push(`${name}: unknown key ${key}`);
+      }
+    }
+    requireString(data, 'name', name, errors);
+    if (!isUrl(data.officialUrl)) errors.push(`${name}: officialUrl must be http(s)`);
+    if (!isDate(data.lastVerifiedAt)) errors.push(`${name}: lastVerifiedAt must be YYYY-MM-DD`);
+    if (!Array.isArray(data.aliases)) {
+      errors.push(`${name}: aliases must be an array`);
+    } else if (new Set(data.aliases).size !== data.aliases.length) {
+      errors.push(`${name}: aliases must be unique`);
+    }
+
+    if (!Array.isArray(data.relationships) || data.relationships.length === 0) {
+      errors.push(`${name}: relationships must contain at least one relationship`);
+    } else {
+      const relationshipKeys = new Set();
+      let hasCurrentRelationship = false;
+      data.relationships.forEach((relationship, index) => {
+        const label = `${name} relationship[${index}]`;
+        for (const key of Object.keys(relationship ?? {})) {
+          if (!['companySlug', 'relationship', 'status', 'rightsHolderName', 'basis', 'source'].includes(key)) {
+            errors.push(`${label}: unknown key ${key}`);
+          }
+        }
+        for (const field of ['companySlug', 'relationship', 'status', 'rightsHolderName', 'basis']) {
+          requireString(relationship, field, label, errors);
+        }
+        if (!companyMap.has(relationship.companySlug)) {
+          errors.push(`${label}: missing Company reference ${relationship.companySlug}`);
+        } else if (companyMap.get(relationship.companySlug).visibility !== 'public') {
+          errors.push(`${label}: Platform relationship must reference a public Company`);
+        }
+        if (!companyPlatformRelationships.has(relationship.relationship)) {
+          errors.push(`${label}: relationship is not allowed (${relationship.relationship})`);
+        }
+        if (!relationshipStatuses.has(relationship.status)) {
+          errors.push(`${label}: status is not allowed (${relationship.status})`);
+        }
+        if (relationship.status === 'current') hasCurrentRelationship = true;
+        const identity = `${relationship.companySlug}\u0000${relationship.relationship}\u0000${relationship.status}`;
+        if (relationshipKeys.has(identity)) errors.push(`${label}: duplicate Company-Platform relationship`);
+        relationshipKeys.add(identity);
+        validateSource(relationship.source, `${label} source`, errors);
+        if (isDate(relationship.source?.accessedOn) && isDate(data.lastVerifiedAt)
+          && relationship.source.accessedOn > data.lastVerifiedAt) {
+          errors.push(`${label}: source accessedOn cannot be after lastVerifiedAt`);
+        }
+      });
+      if (!hasCurrentRelationship) errors.push(`${name}: at least one current relationship is required`);
+    }
+
+    if (!Array.isArray(data.patentEvidence)) {
+      errors.push(`${name}: patentEvidence must be an array`);
+    } else {
+      const evidenceUrls = new Set();
+      const familyIds = new Set();
+      data.patentEvidence.forEach((evidence, index) => {
+        const label = `${name} patentEvidence[${index}]`;
+        for (const key of Object.keys(evidence ?? {})) {
+          if (![
+            'familyId',
+            'publicationNumber',
+            'grantNumber',
+            'earliestPriority',
+            'currentAssignee',
+            'jurisdiction',
+            'legalStatus',
+            'url',
+            'accessedOn',
+          ].includes(key)) errors.push(`${label}: unknown key ${key}`);
+        }
+        for (const field of [
+          'familyId',
+          'publicationNumber',
+          'currentAssignee',
+          'jurisdiction',
+          'legalStatus',
+        ]) requireString(evidence, field, label, errors);
+        if (evidence.grantNumber !== null) requireString(evidence, 'grantNumber', label, errors);
+        if (!isDate(evidence.earliestPriority)) errors.push(`${label}: earliestPriority must be YYYY-MM-DD`);
+        if (!isDate(evidence.accessedOn)) errors.push(`${label}: accessedOn must be YYYY-MM-DD`);
+        if (!isUrl(evidence.url)) errors.push(`${label}: url must be http(s)`);
+        if (typeof evidence.familyId === 'string' && evidence.familyId.trim()) {
+          if (familyIds.has(evidence.familyId)) {
+            errors.push(`${name}: duplicate patent familyId ${evidence.familyId}`);
+          }
+          familyIds.add(evidence.familyId);
+          const priorPlatform = platformFamilyOwners.get(evidence.familyId);
+          if (priorPlatform && priorPlatform !== slug) {
+            errors.push(
+              `${name}: patent familyId ${evidence.familyId} is assigned to multiple Platforms `
+              + `(${priorPlatform}, ${slug}); cross-Platform attribution review is required`,
+            );
+          } else {
+            platformFamilyOwners.set(evidence.familyId, slug);
+          }
+        }
+        if (evidenceUrls.has(evidence.url)) errors.push(`${name}: duplicate patent evidence URL ${evidence.url}`);
+        evidenceUrls.add(evidence.url);
+        if (programSourceUrls.has(evidence.url)) {
+          errors.push(`${name}: platform-level patent evidence must not be linked from Program.sources (${evidence.url})`);
+        }
+        if (isDate(evidence.accessedOn) && isDate(data.lastVerifiedAt)
+          && evidence.accessedOn > data.lastVerifiedAt) {
+          errors.push(`${label}: accessedOn cannot be after lastVerifiedAt`);
         }
       });
     }
@@ -341,13 +548,15 @@ export function validateDatasetRecords({ programs, studies, events, deliveryTech
       studies: studies.length,
       events: events.length,
       deliveryTechnologies: Array.isArray(deliveryTechnologies) ? deliveryTechnologies.length : 0,
+      companies: companies.length,
+      platforms: platforms.length,
     },
   };
 }
 
 export async function validateDataset(root) {
   const errors = [];
-  const [programs, studies, events, deliveryTechnologies] = await Promise.all([
+  const [programs, studies, events, deliveryTechnologies, companies, platforms] = await Promise.all([
     readJsonDir(path.join(root, 'src/data/programs'), errors),
     readJsonDir(path.join(root, 'src/data/studies'), errors),
     readJsonDir(path.join(root, 'src/data/events'), errors),
@@ -357,7 +566,16 @@ export async function validateDataset(root) {
         errors.push(`delivery-technologies.json: invalid JSON (${error.message})`);
         return [];
       }),
+    readJsonDir(path.join(root, 'src/data/companies'), errors),
+    readJsonDir(path.join(root, 'src/data/platforms'), errors),
   ]);
-  const result = validateDatasetRecords({ programs, studies, events, deliveryTechnologies });
+  const result = validateDatasetRecords({
+    programs,
+    studies,
+    events,
+    deliveryTechnologies,
+    companies,
+    platforms,
+  });
   return { ...result, errors: [...errors, ...result.errors] };
 }

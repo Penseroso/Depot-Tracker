@@ -62,8 +62,9 @@ the pharmacodynamic mechanism.
 - `payloadComponents` order is display order. Do not reorder components merely
   to alter identity or alphabetize them mechanically.
 - Existing stable Program slugs remain unchanged by the payload migration.
-- Editable canonical data comprises Programs, Studies, Events, and registries
-  under `src/data/`. Generated pages and API files under `dist/` are never edited.
+- Editable canonical data comprises Programs, Studies, Events, registries, and
+  low-frequency Company/Platform references under `src/data/`. Generated pages
+  and API files under `dist/` are never edited.
 
 For example, semaglutide depot, cagrilintide depot, and cagrilintide +
 semaglutide depot are three separate Programs even when a sponsor uses the same
@@ -130,7 +131,80 @@ every consumer must compute them through the shared helpers in
 - `PATENT-LINKED PROGRAMS`: the count of Programs with at least one linked
   `sources[].sourceType === 'patent'` record, counting each Program once
   regardless of how many patents it links, with its share of the total
-  Program count as a secondary figure.
+  Program count as a secondary figure. This measures stored representative
+  links, not completed patent-audit coverage, patent-family count, portfolio
+  breadth, ownership, enforceability, or legal status.
+
+Platform-level patent evidence is stored only under `src/data/platforms/`.
+It must not be copied into `Program.sources`, does not establish a Program
+relationship, and does not contribute to `PATENT-LINKED PROGRAMS`.
+
+## Company and Platform static references
+
+`src/data/companies/*.json` and `src/data/platforms/*.json` are low-frequency
+reference data, not a third Program research track. A Company record stores its
+display name, `visibility`, official homepage and pipeline URLs, exact
+`programCompanyNames`, and `lastVerifiedAt`. Its Program list is always derived
+by exact match against existing `Program.company` values; Program records do
+not gain a Company foreign key solely for this UI. A partnership display value
+may appear in multiple Company records so the same Program is derived onto
+every participating Company page. Every stored Program company must map at
+least once. Actual sponsor, developer, and disclosed partner companies use
+`visibility: public`; non-company or unresolved labels map to `other` with
+`visibility: internal` and null official URLs. Internal Company records remain
+in the JSON snapshot but do not generate or link to Company UI routes.
+
+Company records are created once when a Program is first stored or when direct
+Program research establishes a newly participating company. Later Program
+runs reuse the stable `companySlug` and update static links only when they
+materially change. The first Company reference pass also records each platform
+that the company's official source identifies directly, whether or not
+representative patent evidence has been found. Patent audit does not create
+Company records; it updates attributable patent evidence and rights details on
+the matching Platform reference.
+
+Because material changes cannot be detected without reopening the source, a
+Company/Platform static reference is reverified at least once every 12 months,
+or earlier when Program research surfaces a new sponsor/developer/partner, a
+corporate transaction, a renamed or newly disclosed Platform, a changed
+license/access/ownership statement, or a broken official link. Reverification
+checks the official homepage and pipeline links, the official Platform
+inventory, canonical identifiers and aliases, and every current relationship;
+it is not a new research track.
+
+A Platform record is eligible only when an official source directly identifies
+the platform and supports its current Company relationship. It stores the
+canonical name, aliases, official URL, one or more Company-Platform
+relationships, zero or more representative patent-family evidence records, and
+a verification date. An empty `patentEvidence` array means only that no
+representative family is currently stored; it is not a no-patent conclusion.
+`relationships[].relationship` is `ownership`, `license`, or `access`; `status`
+is `current` or `former`. Multiple relationships may represent joint
+development or licensing, while a former ownership relation preserves a past
+rights holder. `rightsHolderName` preserves the legal entity named in the
+evidence even when it differs from the display Company.
+
+`patentEvidence[].currentAssignee` is the assignee observed for the specified
+representative patent record, jurisdiction, and `accessedOn` date. It does not
+assert one current owner across the family. `legalStatus` is likewise a scoped
+document/jurisdiction observation, not a family-wide validity or
+enforceability conclusion. Material current-rights and legal-status statements
+require the applicable official register or assignment record; aggregator-only
+labels are discovery aids and must not be stored as confirmed conclusions.
+
+The validator requires every relationship to resolve to a stored Company,
+requires at least one current relationship, rejects duplicate family IDs within
+a Platform, stops on a family assigned to multiple Platforms for explicit
+attribution review, rejects reuse of a platform-level patent URL in any
+`Program.sources`, rejects an `other` mapping duplicated by a public Company,
+and checks that slash-delimited joint Program company values have enough public
+Company mappings for all named participants. The validator cannot determine
+from JSON whether every real-world participant was directly confirmed; the
+refresh/discovery completion gate remains authoritative for that evidence
+review. Candidate platform findings whose official identifier, current rights
+holder, or relationship is unresolved remain in the durable patent-audit
+handoff only; they are not canonical data and never use `other` as a Platform
+ledger.
 
 ## Delivery-technology registry
 
@@ -311,10 +385,11 @@ and later enters Phase 3:
   text/numeric fields.
 - `/api/studies.csv`: one Study per row linked by `programSlug`, including its
   `registry`, source-native `registryId`, registry source, and verification date.
-- `/api/snapshot.json`: `asOf`, `deliveryTechnologies`, `programs`, `studies`,
-  and `events`, with each Event's full `sources` array retained (never reduced
-  to only the latest Event or a single primary source). `asOf` reflects
-  verification dates; it is not the latest Event date.
+- `/api/snapshot.json`: `asOf`, `deliveryTechnologies`, `companies`,
+  `platforms`, `programs`, `studies`, and `events`, with each Event's full
+  `sources` array retained (never reduced to only the latest Event or a single
+  primary source). `asOf` reflects Program and Study verification dates; it is
+  not the latest Event date or the static-reference verification date.
 - No legacy `payload`, `asset`, `modalityGroup`, `targetInterval`, embedded
   Study alias, Program `latestUpdate`/`latestUpdateDate`, or singular Event
   `source` is emitted.

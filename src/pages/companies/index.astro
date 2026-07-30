@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCompanies, getPlatforms, getPlatformsForCompany, getPrograms, getProgramsForCompany, getPublicCompanies } from '../../lib/data';
+
+const companies = getPublicCompanies(getCompanies());
+const programs = getPrograms();
+const platforms = getPlatforms();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<BaseLayout title="Companies | Obesity Depot Tracker" activePath="/companies/">
+  <header class="page-heading">
+    <div>
+      <p class="eyebrow">Static reference</p>
+      <h1>Companies</h1>
+    </div>
+  </header>
+
+  <section class="company-grid" aria-label="Company directory">
+    {companies.map((company) => {
+      const companyPrograms = getProgramsForCompany(company, programs);
+      const companyPlatforms = getPlatformsForCompany(company.slug, platforms);
+      return (
+        <a class="company-card" href={`${base}/companies/${company.slug}/`}>
+          <span class="company-card-name">{company.name}</span>
+          <span class="company-card-meta">{companyPrograms.length} Programs / {companyPlatforms.length} Platforms</span>
+        </a>
+      );
+    })}
+  </section>
+</BaseLayout>

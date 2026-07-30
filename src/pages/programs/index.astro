@@ -1,11 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProgramExplorer from '../../components/ProgramExplorer';
-import { getDeliveryTechnologies, getEvents, getLatestEventForProgram, getPrograms, getStudies } from '../../lib/data';
+import { getDeliveryTechnologies, getEvents, getLatestEventForProgram, getPrograms, getPublicCompanies, getStudies } from '../../lib/data';
 const programs = getPrograms();
 const studies = getStudies();
 const events = getEvents();
 const deliveryTechnologies = getDeliveryTechnologies();
+const companyLinksByProgramCompany = getPublicCompanies().reduce<Record<string, { name: string; slug: string }[]>>(
+  (links, company) => {
+    for (const programCompanyName of company.programCompanyNames) {
+      (links[programCompanyName] ??= []).push({ name: company.name, slug: company.slug });
+    }
+    return links;
+  },
+  {},
+);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const asOfDate = [
   ...programs.map((program) => program.lastVerifiedAt),
@@ -23,5 +32,5 @@ const latestEventDateByProgram = Object.fromEntries(
       <a class="button button-primary" href={`${base}/api/snapshot.json`} download>JSON snapshot</a>
     </div>
   </header>
-  <ProgramExplorer programs={programs} deliveryTechnologies={deliveryTechnologies} basePath={base} asOfDate={asOfDate} latestEventDateByProgram={latestEventDateByProgram} client:load />
+  <ProgramExplorer programs={programs} deliveryTechnologies={deliveryTechnologies} companyLinksByProgramCompany={companyLinksByProgramCompany} basePath={base} asOfDate={asOfDate} latestEventDateByProgram={latestEventDateByProgram} client:load />
 </BaseLayout>

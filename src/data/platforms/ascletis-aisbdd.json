@@ -1,0 +1,24 @@
+{
+  "name": "Artificial Intelligence-assisted Structure-Based Drug Discovery",
+  "aliases": [
+    "AISBDD"
+  ],
+  "officialUrl": "https://www.ascletis.com/Index/index/index/l/en-us.html",
+  "relationships": [
+    {
+      "companySlug": "ascletis-pharma",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Ascletis Pharma Inc.",
+      "basis": "Ascletis identifies AISBDD as one of its proprietary technology platforms.",
+      "source": {
+        "label": "Ascletis corporate overview and proprietary platforms",
+        "url": "https://www.ascletis.com/Index/index/index/l/en-us.html",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-07-30"
+}

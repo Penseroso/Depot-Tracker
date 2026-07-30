@@ -1,0 +1,37 @@
+{
+  "name": "SmartDepot",
+  "aliases": [
+    "SmartDepot long-acting injectable platform",
+    "SmartDepot SR-DDS"
+  ],
+  "officialUrl": "https://www.peptron.co.kr/",
+  "relationships": [
+    {
+      "companySlug": "peptron",
+      "relationship": "ownership",
+      "status": "current",
+      "rightsHolderName": "Peptron, Inc.",
+      "basis": "Peptron identifies SmartDepot as its proprietary long-acting injectable platform in company-controlled corporate communications.",
+      "source": {
+        "label": "Peptron corporate profile and SmartDepot platform",
+        "url": "https://www.linkedin.com/company/peptroncozycure/",
+        "sourceType": "company",
+        "accessedOn": "2026-07-30"
+      }
+    }
+  ],
+  "patentEvidence": [
+    {
+      "familyId": "WO2005023224",
+      "publicationNumber": "WO2005023224A1",
+      "grantNumber": "KR100453273B1",
+      "earliestPriority": "2003-09-04",
+      "currentAssignee": "Peptron Inc.",
+      "jurisdiction": "WO (PCT), KR, US, EP, JP; representative family reviewed",
+      "legalStatus": "PCT record ceased; KR grant expired; US application abandoned and EP application withdrawn; JP record shown pending",
+      "url": "https://patents.google.com/patent/US20070275082A1/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
+  "lastVerifiedAt": "2026-07-30"
+}
