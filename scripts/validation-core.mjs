@@ -314,9 +314,25 @@ export function validateDatasetRecords({
       && !mappedProgramCompanyNames.get(companyName).some((slug) => companyMap.get(slug)?.visibility === 'public')) {
       errors.push(`Sponsor Program company must map to at least one public Company page (${companyName})`);
     }
+
+    const mappedSlugs = mappedProgramCompanyNames.get(companyName) ?? [];
+    const hasPublicMapping = mappedSlugs.some((slug) => companyMap.get(slug)?.visibility === 'public');
+    const hasInternalMapping = mappedSlugs.some((slug) => companyMap.get(slug)?.visibility === 'internal');
+    if (hasPublicMapping && hasInternalMapping) {
+      errors.push(`Program company mapped to a public Company must not remain in the internal other bucket (${companyName})`);
+    }
+
+    const namedParticipants = companyName.split(/\s+\/\s+/).filter(Boolean);
+    const publicMappingCount = new Set(
+      mappedSlugs.filter((slug) => companyMap.get(slug)?.visibility === 'public'),
+    ).size;
+    if (namedParticipants.length > 1 && publicMappingCount < namedParticipants.length) {
+      errors.push(`Joint Program company must map every named participant to a public Company page (${companyName})`);
+    }
   }
 
   const platformSlugs = new Set();
+  const platformFamilyOwners = new Map();
   for (const { name, slug, data } of platforms) {
     if (!data) continue;
     if (!slugPattern.test(slug)) errors.push(`${name}: platform slug must be a lowercase slug`);
@@ -379,6 +395,7 @@ export function validateDatasetRecords({
       errors.push(`${name}: patentEvidence must be an array`);
     } else {
       const evidenceUrls = new Set();
+      const familyIds = new Set();
       data.patentEvidence.forEach((evidence, index) => {
         const label = `${name} patentEvidence[${index}]`;
         for (const key of Object.keys(evidence ?? {})) {
@@ -405,6 +422,21 @@ export function validateDatasetRecords({
         if (!isDate(evidence.earliestPriority)) errors.push(`${label}: earliestPriority must be YYYY-MM-DD`);
         if (!isDate(evidence.accessedOn)) errors.push(`${label}: accessedOn must be YYYY-MM-DD`);
         if (!isUrl(evidence.url)) errors.push(`${label}: url must be http(s)`);
+        if (typeof evidence.familyId === 'string' && evidence.familyId.trim()) {
+          if (familyIds.has(evidence.familyId)) {
+            errors.push(`${name}: duplicate patent familyId ${evidence.familyId}`);
+          }
+          familyIds.add(evidence.familyId);
+          const priorPlatform = platformFamilyOwners.get(evidence.familyId);
+          if (priorPlatform && priorPlatform !== slug) {
+            errors.push(
+              `${name}: patent familyId ${evidence.familyId} is assigned to multiple Platforms `
+              + `(${priorPlatform}, ${slug}); cross-Platform attribution review is required`,
+            );
+          } else {
+            platformFamilyOwners.set(evidence.familyId, slug);
+          }
+        }
         if (evidenceUrls.has(evidence.url)) errors.push(`${name}: duplicate patent evidence URL ${evidence.url}`);
         evidenceUrls.add(evidence.url);
         if (programSourceUrls.has(evidence.url)) {

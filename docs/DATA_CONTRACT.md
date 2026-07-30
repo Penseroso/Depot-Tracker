@@ -163,6 +163,15 @@ representative patent evidence has been found. Patent audit does not create
 Company records; it updates attributable patent evidence and rights details on
 the matching Platform reference.
 
+Because material changes cannot be detected without reopening the source, a
+Company/Platform static reference is reverified at least once every 12 months,
+or earlier when Program research surfaces a new sponsor/developer/partner, a
+corporate transaction, a renamed or newly disclosed Platform, a changed
+license/access/ownership statement, or a broken official link. Reverification
+checks the official homepage and pipeline links, the official Platform
+inventory, canonical identifiers and aliases, and every current relationship;
+it is not a new research track.
+
 A Platform record is eligible only when an official source directly identifies
 the platform and supports its current Company relationship. It stores the
 canonical name, aliases, official URL, one or more Company-Platform
@@ -175,11 +184,27 @@ development or licensing, while a former ownership relation preserves a past
 rights holder. `rightsHolderName` preserves the legal entity named in the
 evidence even when it differs from the display Company.
 
+`patentEvidence[].currentAssignee` is the assignee observed for the specified
+representative patent record, jurisdiction, and `accessedOn` date. It does not
+assert one current owner across the family. `legalStatus` is likewise a scoped
+document/jurisdiction observation, not a family-wide validity or
+enforceability conclusion. Material current-rights and legal-status statements
+require the applicable official register or assignment record; aggregator-only
+labels are discovery aids and must not be stored as confirmed conclusions.
+
 The validator requires every relationship to resolve to a stored Company,
-requires at least one current relationship, and rejects reuse of a
-platform-level patent URL in any `Program.sources`. Candidate platform
-findings whose official identifier, current rights holder, or relationship is
-unresolved remain in patent-audit handoff only; they are not canonical data.
+requires at least one current relationship, rejects duplicate family IDs within
+a Platform, stops on a family assigned to multiple Platforms for explicit
+attribution review, rejects reuse of a platform-level patent URL in any
+`Program.sources`, rejects an `other` mapping duplicated by a public Company,
+and checks that slash-delimited joint Program company values have enough public
+Company mappings for all named participants. The validator cannot determine
+from JSON whether every real-world participant was directly confirmed; the
+refresh/discovery completion gate remains authoritative for that evidence
+review. Candidate platform findings whose official identifier, current rights
+holder, or relationship is unresolved remain in the durable patent-audit
+handoff only; they are not canonical data and never use `other` as a Platform
+ledger.
 
 ## Delivery-technology registry
 

@@ -24,7 +24,10 @@ update-boundary: Update only when research execution, completion gates, validati
    audit remains stored-roster work and hands absent candidates to discovery.
 5. Confirm that the direct sources required by the selected track are reachable
    or can be handled without an unsupported change.
-6. Work on a branch and draft PR; never write directly to `main`.
+6. Work on a branch; never write directly to `main`. Use a draft PR as the
+   run-review surface by default. When the operator explicitly requests
+   commit/push without a PR, use the accepted baseline-commit manifest defined
+   in `docs/PATENT_AUDIT.md` for patent-audit results and handoffs.
 
 `named-program refresh` is retained only as a plain-language description of a
 single-Program `program refresh`; it is no longer a separate run mode.
@@ -75,7 +78,12 @@ A refresh is GO only when:
 4. in-scope unresolved claims and blocked sources were preserved with a
    re-entry condition or source-access handover where necessary;
 5. every crossover finding was resolved under section 5;
-6. Event and common validation gates pass.
+6. every newly confirmed sponsor, developer, or disclosed partner was resolved
+   to an existing public Company or created once with direct official support,
+   the Program display company maps to every directly confirmed participant,
+   and a newly created Company received its one-time official Platform
+   inventory;
+7. Event and common validation gates pass.
 
 ## 3. Track B: program discovery
 
@@ -146,18 +154,22 @@ A discovery run is GO only when:
    record type, and delivery technology, and is not a duplicate;
 5. every deferred candidate has missing evidence and a re-entry condition;
 6. every crossover finding was resolved under section 5;
-7. Event and common validation gates pass.
+7. every stored Program's directly confirmed sponsor, developer, and disclosed
+   partner was resolved to a public Company mapping, and each newly created
+   Company completed its one-time official Platform inventory;
+8. Event and common validation gates pass.
 
 ## 4. Track C: patent coverage audit
 
 ### Purpose and entry
 
 Use `patent coverage audit` to assess patent-source coverage for a declared set
-of already stored Programs. It is neither a general current-state refresh nor
-a patent-bounded discovery run. Entry is one or more stable Program slugs or
-the explicit full stored roster. The initial landscape-wide audit uses the full
-stored roster; later audits may use the delta scope defined in
-`docs/PATENT_AUDIT.md`.
+of already stored Programs and its bounded Platform queue. It is neither a
+general current-state refresh nor a patent-bounded discovery run. Program entry
+is one or more stable Program slugs or the explicit full stored roster. The
+bounded Platform queue does not create a fourth track. The initial
+landscape-wide audit uses the full stored roster and the Platform queue defined
+in `docs/PATENT_AUDIT.md`; later audits may use that authority's delta scope.
 
 ### Required evidence surface
 
@@ -173,6 +185,11 @@ in-scope Program, report one audit outcome:
   exists;
 - `ATTRIBUTION_DEFERRED`: a potentially relevant family was found but Program
   identity, rights chain, scope, or source access prevents reliable linkage.
+
+Report the bounded Platform queue separately with the corresponding
+`PATENT_LINKED`, `NO_LINK_FOUND`, or `ATTRIBUTION_DEFERRED` outcome. A Platform
+outcome is not a Program outcome, and `NO_LINK_FOUND` is never a patent-absence
+claim. Platform outcomes do not affect the `PATENT-LINKED PROGRAMS` KPI.
 
 Patent audit never creates a Company page. For an existing Company, it updates
 representative platform-level patent evidence and directly supported rights
@@ -191,8 +208,9 @@ discovery disposition.
 
 A patent audit is GO only when:
 
-1. every Program in the declared audit roster has one reported audit outcome,
-   with zero unaudited Programs;
+1. every Program in the declared audit roster and every Platform in the
+   bounded queue has one separately reported audit outcome, with zero unaudited
+   Programs and zero unaudited queued Platforms;
 2. the required identifier, payload, platform, sponsor, and assignee search
    paths were traversed and family duplicates were collapsed;
 3. application, publication, grant, and jurisdiction-specific legal status
@@ -223,6 +241,10 @@ Keep crossover bounded:
   Program as `REFRESH_HANDOFF`; do not broaden the audit into sponsor or
   registry reconciliation. Route an absent candidate as `DISCOVERY_HANDOFF`
   with only the minimum evidence required by `docs/PATENT_AUDIT.md`.
+- Route a pure Platform, rights-holder, or Company-Platform relationship
+  finding that is not yet canonical through the patent-audit baseline
+  commit's durable handoff section. Do not use the internal `other` Company
+  bucket as a Platform ledger.
 - A handoff is not a source-access handover. Create
   `docs/source-access-handover/<programSlug>.md` only when source access leaves a
   material claim unresolved for a stable stored or newly stored Program under
@@ -360,4 +382,6 @@ discovery dispositions and undispositioned count when applicable; independent
 coverage status when applicable; patent audit baseline, outcomes, family count,
 and unaudited count when applicable; crossover handoffs; material Events;
 deferred and source-blocked claims; validation results; and final GO/NO-GO.
-When nothing changed, do not edit data solely to create a commit.
+When nothing changed, do not edit canonical data solely to create a commit.
+Patent-audit runs may still require a baseline commit manifest when commit/push
+is the explicitly selected durable run surface.

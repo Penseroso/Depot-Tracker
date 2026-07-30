@@ -146,6 +146,30 @@ test('officially verified Platform may be stored before patent evidence is found
   assert.deepEqual(validateDatasetRecords(data).errors, []);
 });
 
+test('duplicate familyId within one Platform fails', () => {
+  const data = createValidDataset();
+  data.platforms[0].data.patentEvidence.push({
+    ...structuredClone(data.platforms[0].data.patentEvidence[0]),
+    url: 'https://patents.example.com/WO2026000001A1-alt',
+  });
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /duplicate patent familyId WO2026000001/,
+  );
+});
+
+test('one family assigned to multiple Platforms requires attribution review', () => {
+  const data = createValidDataset();
+  data.platforms.push(structuredClone(data.platforms[0]));
+  data.platforms[1].name = 'second-platform.json';
+  data.platforms[1].slug = 'second-platform';
+  data.platforms[1].data.name = 'Second Platform';
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /assigned to multiple Platforms.*cross-Platform attribution review is required/,
+  );
+});
+
 test('one partnership Program company may map to multiple Company pages', () => {
   const data = createValidDataset();
   data.companies.push(structuredClone(data.companies[0]));
@@ -153,6 +177,31 @@ test('one partnership Program company may map to multiple Company pages', () => 
   data.companies[1].slug = 'partner-company';
   data.companies[1].data.name = 'Partner Company';
   assert.deepEqual(validateDatasetRecords(data).errors, []);
+});
+
+test('public Company promotion cannot leave the same Program company in other', () => {
+  const data = createValidDataset();
+  data.companies.push(structuredClone(data.companies[0]));
+  data.companies[1].name = 'other.json';
+  data.companies[1].slug = 'other';
+  data.companies[1].data.name = 'Other';
+  data.companies[1].data.visibility = 'internal';
+  data.companies[1].data.homepageUrl = null;
+  data.companies[1].data.pipelineUrl = null;
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /must not remain in the internal other bucket/,
+  );
+});
+
+test('joint Program company must map every named participant publicly', () => {
+  const data = createValidDataset();
+  data.programs[0].data.company = 'Fixture Co / Partner Co';
+  data.companies[0].data.programCompanyNames = ['Fixture Co / Partner Co'];
+  assert.match(
+    validateDatasetRecords(data).errors.join('\n'),
+    /Joint Program company must map every named participant/,
+  );
 });
 
 test('every stored Program company must map to a public Company or internal other bucket', () => {

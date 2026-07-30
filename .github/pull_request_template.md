@@ -19,14 +19,18 @@
 
 - Audit baseline / as-of:
 - Programs by outcome: <!-- PATENT_LINKED / NO_LINK_FOUND / ATTRIBUTION_DEFERRED -->
+- Bounded Platform queue:
+- Platforms by outcome: <!-- PATENT_LINKED / NO_LINK_FOUND / ATTRIBUTION_DEFERRED; separate from Program outcomes -->
 - Attributable families:
 - Unaudited Programs: <!-- must be 0 for patent audit GO; N/A otherwise -->
+- Unaudited queued Platforms: <!-- must be 0 for patent audit GO; N/A otherwise -->
 - Periodic minimum refresh completed: <!-- yes / no / N/A -->
 
 ## Crossover
 
 - Discovery handoffs from refresh:
 - Discovery handoffs from patent audit:
+- Platform/rights handoffs from patent audit:
 - Refresh handoffs from discovery:
 - Refresh handoffs from patent audit:
 - Bounded crossovers completed:
