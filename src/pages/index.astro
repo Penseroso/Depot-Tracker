@@ -31,7 +31,7 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
 
   <section class="section">
     <div class="section-head"><div><h2>Landscape</h2></div></div>
-    <LandscapeCharts programs={programs} deliveryTechnologies={deliveryTechnologies} client:visible />
+    <LandscapeCharts programs={programs} deliveryTechnologies={deliveryTechnologies} basePath={base} client:visible />
   </section>
 
   <section class="section">

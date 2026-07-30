@@ -1,13 +1,28 @@
-import { useMemo, useState, type ChangeEvent } from 'react';
+import { useEffect, useMemo, useState, type ChangeEvent } from 'react';
 import { Search } from 'lucide-react';
 import type { DeliveryTechnology, Program } from '../lib/schema';
 import {
   formatDate,
   formatIntervalClaim,
   formatPayloadComponents,
+  getProductTargetIntervalBuckets,
+  intervalBucketLabels,
   stageLabel,
+  type IntervalBucketId,
 } from '../lib/format';
 import { getStageBadgeClass } from '../lib/development-stages.js';
+
+const FILTER_PARAMS = { stage: 'stage', technology: 'technology', interval: 'interval' } as const;
+const defaultUrlFilters = { stage: 'all', technology: 'all', interval: 'all' };
+
+function readFilterParamsFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    stage: params.get(FILTER_PARAMS.stage) ?? 'all',
+    technology: params.get(FILTER_PARAMS.technology) ?? 'all',
+    interval: params.get(FILTER_PARAMS.interval) ?? 'all',
+  };
+}
 
 function recordTypeLabel(value: Program['recordType']) {
   return value === 'sponsor-program' ? 'Sponsor program' : 'Technology watch';
@@ -24,9 +39,33 @@ type Props = {
 
 export default function ProgramExplorer({ programs, deliveryTechnologies, companyLinksByProgramCompany, basePath, asOfDate, latestEventDateByProgram }: Props) {
   const [query, setQuery] = useState('');
-  const [stage, setStage] = useState('all');
-  const [technology, setTechnology] = useState('all');
+  const [{ stage, technology, interval }, setUrlFilters] = useState(defaultUrlFilters);
+  const [hydratedFromUrl, setHydratedFromUrl] = useState(false);
+  const setStage = (value: string) => setUrlFilters((current) => ({ ...current, stage: value }));
+  const setTechnology = (value: string) => setUrlFilters((current) => ({ ...current, technology: value }));
+  const setIntervalFilter = (value: string) => setUrlFilters((current) => ({ ...current, interval: value }));
   const [recordType, setRecordType] = useState('all');
+
+  // Applied post-mount (not in the lazy initializer) so the first client render
+  // matches the statically pre-rendered markup; avoids a hydration mismatch
+  // when this page is loaded with ?stage=/&technology=/&interval= from Overview.
+  useEffect(() => {
+    setUrlFilters(readFilterParamsFromUrl());
+    setHydratedFromUrl(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydratedFromUrl) return;
+    const params = new URLSearchParams(window.location.search);
+    (['stage', 'technology', 'interval'] as const).forEach((key) => {
+      const value = key === 'stage' ? stage : key === 'technology' ? technology : interval;
+      if (value === 'all') params.delete(FILTER_PARAMS[key]);
+      else params.set(FILTER_PARAMS[key], value);
+    });
+    const search = params.toString();
+    const nextUrl = `${window.location.pathname}${search ? `?${search}` : ''}${window.location.hash}`;
+    window.history.replaceState(window.history.state, '', nextUrl);
+  }, [stage, technology, interval, hydratedFromUrl]);
 
   const technologyById = useMemo(
     () => new Map(deliveryTechnologies.map((item) => [item.id, item])),
@@ -50,10 +89,11 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, compan
         (!needle || haystack.includes(needle))
         && (stage === 'all' || program.developmentStage === stage)
         && (technology === 'all' || program.deliveryTechnologyId === technology)
+        && (interval === 'all' || getProductTargetIntervalBuckets(program.productTarget).includes(interval as IntervalBucketId))
         && (recordType === 'all' || program.recordType === recordType)
       );
     });
-  }, [programs, query, stage, technology, recordType]);
+  }, [programs, query, stage, technology, interval, recordType]);
 
   return (
     <section className="filter-shell">
@@ -70,6 +110,10 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, compan
         <select className="control" value={technology} onChange={(event: ChangeEvent<HTMLSelectElement>) => setTechnology(event.target.value)} aria-label="전달 기술">
           <option value="all">모든 제형</option>
           {deliveryTechnologies.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
+        </select>
+        <select className="control" value={interval} onChange={(event: ChangeEvent<HTMLSelectElement>) => setIntervalFilter(event.target.value)} aria-label="목표 투여 간격">
+          <option value="all">모든 목표 간격</option>
+          {Object.entries(intervalBucketLabels).map(([id, label]) => <option key={id} value={id}>{label}</option>)}
         </select>
         <select className="control" value={recordType} onChange={(event: ChangeEvent<HTMLSelectElement>) => setRecordType(event.target.value)} aria-label="레코드 유형">
           <option value="all">모든 유형</option>
