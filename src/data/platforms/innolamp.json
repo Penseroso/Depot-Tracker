@@ -19,6 +19,18 @@
       }
     }
   ],
-  "patentEvidence": [],
+  "patentEvidence": [
+    {
+      "familyId": "WO2019108030",
+      "publicationNumber": "WO2019108030A1",
+      "grantNumber": "US11311854B2",
+      "earliestPriority": "2017-11-30",
+      "currentAssignee": "G2GBIO, Inc.",
+      "jurisdiction": "WO (PCT), US, EP, KR, CN, CA, AU, JP; representative family reviewed",
+      "legalStatus": "PCT record ceased; grants shown active in US, EP, KR, CN, CA, and AU; JP record shown pending",
+      "url": "https://patents.google.com/patent/EP3586828A4/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
   "lastVerifiedAt": "2026-07-30"
 }

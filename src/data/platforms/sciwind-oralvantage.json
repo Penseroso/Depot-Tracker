@@ -19,6 +19,18 @@
       }
     }
   ],
-  "patentEvidence": [],
+  "patentEvidence": [
+    {
+      "familyId": "WO2024245233",
+      "publicationNumber": "WO2024245233A1",
+      "grantNumber": null,
+      "earliestPriority": "2023-05-29",
+      "currentAssignee": "Sciwind Biosciences Co., Ltd.; Sciwind Biosciences (Beijing) Co., Ltd.",
+      "jurisdiction": "WO (PCT), AU, IL; representative family reviewed",
+      "legalStatus": "PCT and AU applications shown pending; IL publication identified; no grant confirmed",
+      "url": "https://patents.google.com/patent/WO2024245233A1/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
   "lastVerifiedAt": "2026-07-30"
 }

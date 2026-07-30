@@ -20,6 +20,18 @@
       }
     }
   ],
-  "patentEvidence": [],
+  "patentEvidence": [
+    {
+      "familyId": "WO2018088731",
+      "publicationNumber": "WO2018088731A1",
+      "grantNumber": "US10843159B2",
+      "earliestPriority": "2016-11-14",
+      "currentAssignee": "Inventage Lab Inc.",
+      "jurisdiction": "WO (PCT), US, EP, KR, CN, GB; representative family reviewed",
+      "legalStatus": "PCT record ceased; US, KR, CN, and GB grants shown active; EP record shown pending",
+      "url": "https://patents.google.com/patent/GB201622024D0/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
   "lastVerifiedAt": "2026-07-30"
 }

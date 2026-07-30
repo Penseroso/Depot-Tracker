@@ -20,6 +20,18 @@
       }
     }
   ],
-  "patentEvidence": [],
+  "patentEvidence": [
+    {
+      "familyId": "WO2022225368",
+      "publicationNumber": "WO2022225368A1",
+      "grantNumber": "EP4303176B1",
+      "earliestPriority": "2021-04-22",
+      "currentAssignee": "Inventage Lab Inc.",
+      "jurisdiction": "WO (PCT), EP, KR, JP, US, CN; representative family reviewed",
+      "legalStatus": "PCT record ceased; EP, KR, and JP grants shown active; US and CN applications shown pending",
+      "url": "https://patents.google.com/patent/EP4303176B1/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
   "lastVerifiedAt": "2026-07-30"
 }

@@ -19,6 +19,18 @@
       }
     }
   ],
-  "patentEvidence": [],
+  "patentEvidence": [
+    {
+      "familyId": "WO2022068920",
+      "publicationNumber": "WO2022068920A1",
+      "grantNumber": "US11529394B2",
+      "earliestPriority": "2020-09-30",
+      "currentAssignee": "Beijing QL Biopharmaceutical Co., Ltd.",
+      "jurisdiction": "WO (PCT), US, CN, EP, JP, KR, CA; representative family reviewed",
+      "legalStatus": "PCT record ceased; US and CN grants identified; remaining national-phase status not exhaustively checked",
+      "url": "https://patents.google.com/patent/WO2022068920A1/en",
+      "accessedOn": "2026-07-30"
+    }
+  ],
   "lastVerifiedAt": "2026-07-30"
 }
