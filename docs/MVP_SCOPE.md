@@ -31,6 +31,8 @@
 - Keep platform-level patents separate from Program patent sources and the
   `PATENT-LINKED PROGRAMS` KPI.
 - Treat Company and Platform records as low-frequency static references.
+- Preserve Program companies without a dedicated reference in the internal
+  `other` Company bucket; do not show that bucket or link it from the UI.
 - Exclude long-form company profiles, news, financial coverage, and a separate
   Platform detail UI.
 

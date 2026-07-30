@@ -43,11 +43,16 @@ const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 
 export const companySchema = z.object({
   name: z.string().min(1),
-  homepageUrl: z.url(),
-  pipelineUrl: z.url(),
+  visibility: z.enum(['public', 'internal']),
+  homepageUrl: z.url().nullable(),
+  pipelineUrl: z.url().nullable(),
   programCompanyNames: z.array(z.string().min(1)).min(1),
   lastVerifiedAt: z.iso.date(),
-}).strict();
+}).strict().refine(
+  ({ visibility, homepageUrl, pipelineUrl }) =>
+    visibility === 'internal' || (homepageUrl !== null && pipelineUrl !== null),
+  { message: 'public Company requires homepageUrl and pipelineUrl' },
+);
 
 export const companyPlatformRelationshipSchema = z.object({
   companySlug: slugSchema,

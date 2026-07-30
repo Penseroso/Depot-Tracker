@@ -1,5 +1,6 @@
 {
   "name": "AULBIO",
+  "visibility": "public",
   "homepageUrl": "https://aulbio.com/m/",
   "pipelineUrl": "https://aulbio.com/main/page.html?pid=14",
   "programCompanyNames": [

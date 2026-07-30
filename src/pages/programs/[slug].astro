@@ -38,7 +38,9 @@ const timelineRest = earlierEvents.slice(5);
     <div class="detail-topline"><StageBadge stage={program.developmentStage} /><span class="meta-pill">{technology?.label ?? program.deliveryTechnologyId}</span><span class="meta-pill">{program.recordType === 'sponsor-program' ? 'Sponsor program' : 'Technology watch'}</span></div>
     <h1>{program.programName}</h1>
     <p class="detail-company">
-      {company ? <a class="text-link" href={`${base}/companies/${company.slug}/`}>{program.company}</a> : program.company}
+      {company?.visibility === 'public'
+        ? <a class="text-link" href={`${base}/companies/${company.slug}/`}>{program.company}</a>
+        : program.company}
     </p>
   </header>
   <div class="detail-layout">

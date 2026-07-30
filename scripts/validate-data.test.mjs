@@ -48,6 +48,7 @@ function createValidDataset() {
       slug: 'fixture-co',
       data: {
         name: 'Fixture Co',
+        visibility: 'public',
         homepageUrl: 'https://example.com/',
         pipelineUrl: 'https://example.com/pipeline',
         programCompanyNames: ['Fixture Co'],
@@ -145,6 +146,13 @@ test('Company program mapping must be unique and match stored Program data', () 
   data.companies[1].name = 'duplicate-company.json';
   data.companies[1].slug = 'duplicate-company';
   assert.match(validateDatasetRecords(data).errors.join('\n'), /programCompanyName is already mapped/);
+});
+
+test('every stored Program company must map to a public Company or internal other bucket', () => {
+  const data = createValidDataset();
+  data.companies[0].data.programCompanyNames = ['Different Co'];
+  const errors = validateDatasetRecords(data).errors.join('\n');
+  assert.match(errors, /Program company must map to a Company or the internal other bucket/);
 });
 
 test('every canonical development stage passes validation', () => {

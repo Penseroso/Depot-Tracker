@@ -1,5 +1,6 @@
 {
   "name": "Vivani Medical",
+  "visibility": "public",
   "homepageUrl": "https://vivani.com/",
   "pipelineUrl": "https://vivani.com/portfolio/",
   "programCompanyNames": [

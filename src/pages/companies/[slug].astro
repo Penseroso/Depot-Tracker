@@ -7,13 +7,14 @@ import {
   getPlatformsForCompany,
   getPrograms,
   getProgramsForCompany,
+  getPublicCompanies,
 } from '../../lib/data';
 import { formatDate } from '../../lib/format';
 
 export function getStaticPaths() {
   const programs = getPrograms();
   const platforms = getPlatforms();
-  return getCompanies().map((company) => ({
+  return getPublicCompanies(getCompanies()).map((company) => ({
     params: { slug: company.slug },
     props: {
       company,

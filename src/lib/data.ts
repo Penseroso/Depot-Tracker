@@ -77,6 +77,10 @@ export function getCompanies(): Company[] {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
+export function getPublicCompanies(companies = getCompanies()) {
+  return companies.filter((company) => company.visibility === 'public');
+}
+
 export function getPlatforms(): Platform[] {
   return Object.entries(platformModules)
     .map(([path, data]) => ({ ...platformSchema.parse(data), slug: slugFromPath(path) }))

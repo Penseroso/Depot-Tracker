@@ -143,10 +143,14 @@ relationship, and does not contribute to `PATENT-LINKED PROGRAMS`.
 
 `src/data/companies/*.json` and `src/data/platforms/*.json` are low-frequency
 reference data, not a third Program research track. A Company record stores its
-display name, official homepage and pipeline URLs, exact
+display name, `visibility`, official homepage and pipeline URLs, exact
 `programCompanyNames`, and `lastVerifiedAt`. Its Program list is always derived
 by exact match against existing `Program.company` values; Program records do
-not gain a Company foreign key solely for this UI.
+not gain a Company foreign key solely for this UI. Every stored Program company
+must map exactly once. Values without a dedicated verified Company reference
+map to the `other` record with `visibility: internal` and null official URLs.
+Internal Company records remain in the JSON snapshot but do not generate or
+link to Company UI routes.
 
 A Platform record is eligible only when an official source directly identifies
 the platform and representative patent evidence supports the same company and

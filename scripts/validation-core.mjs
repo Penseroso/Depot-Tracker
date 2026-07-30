@@ -264,13 +264,21 @@ export function validateDatasetRecords({
     if (companyMap.has(slug)) errors.push(`${name}: duplicate company slug ${slug}`);
     companyMap.set(slug, data);
     for (const key of Object.keys(data)) {
-      if (!['name', 'homepageUrl', 'pipelineUrl', 'programCompanyNames', 'lastVerifiedAt'].includes(key)) {
+      if (!['name', 'visibility', 'homepageUrl', 'pipelineUrl', 'programCompanyNames', 'lastVerifiedAt'].includes(key)) {
         errors.push(`${name}: unknown key ${key}`);
       }
     }
     requireString(data, 'name', name, errors);
-    if (!isUrl(data.homepageUrl)) errors.push(`${name}: homepageUrl must be http(s)`);
-    if (!isUrl(data.pipelineUrl)) errors.push(`${name}: pipelineUrl must be http(s)`);
+    requireString(data, 'visibility', name, errors);
+    if (!['public', 'internal'].includes(data.visibility)) {
+      errors.push(`${name}: visibility must be public or internal`);
+    }
+    if (data.visibility === 'public') {
+      if (!isUrl(data.homepageUrl)) errors.push(`${name}: public Company homepageUrl must be http(s)`);
+      if (!isUrl(data.pipelineUrl)) errors.push(`${name}: public Company pipelineUrl must be http(s)`);
+    } else if (data.homepageUrl !== null || data.pipelineUrl !== null) {
+      errors.push(`${name}: internal Company homepageUrl and pipelineUrl must be null`);
+    }
     if (!isDate(data.lastVerifiedAt)) errors.push(`${name}: lastVerifiedAt must be YYYY-MM-DD`);
     if (!Array.isArray(data.programCompanyNames) || data.programCompanyNames.length === 0) {
       errors.push(`${name}: programCompanyNames must be a non-empty array`);
@@ -291,6 +299,12 @@ export function validateDatasetRecords({
         }
         mappedProgramCompanyNames.set(companyName, slug);
       }
+    }
+  }
+
+  for (const companyName of storedProgramCompanyNames) {
+    if (!mappedProgramCompanyNames.has(companyName)) {
+      errors.push(`Program company must map to a Company or the internal other bucket (${companyName})`);
     }
   }
 
@@ -331,6 +345,8 @@ export function validateDatasetRecords({
         }
         if (!companyMap.has(relationship.companySlug)) {
           errors.push(`${label}: missing Company reference ${relationship.companySlug}`);
+        } else if (companyMap.get(relationship.companySlug).visibility !== 'public') {
+          errors.push(`${label}: Platform relationship must reference a public Company`);
         }
         if (!companyPlatformRelationships.has(relationship.relationship)) {
           errors.push(`${label}: relationship is not allowed (${relationship.relationship})`);
