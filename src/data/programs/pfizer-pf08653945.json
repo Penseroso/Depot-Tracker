@@ -9,7 +9,7 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase II",
   "developmentStatus": "SOLIS-1 Phase IIb 모집 중",
-  "lastVerifiedAt": "2026-07-29",
+  "lastVerifiedAt": "2026-08-10",
   "readout": "Phase I에서 주간 적정 뒤 월 1회 투여를 평가. SOLIS-1 Phase IIb에서 단독 및 berobenatide 병용의 주 1회와 월 1회 유지요법을 이산적으로 dose-ranging한다.",
   "differentiator": "초장기 작용 amylin analog의 주 1회와 월 1회 단독 유지요법 및 berobenatide 병용을 별도 cohort로 개발.",
   "caveat": "주력 단일 제품 간격, 확정 효능 결과 및 최종 용량은 미공개로 productTarget은 null. NCT07575932 Study record는 이 Program에 한 번만 연결되며 같은 registry record의 병용 Program 관계는 DEFERRED_SCHEMA_CASE.",
@@ -21,13 +21,13 @@
       "label": "Pfizer berobenatide and PF'3945 ADA update, 2026-06-06",
       "url": "https://www.pfizer.com/news/press-release/press-release-detail/robust-phase-2b-efficacy-and-favorable-tolerability-support",
       "sourceType": "company",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-10"
     },
     {
       "label": "ClinicalTrials.gov NCT07575932",
       "url": "https://clinicaltrials.gov/study/NCT07575932",
       "sourceType": "registry",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-10"
     }
   ]
 }

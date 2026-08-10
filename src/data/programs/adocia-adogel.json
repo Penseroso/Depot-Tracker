@@ -12,11 +12,11 @@
   },
   "route": "피하주사",
   "developmentStage": "Paused",
-  "developmentStatus": "2025년 7월 개발 보류 발표",
-  "lastVerifiedAt": "2026-07-29",
+  "developmentStatus": "2025년 7월 개발 보류 발표; 2026-08-10 확인한 현재 공식 파이프라인 목록과 구 AdoGel 플랫폼 페이지에 AdoGel Sema 항목이 더 이상 표시되지 않음",
+  "lastVerifiedAt": "2026-08-10",
   "readout": "Rat depot PK에서 semaglutide의 1개월 규칙적 방출과 제한된 초기 burst를 확인. 1개월에서 3개월은 platform 설계 범위이며 현재 활성 파이프라인은 아님.",
   "differentiator": "주사 후 형성되는 biodegradable cross-linked hydrogel matrix",
-  "caveat": "개발 보류 중이며 재개 신호 미확인. 월 1회와 3개월 일정은 연속 범위가 아니며 분기 용법은 확정 제품 목표가 아님.",
+  "caveat": "개발 보류 중이며 공식 재개 발표 없음. 2025-11-12 Adocia CEO는 AdoGel에서 얻은 경험과 통찰을 후속 AdoXLong 플랫폼 개발에 활용했다고 언급했고, 현재 공식 파이프라인 페이지와 구 AdoGel 플랫폼 URL에서 AdoGel Sema 항목 자체가 사라진 상태이나 공식 소스가 이를 명시적 개발중단으로 선언한 바는 없음. 페이지 누락만으로 비활성/중단을 단정하지 않으며 공식 중단 또는 재개 선언 여부는 다음 재확인 대상으로 남긴다. 월 1회와 3개월 일정은 연속 범위가 아니며 분기 용법은 확정 제품 목표가 아님.",
   "confidence": "High",
   "active": false,
   "stageRank": 10,
@@ -32,6 +32,18 @@
       "url": "https://diabetesjournals.org/diabetes/article/73/Supplement_1/1674-P/155809/1674-P-Development-of-a-Once-a-Month-Formulation",
       "sourceType": "publication",
       "accessedOn": "2026-07-27"
+    },
+    {
+      "label": "Adocia AdoXLong platform filing update (AdoGel 경험 언급), 2025-11-12",
+      "url": "https://www.businesswire.com/news/home/20251111539253/en/ADOCIA-Announces-Filing-of-Patent-for-New-Long-Acting-Peptides-Platform-in-Diabetes-and-Obesity---AdoXLong---and-Provides-an-Update-on-its-BioChaperone-Platform",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "Adocia 공식 파이프라인 (AdoGel Sema 항목 부재 확인), 2026-08-10",
+      "url": "https://www.adocia.com/products-and-platform/pipeline/",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
     }
   ]
 }

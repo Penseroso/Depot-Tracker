@@ -7,27 +7,33 @@
   "deliveryTechnology": "long-acting amylin analog",
   "productTarget": null,
   "route": "피하주사",
-  "developmentStage": "Registered Phase I",
-  "developmentStatus": "미국 비만 Phase Ib 모집 중",
-  "lastVerifiedAt": "2026-07-29",
-  "readout": "선행 MAD에서 5주차 이후 월간 투여 cohort의 13주 LS mean 체중변화 -7.86%; 후속 비만 Phase Ib 모집 중.",
+  "developmentStage": "Registered Phase II",
+  "developmentStatus": "미국 비만 Phase Ib 모집 중; 비만/과체중 동반질환 대상 Phase II 용량설정 시험(NCT07752979) 등록, 모집 개시 전",
+  "lastVerifiedAt": "2026-08-10",
+  "readout": "선행 MAD에서 5주차 이후 월간 투여 cohort의 13주 LS mean 체중변화 -7.86%; 후속 비만 Phase Ib 모집 중; Phase II 용량설정 시험은 등록만 완료되고 아직 모집 시작 전.",
   "differentiator": "amylin 및 calcitonin receptor를 선택적으로 활성화하는 장기지속 analog로 월간 투여 cohort를 임상 평가.",
-  "caveat": "월간 투여는 특정 임상 cohort에서 관찰된 간격이며 sponsor가 확정한 제품 목표가 아니다. 후속 시험은 안전성 및 PK 중심이다.",
+  "caveat": "월간 투여는 특정 임상 cohort에서 관찰된 간격이며 sponsor가 확정한 제품 목표가 아니다. Phase II 시험은 모집 시작 전이며 별도 공식 topline 미공개.",
   "confidence": "High",
   "active": true,
   "stageRank": 88,
   "sources": [
     {
+      "label": "ClinicalTrials.gov NCT07752979",
+      "url": "https://clinicaltrials.gov/study/NCT07752979",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
       "label": "ClinicalTrials.gov NCT07291232",
       "url": "https://clinicaltrials.gov/study/NCT07291232",
       "sourceType": "registry",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-10"
     },
     {
       "label": "ClinicalTrials.gov NCT06144684",
       "url": "https://clinicaltrials.gov/study/NCT06144684",
       "sourceType": "registry",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-10"
     },
     {
       "label": "AbbVie ABBV-295 Phase I topline, 2026-03-09",

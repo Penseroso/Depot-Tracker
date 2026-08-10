@@ -13,10 +13,10 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase III",
   "developmentStatus": "주 1회 및 월 1회 글로벌 Phase III 진행 중",
-  "lastVerifiedAt": "2026-07-29",
-  "readout": "Phase IIb에서 주 1회 적정 뒤 월 1회 유지 투여로 전환한 군의 28주 체중감소 지속. 월 1회 VESPER-6 Phase III 모집 중이며 주 1회 cohort는 별도 평가 일정.",
+  "lastVerifiedAt": "2026-08-10",
+  "readout": "Phase IIb에서 주 1회 적정 뒤 월 1회 유지 투여로 전환한 군의 28주 체중감소 지속. 월 1회 VESPER-6 Phase III 모집 중이며(미국/일본), 주 1회 Phase III는 VESPER-4(비당뇨, active, 모집종료, 10개국)와 VESPER-5(당뇨 동반, active, 모집종료)로 별도 등록돼 있다.",
   "differentiator": "fully biased GLP-1R agonist를 초장기 작용 peptide로 설계한 월 1회 등록 제품 개발.",
-  "caveat": "월 1회 Phase III 유효성 및 안전성 결과는 아직 없음. Phase IIb의 주 1회 적정과 월 1회 유지는 서로 다른 일정이며 연속 범위가 아님.",
+  "caveat": "월 1회 Phase III(VESPER-6) 유효성 및 안전성 결과는 아직 없음. 주 1회 Phase III(VESPER-4/5)도 모집을 마쳤으나 topline 미공개. Phase IIb의 주 1회 적정과 월 1회 유지는 서로 다른 일정이며 연속 범위가 아님.",
   "confidence": "High",
   "active": true,
   "stageRank": 100,
@@ -28,10 +28,22 @@
       "accessedOn": "2026-07-29"
     },
     {
+      "label": "Pfizer 2026 Anticipated Catalysts (VESPER-4/5/6 pivotal starts)",
+      "url": "https://www.pfizer.com/pfizer-pipeline-key-anticipated-2026-catalysts",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
+    },
+    {
       "label": "ClinicalTrials.gov NCT07595549",
       "url": "https://clinicaltrials.gov/study/NCT07595549",
       "sourceType": "registry",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07311850",
+      "url": "https://clinicaltrials.gov/study/NCT07311850",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
     }
   ]
 }

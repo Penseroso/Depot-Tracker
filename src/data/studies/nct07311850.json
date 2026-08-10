@@ -1,14 +1,14 @@
 {
   "programSlug": "pfizer-berobenatide",
   "registry": "ClinicalTrials.gov",
-  "registryId": "NCT06973720",
-  "phase": "Phase 2",
+  "registryId": "NCT07311850",
+  "phase": "Phase 3",
   "recruitmentStatus": "active-not-recruiting",
   "registryStatusRaw": "Active, not recruiting",
-  "countries": ["United States"],
+  "countries": ["United States", "Bulgaria", "Canada", "Czechia", "Germany", "Poland", "Romania", "Slovakia", "Spain", "United Kingdom"],
   "registrySource": {
-    "label": "ClinicalTrials.gov NCT06973720",
-    "url": "https://clinicaltrials.gov/study/NCT06973720",
+    "label": "ClinicalTrials.gov NCT07311850",
+    "url": "https://clinicaltrials.gov/study/NCT07311850",
     "sourceType": "registry",
     "accessedOn": "2026-08-10"
   },

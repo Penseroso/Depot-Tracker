@@ -11,16 +11,22 @@
     "maxDays": 31
   },
   "route": "피하주사",
-  "developmentStage": "Preclinical",
-  "developmentStatus": "국내 비임상; 임상 준비 단계",
-  "lastVerifiedAt": "2026-07-30",
-  "readout": "GB-7001, 제형 개발 완료 및 미니피그 PK 자료 보유(비임상).",
+  "developmentStage": "Human PK pilot",
+  "developmentStatus": "2026-04-22 최초 사람 PK 파일럿(단회 투여) 자료 확보 공개; 정식 IND 승인 또는 등록 임상 여부는 미확인",
+  "lastVerifiedAt": "2026-08-10",
+  "readout": "GB-7001, 제형 개발 완료 및 미니피그 PK 자료 보유(비임상). 2026-04-22 위고비 대비 완만한 방출과 초기 burst 억제 개선을 보인 최초 사람 단회 투여 PK 파일럿 자료를 공개했으며 반복투여 자료는 진행 중이다.",
   "differentiator": "InnoLAMP microsphere; 고함량 제형 및 1개월→3개월 확장 연구",
-  "caveat": "3개월 데이터는 비임상 PK 수준. GB-7001 공식 목표와 별도 연구.",
-  "confidence": "High",
+  "caveat": "3개월 데이터는 비임상 PK 수준. GB-7001 공식 목표와 별도 연구. 사람 PK는 단회 투여 파일럿 수준이며 IND 승인, 정식 등록 임상, 반복투여 자료는 공개되지 않았다. G2GBIO 자체 파이프라인 페이지는 여전히 '국내 전임상 진행 중'으로 표기해 사람 PK 공개와 시차가 있다.",
+  "confidence": "Medium",
   "active": true,
-  "stageRank": 61,
+  "stageRank": 65,
   "sources": [
+    {
+      "label": "지투지바이오, 월 1회 GB-7001 사람 PK 첫 확보, 2026-04-22",
+      "url": "https://www.medicopharma.co.kr/news/articleView.html?idxno=67826",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-10"
+    },
     {
       "label": "Samsung Bioepis partnership, 2026-03-16",
       "url": "https://www.samsungbioepis.com/kr/newsroom/newsroomView.do?currentPage=1&idx=540",
@@ -31,7 +37,7 @@
       "label": "G2GBIO GB-7001 pipeline",
       "url": "https://www.g2gbio.com/m31.php?cate=1",
       "sourceType": "company",
-      "accessedOn": "2026-07-28"
+      "accessedOn": "2026-08-10"
     },
     {
       "label": "G2GBIO 1M/3M formulation update",

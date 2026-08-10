@@ -1,0 +1,19 @@
+{
+  "programSlug": "ql-biopharm-zovaglutide",
+  "studySlug": "nct07230119",
+  "date": "2026-08-03",
+  "company": "QL Biopharm",
+  "programName": "zovaglutide (ZT002)",
+  "category": "Clinical",
+  "headline": "HORIZON-1 Phase III, 755명 등록 완료로 active, 모집종료 전환",
+  "summary": "ClinicalTrials.gov가 2026-08-03 HORIZON-1(NCT07230119) 상태를 Active, not recruiting으로 갱신했다. 시험은 2026-01-16 실제 개시, 755명 실제 등록으로 명시됐으며 이는 sponsor가 2026년 1월 보고한 첫 투여 완료와 정합한다. 이전까지 레지스트리는 Not yet recruiting으로 남아 sponsor 발표와 시차가 있었다.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT07230119",
+      "url": "https://clinicaltrials.gov/study/NCT07230119",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    }
+  ]
+}

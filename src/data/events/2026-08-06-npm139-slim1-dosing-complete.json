@@ -1,0 +1,19 @@
+{
+  "programSlug": "vivani-npm139",
+  "studySlug": "nct07430059",
+  "date": "2026-08-06",
+  "company": "Vivani Medical",
+  "programName": "NPM-139",
+  "category": "Clinical",
+  "headline": "SLIM-1 Phase 1, 참가자 20명 전원 투여 완료",
+  "summary": "Vivani Medical은 SEC 8-K 보도자료(2026-08-06)를 통해 호주 SLIM-1 Phase 1 시험의 GLP-1 미경험 참가자 20명 전원에 대한 NPM-139 implant 삽입이 완료됐다고 발표했다. 첫 10명은 2026-07-29, 나머지 10명은 약 1주 뒤(2026-08-05경) 투여됐으며 모든 삽입 절차에 문제가 없었다. Topline 결과는 2026년 11월 예정이며, 긍정적 결과 시 2027년 Phase 2 dose-ranging 시험을 계획하고 있다. ClinicalTrials.gov 레지스트리는 2026-06-30 갱신 이후 Not yet recruiting으로 남아 있어 이 발표를 아직 반영하지 않았다.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "Vivani Medical SLIM-1 전원 투여 완료 8-K, 2026-08-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1266806/000175392626001349/ex991_1.htm",
+      "sourceType": "filing",
+      "accessedOn": "2026-08-10"
+    }
+  ]
+}

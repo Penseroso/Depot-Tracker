@@ -1,0 +1,25 @@
+{
+  "programSlug": "ascletis-asc47-semaglutide",
+  "studySlug": "nct06972992",
+  "date": "2026-05-14",
+  "company": "Ascletis Pharma",
+  "programName": "ASC47 + semaglutide",
+  "category": "Data",
+  "headline": "ASC47+semaglutide 병용 Phase I, ECO 2026 포스터에서 상대적 체중감소 111.8% 보고",
+  "summary": "제33회 유럽비만학회(ECO 2026, 이스탄불) 포스터(PO4.264, NCT06972992 동일 시험)에서 sponsor는 29일차 ASC47 30mg 단회 피하투여 + semaglutide 0.5mg 주 1회 4회 병용이 semaglutide 단독 대비 111.8% 더 큰 상대적 체중감소를 보였다고 보고했다. 이는 2025-09-22 topline에서 보고된 56.2% 수치보다 큰 값으로, sponsor측 최종/확정 데이터 분석 반영으로 해석된다. 구토 이상반응은 병용군 6.7% 대 semaglutide 단독군 57.1%로 보고됐고 SAE, 중단 사례는 없었다. ClinicalTrials.gov에는 아직 공식 results가 게시되지 않았다.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "Ascletis ASC47+semaglutide ECO 2026 poster (EASO-ASC47-103)",
+      "url": "https://www.ascletis.com/data/upload/pdf/EASO-ASC47-103.pdf",
+      "sourceType": "conference",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "Ascletis ECO 2026 presentation announcement, 2026-05-05",
+      "url": "https://www.prnewswire.com/news-releases/ascletis-to-present-data-on-multiple-programs-at-the-33rd-european-congress-on-obesity-eco-2026-302762737.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
+    }
+  ]
+}

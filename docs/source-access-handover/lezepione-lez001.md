@@ -38,6 +38,21 @@ not directly connect LEZ-001 to Lezepione Inc.
   entity sponsored the specific ADA 2026 abstract.
 - No company website, pipeline page, or press release for Lezepione Inc was
   located confirming a LEZ-001 / semaglutide program.
+- 2026-08-10 recheck: re-opened https://bizno.net/article/7388603445 and
+  found the registered representative name is "조재평" (Cho Jae-pyung),
+  which romanizes identically to ADA abstract author "Jaepyoung Cho." This
+  is a new circumstantial name match from a third-party registry aggregator,
+  not a primary source directly tying the corporate entity to LEZ-001 or the
+  abstract, so it does not satisfy the re-entry condition on its own.
+  `lezepione.com` returned HTTP 503 and `lezepione.co.kr` does not resolve
+  (DNS failure). No newer LEZ-001 disclosure was found.
+
+**2026-08-10 recheck — access state regression:** the ADA 2026 abstract page
+returned HTTP 403 (Cloudflare bot challenge) on re-fetch, unlike the
+successful 2026-07-29 access. This does not change the record's stored
+treatment (the 2026-07-29 fully-reviewed content is unchanged and still
+authoritative), but the "resolved" access-blocker status did not hold up on
+a later check and should be retried next cycle.
 
 **Current operating-data treatment:** `company` remains "Sponsor unconfirmed";
 `recordType` reclassified from `sponsor-program` to `technology-watch` since
@@ -55,4 +70,4 @@ record itself is not excluded and remains STORED as technology-watch).
 LEZ-001, an author profile naming the affiliation, or another primary source
 directly tying the corporate entity to this program.
 
-**Last checked:** 2026-07-29.
+**Last checked:** 2026-08-10.
