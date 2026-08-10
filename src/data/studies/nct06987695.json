@@ -1,0 +1,16 @@
+{
+  "programSlug": "amgen-maritide",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT06987695",
+  "phase": "Phase 3",
+  "recruitmentStatus": "active-not-recruiting",
+  "registryStatusRaw": "Active, not recruiting",
+  "countries": ["Japan"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT06987695 (MARITIME 3-J)",
+    "url": "https://clinicaltrials.gov/study/NCT06987695",
+    "sourceType": "registry",
+    "accessedOn": "2026-08-10"
+  },
+  "lastVerifiedAt": "2026-08-10"
+}

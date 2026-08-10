@@ -40,8 +40,14 @@
       "accessedOn": "2026-08-10"
     },
     {
-      "label": "ClinicalTrials.gov NCT07311850",
+      "label": "ClinicalTrials.gov NCT07311850 (VESPER-4)",
       "url": "https://clinicaltrials.gov/study/NCT07311850",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07400653 (VESPER-5)",
+      "url": "https://clinicaltrials.gov/study/NCT07400653",
       "sourceType": "registry",
       "accessedOn": "2026-08-10"
     }

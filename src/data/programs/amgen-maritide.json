@@ -34,13 +34,61 @@
       "accessedOn": "2026-08-10"
     },
     {
-      "label": "ClinicalTrials.gov NCT06858839",
+      "label": "ClinicalTrials.gov NCT06858839 (MARITIME-1)",
       "url": "https://clinicaltrials.gov/study/NCT06858839",
       "sourceType": "registry",
       "accessedOn": "2026-08-10"
     },
     {
-      "label": "ClinicalTrials.gov NCT07684235",
+      "label": "ClinicalTrials.gov NCT06858878 (MARITIME-2)",
+      "url": "https://clinicaltrials.gov/study/NCT06858878",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT06987695 (MARITIME 3-J)",
+      "url": "https://clinicaltrials.gov/study/NCT06987695",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07037433 (MARITIME-CV)",
+      "url": "https://clinicaltrials.gov/study/NCT07037433",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07037459 (MARITIME-HF)",
+      "url": "https://clinicaltrials.gov/study/NCT07037459",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07225686 (MARITIME-OSA, on PAP)",
+      "url": "https://clinicaltrials.gov/study/NCT07225686",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07226765 (MARITIME-OSA-2, not on PAP)",
+      "url": "https://clinicaltrials.gov/study/NCT07226765",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07575399 (MARITIME-SWITCH)",
+      "url": "https://clinicaltrials.gov/study/NCT07575399",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07684144 (MARITIME-2-EXTENSION)",
+      "url": "https://clinicaltrials.gov/study/NCT07684144",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07684235 (MARITIME-1-EXTENSION)",
       "url": "https://clinicaltrials.gov/study/NCT07684235",
       "sourceType": "registry",
       "accessedOn": "2026-08-10"

@@ -1,0 +1,16 @@
+{
+  "programSlug": "amgen-maritide",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT07575399",
+  "phase": "Phase 3",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
+  "countries": ["United States", "Puerto Rico"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07575399 (MARITIME-SWITCH)",
+    "url": "https://clinicaltrials.gov/study/NCT07575399",
+    "sourceType": "registry",
+    "accessedOn": "2026-08-10"
+  },
+  "lastVerifiedAt": "2026-08-10"
+}

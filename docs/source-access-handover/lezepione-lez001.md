@@ -1,6 +1,6 @@
 ---
 role: source-access-handover
-status: resolved
+status: active
 authority: informational
 program: lezepione-lez001
 ---
@@ -11,14 +11,21 @@ program: lezepione-lez001
 formulation disclosed at ADA 2026 (abstract 1890-P). `company` is currently
 stored as "Sponsor unconfirmed".
 
-**Resolving source:** ADA 2026 abstract page, fully reviewed on 2026-07-29 —
+**Primary source:** ADA 2026 abstract page —
 https://diabetesjournals.org/diabetes/article/75/Supplement_1/1890-P/167491/1890-P-Controlled-Release-without-Initial-Burst-in
 
-**Access state:** `FULL_SOURCE_REVIEWED` — the prior HTTP 403 access blocker
-did not recur on 2026-07-29.
+**Access state:** `SOURCE_IDENTIFIED_NOT_ACCESSED` as of the current
+(2026-08-10) check — the page returned HTTP 403 (Cloudflare bot challenge).
+The source was previously `FULL_SOURCE_REVIEWED` on 2026-07-29, and the
+content captured then (below) remains the operating evidence; live
+re-verification is what is currently blocked, not the underlying record.
+This handover is kept active until either the access blocker clears again
+or the sponsor-identity re-entry condition below is independently satisfied.
 
-**Blocker resolution:** the ADA page was directly accessible and exposed the
-full abstract, author line, location, and disclosure statement.
+**Blocker history:** the ADA page was directly accessible on 2026-07-29,
+exposing the full abstract, author line, location, and disclosure statement.
+On 2026-08-10 the same URL returned HTTP 403 (Cloudflare challenge) on both
+WebFetch and a browser-UA curl request — the access blocker recurred.
 
 **Scope confirmed:** abstract title and formulation results (burst reduction,
 28-day release), author Jaepyoung Cho, location "Wonju, Republic of Korea",
@@ -46,13 +53,6 @@ not directly connect LEZ-001 to Lezepione Inc.
   abstract, so it does not satisfy the re-entry condition on its own.
   `lezepione.com` returned HTTP 503 and `lezepione.co.kr` does not resolve
   (DNS failure). No newer LEZ-001 disclosure was found.
-
-**2026-08-10 recheck — access state regression:** the ADA 2026 abstract page
-returned HTTP 403 (Cloudflare bot challenge) on re-fetch, unlike the
-successful 2026-07-29 access. This does not change the record's stored
-treatment (the 2026-07-29 fully-reviewed content is unchanged and still
-authoritative), but the "resolved" access-blocker status did not hold up on
-a later check and should be retried next cycle.
 
 **Current operating-data treatment:** `company` remains "Sponsor unconfirmed";
 `recordType` reclassified from `sponsor-program` to `technology-watch` since

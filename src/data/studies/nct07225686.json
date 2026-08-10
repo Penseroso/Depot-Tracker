@@ -1,0 +1,16 @@
+{
+  "programSlug": "amgen-maritide",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT07225686",
+  "phase": "Phase 3",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
+  "countries": ["United States", "Australia", "Brazil", "Canada", "Czechia", "France", "Germany", "Hungary", "Japan", "Poland", "Spain"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07225686 (MARITIME-OSA, on PAP)",
+    "url": "https://clinicaltrials.gov/study/NCT07225686",
+    "sourceType": "registry",
+    "accessedOn": "2026-08-10"
+  },
+  "lastVerifiedAt": "2026-08-10"
+}

@@ -1,0 +1,16 @@
+{
+  "programSlug": "pfizer-berobenatide",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT07400653",
+  "phase": "Phase 3",
+  "recruitmentStatus": "active-not-recruiting",
+  "registryStatusRaw": "Active, not recruiting",
+  "countries": ["United States", "Argentina", "Bulgaria", "Canada", "Czechia", "Germany", "Poland", "Romania", "Slovakia", "Spain", "United Kingdom"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07400653 (VESPER-5)",
+    "url": "https://clinicaltrials.gov/study/NCT07400653",
+    "sourceType": "registry",
+    "accessedOn": "2026-08-10"
+  },
+  "lastVerifiedAt": "2026-08-10"
+}

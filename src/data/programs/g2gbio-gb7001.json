@@ -11,18 +11,24 @@
     "maxDays": 31
   },
   "route": "피하주사",
-  "developmentStage": "Human PK pilot",
-  "developmentStatus": "2026-04-22 최초 사람 PK 파일럿(단회 투여) 자료 확보 공개; 정식 IND 승인 또는 등록 임상 여부는 미확인",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "국내 비임상; 임상 준비 단계 (공식 sponsor 소스 기준). 2026-04-22 언론 2차 보도는 사람 단회 투여 PK 파일럿 자료 확보를 전했으나 sponsor의 공식 파이프라인 페이지는 2026-08-10 재확인 시에도 여전히 '국내 전임상 진행 중'으로만 표기해, 해당 보도를 canonical stage 승격 근거로 사용하지 않는다.",
   "lastVerifiedAt": "2026-08-10",
-  "readout": "GB-7001, 제형 개발 완료 및 미니피그 PK 자료 보유(비임상). 2026-04-22 위고비 대비 완만한 방출과 초기 burst 억제 개선을 보인 최초 사람 단회 투여 PK 파일럿 자료를 공개했으며 반복투여 자료는 진행 중이다.",
+  "readout": "GB-7001, 제형 개발 완료 및 미니피그 PK 자료 보유(비임상). [관찰된 개발 신호 — 2차 보도, 미확정] 2026-04-22 매체 보도는 위고비 대비 완만한 방출과 초기 burst 억제 개선을 보인 사람 단회 투여 PK 파일럿 자료 확보를 전했으나, sponsor 1차 소스로 직접 확인되지 않았고 반복투여 자료도 미공개다.",
   "differentiator": "InnoLAMP microsphere; 고함량 제형 및 1개월→3개월 확장 연구",
-  "caveat": "3개월 데이터는 비임상 PK 수준. GB-7001 공식 목표와 별도 연구. 사람 PK는 단회 투여 파일럿 수준이며 IND 승인, 정식 등록 임상, 반복투여 자료는 공개되지 않았다. G2GBIO 자체 파이프라인 페이지는 여전히 '국내 전임상 진행 중'으로 표기해 사람 PK 공개와 시차가 있다.",
-  "confidence": "Medium",
+  "caveat": "3개월 데이터는 비임상 PK 수준. GB-7001 공식 목표와 별도 연구. 공식(official) 개발단계는 sponsor 파이프라인 페이지 기준 Preclinical이며, 2026-04-22 매체의 사람 PK 파일럿 확보 보도는 별개의 관찰된 개발 신호(observed development signal)로 경쟁정보 목적으로만 보존한다 — sponsor 1차 소스의 직접 확인 전까지 developmentStage 승격 근거로 사용하지 않는다. 사람 PK 파일럿의 시험 국가, IND 승인 여부, 등록번호는 해당 보도에도 공개되지 않았다.",
+  "confidence": "High",
   "active": true,
-  "stageRank": 65,
+  "stageRank": 61,
   "sources": [
     {
-      "label": "지투지바이오, 월 1회 GB-7001 사람 PK 첫 확보, 2026-04-22",
+      "label": "G2GBIO GB-7001 pipeline (2026-08-10 재확인, 여전히 국내 전임상)",
+      "url": "https://www.g2gbio.com/m31.php?cate=1",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "[관찰된 개발 신호, 2차 보도] 지투지바이오, 월 1회 GB-7001 사람 PK 첫 확보, 2026-04-22",
       "url": "https://www.medicopharma.co.kr/news/articleView.html?idxno=67826",
       "sourceType": "secondary",
       "accessedOn": "2026-08-10"
@@ -32,12 +38,6 @@
       "url": "https://www.samsungbioepis.com/kr/newsroom/newsroomView.do?currentPage=1&idx=540",
       "sourceType": "company",
       "accessedOn": "2026-07-27"
-    },
-    {
-      "label": "G2GBIO GB-7001 pipeline",
-      "url": "https://www.g2gbio.com/m31.php?cate=1",
-      "sourceType": "company",
-      "accessedOn": "2026-08-10"
     },
     {
       "label": "G2GBIO 1M/3M formulation update",

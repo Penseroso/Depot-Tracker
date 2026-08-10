@@ -4,9 +4,9 @@
   "company": "G2GBIO / Samsung Bioepis",
   "programName": "GB-7001",
   "category": "Data",
-  "headline": "GB-7001 최초 사람 PK 파일럿 자료 확보",
-  "summary": "G2GBIO는 월 1회 세마글루타이드 마이크로스피어 GB-7001의 최초 사람 PK 자료(단회 투여 기반 파일럿 스터디)를 확보했다고 공개했다. 위고비 대비 완만한 방출과 기존 rat 자료 대비 개선된 초기 burst 억제를 확인했다고 밝혔으나, 시험 국가, IND 승인 여부, 등록번호는 공개되지 않았고 반복투여 자료는 아직 진행 중이다.",
-  "significance": "Medium",
+  "headline": "[2차 보도, 미확정] GB-7001 사람 PK 파일럿 자료 확보 관찰 신호",
+  "summary": "국내 매체(메디코파마) 2차 보도에 따르면 G2GBIO가 월 1회 세마글루타이드 마이크로스피어 GB-7001의 사람 PK 자료(단회 투여 기반 파일럿 스터디)를 확보했다. 위고비 대비 완만한 방출과 기존 rat 자료 대비 개선된 초기 burst 억제를 확인했다고 보도됐으나, 시험 국가, IND 승인 여부, 등록번호는 공개되지 않았고 반복투여 자료도 진행 중이다. 이 사실은 sponsor 1차 소스로 직접 확인되지 않았으며, G2GBIO 공식 파이프라인 페이지는 2026-08-10 재확인 시에도 여전히 국내 전임상 단계로만 표기한다. 따라서 이 Event는 관찰된 개발 신호(observed development signal)로만 기록하며 developmentStage 승격의 근거로 사용하지 않는다.",
+  "significance": "Low",
   "sources": [
     {
       "label": "지투지바이오, 월 1회 GB-7001 사람 PK 첫 확보, 2026-04-22",
