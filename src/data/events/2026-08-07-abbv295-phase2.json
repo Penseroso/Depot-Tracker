@@ -1,0 +1,19 @@
+{
+  "programSlug": "abbvie-abbv295",
+  "studySlug": "nct07752979",
+  "date": "2026-08-07",
+  "company": "AbbVie",
+  "programName": "ABBV-295",
+  "category": "Clinical",
+  "headline": "ABBV-295 비만 Phase II 용량설정 시험 등록",
+  "summary": "AbbVie가 비만 또는 체중 관련 동반질환이 있는 과체중/비만 성인을 대상으로 한 ABBV-295 Phase II 용량설정 시험(NCT07752979, 미국/푸에르토리코 약 70개 기관, 약 360명)을 ClinicalTrials.gov에 등록했다. 모집은 아직 시작되지 않았으며(Not yet recruiting), 1차 평가지표는 32주차 체중 변화율이다.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT07752979",
+      "url": "https://clinicaltrials.gov/study/NCT07752979",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    }
+  ]
+}

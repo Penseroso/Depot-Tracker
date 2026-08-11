@@ -13,10 +13,10 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "Phase 1b 인체 PK/PD/안전성 topline 결과 공개(EMA CTIS 2024-518040-21-00); Phase 2b 준비 중이며 2026년 하반기 개시 예정",
-  "lastVerifiedAt": "2026-07-30",
+  "lastVerifiedAt": "2026-08-10",
   "readout": "FluidCrystal 지질 액정 depot 기반 월 1회 semaglutide. 80명 대상 Phase 1b, 월 1회 반복 투여 PK/PD를 Day 85까지 입증. Sponsor-reported topline, Day 85 기준 주 1회 semaglutide군 대비 더 큰 체중감소.",
   "differentiator": "상용화 이력이 있는 FluidCrystal 플랫폼(CAM2038 부프레노르핀, CAM2029 옥트레오타이드 등 승인)을 semaglutide에 적용; 격주 유도 후 월 1회 유지 요법",
-  "caveat": "Phase 1b 연구 종료(80명, 코호트당 16명 소규모). 대조군과 투여 간격, 용량, 적정 요법 상이, sponsor-reported topline은 확정적 비교우월성 근거 아님. Phase 2b는 준비 중, 개시 전.",
+  "caveat": "Phase 1b 연구 종료(80명, 코호트당 16명 소규모). 대조군과 투여 간격, 용량, 적정 요법 상이, sponsor-reported topline은 확정적 비교우월성 근거 아님. Phase 2b는 2026-08-10 기준에도 준비 중, 개시 전(FDA Type B 미팅 완료, 제출 패키지 준비 완료, CTIS, ClinicalTrials.gov 등록 없음).",
   "confidence": "High",
   "active": true,
   "stageRank": 88,
@@ -34,16 +34,22 @@
       "accessedOn": "2026-07-28"
     },
     {
+      "label": "Camurus Q2 2026 earnings call transcript (Phase 2b prep confirmation)",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-camurus-q2-2026-results-lift-shares-17-on-record-sales-93CH-4793399",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-10"
+    },
+    {
       "label": "Camurus R&D pipeline",
       "url": "https://www.camurus.com/science/rd-pipeline/",
       "sourceType": "company",
-      "accessedOn": "2026-07-28"
+      "accessedOn": "2026-08-10"
     },
     {
       "label": "EMA CTIS 2024-518040-21-00",
       "url": "https://euclinicaltrials.eu/ctis-public/view/2024-518040-21-00",
       "sourceType": "registry",
-      "accessedOn": "2026-07-28"
+      "accessedOn": "2026-08-10"
     },
     {
       "label": "WO2025229403A1 Camurus semaglutide lipid composition",

@@ -1,0 +1,19 @@
+{
+  "programSlug": "astrazeneca-syh2082",
+  "studySlug": "nct07736404",
+  "date": "2026-07-30",
+  "company": "AstraZeneca / CSPC",
+  "programName": "SYH2082",
+  "category": "Clinical",
+  "headline": "SYH2082 중국 단회 용량상승 Phase I, 50명 투여로 active, 모집종료 전환",
+  "summary": "ClinicalTrials.gov에 SYH2082 단회 용량상승 Phase I 시험(NCT07736404, 후원 CSPC Ouyi Pharmaceutical, 중국 난징)이 2026-07-30 최초 게시됐다. 시험은 2026-04-13 투여를 개시해 50명 실제 등록을 마치고 Active, not recruiting 상태이며 공개 결과는 아직 없다. 기존에 등록된 별도 Phase I(NCT07532655)은 국가 미기재로 여전히 모집 전 상태다.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT07736404",
+      "url": "https://clinicaltrials.gov/study/NCT07736404",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    }
+  ]
+}

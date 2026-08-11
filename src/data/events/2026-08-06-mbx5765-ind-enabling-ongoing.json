@@ -1,0 +1,24 @@
+{
+  "programSlug": "mbx-mbx5765",
+  "date": "2026-08-06",
+  "company": "MBX Biosciences",
+  "programName": "MBX 5765",
+  "category": "Status",
+  "headline": "MBX 5765 개발단계 Preclinical에서 IND-enabling으로 전환 확인",
+  "summary": "MBX Biosciences의 2026년 2분기 실적발표(2026-08-06)와 공식 파이프라인 페이지(2026-08-10 재확인)가 MBX 5765의 IND-enabling 연구가 'ongoing'(진행 중)으로 표기됐음을 직접 확인했다. 2026-05-11 발표 당시 '2분기 개시 예정'이었던 계획이 실제 착수로 확인돼 개발단계를 Preclinical에서 IND-enabling으로 갱신한다. 동물 효능 자료, 사람 PK, IND 제출은 아직 공개되지 않았다.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "MBX Biosciences Q2 2026 results and corporate highlights, 2026-08-06",
+      "url": "https://www.globenewswire.com/news-release/2026/08/06/3340221/0/en/mbx-biosciences-reports-second-quarter-2026-financial-results-and-corporate-highlights.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "MBX current pipeline (MBX 5765: IND Enabling)",
+      "url": "https://mbxbio.com/our-pipeline/",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
+    }
+  ]
+}

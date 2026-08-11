@@ -11,15 +11,15 @@
     "maxDays": 31
   },
   "route": "피하주사",
-  "developmentStage": "Preclinical",
-  "developmentStatus": "개발후보 선정; IND-enabling 연구 개시 예정",
-  "lastVerifiedAt": "2026-07-29",
-  "readout": "GLP-1, GIP, glucagon 및 DACRA 활성을 한 construct에 결합한 월 1회 설계의 비만 개발후보.",
+  "developmentStage": "IND-enabling",
+  "developmentStatus": "IND-enabling 연구 진행 중(ongoing) — 2026-08-06 실적발표 및 공식 파이프라인 페이지(2026-08-10 재확인)가 직접 확인",
+  "lastVerifiedAt": "2026-08-10",
+  "readout": "GLP-1, GIP, glucagon 및 DACRA 활성을 한 construct에 결합한 월 1회 설계의 비만 개발후보. 2026-08-06 기준 IND-enabling 연구가 실제 착수해 진행 중으로 확인됐다(sponsor 공식 실적발표 및 파이프라인 페이지 직접 근거).",
   "differentiator": "PEP prodrug 플랫폼으로 incretin, glucagon 및 amylin/calcitonin 축을 단일 장기지속 후보에 통합.",
-  "caveat": "2026년 5월 sponsor 표현은 IND-enabling 연구의 2026년 2분기 개시 예정이며 실제 착수 확인이 아니다. 동물 효능 수치, 사람 PK 및 IND 제출은 공개되지 않았다.",
+  "caveat": "IND-enabling 연구 착수는 sponsor 공식 소스로 확인됐으나 동물 효능 수치, 사람 PK 및 IND 제출은 아직 공개되지 않았다.",
   "confidence": "High",
   "active": true,
-  "stageRank": 45,
+  "stageRank": 55,
   "sources": [
     {
       "label": "MBX obesity portfolio update, 2026-05-11",
@@ -28,10 +28,16 @@
       "accessedOn": "2026-07-29"
     },
     {
-      "label": "MBX current pipeline",
+      "label": "MBX current pipeline (MBX 5765: IND Enabling, ongoing)",
       "url": "https://mbxbio.com/our-pipeline/",
       "sourceType": "company",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "MBX Biosciences Q2 2026 results and corporate highlights, 2026-08-06",
+      "url": "https://www.globenewswire.com/news-release/2026/08/06/3340221/0/en/mbx-biosciences-reports-second-quarter-2026-financial-results-and-corporate-highlights.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
     }
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "programSlug": "amgen-maritide",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT07037433",
+  "phase": "Phase 3",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
+  "countries": ["United States", "Argentina", "Australia", "Austria", "Belgium", "Brazil", "Bulgaria", "Canada", "Chile", "China", "Colombia", "Czechia", "Denmark", "Finland", "France", "Germany", "Greece", "Hong Kong", "Hungary", "Italy", "Japan", "Mexico", "Netherlands", "Poland", "Portugal", "Puerto Rico", "Romania", "Singapore", "Slovakia", "South Korea", "Spain", "Sweden", "Switzerland", "Taiwan", "Turkey", "United Kingdom"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07037433 (MARITIME-CV)",
+    "url": "https://clinicaltrials.gov/study/NCT07037433",
+    "sourceType": "registry",
+    "accessedOn": "2026-08-10"
+  },
+  "lastVerifiedAt": "2026-08-10"
+}

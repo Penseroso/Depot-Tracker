@@ -12,11 +12,11 @@
   },
   "route": "피하주사",
   "developmentStage": "Registered Phase III",
-  "developmentStatus": "MARITIME Phase III 프로그램 진행 중",
-  "lastVerifiedAt": "2026-07-30",
-  "readout": "비당뇨 비만 Phase II에서 52주 efficacy estimand 평균 체중감소 최대 19.9%. Phase III MARITIME 진행 중이며 장기 연장시험은 월 1회, Q8W, 분기 1회 유지요법을 이산적으로 평가한다.",
+  "developmentStatus": "MARITIME Phase III 프로그램 진행 중; MARITIME-1/2/Japan 외에 심혈관(CV), 심부전(HF), 수면무호흡(OSA×2), SWITCH, 연장시험 2건까지 총 10건의 등록 Phase III 시험으로 확장됨(2026-08-04 실적발표 기준). 2026년 내 T2D 대상 Phase III 3건 추가 개시 예정(sponsor 계획).",
+  "lastVerifiedAt": "2026-08-10",
+  "readout": "비당뇨 비만 Phase II에서 52주 efficacy estimand 평균 체중감소 최대 19.9%. Phase III MARITIME 프로그램(MARITIME-1/2/Japan/CV/HF/OSA×2/SWITCH/연장시험 2건, 총 10건 등록)이 진행 중이며 장기 연장시험은 월 1회, Q8W, 분기 1회 유지요법을 이산적으로 평가한다. MARITIME-1 주요 topline은 2027-01-21 추정 primary completion 전까지 미공개.",
   "differentiator": "GLP-1R agonist peptide와 GIPR antagonist antibody를 결합한 장기작용 conjugate.",
-  "caveat": "Q8W와 분기 1회는 Phase III 연장시험 평가군이며 승인 간격이나 확정 제품 용법이 아님. 월 1회, Q8W, 분기 1회는 연속 범위가 아닌 별도 일정.",
+  "caveat": "Q8W와 분기 1회는 Phase III 연장시험 평가군이며 승인 간격이나 확정 제품 용법이 아님. 월 1회, Q8W, 분기 1회는 연속 범위가 아닌 별도 일정. Amgen이 별개 초기 비만 후보 AMG 513을 중단했다는 보도가 있으나 이는 MariTide와 무관한 다른 자산이다.",
   "confidence": "High",
   "active": true,
   "stageRank": 100,
@@ -28,10 +28,70 @@
       "accessedOn": "2026-07-29"
     },
     {
-      "label": "ClinicalTrials.gov NCT06858839",
+      "label": "Amgen Q2 2026 financial results, 2026-08-04",
+      "url": "https://www.amgen.com/newsroom/press-releases/2026/08/amgen-reports-second-quarter-2026-financial-results",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT06858839 (MARITIME-1)",
       "url": "https://clinicaltrials.gov/study/NCT06858839",
       "sourceType": "registry",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT06858878 (MARITIME-2)",
+      "url": "https://clinicaltrials.gov/study/NCT06858878",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT06987695 (MARITIME 3-J)",
+      "url": "https://clinicaltrials.gov/study/NCT06987695",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07037433 (MARITIME-CV)",
+      "url": "https://clinicaltrials.gov/study/NCT07037433",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07037459 (MARITIME-HF)",
+      "url": "https://clinicaltrials.gov/study/NCT07037459",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07225686 (MARITIME-OSA, on PAP)",
+      "url": "https://clinicaltrials.gov/study/NCT07225686",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07226765 (MARITIME-OSA-2, not on PAP)",
+      "url": "https://clinicaltrials.gov/study/NCT07226765",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07575399 (MARITIME-SWITCH)",
+      "url": "https://clinicaltrials.gov/study/NCT07575399",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07684144 (MARITIME-2-EXTENSION)",
+      "url": "https://clinicaltrials.gov/study/NCT07684144",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07684235 (MARITIME-1-EXTENSION)",
+      "url": "https://clinicaltrials.gov/study/NCT07684235",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-10"
     },
     {
       "label": "WO2024102742A1 AMG 133 obesity regimens",

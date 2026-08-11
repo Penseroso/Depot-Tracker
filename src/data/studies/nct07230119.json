@@ -3,14 +3,14 @@
   "registry": "ClinicalTrials.gov",
   "registryId": "NCT07230119",
   "phase": "Phase 3",
-  "recruitmentStatus": "not-yet-recruiting",
-  "registryStatusRaw": "Not yet recruiting",
+  "recruitmentStatus": "active-not-recruiting",
+  "registryStatusRaw": "Active, not recruiting",
   "countries": ["China"],
   "registrySource": {
     "label": "ClinicalTrials.gov NCT07230119",
     "url": "https://clinicaltrials.gov/study/NCT07230119",
     "sourceType": "registry",
-    "accessedOn": "2026-07-29"
+    "accessedOn": "2026-08-10"
   },
-  "lastVerifiedAt": "2026-07-29"
+  "lastVerifiedAt": "2026-08-10"
 }

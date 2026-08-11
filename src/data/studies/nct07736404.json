@@ -1,0 +1,16 @@
+{
+  "programSlug": "astrazeneca-syh2082",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT07736404",
+  "phase": "Phase 1",
+  "recruitmentStatus": "active-not-recruiting",
+  "registryStatusRaw": "Active, not recruiting",
+  "countries": ["China"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07736404",
+    "url": "https://clinicaltrials.gov/study/NCT07736404",
+    "sourceType": "registry",
+    "accessedOn": "2026-08-10"
+  },
+  "lastVerifiedAt": "2026-08-10"
+}

@@ -13,10 +13,10 @@
   "route": "피하주사(29G 이하 호환 저점도 수용액)",
   "developmentStage": "Preclinical",
   "developmentStatus": "Preclinical POC achieved",
-  "lastVerifiedAt": "2026-07-29",
-  "readout": "현재 활성 경쟁군에서 가장 명확한 비미립구 접근.",
+  "lastVerifiedAt": "2026-08-10",
+  "readout": "현재 활성 경쟁군에서 가장 명확한 비미립구 접근. ADA 2026(6월 5-8일, 뉴올리언스)에서 semaglutide 적용 초기 비임상 결과 포스터 발표가 사전 공지됨; 구체적 발표 데이터는 미확인.",
   "differentiator": "생체적합성 polymer를 peptide에 화학적으로 연결한 저점도 수용액; depot 입자 현탁액이 아님",
-  "caveat": "결합체 임상 PK, 면역원성, 대사, CMC 데이터 공개 전. 분기 1회는 플랫폼 잠재력, 확정 목표 아님.",
+  "caveat": "결합체 임상 PK, 면역원성, 대사, CMC 데이터 공개 전. 분기 1회는 플랫폼 잠재력, 확정 목표 아님. 2025-11-12 특허 출원 발표 있었으나 등록 여부 미확인이며 파트너링 모집 중이라는 회사측 언급 외 임상 진입 일정은 공개되지 않음.",
   "confidence": "High",
   "active": true,
   "stageRank": 55,
@@ -25,19 +25,25 @@
       "label": "Adocia AdoXLong platform",
       "url": "https://www.adocia.com/technology-platform/adoxlong/",
       "sourceType": "company",
-      "accessedOn": "2026-07-28"
+      "accessedOn": "2026-08-10"
     },
     {
       "label": "Adocia pipeline",
       "url": "https://www.adocia.com/products-and-platform/pipeline-2/",
       "sourceType": "company",
-      "accessedOn": "2026-07-28"
+      "accessedOn": "2026-08-10"
     },
     {
       "label": "Adocia current pipeline page (AdoXLong Sema: Preclinical POC achieved)",
       "url": "https://www.adocia.com/products-and-platform/pipeline/",
       "sourceType": "company",
-      "accessedOn": "2026-07-28"
+      "accessedOn": "2026-08-10"
+    },
+    {
+      "label": "Adocia AdoXLong patent filing announcement, 2025-11-12",
+      "url": "https://www.businesswire.com/news/home/20251111539253/en/ADOCIA-Announces-Filing-of-Patent-for-New-Long-Acting-Peptides-Platform-in-Diabetes-and-Obesity---AdoXLong---and-Provides-an-Update-on-its-BioChaperone-Platform",
+      "sourceType": "company",
+      "accessedOn": "2026-08-10"
     }
   ]
 }
