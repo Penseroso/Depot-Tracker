@@ -1,7 +1,7 @@
 ## Run scope
 
-- Primary track: <!-- program refresh / program discovery / patent coverage audit -->
-- Boundary: <!-- named stored Program(s), full stored roster, or discovery boundary -->
+- Primary track: <!-- event scan / program refresh / program discovery / patent coverage audit -->
+- Boundary: <!-- declared event review window, named stored Program(s), full stored roster, or discovery boundary -->
 - Combined full-landscape run: <!-- yes / no -->
 - Programs traversed:
 - Material changes:
@@ -28,6 +28,8 @@
 
 ## Crossover
 
+- Discovery handoffs from event scan:
+- Refresh handoffs from event scan:
 - Discovery handoffs from refresh:
 - Discovery handoffs from patent audit:
 - Platform/rights handoffs from patent audit:

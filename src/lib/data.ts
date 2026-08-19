@@ -2,11 +2,13 @@ import {
   companySchema,
   deliveryTechnologySchema,
   eventSchema,
+  mediaSourceSchema,
   platformSchema,
   programSchema,
   studySchema,
   type Company,
   type DeliveryTechnology,
+  type MediaSource,
   type Platform,
   type Program,
   type Study,
@@ -40,6 +42,11 @@ const eventModules = import.meta.glob('../data/events/*.json', {
 }) as Record<string, unknown>;
 
 const deliveryTechnologyModules = import.meta.glob('../data/registries/delivery-technologies.json', {
+  eager: true,
+  import: 'default',
+}) as Record<string, unknown>;
+
+const mediaSourceModules = import.meta.glob('../data/registries/media-sources.json', {
   eager: true,
   import: 'default',
 }) as Record<string, unknown>;
@@ -118,6 +125,11 @@ export function getStudiesForProgram(programSlug: string, studies = getStudies()
 export function getDeliveryTechnologies(): DeliveryTechnology[] {
   const data = Object.values(deliveryTechnologyModules)[0];
   return deliveryTechnologySchema.array().parse(data).sort((a, b) => a.sortRank - b.sortRank);
+}
+
+export function getMediaSources(): MediaSource[] {
+  const data = Object.values(mediaSourceModules)[0];
+  return mediaSourceSchema.array().parse(data).sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function getEvents(): TrackerEvent[] {

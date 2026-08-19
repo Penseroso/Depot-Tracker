@@ -39,6 +39,14 @@ export const deliveryTechnologySchema = z.object({
   sortRank: z.number().int().min(0),
 }).strict();
 
+export const mediaSourceSchema = z.object({
+  id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  name: z.string().min(1),
+  region: z.enum(['domestic', 'international']),
+  baseUrl: z.url(),
+  allowedHosts: z.array(z.string().min(1)).min(1),
+}).strict();
+
 const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 
 export const companySchema = z.object({
@@ -147,6 +155,7 @@ export const eventSchema = z.object({
 export type Source = z.infer<typeof sourceSchema>;
 export type IntervalClaim = z.infer<typeof intervalClaimSchema>;
 export type DeliveryTechnology = z.infer<typeof deliveryTechnologySchema>;
+export type MediaSource = z.infer<typeof mediaSourceSchema>;
 export type CompanyRecord = z.infer<typeof companySchema>;
 export type PlatformRecord = z.infer<typeof platformSchema>;
 export type ProgramRecord = z.infer<typeof programSchema>;

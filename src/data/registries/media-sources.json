@@ -1,0 +1,102 @@
+[
+  {
+    "id": "dailypharm",
+    "name": "데일리팜",
+    "region": "domestic",
+    "baseUrl": "https://www.dailypharm.com/",
+    "allowedHosts": [
+      "dailypharm.com",
+      "www.dailypharm.com"
+    ]
+  },
+  {
+    "id": "biospectator",
+    "name": "바이오스펙테이터",
+    "region": "domestic",
+    "baseUrl": "https://www.biospectator.com/",
+    "allowedHosts": [
+      "biospectator.com",
+      "www.biospectator.com"
+    ]
+  },
+  {
+    "id": "hitnews",
+    "name": "히트뉴스",
+    "region": "domestic",
+    "baseUrl": "https://www.hitnews.co.kr/",
+    "allowedHosts": [
+      "hitnews.co.kr",
+      "www.hitnews.co.kr"
+    ]
+  },
+  {
+    "id": "medipana",
+    "name": "메디파나",
+    "region": "domestic",
+    "baseUrl": "https://www.medipana.com/",
+    "allowedHosts": [
+      "medipana.com",
+      "www.medipana.com"
+    ]
+  },
+  {
+    "id": "yakup",
+    "name": "약업신문",
+    "region": "domestic",
+    "baseUrl": "https://www.yakup.com/",
+    "allowedHosts": [
+      "yakup.com",
+      "www.yakup.com"
+    ]
+  },
+  {
+    "id": "bosa",
+    "name": "의학신문",
+    "region": "domestic",
+    "baseUrl": "https://www.bosa.co.kr/",
+    "allowedHosts": [
+      "bosa.co.kr",
+      "www.bosa.co.kr"
+    ]
+  },
+  {
+    "id": "fierce-biotech",
+    "name": "Fierce Biotech",
+    "region": "international",
+    "baseUrl": "https://www.fiercebiotech.com/",
+    "allowedHosts": [
+      "fiercebiotech.com",
+      "www.fiercebiotech.com"
+    ]
+  },
+  {
+    "id": "biopharma-dive",
+    "name": "BioPharma Dive",
+    "region": "international",
+    "baseUrl": "https://www.biopharmadive.com/",
+    "allowedHosts": [
+      "biopharmadive.com",
+      "www.biopharmadive.com"
+    ]
+  },
+  {
+    "id": "endpoints-news",
+    "name": "Endpoints News",
+    "region": "international",
+    "baseUrl": "https://endpts.com/",
+    "allowedHosts": [
+      "endpts.com",
+      "www.endpts.com"
+    ]
+  },
+  {
+    "id": "stat",
+    "name": "STAT",
+    "region": "international",
+    "baseUrl": "https://www.statnews.com/",
+    "allowedHosts": [
+      "statnews.com",
+      "www.statnews.com"
+    ]
+  }
+]

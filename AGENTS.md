@@ -15,6 +15,7 @@ documentation tree by default.
 
 | Task | Required reading | Read only when needed |
 | --- | --- | --- |
+| Event scan (media & PR scan across Core sources) | [`docs/RESEARCH_WORKFLOW.md`](docs/RESEARCH_WORKFLOW.md), [`docs/DATA_CONTRACT.md`](docs/DATA_CONTRACT.md), [`docs/SOURCE_AND_ENTRY_POLICY.md`](docs/SOURCE_AND_ENTRY_POLICY.md) | Unrepresentable case: [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md). Blocked source in scope: [`docs/source-access-handover/README.md`](docs/source-access-handover/README.md). |
 | Program refresh (one named Program or the stored roster) | [`docs/RESEARCH_WORKFLOW.md`](docs/RESEARCH_WORKFLOW.md), [`docs/DATA_CONTRACT.md`](docs/DATA_CONTRACT.md), [`docs/SOURCE_AND_ENTRY_POLICY.md`](docs/SOURCE_AND_ENTRY_POLICY.md) | Unrepresentable case: [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md). Blocked source in scope: [`docs/source-access-handover/README.md`](docs/source-access-handover/README.md). |
 | Program discovery (candidates not currently stored) | [`docs/RESEARCH_WORKFLOW.md`](docs/RESEARCH_WORKFLOW.md), [`docs/DATA_CONTRACT.md`](docs/DATA_CONTRACT.md), [`docs/SOURCE_AND_ENTRY_POLICY.md`](docs/SOURCE_AND_ENTRY_POLICY.md) | Unrepresentable case: [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md). Blocked source after Program identity is stable: [`docs/source-access-handover/README.md`](docs/source-access-handover/README.md). |
 | Patent coverage audit (named/stored Programs plus the bounded Platform queue) | [`docs/RESEARCH_WORKFLOW.md`](docs/RESEARCH_WORKFLOW.md), [`docs/PATENT_AUDIT.md`](docs/PATENT_AUDIT.md), [`docs/DATA_CONTRACT.md`](docs/DATA_CONTRACT.md), [`docs/SOURCE_AND_ENTRY_POLICY.md`](docs/SOURCE_AND_ENTRY_POLICY.md) | Unrepresentable case: [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md). Blocked source for a stable stored Program: [`docs/source-access-handover/README.md`](docs/source-access-handover/README.md). |
@@ -26,6 +27,7 @@ documentation tree by default.
 
 | Change | Update | Do not update by default |
 | --- | --- | --- |
+| Routine Event scan | Newly surfaced material `src/data/events/*.json`, synchronized `src/data/programs/*.json` current-state fields where directly implicated | Contracts, workflow, UI, README, unrelated Studies/Programs |
 | Routine Program refresh | Existing in-scope `src/data/programs/*.json`, linked Studies and material Events; handover only for unresolved blockers | Contracts, workflow, UI, README |
 | Routine Program discovery | Newly qualified Program, linked Study/Event records, and handover only when required | Existing Program records except bounded crossover; contracts, workflow, UI, README |
 | Patent coverage audit | Representative patent sources on existing in-scope Programs and Platforms; outcomes and handoffs in the selected durable PR or accepted baseline-commit manifest; handover only for unresolved blockers tied to a stable Program | New candidate records unless a bounded discovery track is added; Studies, Events, registries, schema, UI, README |

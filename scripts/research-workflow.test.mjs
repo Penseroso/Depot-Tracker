@@ -4,9 +4,10 @@ import test from 'node:test';
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), 'utf8');
 
-test('agent entry point routes all three canonical tracks separately', async () => {
+test('agent entry point routes all four canonical tracks separately', async () => {
   const agents = await read('AGENTS.md');
 
+  assert.match(agents, /Event scan \(media & PR scan across Core sources\)/);
   assert.match(agents, /Program refresh \(one named Program or the stored roster\)/);
   assert.match(agents, /Program discovery \(candidates not currently stored\)/);
   assert.match(agents, /Patent coverage audit \(named\/stored Programs plus the bounded Platform queue\)/);
@@ -18,23 +19,32 @@ test('research workflow defines all track gates and bounded crossover', async ()
   const workflow = await read('docs/RESEARCH_WORKFLOW.md');
 
   for (const required of [
-    '## 2. Track A: program refresh',
+    '## 2. Track A: event scan',
+    '### Event scan completion gate',
+    '## 3. Track B: program refresh',
     '### Refresh completion gate',
-    '## 3. Track B: program discovery',
+    '## 4. Track C: program discovery',
     '### Discovery completion gate',
-    '## 4. Track C: patent coverage audit',
+    '## 5. Track D: patent coverage audit',
     '### Patent audit completion gate',
-    '## 5. Bounded crossover and handoff',
+    '## 6. Bounded crossover and handoff',
     '`DISCOVERY_HANDOFF`',
     '`REFRESH_HANDOFF`',
-    '## 9. Full landscape combination',
+    '## 10. Full landscape combination',
   ]) {
     assert.ok(workflow.includes(required), `missing workflow contract: ${required}`);
   }
 
+  assert.match(workflow, /asOf - 2 days/i);
+  assert.match(workflow, /media-sources\.json/i);
+  assert.match(workflow, /Access verification and permitted fallbacks/i);
+  assert.match(workflow, /Browser-assisted review/i);
+  assert.match(workflow, /Known official fallback routes/i);
+  assert.match(workflow, /HitNews/i);
+  assert.match(workflow, /Yakup/i);
   assert.match(workflow, /undispositioned candidate\s+count must be zero/i);
   assert.match(workflow, /independent coverage pass is mandatory/i);
-  assert.match(workflow, /full-landscape refresh-and-discovery operation is a run plan, not a fourth\s+research track/i);
+  assert.match(workflow, /full-landscape refresh-and-discovery operation is a run plan/i);
   assert.match(workflow, /zero unaudited\s+Programs/i);
   assert.match(workflow, /Create a missing Company record once/i);
   assert.match(workflow, /make one bounded pass over the\s+company's official technology pages/i);
@@ -43,7 +53,7 @@ test('research workflow defines all track gates and bounded crossover', async ()
   assert.match(workflow, /updates\s+representative platform-level patent evidence/i);
   assert.match(workflow, /remain separate from `Program\.sources` and the\s+`PATENT-LINKED PROGRAMS` KPI/i);
   assert.match(workflow, /newly confirmed sponsor, developer, or disclosed partner/i);
-  assert.match(workflow, /bounded Platform queue does not create a fourth track/i);
+  assert.match(workflow, /bounded Platform queue does not create a/i);
   assert.match(workflow, /Do not use the internal `other` Company\s+bucket as a Platform ledger/i);
 });
 

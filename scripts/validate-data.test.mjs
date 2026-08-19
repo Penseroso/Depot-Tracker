@@ -19,6 +19,13 @@ function createValidDataset() {
       shortLabel: 'Microparticle',
       sortRank: 10,
     }],
+    mediaSources: [{
+      id: 'dailypharm',
+      name: '데일리팜',
+      region: 'domestic',
+      baseUrl: 'https://www.dailypharm.com/',
+      allowedHosts: ['dailypharm.com', 'www.dailypharm.com'],
+    }],
     programs: [{
       name: 'fixture-program.json',
       slug: 'fixture-program',
@@ -566,4 +573,26 @@ test('backfilled migration Events preserve material facts removed from Program l
   assert.match(prolynxEvent.summary, /Series A/);
   assert.match(prolynxEvent.summary, /7000만 달러/);
   assert.equal(prolynxEvent.programSlug, 'prolynx-plx821');
+});
+
+test('canonical media-sources.json passes validation', async () => {
+  const mediaSources = await readFile('src/data/registries/media-sources.json', 'utf8').then(JSON.parse);
+  const data = createValidDataset();
+  data.mediaSources = mediaSources;
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
+  assert.ok(mediaSources.length >= 8, 'must have at least 8 registered media sources');
+});
+
+test('duplicate or invalid media source fails validation', () => {
+  const data = createValidDataset();
+  data.mediaSources.push(structuredClone(data.mediaSources[0]));
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /duplicate id/);
+
+  const invalidRegion = createValidDataset();
+  invalidRegion.mediaSources[0].region = 'global';
+  assert.match(validateDatasetRecords(invalidRegion).errors.join('\n'), /region must be domestic or international/);
+
+  const invalidUrl = createValidDataset();
+  invalidUrl.mediaSources[0].baseUrl = 'not-a-url';
+  assert.match(validateDatasetRecords(invalidUrl).errors.join('\n'), /baseUrl must be http\(s\)/);
 });

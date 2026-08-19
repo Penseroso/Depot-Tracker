@@ -225,6 +225,25 @@ Registered IDs are `polymer-microparticle`, `in-situ-forming-depot`,
 `crystal-or-suspension`, and `other`. Consumers must not maintain a parallel
 label or ordering table.
 
+## Media-source registry
+
+`src/data/registries/media-sources.json` registers the domestic and international
+Core pharmaceutical and biotech media monitored during `event scan`. Each strict
+record contains:
+
+```json
+{
+  "id": "dailypharm",
+  "name": "데일리팜",
+  "region": "domestic",
+  "baseUrl": "https://www.dailypharm.com/",
+  "allowedHosts": ["dailypharm.com", "www.dailypharm.com"]
+}
+```
+
+Registered sources provide the baseline surface for periodic event scanning and
+URL domain validation.
+
 ## Interval claims
 
 An interval claim is either `null` or a strict object:

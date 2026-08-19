@@ -11,10 +11,15 @@ update-boundary: Update only when research execution, completion gates, validati
 
 1. Read `AGENTS.md` and the required authorities.
 2. Inspect the stored Program roster, aliases, linked Studies and Events,
-   delivery-technology registry, and schema before research.
+   delivery-technology registry, media-source registry, and schema before research.
 3. Declare one primary track and its bounded scope:
+   - `event scan`: high-frequency or periodic media and press-release monitoring
+     across registered Core media and sponsor sources within a declared time window
+     or overlap, creating append-only Events and synchronizing directly implicated
+     Program current-state fields;
    - `program refresh`: one or more named, already stored Programs, or the full
-     stored Program roster;
+     stored Program roster (deep reconciliation of sponsor pipeline tables and
+     official clinical/regulatory registries);
    - `program discovery`: candidates not currently stored, within a declared
      company, technology, evidence source, time window, or full-landscape scope;
    - `patent coverage audit`: one or more named, already stored Programs, or the
@@ -22,6 +27,8 @@ update-boundary: Update only when research execution, completion gates, validati
 4. Record the starting Program roster. In refresh/discovery work, existing
    records route to refresh and absent candidates route to discovery. Patent
    audit remains stored-roster work and hands absent candidates to discovery.
+   Event scan surfaces recent R&D developments, adds material Events, and routes
+   absent candidate mentions to discovery and registry discrepancies to refresh.
 5. Confirm that the direct sources required by the selected track are reachable
    or can be handled without an unsupported change.
 6. Work on a branch; never write directly to `main`. Use a draft PR as the
@@ -32,9 +39,124 @@ update-boundary: Update only when research execution, completion gates, validati
 `named-program refresh` is retained only as a plain-language description of a
 single-Program `program refresh`; it is no longer a separate run mode.
 `full landscape refresh` is retired as an atomic mode and replaced by the
-combined run in section 9.
+combined run in section 10.
 
-## 2. Track A: program refresh
+## 2. Track A: event scan
+
+### Purpose and entry
+
+Use `event scan` for high-frequency or periodic media monitoring to capture
+material developments (clinical trial starts/readouts, regulatory milestones,
+deals, platform updates, and R&D status changes) without running a heavy,
+full-roster registry audit across all stored Programs. Entry is a declared
+review date (`asOf`), an active time window, and the registered Core media surface.
+
+### Required evidence surface and search matrix
+
+Review the registered Core media in `src/data/registries/media-sources.json`
+(domestic: 데일리팜, 바이오스펙테이터, 히트뉴스, 메디파나, 약업신문, 의학신문;
+international: Fierce Biotech, BioPharma Dive, Endpoints News, STAT) and official
+sponsor press-release / newsroom listings.
+
+1. **Discovery window & overlap**:
+   - Set the new `asOf` to the actual review date.
+   - For routine periodic scans, search from two calendar days before the prior
+     stored `asOf` (or prior event checkpoint) through the new `asOf`, inclusive.
+     This `asOf - 2 days` overlap absorbs publication delays, timezones, and
+     indexing lag.
+   - For an initial scan, gaps of 30+ days, or recovering blocked sources, search
+     the full 30-day window.
+2. **Query matrix**:
+   - Combine stored company names, program names, public compound codes, and
+     aliases with sustained-release / depot terms (`장기지속형`, `서방형`, `디포`,
+     `depot`, `microsphere`, `hydrogel`, `implant`, `extended-release`,
+     `long-acting`, `Q4W`, `Q3M`, `Q6M`).
+   - Reverse-search newly surfaced obesity/incretin candidate disclosures.
+
+### Access verification and permitted fallbacks
+
+Do not classify a media source from one connector, parser, or HTTP failure. Before
+recording an access issue or omitting coverage, distinguish the publication's
+response from a local tool failure and try at least two permitted routes:
+
+1. **Browser-assisted review**: retry the official article or publication index
+   with an actual Chrome engine, with JavaScript, cookies, redirects, and normal
+   page rendering enabled;
+2. **Official RSS & sitemap discovery**: inspect the publication's official RSS feed,
+   news sitemap, or `/sitemap.xml` for candidate discovery and direct article URLs; and
+3. **Legitimate free access**: use documented public APIs or legitimate free accounts
+   only within published access limits.
+
+TLS trust-store errors, connector `Internal Error` responses, parsing failures,
+and responses that change only with the connector's user agent are tool or route
+failures, not proof that the publication is unavailable.
+
+Record each Core source in the session manifest as:
+- `reviewed`: the source-native listings and relevant sections were fully checked
+  through the interval;
+- `partially-accessible`: candidates were discovered via RSS/sitemap or listings,
+  but supporting article content could not be fully opened;
+- `blocked`: neither the official surface nor permitted fallbacks yielded usable
+  discovery or article content.
+
+#### Known official fallback routes
+
+| Source | Permitted fallback route | Boundary |
+| --- | --- | --- |
+| HitNews (히트뉴스) | official sitemap (`/sitemap.xml`) and normal browser article pages | no public article API is verified |
+| Bosa (의학신문) | official sitemap (`/sitemap.xml`) and normal browser article pages | no public article API is verified |
+| Yakup (약업신문) | retry the direct official article page with browser engine | connector failure is not an access restriction |
+| Endpoints / Reuters | official RSS / news-sitemap as discovery lead | cross-check candidate against registered Core source |
+
+Never evade a paywall, CAPTCHA, robots policy, or publisher access control; do not
+rotate or impersonate user agents, disable TLS verification, or persist full article
+bodies in the repository.
+
+### Materiality filter (News to Event gate)
+
+Apply strict materiality criteria before creating an Event:
+
+- Exclude: General stock price fluctuations, market commentary, routine
+  executive appointments, broad public health policy discussions, and promotional
+  or repetitive non-technical marketing articles.
+- Include:
+  - `Clinical`: First-in-human / phase initiation, cohort dosing, enrollment
+    milestones, clinical hold or resumption.
+  - `Data`: Topline or interim efficacy/PK/PD/safety readouts, conference
+    abstract presentations, peer-reviewed publications.
+  - `Regulatory`: IND/CTA submission, clearance, ethics committee (HREC/IRB)
+    approvals, fast-track/orphan designations, marketing approval.
+  - `Partnership`: License in/out agreements, co-development deals, option
+    exercises.
+  - `Platform`: New delivery formulation or platform application directly
+    supporting an obesity/overweight payload.
+  - `Status`: Strategic pipeline prioritization, program pause, or
+    discontinuation.
+
+### Bounded Program synchronization
+
+When an Event alters a stored Program's current development maturity (e.g. Phase 1
+initiation, IND clearance, clinical hold) or operational status:
+- Update the corresponding Program's `developmentStage`, `developmentStatus`,
+  or `readout` in the same PR, following the historical no-loss rule in section 8.
+- Update the Program's `lastVerifiedAt` to the review date.
+- Do not perform full registry re-checks for unrelated Programs outside the event scope.
+
+### Event scan completion gate
+
+An event scan is GO only when:
+
+1. the declared Core media sources and time window were traversed;
+2. surfaced items were filtered through the materiality gate;
+3. new material changes were recorded as append-only `Event` files with direct,
+   accessible primary/media sources;
+4. directly implicated Program current-state fields were synchronized without
+   historical fact loss;
+5. absent candidates were routed as `DISCOVERY_HANDOFF` and registry discrepancies
+   as `REFRESH_HANDOFF`;
+6. Event and common validation gates pass.
+
+## 3. Track B: program refresh
 
 ### Purpose and entry
 
@@ -77,7 +199,7 @@ A refresh is GO only when:
    support;
 4. in-scope unresolved claims and blocked sources were preserved with a
    re-entry condition or source-access handover where necessary;
-5. every crossover finding was resolved under section 5;
+5. every crossover finding was resolved under section 6;
 6. every newly confirmed sponsor, developer, or disclosed partner was resolved
    to an existing public Company or created once with direct official support,
    the Program display company maps to every directly confirmed participant,
@@ -85,7 +207,7 @@ A refresh is GO only when:
    inventory;
 7. Event and common validation gates pass.
 
-## 3. Track B: program discovery
+## 4. Track C: program discovery
 
 ### Purpose and entry
 
@@ -153,13 +275,13 @@ A discovery run is GO only when:
 4. every stored candidate has direct support for scope, identity, payload,
    record type, and delivery technology, and is not a duplicate;
 5. every deferred candidate has missing evidence and a re-entry condition;
-6. every crossover finding was resolved under section 5;
+6. every crossover finding was resolved under section 6;
 7. every stored Program's directly confirmed sponsor, developer, and disclosed
    partner was resolved to a public Company mapping, and each newly created
    Company completed its one-time official Platform inventory;
 8. Event and common validation gates pass.
 
-## 4. Track C: patent coverage audit
+## 5. Track D: patent coverage audit
 
 ### Purpose and entry
 
@@ -221,14 +343,18 @@ A patent audit is GO only when:
 5. no patent alone was used to assert active development, `productTarget`,
    development stage/status, or a new Program;
 6. every absent candidate and unresolved stored-Program attribution was routed
-   under section 5;
+   under section 6;
 7. the patent-specific and common validation gates pass.
 
-## 5. Bounded crossover and handoff
+## 6. Bounded crossover and handoff
 
 Never ignore a material fact merely because it belongs to another track.
 Keep crossover bounded:
 
+- During event scan, route an absent candidate as `DISCOVERY_HANDOFF` and an
+  inconsistent registry detail as `REFRESH_HANDOFF`. Bounded crossover may update
+  only the directly implicated Program's current state when supported by direct
+  primary evidence.
 - During refresh, capture an absent candidate's minimum identity, why it may be
   in scope, and best source as `DISCOVERY_HANDOFF` in the run report or draft
   PR. Do not expand into landscape search or assign a candidate disposition
@@ -254,7 +380,7 @@ Keep crossover bounded:
   material crossover is NO-GO; a recorded handoff may remain for a later run
   when it is outside the authorized scope.
 
-## 6. Apply the contract
+## 7. Apply the contract
 
 - Reuse stable Program and Study slugs.
 - Declare ordered `payloadComponents`, `recordType`, and a registered
@@ -270,7 +396,7 @@ Keep crossover bounded:
 - Add `studySlug` to an Event only when the Event identifies that Study.
 - Use `DEFERRED_SCHEMA_CASE` when directly supported evidence is not representable.
 
-## 7. Protect existing records
+## 8. Protect existing records
 
 Do not replace stronger evidence with weaker reporting, guess an identity,
 classification, interval, stage, phase, country, or status, or mechanically
@@ -320,7 +446,7 @@ limits that the result's contemporaneous meaning survives after the Program's
 current fields move on. A later stage-entry Event never replaces or
 generalizes an earlier result Event; both remain as separate records.
 
-## 8. Common completion gate and validation
+## 9. Common completion gate and validation
 
 Any track is GO only when its track gate passes and:
 
@@ -352,7 +478,7 @@ git diff --check
 
 Staleness is advisory. Validation cannot replace source review.
 
-## 9. Full landscape combination
+## 10. Full landscape combination
 
 A full-landscape refresh-and-discovery operation is a run plan, not a fourth
 research track:
@@ -371,13 +497,15 @@ This order reduces duplicate discovery and prevents stale aliases from creating
 new Program identities. A newly `STORED` candidate completes the discovery gate
 and does not require a redundant full refresh in the same run.
 
-Patent audit is not implied by this combination. Add it as an explicit third
-track when patent coverage is in scope, using the refreshed roster as its audit
-baseline and routing its findings through section 5.
+Event scan and patent audit are not implied by this combination. Add them as
+explicit additional tracks when media monitoring or patent coverage is in scope,
+using the refreshed roster as its audit baseline and routing its findings through
+section 6.
 
-## 10. Report
+## 11. Report
 
 Report the primary track and boundary; traversed and changed Programs/Studies;
+event scan window and surfaced events when applicable;
 discovery dispositions and undispositioned count when applicable; independent
 coverage status when applicable; patent audit baseline, outcomes, family count,
 and unaudited count when applicable; crossover handoffs; material Events;

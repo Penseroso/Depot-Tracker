@@ -161,6 +161,7 @@ export function validateDatasetRecords({
   studies,
   events,
   deliveryTechnologies,
+  mediaSources = [],
   companies = [],
   platforms = [],
 }) {
@@ -191,6 +192,38 @@ export function validateDatasetRecords({
       technologyLabels.add(technology.label);
       technologyShortLabels.add(technology.shortLabel);
       technologySortRanks.add(technology.sortRank);
+    });
+  }
+
+  const mediaSourceIds = new Set();
+  const mediaSourceNames = new Set();
+  if (mediaSources !== undefined && !Array.isArray(mediaSources)) {
+    errors.push('media-sources.json: registry must be an array');
+  } else if (Array.isArray(mediaSources)) {
+    mediaSources.forEach((source, index) => {
+      const label = `media-sources.json[${index}]`;
+      for (const field of ['id', 'name', 'region']) requireString(source, field, label, errors);
+      if (!slugPattern.test(source?.id ?? '')) errors.push(`${label}: id must be a lowercase slug`);
+      if (!['domestic', 'international'].includes(source?.region)) {
+        errors.push(`${label}: region must be domestic or international`);
+      }
+      if (!isUrl(source?.baseUrl)) errors.push(`${label}: baseUrl must be http(s)`);
+      if (!Array.isArray(source?.allowedHosts) || source.allowedHosts.length === 0) {
+        errors.push(`${label}: allowedHosts must be a non-empty array`);
+      } else {
+        source.allowedHosts.forEach((host, hostIndex) => {
+          if (typeof host !== 'string' || !host.trim()) {
+            errors.push(`${label}.allowedHosts[${hostIndex}]: host must be a non-empty string`);
+          }
+        });
+      }
+      for (const key of Object.keys(source ?? {})) {
+        if (!['id', 'name', 'region', 'baseUrl', 'allowedHosts'].includes(key)) errors.push(`${label}: unknown key ${key}`);
+      }
+      if (mediaSourceIds.has(source.id)) errors.push(`${label}: duplicate id ${source.id}`);
+      if (mediaSourceNames.has(source.name)) errors.push(`${label}: duplicate name ${source.name}`);
+      mediaSourceIds.add(source.id);
+      mediaSourceNames.add(source.name);
     });
   }
 
@@ -548,6 +581,7 @@ export function validateDatasetRecords({
       studies: studies.length,
       events: events.length,
       deliveryTechnologies: Array.isArray(deliveryTechnologies) ? deliveryTechnologies.length : 0,
+      mediaSources: Array.isArray(mediaSources) ? mediaSources.length : 0,
       companies: companies.length,
       platforms: platforms.length,
     },
@@ -556,7 +590,7 @@ export function validateDatasetRecords({
 
 export async function validateDataset(root) {
   const errors = [];
-  const [programs, studies, events, deliveryTechnologies, companies, platforms] = await Promise.all([
+  const [programs, studies, events, deliveryTechnologies, mediaSources, companies, platforms] = await Promise.all([
     readJsonDir(path.join(root, 'src/data/programs'), errors),
     readJsonDir(path.join(root, 'src/data/studies'), errors),
     readJsonDir(path.join(root, 'src/data/events'), errors),
@@ -564,6 +598,12 @@ export async function validateDataset(root) {
       .then((text) => JSON.parse(text))
       .catch((error) => {
         errors.push(`delivery-technologies.json: invalid JSON (${error.message})`);
+        return [];
+      }),
+    readFile(path.join(root, 'src/data/registries/media-sources.json'), 'utf8')
+      .then((text) => JSON.parse(text))
+      .catch((error) => {
+        errors.push(`media-sources.json: invalid JSON (${error.message})`);
         return [];
       }),
     readJsonDir(path.join(root, 'src/data/companies'), errors),
@@ -574,6 +614,7 @@ export async function validateDataset(root) {
     studies,
     events,
     deliveryTechnologies,
+    mediaSources,
     companies,
     platforms,
   });
