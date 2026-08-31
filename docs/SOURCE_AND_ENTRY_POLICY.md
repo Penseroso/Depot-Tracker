@@ -64,7 +64,15 @@ mechanism" for the allowed values and the classification principle). Never
 infer a mechanism from the payload's own baseline pharmacology or from a
 product name alone; when the record does not directly say what drives
 persistence, store `null` and explain the gap in `caveat` rather than
-guessing.
+guessing. `durationMechanismId` is itself a canonical field under the
+"Discovery, source access, and conflict" rule below: when the specific
+technology description that would support a mechanism (a named platform,
+microsphere/hydrogel/implant detail, a conjugation or prodrug design) is
+attested only by secondary reporting with no company, filing, patent,
+registry, conference, or publication source directly confirming it, store
+`durationMechanismId` as `null` even if `deliveryTechnology` already carries
+a specific-sounding free-text description; do not treat the presence of that
+free text alone as sufficient evidence for the coarser classification.
 
 ## Interval claims
 

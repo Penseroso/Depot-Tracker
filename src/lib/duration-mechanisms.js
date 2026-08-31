@@ -1,3 +1,7 @@
+// URL/select sentinel for programs with durationMechanismId === null (evidence insufficient).
+// Not one of the five canonical mechanism ids; used only by UI filters/charts.
+export const UNCONFIRMED_DURATION_MECHANISM = 'unconfirmed';
+
 export const durationMechanisms = [
   'formulation-depot',
   'implant-device',

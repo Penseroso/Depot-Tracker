@@ -11,7 +11,7 @@ import {
   type IntervalBucketId,
 } from '../lib/format';
 import { getStageBadgeClass } from '../lib/development-stages.js';
-import { durationMechanisms, getDurationMechanismLabel, getDurationMechanismShortLabel } from '../lib/duration-mechanisms.js';
+import { UNCONFIRMED_DURATION_MECHANISM, durationMechanisms, getDurationMechanismLabel, getDurationMechanismShortLabel } from '../lib/duration-mechanisms.js';
 
 const FILTER_PARAMS = { stage: 'stage', technology: 'technology', interval: 'interval', mechanism: 'mechanism' } as const;
 const defaultUrlFilters = { stage: 'all', technology: 'all', interval: 'all', mechanism: 'all' };
@@ -95,7 +95,7 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, compan
         && (technology === 'all' || program.deliveryTechnologyId === technology)
         && (interval === 'all' || getProductTargetIntervalBuckets(program.productTarget).includes(interval as IntervalBucketId))
         && (recordType === 'all' || program.recordType === recordType)
-        && (mechanism === 'all' || program.durationMechanismId === mechanism)
+        && (mechanism === 'all' || (mechanism === UNCONFIRMED_DURATION_MECHANISM ? program.durationMechanismId === null : program.durationMechanismId === mechanism))
       );
     });
   }, [programs, query, stage, technology, interval, mechanism, recordType]);
@@ -123,6 +123,7 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, compan
         <select className="control" value={mechanism} onChange={(event: ChangeEvent<HTMLSelectElement>) => setMechanism(event.target.value)} aria-label="지속기전">
           <option value="all">모든 지속기전</option>
           {durationMechanisms.map((id) => <option key={id} value={id}>{getDurationMechanismLabel(id)}</option>)}
+          <option value={UNCONFIRMED_DURATION_MECHANISM}>{getDurationMechanismLabel(null)}</option>
         </select>
         <select className="control" value={recordType} onChange={(event: ChangeEvent<HTMLSelectElement>) => setRecordType(event.target.value)} aria-label="레코드 유형">
           <option value="all">모든 유형</option>
