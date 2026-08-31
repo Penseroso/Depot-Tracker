@@ -13,7 +13,7 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "미국 Phase I 모집 중",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "초기 blinded MAD cohort에서 8주 평균 체중감소 7%(n=8, placebo 2명 포함), 관찰 반감기 약 26일. 2026-08-06 공개된 Part C(12주 MAD) 용법은 30mg 주 1회 x4 이후 120mg 월 1회, 180mg 월 1회 titration으로 확인됐다.",
   "differentiator": "GLP-1/GIP co-agonist PEP prodrug의 점진적 active-peptide 방출과 월 1회 유지 투여를 함께 설계.",
   "caveat": "초기 수치는 소규모 blinded cohort로 active/placebo가 분리되지 않았다. 12주 MAD Part C 자료는 2026-08-06 기준에도 2026년 4분기 예정으로 재확인됐으며 아직 공개되지 않았다.",
@@ -25,7 +25,7 @@
       "label": "ClinicalTrials.gov NCT07142707",
       "url": "https://clinicaltrials.gov/study/NCT07142707",
       "sourceType": "registry",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "MBX obesity portfolio update, 2026-05-11",
@@ -37,13 +37,13 @@
       "label": "MBX current pipeline",
       "url": "https://mbxbio.com/our-pipeline/",
       "sourceType": "company",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "MBX Biosciences Q2 2026 results and corporate highlights, 2026-08-06",
       "url": "https://www.globenewswire.com/news-release/2026/08/06/3340221/0/en/mbx-biosciences-reports-second-quarter-2026-financial-results-and-corporate-highlights.html",
       "sourceType": "company",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     }
   ]
 }

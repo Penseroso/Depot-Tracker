@@ -11,16 +11,22 @@
     "maxDays": 31
   },
   "route": "피하주사",
-  "developmentStage": "IND submitted",
-  "developmentStatus": "미국 FDA IND 제출",
-  "lastVerifiedAt": "2026-08-10",
-  "readout": "ASC36 amylin agonist와 ASC35 GLP-1R/GIPR agonist의 단일 SALD co-formulation; 비만 대상 미국 IND 제출. IND clearance 발표는 아직 없음(2026-07-06 제출 이후 약 5주 경과).",
+  "developmentStage": "IND cleared",
+  "developmentStatus": "미국 FDA IND 승인; 2026-08-10 sponsor 발표 기준 Phase I 투여 개시",
+  "lastVerifiedAt": "2026-08-31",
+  "readout": "ASC36 amylin agonist와 ASC35 GLP-1R/GIPR agonist의 단일 SALD co-formulation; 비만 대상 미국 IND 제출 후 2026-08-10 FDA IND 승인 및 Phase I 투여 개시가 공개됐다. Phase I은 두 FDC 제형(Injection A, B, 각 88명)의 단회 및 다회 용량상승을 평가한다.",
   "differentiator": "amylin, GLP-1R, GIPR 세 표적을 한 번의 월간 피하주사로 겨냥하는 고정용량 depot 조합.",
-  "caveat": "사람 대상 투여 및 IND clearance는 아직 공개되지 않았다. 51% 상대 체중감소 우위 주장은 DIO rat 비교다.",
+  "caveat": "Phase I 투여는 개시됐으나 2026-08-31 기준 ClinicalTrials.gov 등록은 확인되지 않았다. 51% 상대 체중감소 우위 주장은 DIO rat 비교다.",
   "confidence": "High",
   "active": true,
-  "stageRank": 82,
+  "stageRank": 83,
   "sources": [
+    {
+      "label": "Ascletis initiation of two Phase I studies (ASC36, ASC36_35FDC), 2026-08-10",
+      "url": "https://www.prnewswire.com/news-releases/ascletis-announces-initiation-of-two-phase-i-studies-in-us-for-the-treatment-of-obesity-asc36-once-monthly-injection-an-amylin-receptor-peptide-agonist-and-asc3635fdc-once-monthly-injection-a-co-formulation-of-asc36-and-glp-302847051.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
     {
       "label": "Ascletis ASC36 and ASC36_35 FDC IND submissions, 2026-07-06",
       "url": "https://www.ascletis.com/news_detail/200/id/1415.html",

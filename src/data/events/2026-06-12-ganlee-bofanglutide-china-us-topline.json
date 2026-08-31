@@ -1,0 +1,19 @@
+{
+  "programSlug": "ganlee-bofanglutide",
+  "studySlug": "nct06728124",
+  "date": "2026-06-12",
+  "company": "Gan & Lee Pharmaceuticals / JW Pharmaceutical",
+  "programName": "Bofanglutide (GZR18)",
+  "category": "Data",
+  "headline": "Gan & Lee, 보팡글루타이드 중국 Phase III 및 미국 Phase II topline 공식 공개",
+  "summary": "Gan & Lee가 2026-06-12 공식 보도자료로 중국 Phase III GRADUAL-1(NCT06728124, 비만/과체중) 52주 결과와 미국 Phase II(NCT06737042, 티르제파타이드 비교) 36주 결과를 공개함. GRADUAL-1은 기저치 대비 체중감소가 24mg군 15.12%, 48mg군 18.54%, 위약군 1.11%이며, 5% 이상 감량 반응률은 24mg/48mg군 각각 91.8%, 98.1%. 미국 Phase II는 48mg군 15.18%, 오픈라벨 비교군인 티르제파타이드 15mg군 16.93%이며 두 군 간 통계적 비교 유의성은 보도자료에 제시되지 않음.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "Gan & Lee Pharmaceuticals Achieves Significant Progress in Its Dual Pipeline for Metabolic Diseases (PRNewswire), 2026-06-12",
+      "url": "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-achieves-significant-progress-in-its-dual-pipeline-for-metabolic-diseases--weekly-insulin-ludefen-gzr4-meets-primary-endpoint-in-phase-iii-clinical-trial-in-china-bofanglutide-meets-primary-endpoints--302794945.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    }
+  ]
+}

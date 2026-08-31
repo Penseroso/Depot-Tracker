@@ -83,4 +83,46 @@ record itself is not excluded and remains STORED as technology-watch).
 LEZ-001, an author profile naming the affiliation, or another primary source
 directly tying the corporate entity to this program.
 
-**Last checked:** 2026-08-10.
+**2026-08-31 recheck:** the ADA abstract page loaded directly in a browser
+session with no Cloudflare challenge this time (the automated WebFetch/curl
+path was not retried since the browser path succeeded). Clicking the author
+name "JAEPYOUNG CHO" opens the site's own author-info popup, which shows only
+"Wonju, Republic of Korea" — no institution or company affiliation field is
+present anywhere on the page. This matches the 2026-07-29 capture exactly; no
+new scope was found.
+
+A general web search this session returned an AI-generated summary flatly
+asserting "Lezepione, Inc. is the sponsor/developer of LEZ-001," citing (among
+other links) a paywalled Substack post ("ADA 2026: New stuff is fun...,"
+onthepen.substack.com, 2026-06-07). The Substack article was fetched directly
+(both via WebFetch and via browser `get_page_text`): the visible free portion
+cuts off after "Researchers are unveiling…" and never mentions Lezepione or
+LEZ-001 in the accessible text. No other underlying link in that search
+contained a Lezepione/LEZ-001 sponsor statement either. The sponsor-attribution
+sentence therefore appears to be the search summarizer's own inference from
+the name/code similarity, not a claim traceable to any primary or verifiable
+secondary source — it does not satisfy the re-entry condition and is not used
+to change `company` or `recordType`.
+
+`lezepione.com` was retried and still fails to load (browser shows an error
+page); `lezepione.co.kr` was not retested this round. No newer LEZ-001
+disclosure was found. Disposition unchanged: DEFERRED, technology-watch,
+`company` remains "Sponsor unconfirmed."
+
+**2026-08-31 event-scan recheck (domestic Core media pass):** located a
+2026-08-25 VentureSquare profile of "레제피온 대표 조재평" (Lezepione Inc CEO Jo
+Jae-pyeong) — https://www.venturesquare.net/1108329 — describing the company's
+long-acting drug-delivery platform "RevoNMT" (nanoparticle/microsphere/hydrogel
+multi-stage burst control) and a GLP-1 (semaglutide/tirzepatide) pipeline
+targeting weekly-to-monthly dosing, still in lab/early-preclinical stage with
+major animal studies planned through H1 2027. The article confirms the company
+name, CEO name (matching the bizno.net registrant), and a thematically
+consistent burst-control platform, but the full text (checked via WebFetch,
+searched for "LEZ-001," "LEZ001," "ADA," "미국당뇨병학회") contains no mention
+of LEZ-001, the ADA abstract, or any named drug candidate code, and does not
+state that Lezepione Inc sponsors a specific filed program. It does not meet
+the re-entry condition (a source directly tying the corporate entity to
+LEZ-001 or the ADA abstract). Disposition unchanged: DEFERRED, technology-watch,
+`company` remains "Sponsor unconfirmed."
+
+**Last checked:** 2026-08-31.

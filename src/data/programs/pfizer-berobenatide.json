@@ -12,11 +12,11 @@
   },
   "route": "피하주사",
   "developmentStage": "Registered Phase III",
-  "developmentStatus": "주 1회 및 월 1회 글로벌 Phase III 진행 중",
-  "lastVerifiedAt": "2026-08-10",
-  "readout": "Phase IIb에서 주 1회 적정 뒤 월 1회 유지 투여로 전환한 군의 28주 체중감소 지속. 월 1회 VESPER-6 Phase III 모집 중이며(미국/일본), 주 1회 Phase III는 VESPER-4(비당뇨, active, 모집종료, 10개국)와 VESPER-5(당뇨 동반, active, 모집종료)로 별도 등록돼 있다.",
+  "developmentStatus": "주 1회 및 월 1회 글로벌 Phase III 진행 중. Pfizer는 2028년 첫 승인을 목표로 제시(2026-08-04 실적발표 기준). 2026-08-28 중국 성인 비만/과체중 대상 주 1회 Phase III(NCT07792954)가 별도로 신규 등록됨(Not yet recruiting).",
+  "lastVerifiedAt": "2026-08-31",
+  "readout": "Phase IIb VESPER-3에서 4.8mg 월 1회 용량군의 28주 위약보정 체중감소가 최대 12.3%로 확인됨(주 1회 적정 후 월 1회 전환군, 2026-08-04 실적발표 재확인). 월 1회 VESPER-6 Phase III 모집 중이며 대상국이 미국, 브라질, 캐나다, 일본으로 확대됨. 주 1회 Phase III는 VESPER-4(비당뇨, active, 모집종료, 10개국)와 VESPER-5(당뇨 동반, active, 모집종료, 11개국)로 별도 등록돼 있다. 2026-08-28에는 중국 전용 주 1회 Phase III(NCT07792954, 300명, 27개 사이트)가 신규 등록됨(모집 전).",
   "differentiator": "fully biased GLP-1R agonist를 초장기 작용 peptide로 설계한 월 1회 등록 제품 개발.",
-  "caveat": "월 1회 Phase III(VESPER-6) 유효성 및 안전성 결과는 아직 없음. 주 1회 Phase III(VESPER-4/5)도 모집을 마쳤으나 topline 미공개. Phase IIb의 주 1회 적정과 월 1회 유지는 서로 다른 일정이며 연속 범위가 아님.",
+  "caveat": "월 1회 Phase III(VESPER-6) 유효성 및 안전성 결과는 아직 없음. 주 1회 Phase III(VESPER-4/5)도 모집을 마쳤으나 topline 미공개. Phase IIb의 주 1회 적정과 월 1회 유지는 서로 다른 일정이며 연속 범위가 아님. 2028년 첫 승인 목표는 sponsor가 제시한 계획으로 확정된 규제 일정이 아니다.",
   "confidence": "High",
   "active": true,
   "stageRank": 100,
@@ -25,7 +25,13 @@
       "label": "Pfizer berobenatide ADA update, 2026-06-06",
       "url": "https://www.pfizer.com/news/press-release/press-release-detail/robust-phase-2b-efficacy-and-favorable-tolerability-support",
       "sourceType": "company",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "Pfizer Q2 2026 earnings call transcript (VESPER-3 12.3% at week 28, 2028 approval target), 2026-08-04",
+      "url": "https://www.theglobeandmail.com/investing/markets/stocks/PFE/pressreleases/3784174/pfizer-pfe-q2-2026-earnings-call-transcript/",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "Pfizer 2026 Anticipated Catalysts (VESPER-4/5/6 pivotal starts)",
@@ -37,19 +43,25 @@
       "label": "ClinicalTrials.gov NCT07595549",
       "url": "https://clinicaltrials.gov/study/NCT07595549",
       "sourceType": "registry",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "ClinicalTrials.gov NCT07311850 (VESPER-4)",
       "url": "https://clinicaltrials.gov/study/NCT07311850",
       "sourceType": "registry",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "ClinicalTrials.gov NCT07400653 (VESPER-5)",
       "url": "https://clinicaltrials.gov/study/NCT07400653",
       "sourceType": "registry",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07792954 (China Phase III, once-weekly)",
+      "url": "https://clinicaltrials.gov/study/NCT07792954",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-31"
     }
   ]
 }

@@ -13,10 +13,10 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "공식 등록 임상 존재; 최신 운영 상태는 연결 Study에서 관리",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "공식 등록 임상 존재. 스폰서 2년 이상(2024-05 이후) 미재확인으로 Unknown status 유지.",
   "differentiator": "Semaglutide 함유 polymer microsphere 특허와 1개월 LAI 제품 포트폴리오",
-  "caveat": "스폰서 상태 미갱신에 따른 Unknown status 전환이 2026-08-10 재확인에서도 유지됨(레지스트리 국가 정보는 현재 API 응답에 표시되지 않으나, 이전 확보된 Australia 값을 유지하며 근거 약화로 간주해 임의 삭제하지 않음). Bostal 자체 505(b)(2) 파이프라인 자료(2026-07-16 게시)는 BOX101-1(세마글루타이드 LAI, T2D/비만)을 2027~2028년 NDA 등록임상 목표로 여전히 활성 파이프라인에 표기하나, 이는 회사 자체 마케팅 자료로 레지스트리 상태 갱신을 대체하지 않는다. 개발 지속 또는 중단 여부는 공식 레지스트리 기준 미확인 상태다.",
+  "caveat": "스폰서 상태 미갱신에 따른 Unknown status 전환이 2026-08-31 재확인에서도 유지됨(statusVerifiedDate 2024-05 그대로, lastKnownStatus는 Not yet recruiting). 레지스트리 국가 정보는 현재 API 응답에 표시되지 않으나, 이전 확보된 Australia 값을 유지하며 근거 약화로 간주해 임의 삭제하지 않음. Bostal 자체 505(b)(2) 파이프라인 자료(2026-07-16 게시)는 BOX101-1(세마글루타이드 LAI, T2D/비만)을 2027~2028년 NDA 등록임상 목표로 여전히 활성 파이프라인에 표기하나, 이는 회사 자체 마케팅 자료로 레지스트리 상태 갱신을 대체하지 않는다. 개발 지속 또는 중단 여부는 공식 레지스트리 기준 미확인 상태다.",
   "confidence": "High",
   "active": true,
   "stageRank": 85,
@@ -25,13 +25,13 @@
       "label": "ClinicalTrials.gov NCT06422624",
       "url": "https://clinicaltrials.gov/study/NCT06422624",
       "sourceType": "registry",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "Bostal 505(b)(2) development pipeline, 2026-07-16",
       "url": "https://bostalpharma.com/development-pipeline/",
       "sourceType": "company",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "EP4591857A1 semaglutide microsphere",

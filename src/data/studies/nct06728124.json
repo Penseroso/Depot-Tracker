@@ -1,0 +1,16 @@
+{
+  "programSlug": "ganlee-bofanglutide",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT06728124",
+  "phase": "Phase 3",
+  "recruitmentStatus": "active-not-recruiting",
+  "registryStatusRaw": "ACTIVE_NOT_RECRUITING",
+  "countries": ["China"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT06728124",
+    "url": "https://clinicaltrials.gov/study/NCT06728124",
+    "sourceType": "registry",
+    "accessedOn": "2026-08-31"
+  },
+  "lastVerifiedAt": "2026-08-31"
+}

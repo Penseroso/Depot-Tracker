@@ -13,14 +13,26 @@
   "route": "피하주사",
   "developmentStage": "Preclinical",
   "developmentStatus": "2026년 Phase II 병용시험 개시 계획",
-  "lastVerifiedAt": "2026-08-10",
-  "readout": "월 1회 ASC47 THRβ depot와 월 1회 ASC35 GLP-1R/GIPR peptide의 병용 개발 계획이다.",
+  "lastVerifiedAt": "2026-08-31",
+  "readout": "월 1회 ASC47 THRβ depot와 월 1회 ASC35 GLP-1R/GIPR peptide의 병용 개발 계획이다. sponsor는 FDA 등 규제당국과의 협의를 전제로, ASC47(30mg, 60mg)과 ASC35의 월 1회 병용 및 경구 ASC47과 경구 ASC30의 병용을 포함하는 Phase IIb 병용시험 가능성을 제시했다.",
   "differentiator": "지방 표적 및 근육 보존 기전과 dual incretin 기전을 같은 월간 간격으로 결합한다.",
-  "caveat": "병용 등록시험이나 실제 개시는 확인되지 않았으며 Phase II 일정은 sponsor 계획이다. ASC35 단독은 2026-06-23 Phase I IND clearance만 받았고 2026-08-10 기준 ClinicalTrials.gov에 ASC35 단독 임상조차 등록되지 않아, 2026년 내 병용 Phase II 개시 계획의 일정 리스크가 있다.",
+  "caveat": "병용 등록시험이나 실제 개시는 확인되지 않았으며 Phase IIb 일정은 규제당국 협의를 전제로 한 sponsor 계획이다. ASC35 단독은 2026-08-10 sponsor 발표 기준 Phase I 투여가 개시됐으나, 2026-08-31 기준 ClinicalTrials.gov에는 ASC35 단독 임상이 아직 등록되지 않아 병용 Phase IIb 개시 시점의 일정 리스크가 남아 있다.",
   "confidence": "Medium",
   "active": true,
   "stageRank": 40,
   "sources": [
+    {
+      "label": "Ascletis ASC47 plus semaglutide topline (Phase IIb combination plans), 2025-09-22",
+      "url": "https://www.prnewswire.com/news-releases/ascletis-announces-asc47-in-combination-with-semaglutide-demonstrated-up-to-56-2-greater-relative-reduction-in-body-weight-in-participants-with-obesity-compared-to-semaglutide-monotherapy-302562415.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "Ascletis initiation of three Phase I studies (ASC35, ASC36, ASC36_35FDC), 2026-08-10",
+      "url": "https://www.prnewswire.com/news-releases/ascletis-announces-initiation-of-two-phase-i-studies-in-us-for-the-treatment-of-obesity-asc36-once-monthly-injection-an-amylin-receptor-peptide-agonist-and-asc3635fdc-once-monthly-injection-a-co-formulation-of-asc36-and-glp-302847051.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
     {
       "label": "Ascletis 2025 annual results, 2026-03-31",
       "url": "https://www.ascletis.com/data/upload/admin/20260331/69cbd952b59b8.pdf",

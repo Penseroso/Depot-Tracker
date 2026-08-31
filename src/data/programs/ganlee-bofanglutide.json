@@ -1,0 +1,73 @@
+{
+  "company": "Gan & Lee Pharmaceuticals / JW Pharmaceutical",
+  "programName": "Bofanglutide (GZR18)",
+  "payloadComponents": ["bofanglutide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "22탄소 지방이산(C22 fatty diacid) 결합 GLP-1 analog; 알부민 가역결합 기반 반감기 연장 설계",
+  "productTarget": {
+    "description": "2주 1회(Q2W)",
+    "minDays": 14,
+    "maxDays": 14
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase III",
+  "developmentStatus": "중국 Gan & Lee가 비만/과체중 및 제2형당뇨 적응증으로 다수 Phase III 등록 임상 진행 중(GRADUAL 시리즈 포함). 한국에서는 JW중외제약이 2026-04-09 한국 독점 개발 및 상업화 라이선스 계약을 체결했고, 2026-08-18 비만 적응증 국내 Phase III IND를 식약처에 제출함. 미국에서는 티르제파타이드 대비 head-to-head Phase II가 완료됐으나 topline 미공개.",
+  "lastVerifiedAt": "2026-08-31",
+  "readout": "중국 Phase III GRADUAL-1(NCT06728124, 비만/과체중, 2주 1회)에서 52주 시점 기저치 대비 체중감소가 24mg군 15.12%, 48mg군 18.54%, 위약군 1.11%로 Gan & Lee가 2026-06-12 공식 공개함(5% 이상 감량 반응률 24mg/48mg 각각 91.8%/98.1%). 같은 날 공개된 미국 Phase II head-to-head(NCT06737042, 36주)에서는 48mg군 15.18%, 오픈라벨 비교군인 티르제파타이드 15mg군 16.93%로 확인됐으며 두 군 간 통계적 비교는 보도자료에 제시되지 않음. 한국 Phase III(300명, 위약대조, 2026년 12월 개시, 2029-03 평가종료 목표)는 2026-08-18 IND 제출 공식 발표, 아직 모집 전 단계임.",
+  "differentiator": "세마글루타이드보다 더 긴 C22 지방이산 사슬을 결합한 GLP-1 단일작용제로, 반감기 약 1주 확보를 통해 기존 주 1회 제제 대비 2배 긴 2주 1회 투여를 목표로 설계됨. 별도 depot 부형제나 미립구 없이 분자 자체의 알부민 결합 강화로 지속시간을 늘린 접근임.",
+  "caveat": "2주 1회는 스폰서의 현재 등록 임상(중국 GRADUAL-1/한국 Phase III IND) 목표이며, 같은 분자로 4주 1회(월 1회) 투여를 평가하는 별도 Phase III(GRADUAL-3, 중국)도 진행 중이어서 두 일정을 연속 범위로 혼동하지 않는다. GRADUAL-1/미국 Phase II topline은 2026-06-12 Gan & Lee 공식 보도자료로 직접 확인되나 peer-review 논문으로는 아직 공개되지 않았고, 미국 Phase II의 티르제파타이드 비교군은 오픈라벨이며 통계적 유의성 검정 결과가 보도자료에 제시되지 않아 우열 결론의 근거로 쓰지 않는다. 한국 임상은 IND 제출 단계로 모집이 시작되지 않았고, 등록 근거인 NCT06728124는 중국 임상이다. Gan & Lee 공식 홈페이지는 별도 명명된 delivery-technology 플랫폼 브랜드를 제시하지 않아 deliveryTechnologyId를 'other'로 저장한다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 92,
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT06728124 (GZR18 Phase III, 비만/과체중, 중국)",
+      "url": "https://clinicaltrials.gov/study/NCT06728124",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "Gan & Lee Pharmaceuticals - Bofanglutide Phase 2b results published in Signal Transduction and Targeted Therapy",
+      "url": "https://www.ganlee.com/detail/836.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "Gan & Lee Pharmaceuticals - JW Pharmaceutical exclusive license agreement announcement",
+      "url": "https://www.ganlee.com/detail/841.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "Gan & Lee Pharmaceuticals - GRADUAL-3 once-monthly Phase III initiation",
+      "url": "https://www.ganlee.com/detail/814.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "Gan & Lee Pharmaceuticals Achieves Significant Progress in Its Dual Pipeline for Metabolic Diseases (PRNewswire) - GRADUAL-1 and US Phase II topline, 2026-06-12",
+      "url": "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-achieves-significant-progress-in-its-dual-pipeline-for-metabolic-diseases--weekly-insulin-ludefen-gzr4-meets-primary-endpoint-in-phase-iii-clinical-trial-in-china-bofanglutide-meets-primary-endpoints--302794945.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "JW Pharmaceutical 프레스룸 - 2주 1회 비만치료제 '보팡글루타이드' 임상 3상 IND 신청, 2026-08-18 (게시물 1335)",
+      "url": "https://www.jw-pharma.co.kr/pharma/ko/prcenter/all_list.jsp",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "JW Pharmaceutical files phase 3 IND for biweekly obesity drug bofanglutide, Korea Biomedical Review, 2026-08-18",
+      "url": "https://www.koreabiomed.com/news/articleView.html?idxno=32816",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "JW Pharmaceutical files IND for biweekly obesity drug bofanglutide in Phase 3 trial, Herald Business, 2026-08-18",
+      "url": "https://mbiz.heraldcorp.com/article/10843405",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    }
+  ]
+}

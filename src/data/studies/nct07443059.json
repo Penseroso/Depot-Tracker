@@ -1,0 +1,16 @@
+{
+  "programSlug": "ql-biopharm-zovaglutide",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT07443059",
+  "phase": "Phase 1",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
+  "countries": ["China"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT07443059",
+    "url": "https://clinicaltrials.gov/study/NCT07443059",
+    "sourceType": "registry",
+    "accessedOn": "2026-08-31"
+  },
+  "lastVerifiedAt": "2026-08-31"
+}

@@ -1,0 +1,24 @@
+{
+  "programSlug": "peptron-pt403",
+  "date": "2026-08-25",
+  "company": "Peptron",
+  "programName": "PT403",
+  "category": "Regulatory",
+  "headline": "PT403 국내 임상 1상 IND 식약처 신청 완료",
+  "summary": "Peptron, 월 1회 semaglutide 장기지속형 주사제 PT403의 국내 임상 1상 임상시험계획(IND)을 2026-08-25 식품의약품안전처에 신청했다고 발표했다. 건강한 성인 22명 대상, 충남대학교병원 임상시험센터에서 단회 피하투여 후 안전성, 내약성, PK를 평가하는 무작위, 위약대조, 이중눈가림, 활성대조 설계이며 3개 코호트로 단계적 용량 증량 후 안전성검토위원회(SRC) 승인을 거쳐 다음 코호트로 진행한다. MFDS 승인 여부는 아직 공개 전이다.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "더바이오, 펩트론 월 1회 비만치료제 후보물질 'PT403' 국내 임상1상 IND 신청, 2026-08-25",
+      "url": "https://www.thebionews.net/news/articleView.html?idxno=27495",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "메디파나뉴스, 펩트론 월 1회 세마글루타이드 'PT403' 임상 1상 신청, 2026-08-25",
+      "url": "https://www.medifonews.com/news/article.html?no=215681",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    }
+  ]
+}

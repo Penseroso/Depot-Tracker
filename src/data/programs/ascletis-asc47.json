@@ -13,7 +13,7 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "단독 Phase I 완료; 병용 개발 진행",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "비만 참가자 단회 Phase I에서 최대 40일 반감기를 보여 월 1회 투여를 지지했다.",
   "differentiator": "지방조직 표적 THRβ small-molecule depot로 체중감소 중 근육 보존을 지향한다.",
   "caveat": "단독 임상은 소규모 단회 용량상승 시험이며 장기 체중 및 근육 결과는 확정되지 않았다.",
@@ -31,7 +31,7 @@
       "label": "ClinicalTrials.gov NCT06427590",
       "url": "https://clinicaltrials.gov/study/NCT06427590",
       "sourceType": "registry",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     }
   ]
 }

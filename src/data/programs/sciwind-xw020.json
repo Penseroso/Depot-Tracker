@@ -9,10 +9,10 @@
   "route": "주사(세부 경로 미공개)",
   "developmentStage": "Preclinical",
   "developmentStatus": "비임상; 2026년 하반기 IND 제출 목표",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "DIO mouse에서 단독요법 fat mass 최대 40% 감소, GLP-1 병용 시 70% 초과 감소, muscle loss 없음이 sponsor filing에 공개됨. 사람 결과가 아닌 비임상 자료.",
   "differentiator": "미공개 비-incretin 기전의 장기작용 injectable peptide로 지방 감소와 근육량 보존을 함께 지향.",
-  "caveat": "표적, 세부 구조 및 투여 간격 미공개로 productTarget은 null. 2026년 하반기 IND 제출은 sponsor 계획이며 제출 완료가 아님.",
+  "caveat": "표적, 세부 구조 및 투여 간격 미공개로 productTarget은 null. 2026년 하반기 IND 제출은 sponsor 계획이며 제출 완료가 아님. 2026-08-31 재확인 시 공식 파이프라인 페이지와 등록 레지스트리(ClinicalTrials.gov, chinadrugtrials.org.cn) 모두 IND 제출 또는 임상 개시 근거 없음, early-stage 유지.",
   "confidence": "Medium",
   "active": true,
   "stageRank": 35,
@@ -21,7 +21,7 @@
       "label": "Sciwind current pipeline",
       "url": "https://www.sciwindbio.com/portal/index/pipeline/category_id/3.html",
       "sourceType": "company",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "Sciwind HKEX draft prospectus, 2026-03-23",

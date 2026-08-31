@@ -9,7 +9,7 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "미국 병용 Phase I 완료",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "ASC47 단회 depot와 semaglutide 주 1회 4회 병용 Phase I에서 29일 체중감소를 평가. 2025-09-22 topline은 semaglutide 단독 대비 56.2% 더 큰 상대적 체중감소를 보고했고, 2026-05-14 ECO 2026 포스터는 동일 시험의 확정 분석에서 111.8% 상대적 체중감소를 보고했다. 개발 개념은 ASC47 월 1회와 semaglutide 주 1회의 성분별 일정.",
   "differentiator": "지방 표적 THRβ depot를 GLP-1RA와 병용해 체중감소와 근육 보존을 분리해 겨냥한다.",
   "caveat": "ASC47 월 1회와 semaglutide 주 1회는 서로 다른 성분별 일정으로 하나의 제품 interval이 아님. 28명 단기 Phase I이며 고정 병용 제품 목표가 확정되지 않아 productTarget은 null. ClinicalTrials.gov에는 아직 공식 results 미게시.",
@@ -33,7 +33,7 @@
       "label": "ClinicalTrials.gov NCT06972992",
       "url": "https://clinicaltrials.gov/study/NCT06972992",
       "sourceType": "registry",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     }
   ]
 }

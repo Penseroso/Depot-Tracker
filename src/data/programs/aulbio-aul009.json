@@ -13,7 +13,7 @@
   "route": "피하주사",
   "developmentStage": "Human PK pilot",
   "developmentStatus": "정식 IND, 등록 임상 미확인",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "지연 흡수, 연장 노출, 낮은 Cmax 확인. 월 1회 가능성 지지. 표본 매우 작음.",
   "differentiator": "ExTenna 기반 semaglutide-loaded microsphere; peak-related effect 완화 지향",
   "caveat": "학회 초록 수준 자료. 정식 임상 등록, IND 상태, 반복투여 데이터 미공개.",
@@ -28,10 +28,10 @@
       "accessedOn": "2026-07-28"
     },
     {
-      "label": "AULBIO semaglutide LAI and Kyungdong development update",
+      "label": "AULBIO semaglutide LAI and Kyungdong development update (reverified 2026-08-31, no newer AULBIO news item beyond no=19)",
       "url": "https://aulbio.com/m/board/detail.html?id=news&no=19",
       "sourceType": "company",
-      "accessedOn": "2026-07-28"
+      "accessedOn": "2026-08-31"
     }
   ]
 }
