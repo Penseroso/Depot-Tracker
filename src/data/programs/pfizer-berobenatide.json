@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "other",
   "deliveryTechnology": "ultra-long-acting lipidated peptide",
+  "durationMechanismId": "molecular-half-life-extension",
   "productTarget": {
     "description": "월 1회 유지 투여",
     "minDays": 28,

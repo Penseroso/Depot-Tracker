@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { validateDataset, validateDatasetRecords } from './validation-core.mjs';
 import { developmentStages } from '../src/lib/development-stages.js';
+import { durationMechanisms } from '../src/lib/duration-mechanisms.js';
 
 const source = {
   label: 'Regression test source',
@@ -36,6 +37,7 @@ function createValidDataset() {
         recordType: 'sponsor-program',
         deliveryTechnologyId: 'polymer-microparticle',
         deliveryTechnology: 'PLGA microparticle',
+        durationMechanismId: 'formulation-depot',
         productTarget: { description: '월 1회', minDays: 28, maxDays: 31 },
         route: 'Subcutaneous injection',
         developmentStage: 'Preclinical',
@@ -335,6 +337,32 @@ test('unregistered delivery technology fails', () => {
   const data = createValidDataset();
   data.programs[0].data.deliveryTechnologyId = 'missing-technology';
   assert.match(validateDatasetRecords(data).errors.join('\n'), /is not registered/);
+});
+
+test('every canonical duration mechanism passes validation', () => {
+  for (const mechanism of durationMechanisms) {
+    const data = createValidDataset();
+    data.programs[0].data.durationMechanismId = mechanism;
+    assert.deepEqual(validateDatasetRecords(data).errors, [], mechanism);
+  }
+});
+
+test('null durationMechanismId is allowed when direct evidence is insufficient', () => {
+  const data = createValidDataset();
+  data.programs[0].data.durationMechanismId = null;
+  assert.deepEqual(validateDatasetRecords(data).errors, []);
+});
+
+test('unknown durationMechanismId fails', () => {
+  const data = createValidDataset();
+  data.programs[0].data.durationMechanismId = 'nanobot-swarm';
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /durationMechanismId is not allowed/);
+});
+
+test('missing durationMechanismId key fails', () => {
+  const data = createValidDataset();
+  delete data.programs[0].data.durationMechanismId;
+  assert.match(validateDatasetRecords(data).errors.join('\n'), /durationMechanismId is required/);
 });
 
 test('reversed interval range fails', () => {

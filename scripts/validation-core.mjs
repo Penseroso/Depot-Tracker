@@ -1,6 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { developmentStages } from '../src/lib/development-stages.js';
+import { durationMechanisms } from '../src/lib/duration-mechanisms.js';
 
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -24,6 +25,7 @@ const recordTypes = new Set(['sponsor-program', 'technology-watch']);
 const companyPlatformRelationships = new Set(['ownership', 'license', 'access']);
 const relationshipStatuses = new Set(['current', 'former']);
 const allowedDevelopmentStages = new Set(developmentStages);
+const allowedDurationMechanisms = new Set(durationMechanisms);
 const legacyProgramKeys = [
   'asset',
   'modality',
@@ -265,6 +267,11 @@ export function validateDatasetRecords({
     }
     if (!technologyIds.has(data.deliveryTechnologyId)) {
       errors.push(`${name}: deliveryTechnologyId is not registered (${data.deliveryTechnologyId})`);
+    }
+    if (!Object.hasOwn(data, 'durationMechanismId')) {
+      errors.push(`${name}: durationMechanismId is required`);
+    } else if (data.durationMechanismId !== null && !allowedDurationMechanisms.has(data.durationMechanismId)) {
+      errors.push(`${name}: durationMechanismId is not allowed (${data.durationMechanismId})`);
     }
     for (const field of ['productTarget']) {
       if (!Object.hasOwn(data, field)) errors.push(`${name}: ${field} is required`);

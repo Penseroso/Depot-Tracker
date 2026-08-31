@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "other",
   "deliveryTechnology": "22탄소 지방이산(C22 fatty diacid) 결합 GLP-1 analog; 알부민 가역결합 기반 반감기 연장 설계",
+  "durationMechanismId": "molecular-half-life-extension",
   "productTarget": {
     "description": "2주 1회(Q2W)",
     "minDays": 14,

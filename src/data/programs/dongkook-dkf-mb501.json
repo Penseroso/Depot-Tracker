@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "DK-LADS 생분해성 미립구(마이크로스피어) 서방형 플랫폼",
+  "durationMechanismId": "formulation-depot",
   "productTarget": null,
   "route": "피하주사",
   "developmentStage": "Preclinical",

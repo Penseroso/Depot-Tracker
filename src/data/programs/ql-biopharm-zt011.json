@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "other",
   "deliveryTechnology": "QLFusion and QLLong half-life extension",
+  "durationMechanismId": "molecular-half-life-extension",
   "productTarget": {
     "description": "월 1회 목표",
     "minDays": 28,

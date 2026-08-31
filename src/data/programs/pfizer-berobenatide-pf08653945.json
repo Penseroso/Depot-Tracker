@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "other",
   "deliveryTechnology": "ultra-long-acting peptide combination",
+  "durationMechanismId": "molecular-half-life-extension",
   "productTarget": null,
   "route": "피하주사",
   "developmentStage": "Registered Phase II",

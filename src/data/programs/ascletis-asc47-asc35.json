@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "in-situ-forming-depot",
   "deliveryTechnology": "monthly SALD/ULAP peptide-small molecule combination",
+  "durationMechanismId": "formulation-depot",
   "productTarget": {
     "description": "월 1회",
     "minDays": 28,

@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "other",
   "deliveryTechnology": "Precision Endocrine Peptide (PEP) amycretin prodrug",
+  "durationMechanismId": "prodrug-conjugate-release",
   "productTarget": {
     "description": "월 1회",
     "minDays": 28,
