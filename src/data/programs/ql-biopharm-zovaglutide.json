@@ -14,7 +14,7 @@
   "developmentStage": "Registered Phase III",
   "developmentStatus": "중국 HORIZON-1 Phase III 등록; 755명 등록을 마치고 active, 모집종료(2026-08-03 레지스트리 갱신으로 sponsor의 2026년 1월 첫 투여 보고와 정합, 2026-08-31 재확인 시에도 동일 상태 유지)",
   "lastVerifiedAt": "2026-08-31",
-  "readout": "약 12일 사람 반감기를 갖도록 설계된 월 1회 GLP-1RA peptide이며 중국 비만 Phase III(HORIZON-1, NCT07230119, 2026-01-16 개시, 755명)가 모집을 마치고 active, not recruiting 상태다. 2025-09-18 EASD 2025에서 공개된 선행 Phase II 24주 결과, 80/160mg 월 1회 투여군 각각 -10.6%, -13.8% 체중감소(위약 대비, p<0.0001)를 근거로 Phase III에 진입했다. 신장기능장애 평가 시험(NCT07443059, Phase 1, 모집중)도 추가 등록됐다.",
+  "readout": "약 12일 사람 반감기를 갖도록 설계된 월 1회 GLP-1RA peptide이며 중국 비만 Phase III(HORIZON-1, NCT07230119, 2026-01-16 개시, 755명)가 모집을 마치고 active, not recruiting 상태다. 2025-09-18 EASD 2025에서 공개된 선행 Phase II 24주 결과, 80/160mg 월 1회 투여군의 기저치 대비 체중감소가 각각 -10.6%, -13.8%로 위약군(-2.4%, 기저치 대비) 대비 유의했음(p<0.0001, 위약보정값 아님)을 근거로 Phase III에 진입했다. 신장기능장애 평가 시험(NCT07443059, Phase 1, 모집중)도 추가 등록됐다.",
   "differentiator": "두 C18 fatty-acid chain과 C-terminal extension으로 albumin 결합과 월간 노출을 지향한다.",
   "caveat": "2025년 12월부터 이어지던 ClinicalTrials.gov not-yet-recruiting과 sponsor 첫 투여 보고 간 상태 시차는 2026-08-03 레지스트리 갱신(active, not recruiting)으로 해소됐다. QL Biopharm 공식 홈페이지는 2026-08-31 확인 기준 ZT002를 HORIZON-1 근거로 Phase 3로 표기하나, 별도 파이프라인 상세 페이지(pipelines.html)는 여전히 Phase II로 표기해 사내 자료 간 갱신 시차가 남아 있다. 임상시험 근거(Phase III)를 우선한다. Phase III topline 결과는 아직 공개되지 않았다.",
   "confidence": "High",

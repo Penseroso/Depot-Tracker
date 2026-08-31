@@ -1,0 +1,19 @@
+{
+  "programSlug": "pfizer-berobenatide",
+  "studySlug": "nct07792954",
+  "date": "2026-08-28",
+  "company": "Pfizer",
+  "programName": "berobenatide (PF-08653944; PF'3944)",
+  "category": "Clinical",
+  "headline": "berobenatide 중국 대상 주 1회 Phase III(NCT07792954) 신규 등록",
+  "summary": "ClinicalTrials.gov에 중국 성인 비만/과체중 대상 주 1회 berobenatide(PF-08653944) 위약대조 Phase III 시험(300명, 27개 사이트)이 2026-08-28 신규 등록됨(Not yet recruiting). 기존 VESPER-4/5/6 등록과 별개의 중국 전용 등록임상이다.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT07792954",
+      "url": "https://clinicaltrials.gov/study/NCT07792954",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-31"
+    }
+  ]
+}
