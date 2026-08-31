@@ -13,25 +13,31 @@
   "route": "피하주사",
   "developmentStage": "IND submitted",
   "developmentStatus": "한국 IND 신청 완료; 승인 여부 미공개",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "국내 공개 프로그램 중 규제 진척이 가장 명확한 축.",
-  "differentiator": "Quject Sphere의 표면 코팅 미립자와 대웅 CURE 제조 플랫폼 결합; 초기 과방출 억제 지향",
+  "differentiator": "Quject Sphere의 표면 코팅 미립자와 대웅 CURE 제조 플랫폼 결합; 초기 과방출 억제 지향. 대웅제약은 2026-05-21 티온랩과 기술도입계약을 체결해 한국을 제외한 전세계 개발, 제조, 허가, 상업화 독점권과 서브라이선스 권한을 확보했다.",
   "caveat": "IND 승인, 임상시험 등록번호 공개 전. first-patient-in 미확인. 대웅의 별도 프로그램인 주 1회 semaglutide 마이크로니들 패치(DWRX5003, NCT07539415)와 혼동하지 않는다 — 해당 패치는 비주사 경로로 이 Program의 범위(주사형 LAI)와 다르다.",
   "confidence": "High",
   "active": true,
   "stageRank": 82,
   "sources": [
     {
-      "label": "Daewoong press release, 2026-05-08",
+      "label": "Daewoong press release, 2026-05-08 (재확인 2026-08-31, 신규 IND 승인 또는 첫 환자 투약 발표 없음)",
       "url": "https://www.daewoong.co.kr/ko/newsroom/news/7469",
       "sourceType": "company",
-      "accessedOn": "2026-07-28"
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "WO2025165146A1 TionLab coated semaglutide microspheres",
       "url": "https://patents.google.com/patent/WO2025165146A1/en",
       "sourceType": "patent",
       "accessedOn": "2026-07-30"
+    },
+    {
+      "label": "더바이오, 대웅제약 '월1회 위고비' 글로벌 개발 본격화, 티온랩 제형 기술 도입(한국 제외 전세계 독점권), 2026-05-21",
+      "url": "https://www.thebionews.net/news/articleView.html?idxno=24779",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
     }
   ]
 }

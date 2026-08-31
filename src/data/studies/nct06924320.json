@@ -5,12 +5,12 @@
   "phase": "Phase 1 | Phase 2",
   "recruitmentStatus": "recruiting",
   "registryStatusRaw": "Recruiting",
-  "countries": ["Canada", "United States"],
+  "countries": ["United States"],
   "registrySource": {
     "label": "ClinicalTrials.gov NCT06924320",
     "url": "https://clinicaltrials.gov/study/NCT06924320",
     "sourceType": "registry",
-    "accessedOn": "2026-08-10"
+    "accessedOn": "2026-08-31"
   },
-  "lastVerifiedAt": "2026-08-10"
+  "lastVerifiedAt": "2026-08-31"
 }

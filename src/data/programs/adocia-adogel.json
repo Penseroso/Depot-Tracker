@@ -12,15 +12,21 @@
   },
   "route": "피하주사",
   "developmentStage": "Paused",
-  "developmentStatus": "2025년 7월 개발 보류 발표; 2026-08-10 확인한 현재 공식 파이프라인 목록과 구 AdoGel 플랫폼 페이지에 AdoGel Sema 항목이 더 이상 표시되지 않음",
-  "lastVerifiedAt": "2026-08-10",
+  "developmentStatus": "2025년 7월 개발 보류 발표; 2026년 4월 연차보고에서도 AdoShell, BioChaperone, BC CagriSema, AdOral에 기술역량을 집중하기 위해 AdoGel을 보류한다고 재확인; 2026-08-31 확인한 현재 공식 파이프라인 목록에도 AdoGel Sema 항목이 여전히 표시되지 않음",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "Rat depot PK에서 semaglutide의 1개월 규칙적 방출과 제한된 초기 burst를 확인. 1개월에서 3개월은 platform 설계 범위이며 현재 활성 파이프라인은 아님.",
   "differentiator": "주사 후 형성되는 biodegradable cross-linked hydrogel matrix",
-  "caveat": "개발 보류 중이며 공식 재개 발표 없음. 2025-11-12 Adocia CEO는 AdoGel에서 얻은 경험과 통찰을 후속 AdoXLong 플랫폼 개발에 활용했다고 언급했고, 현재 공식 파이프라인 페이지와 구 AdoGel 플랫폼 URL에서 AdoGel Sema 항목 자체가 사라진 상태이나 공식 소스가 이를 명시적 개발중단으로 선언한 바는 없음. 페이지 누락만으로 비활성/중단을 단정하지 않으며 공식 중단 또는 재개 선언 여부는 다음 재확인 대상으로 남긴다. 월 1회와 3개월 일정은 연속 범위가 아니며 분기 용법은 확정 제품 목표가 아님.",
+  "caveat": "개발 보류 상태이며 공식 재개 발표는 없음. 2025-11-12 Adocia CEO는 AdoGel에서 얻은 경험과 통찰을 후속 AdoXLong 플랫폼 개발에 활용했다고 언급했음. 2026-04-21 공개된 2025 연차 실적발표에서 Adocia는 AdoShell, BioChaperone, BC CagriSema, AdOral에 기술역량을 집중하기 위해 AdoGel 프로젝트를 보류(mettre en pause)한다고 명시적으로 재확인했음. 이는 프로젝트가 개발중단이 아닌 보류 상태임을 뒷받침하는 공식 소스이나 명시적 재개 시점은 공개되지 않음. 공식 파이프라인 페이지와 구 AdoGel 플랫폼 URL에서 AdoGel Sema 항목 자체는 여전히 표시되지 않음. 월 1회와 3개월 일정은 연속 범위가 아니며 분기 용법은 확정 제품 목표가 아님.",
   "confidence": "High",
   "active": false,
   "stageRank": 10,
   "sources": [
+    {
+      "label": "Adocia 2025 연차 실적발표 (AdoGel 보류 재확인), 2026-04-21",
+      "url": "https://www.businesswire.com/news/home/20260421936032/fr",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
     {
       "label": "Adocia Q2 2025 results",
       "url": "https://www.adocia.com/composants/uploads/2025/07/ADOCIA-PR-FINANCIAL-RESULTS-Q2-2025-1.pdf",
@@ -40,10 +46,10 @@
       "accessedOn": "2026-08-10"
     },
     {
-      "label": "Adocia 공식 파이프라인 (AdoGel Sema 항목 부재 확인), 2026-08-10",
+      "label": "Adocia 공식 파이프라인 (AdoGel Sema 항목 부재 확인), 2026-08-31",
       "url": "https://www.adocia.com/products-and-platform/pipeline/",
       "sourceType": "company",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     }
   ]
 }

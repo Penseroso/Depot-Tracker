@@ -13,7 +13,7 @@
   "route": "이식형 피하 삽입 (titanium subdermal implant)",
   "developmentStage": "Registered Phase I",
   "developmentStatus": "SLIM-1 Phase 1 호주 등록 연구 참가자 20명 전원 투여 완료(2026-08-06 발표), topline은 2026년 11월 예정; Novo Nordisk와 비독점 평가 계약 체결",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "Novo Nordisk와 비독점 평가 계약을 체결한 6개월 semaglutide implant 후보. 전임상 모델의 1년간 지속 노출과 20% 이상 sham-adjusted 체중감소는 연 1회 잠재력 근거. SLIM-1은 2026-07-29~08-05 사이 20명 전원 투여를 마쳤고 topline은 2026년 11월 예정이다.",
   "differentiator": "NanoPortal titanium implant의 현재 제품 목표는 6개월 1회. 연 1회는 별도 전임상 설계 잠재력.",
   "caveat": "SLIM-1(호주, 저용량 4주 PK 비교)은 투여를 완료했으나 ClinicalTrials.gov는 2026-06-30 갱신 이후 Not yet recruiting으로 남아 sponsor 발표와 시차가 있다. Bellberry HREC 승인은 연구윤리 승인, 국가 규제기관 승인 아님. 미국 IND는 2027년 제출 계획이며 SLIM-1과 별개. 연 1회는 전임상 잠재력으로 현재 6개월 제품 목표와 구분. Novo Nordisk 계약은 비독점 평가 계약이며 옵션 행사나 계약 확대 발표는 아직 없다.",
@@ -40,12 +40,6 @@
       "accessedOn": "2026-07-28"
     },
     {
-      "label": "ClinicalTrials.gov NCT07430059",
-      "url": "https://clinicaltrials.gov/study/NCT07430059",
-      "sourceType": "registry",
-      "accessedOn": "2026-07-28"
-    },
-    {
       "label": "Vivani Medical Q1 2026 business update and US IND plan",
       "url": "https://investors.vivani.com/investors/news-events/press-releases/detail/214/vivani-medical-reports-first-quarter-2026-financial-results",
       "sourceType": "company",
@@ -56,6 +50,18 @@
       "url": "https://investors.vivani.com/investors/news-events/press-releases/detail/188/vivani-medical-announces-positive-preclinical-weight-loss",
       "sourceType": "company",
       "accessedOn": "2026-07-28"
+    },
+    {
+      "label": "Vivani Medical Reports Second Quarter 2026 Financial Results and Provides Business Update, 2026-08-13 (reconfirms SLIM-1 full dosing, November 2026 topline, 2027 US IND plan, Novo Nordisk agreement)",
+      "url": "https://investors.vivani.com/investors/news-events/press-releases/detail/222/vivani-medical-reports-second-quarter-2026-financial-results",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT07430059 API record, reverified 2026-08-31 (still Not yet recruiting, last update 2026-06-30)",
+      "url": "https://clinicaltrials.gov/study/NCT07430059",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-31"
     }
   ]
 }

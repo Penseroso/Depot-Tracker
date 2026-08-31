@@ -3,14 +3,14 @@
   "registry": "ClinicalTrials.gov",
   "registryId": "NCT07684144",
   "phase": "Phase 3",
-  "recruitmentStatus": "not-yet-recruiting",
-  "registryStatusRaw": "Not yet recruiting",
-  "countries": [],
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
+  "countries": ["United States", "Japan", "Puerto Rico"],
   "registrySource": {
     "label": "ClinicalTrials.gov NCT07684144 (MARITIME-2-EXTENSION)",
     "url": "https://clinicaltrials.gov/study/NCT07684144",
     "sourceType": "registry",
-    "accessedOn": "2026-08-10"
+    "accessedOn": "2026-08-31"
   },
-  "lastVerifiedAt": "2026-08-10"
+  "lastVerifiedAt": "2026-08-31"
 }

@@ -1,0 +1,18 @@
+{
+  "programSlug": "ascletis-asc36",
+  "date": "2026-08-10",
+  "company": "Ascletis Pharma",
+  "programName": "ASC36",
+  "category": "Clinical",
+  "headline": "ASC36 미국 FDA IND 승인 및 Phase I 투여 개시",
+  "summary": "2026-07-06 제출된 ASC36 IND가 FDA 승인을 받았고, sponsor는 2026-08-10 미국에서 Phase I 투여가 개시됐다고 밝혔다. 시험은 두 제형(Injection A, B, 각 72명 무작위배정)의 단회 및 다회 용량상승을 평가해 월 1회에서 분기 1회 투여 가능성을 검증한다. 2026-08-31 기준 ClinicalTrials.gov 등록은 아직 확인되지 않는다.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "Ascletis initiation of two Phase I studies (ASC36, ASC36_35FDC), 2026-08-10",
+      "url": "https://www.prnewswire.com/news-releases/ascletis-announces-initiation-of-two-phase-i-studies-in-us-for-the-treatment-of-obesity-asc36-once-monthly-injection-an-amylin-receptor-peptide-agonist-and-asc3635fdc-once-monthly-injection-a-co-formulation-of-asc36-and-glp-302847051.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    }
+  ]
+}

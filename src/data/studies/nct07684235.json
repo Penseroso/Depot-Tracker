@@ -5,12 +5,12 @@
   "phase": "Phase 3",
   "recruitmentStatus": "recruiting",
   "registryStatusRaw": "Recruiting",
-  "countries": ["United States", "Australia"],
+  "countries": ["United States", "Australia", "Japan", "Puerto Rico"],
   "registrySource": {
     "label": "ClinicalTrials.gov NCT07684235",
     "url": "https://clinicaltrials.gov/study/NCT07684235",
     "sourceType": "registry",
-    "accessedOn": "2026-08-10"
+    "accessedOn": "2026-08-31"
   },
-  "lastVerifiedAt": "2026-08-10"
+  "lastVerifiedAt": "2026-08-31"
 }

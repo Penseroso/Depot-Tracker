@@ -13,10 +13,10 @@
   "route": "주사(세부 경로 미공개)",
   "developmentStage": "Preclinical",
   "developmentStatus": "비임상; 2027년 상반기 IND 제출 계획",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "APCVantage antibody-peptide conjugation을 적용한 월 1회 비만 주사 후보. 항체의 약동학적 이점과 peptide 효능 결합을 목표로 비임상 개발 중.",
   "differentiator": "Sciwind APCVantage 플랫폼의 antibody-peptide conjugate 설계가 장기지속 제품에 직접 결합됨.",
-  "caveat": "구체 표적, peptide 및 conjugate 구조와 비임상 정량 수치는 미공개. 2027년 상반기 IND 제출은 계획이며 완료가 아님.",
+  "caveat": "구체 표적, peptide 및 conjugate 구조와 비임상 정량 수치는 미공개. 2027년 상반기 IND 제출은 계획이며 완료가 아님. 2026-08-31 재확인 시 Sciwind 공식 파이프라인 페이지도 동일하게 early-stage로 표기.",
   "confidence": "High",
   "active": true,
   "stageRank": 35,
@@ -26,6 +26,12 @@
       "url": "https://www.hkexnews.hk/app/sehk/2026/108322/documents/sehk26032301281.pdf",
       "sourceType": "filing",
       "accessedOn": "2026-07-29"
+    },
+    {
+      "label": "Sciwind current pipeline (XW019 early-stage 재확인)",
+      "url": "https://www.sciwindbio.com/portal/index/pipeline/category_id/3.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
     }
   ]
 }

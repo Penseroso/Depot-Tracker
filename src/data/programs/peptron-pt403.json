@@ -12,11 +12,11 @@
   },
   "route": "피하주사",
   "developmentStage": "Human PK pilot",
-  "developmentStatus": "국내 IND 준비(임상시험 신청 필요 자료 준비 중); 제출 확인 전. FDA 505(b)(2) 경로로 글로벌 개발 전략 수립, FDA 사전 협의 완료",
-  "lastVerifiedAt": "2026-08-10",
+  "developmentStatus": "국내 임상 1상 IND 식약처 신청 완료(2026-08-25). 건강한 성인 22명, 충남대학교병원 임상시험센터, 단회 피하투여 3개 코호트 설계. 승인 여부는 아직 공개 전. FDA 505(b)(2) 경로로 글로벌 개발 전략 수립, FDA 사전 협의 완료",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "중대한 이상반응 없음. 주 1회 비교군에서 관찰된 오심, 구토, PT403군에서는 미보고.",
   "differentiator": "SmartDepot PLGA microsphere; 고함량, 저 burst 및 상대적으로 가는 주사침 지향",
-  "caveat": "소규모 pilot 자료. 정식 등록 임상 여부, 전체 PK 수치 공개 전. ClinicalTrials.gov에도 등록된 시험 없음(2026-08-10 확인). Q8W는 과거 비임상 가능성, 현재 임상 목표 아님. 미국특허청 특허 등록료 납부 완료, 정식 특허번호 발급 대기 중이나 이는 IND 제출과 별개다.",
+  "caveat": "소규모 pilot 자료. 전체 PK 수치 공개 전. 국내 1상 IND 신청은 완료됐으나(2026-08-25) MFDS 승인, CRIS 또는 ClinicalTrials.gov 등록번호는 아직 공개 전(2026-08-31 확인). Q8W는 과거 비임상 가능성, 현재 임상 목표 아님. 미국특허청 특허 등록료 납부 완료, 정식 특허번호 발급 대기 중이나 이는 IND 제출과 별개다.",
   "confidence": "Medium",
   "active": true,
   "stageRank": 77,
@@ -38,6 +38,18 @@
       "url": "https://patents.google.com/patent/US20240307500A1/en",
       "sourceType": "patent",
       "accessedOn": "2026-07-30"
+    },
+    {
+      "label": "더바이오, 펩트론 월 1회 비만치료제 후보물질 'PT403' 국내 임상1상 IND 신청, 2026-08-25",
+      "url": "https://www.thebionews.net/news/articleView.html?idxno=27495",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "메디파나뉴스, 펩트론 월 1회 세마글루타이드 'PT403' 임상 1상 신청, 2026-08-25",
+      "url": "https://www.medifonews.com/news/article.html?no=215681",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
     }
   ]
 }

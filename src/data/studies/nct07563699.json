@@ -3,8 +3,8 @@
   "registry": "ClinicalTrials.gov",
   "registryId": "NCT07563699",
   "phase": "Phase 1 | Phase 2",
-  "recruitmentStatus": "not-yet-recruiting",
-  "registryStatusRaw": "Not yet recruiting",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "Recruiting",
   "countries": [
     "Israel"
   ],
@@ -12,7 +12,7 @@
     "label": "ClinicalTrials.gov NCT07563699",
     "url": "https://clinicaltrials.gov/study/NCT07563699",
     "sourceType": "registry",
-    "accessedOn": "2026-08-10"
+    "accessedOn": "2026-08-31"
   },
-  "lastVerifiedAt": "2026-08-10"
+  "lastVerifiedAt": "2026-08-31"
 }

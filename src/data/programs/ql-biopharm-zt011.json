@@ -13,10 +13,10 @@
   "route": "피하주사",
   "developmentStage": "Preclinical",
   "developmentStatus": "비임상; 2027년 4분기 first-in-human 개시 계획",
-  "lastVerifiedAt": "2026-08-10",
+  "lastVerifiedAt": "2026-08-31",
   "readout": "GLP-1/GIP/amylin 단일분자 triple agonist injection으로 QLLong 플랫폼의 월간 투여를 지향한다.",
   "differentiator": "세 대사 경로의 활성 균형과 fatty-acid 기반 반감기 연장을 한 분자에 통합한다.",
-  "caveat": "월간 간격은 플랫폼과 제품 matrix의 목표이며 사람 PK 및 효능 또는 IND 제출 근거는 없다.",
+  "caveat": "월간 간격은 플랫폼과 제품 matrix의 목표이며 사람 PK 및 효능 또는 IND 제출 근거는 없다. 2026-08-31 재확인 시 QL Biopharm 공식 파이프라인 페이지(ZT001/ZT002/ZT003/ZT006만 열거)에도 ZT011은 별도 표시되지 않아 prospectus가 유일 근거로 남아 있다.",
   "confidence": "Medium",
   "active": true,
   "stageRank": 35,
@@ -25,7 +25,13 @@
       "label": "QL Biopharm HKEX draft prospectus, 2026-04-24",
       "url": "https://www1.hkexnews.hk/app/sehk/2026/108464/documents/sehk26042404195.pdf",
       "sourceType": "filing",
-      "accessedOn": "2026-07-29"
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "QL Biopharm R&D pipeline detail page (ZT011 항목 부재 확인)",
+      "url": "https://www.qlbiopharm.com/en/pipelines.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
     }
   ]
 }

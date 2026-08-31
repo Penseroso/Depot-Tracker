@@ -1,0 +1,19 @@
+{
+  "programSlug": "mapi-sg-depot",
+  "studySlug": "nct07563699",
+  "date": "2026-08-09",
+  "company": "Mapi Pharma",
+  "programName": "SG Depot",
+  "category": "Clinical",
+  "headline": "SG Depot Phase I/IIa(NCT07563699) 실제 첫 환자 투여 개시, Recruiting 전환",
+  "summary": "ClinicalTrials.gov, NCT07563699(월 1회 SG Depot, PLGA microsphere, 제2형 당뇨병 대상 Phase I/IIa) 전체 상태를 2026-08-09 실제 투여 개시와 함께 Not yet recruiting에서 Recruiting으로 갱신. 2026년 6월 등록 개시 계획 발표 이후 약 2개월 지연됐던 first-patient-in이 이스라엘 텔아비브 단일 사이트에서 확인됐다.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT07563699",
+      "url": "https://clinicaltrials.gov/study/NCT07563699",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-31"
+    }
+  ]
+}

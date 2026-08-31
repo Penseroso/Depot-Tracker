@@ -13,10 +13,10 @@
   "route": "피하주사",
   "developmentStage": "Registered Phase I/IIa",
   "developmentStatus": "공식 등록 임상 개발; 최신 운영 상태는 연결 Study에서 관리",
-  "lastVerifiedAt": "2026-08-10",
-  "readout": "공개 경쟁군 중 가장 명확한 정식 임상 진입 프로그램. 24명 규모, 안전성, 내약성, 유효성 평가.",
+  "lastVerifiedAt": "2026-08-31",
+  "readout": "공개 경쟁군 중 가장 명확한 정식 임상 진입 프로그램. 24명 규모, 안전성, 내약성, 유효성 평가. 2026-08-09 실제 첫 환자 투여 개시로 Recruiting 전환 확인.",
   "differentiator": "저 burst biodegradable microparticle depot; 특허는 4주~6개월 범위를 포괄하나 현재 임상 목표는 월 1회",
-  "caveat": "등록 개시 계획 발표(2026-06) 대비 레지스트리는 2026-08-10 기준에도 Not yet recruiting(6월 30일 갱신 이후 변동 없음). first-patient-in 미확인. NCT07563699 등록 제목/대상군은 제2형 당뇨병 환자로 명시돼 있어, 비만 적용은 특허 범위 및 sponsor 파이프라인 성격에 근거하며 이 시험 자체의 대상군은 아니다.",
+  "caveat": "등록 개시 계획 발표(2026-06) 대비 약 2개월 지연된 2026-08-09 실제 투여 개시로 first-patient-in 확인, 레지스트리 상태 Recruiting 전환(단일 사이트, 이스라엘 텔아비브). NCT07563699 등록 제목/대상군은 제2형 당뇨병 환자로 명시돼 있어, 비만 적용은 특허 범위 및 sponsor 파이프라인 성격에 근거하며 이 시험 자체의 대상군은 아니다.",
   "confidence": "High",
   "active": true,
   "stageRank": 100,
@@ -25,7 +25,7 @@
       "label": "ClinicalTrials.gov NCT07563699",
       "url": "https://clinicaltrials.gov/study/NCT07563699",
       "sourceType": "registry",
-      "accessedOn": "2026-08-10"
+      "accessedOn": "2026-08-31"
     },
     {
       "label": "Mapi Pharma, 2026-06-01",
