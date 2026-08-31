@@ -58,6 +58,14 @@ peer-reviewed publications. Store the source-near formulation description in
 `deliveryTechnologyId`. Use `other` only when direct evidence is insufficient
 for a more specific registered category; never infer from a product name alone.
 
+Classify `durationMechanismId` from that same directly supported
+`deliveryTechnology` description (see `docs/DATA_CONTRACT.md` "Duration
+mechanism" for the allowed values and the classification principle). Never
+infer a mechanism from the payload's own baseline pharmacology or from a
+product name alone; when the record does not directly say what drives
+persistence, store `null` and explain the gap in `caveat` rather than
+guessing.
+
 ## Interval claims
 
 Program stores exactly one interval claim, `productTarget`: sponsor or

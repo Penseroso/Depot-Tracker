@@ -384,7 +384,9 @@ Keep crossover bounded:
 
 - Reuse stable Program and Study slugs.
 - Declare ordered `payloadComponents`, `recordType`, and a registered
-  delivery-technology ID.
+  delivery-technology ID. Classify `durationMechanismId` from the same
+  evidence or store `null`; never guess it from the payload alone (see
+  `docs/DATA_CONTRACT.md` "Duration mechanism").
 - Keep payload combinations as separate Programs and never alphabetize
   `payloadComponents` mechanically.
 - Preserve free-text delivery technology alongside its controlled ID.

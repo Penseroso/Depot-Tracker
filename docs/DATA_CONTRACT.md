@@ -83,6 +83,10 @@ Each `src/data/programs/*.json` stores one Program or technology-watch item.
 - `recordType`: sponsor Program versus technology watch.
 - `deliveryTechnologyId`: foreign key to the delivery-technology registry.
 - `deliveryTechnology`: source-near free-text formulation description.
+- `durationMechanismId`: the Program's coarse persistence-mechanism class, or
+  `null` when direct evidence is insufficient. See `## Duration mechanism`
+  below; this field never duplicates `deliveryTechnologyId`'s specific-technology
+  role.
 - `productTarget`: the sponsor or registered product's target dosing interval,
   a strict interval claim (see `## Interval claims`). Program stores only this
   one interval claim; it does not store a separate demonstrated-duration or
@@ -224,6 +228,51 @@ Registered IDs are `polymer-microparticle`, `in-situ-forming-depot`,
 `injectable-hydrogel`, `implant`, `polymer-conjugate`,
 `crystal-or-suspension`, and `other`. Consumers must not maintain a parallel
 label or ordering table.
+
+## Duration mechanism
+
+`durationMechanismId` (`src/lib/duration-mechanisms.js`) is a small, fixed
+classification of *why* a Program achieves its extended duration, kept
+deliberately coarser than and orthogonal to `deliveryTechnologyId`.
+`deliveryTechnologyId`/`deliveryTechnology` record the specific technology
+category and its source-near description (a microsphere polymer, an implant
+material, a named platform); `durationMechanismId` groups that description
+into one of five mechanism classes so Programs that pursue fundamentally
+different approaches are never conflated under a shared `deliveryTechnologyId`
+value such as `other`. Allowed values:
+
+- `formulation-depot`: a physical matrix (microparticle, in-situ-forming
+  depot, hydrogel, crystal/suspension, or an equivalent named depot
+  formulation) controls release.
+- `implant-device`: a physical implanted device controls release.
+- `molecular-half-life-extension`: the payload molecule itself is engineered
+  (fatty-acid/lipid conjugation, antibody or Fc conjugation, polymer
+  conjugation used only to extend circulating half-life, or an equivalent
+  directly supported design) with no separate depot matrix or device.
+- `prodrug-conjugate-release`: a prodrug or cleavable-linker construct
+  releases the active drug over time through its own release/hydrolysis
+  kinetics, distinct from simply slowing clearance of an already-active
+  molecule.
+- `hybrid`: two or more of the above mechanisms are directly and explicitly
+  evidenced operating together on the same stored record (for example, a
+  hydrogel-microsphere depot built from a tunable cleavable-linker
+  conjugate).
+- `null`: direct evidence is insufficient to classify the mechanism; never
+  guess. Use `null` the same way `productTarget` uses `null`, and explain why
+  in `caveat`.
+
+Classify from what the Program's own `deliveryTechnology`/`differentiator`
+text directly says is driving persistence for that specific record, not from
+the payload's own baseline pharmacology. A microsphere/depot formulation
+built around an already fatty-acid-conjugated payload (e.g. semaglutide) is
+`formulation-depot`, not `hybrid` — the depot layer is the Program's own
+differentiating contribution, and the payload's baseline design is not being
+pursued as this Program's innovation. In a combination Program where only one
+component carries a directly evidenced engineered mechanism and the other is
+administered conventionally, classify by the engineered component's
+mechanism rather than `hybrid`. Reserve `hybrid` for a single record where
+two or more engineered mechanisms are themselves the direct subject of the
+evidence.
 
 ## Media-source registry
 

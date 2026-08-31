@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-conjugate",
   "deliveryTechnology": "hydrogel microsphere + tunable cleavable-linker conjugate",
+  "durationMechanismId": "hybrid",
   "productTarget": {
     "description": "월 1회 목표",
     "minDays": 28,

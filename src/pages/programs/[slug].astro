@@ -6,6 +6,7 @@ import EventEntry from '../../components/EventEntry.astro';
 import TimelineEntry from '../../components/TimelineEntry.astro';
 import { getCompanies, getCompaniesForProgram, getDeliveryTechnologies, getEvents, getEventsForProgram, getPrograms, getStudies } from '../../lib/data';
 import { formatDate, formatIntervalClaim, formatPayloadComponents, stageLabel } from '../../lib/format';
+import { getDurationMechanismLabel } from '../../lib/duration-mechanisms.js';
 
 export function getStaticPaths() {
   const studies = getStudies();
@@ -126,6 +127,7 @@ const timelineRest = earlierEvents.slice(5);
       <dl class="fact-list">
         <div class="fact-row"><dt>Payload</dt><dd>{formatPayloadComponents(program.payloadComponents)}</dd></div>
         <div class="fact-row"><dt>제형</dt><dd>{program.deliveryTechnology}</dd></div>
+        <div class="fact-row"><dt>지속기전</dt><dd>{getDurationMechanismLabel(program.durationMechanismId)}</dd></div>
         <div class="fact-row"><dt>목표 투여 간격</dt><dd>{formatIntervalClaim(program.productTarget)}</dd></div>
         <div class="fact-row"><dt>투여경로</dt><dd>{program.route}</dd></div>
         <div class="fact-row"><dt>개발 단계</dt><dd>{stageLabel(program.developmentStage)}</dd></div>

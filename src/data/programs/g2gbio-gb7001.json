@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "InnoLAMP microsphere (polymer unspecified)",
+  "durationMechanismId": "formulation-depot",
   "productTarget": {
     "description": "1개월",
     "minDays": 28,

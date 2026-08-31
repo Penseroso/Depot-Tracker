@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "implant",
   "deliveryTechnology": "NanoPortal titanium subdermal implant",
+  "durationMechanismId": "implant-device",
   "productTarget": {
     "description": "6개월 1회",
     "minDays": 168,

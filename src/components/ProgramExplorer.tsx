@@ -11,9 +11,10 @@ import {
   type IntervalBucketId,
 } from '../lib/format';
 import { getStageBadgeClass } from '../lib/development-stages.js';
+import { durationMechanisms, getDurationMechanismLabel, getDurationMechanismShortLabel } from '../lib/duration-mechanisms.js';
 
-const FILTER_PARAMS = { stage: 'stage', technology: 'technology', interval: 'interval' } as const;
-const defaultUrlFilters = { stage: 'all', technology: 'all', interval: 'all' };
+const FILTER_PARAMS = { stage: 'stage', technology: 'technology', interval: 'interval', mechanism: 'mechanism' } as const;
+const defaultUrlFilters = { stage: 'all', technology: 'all', interval: 'all', mechanism: 'all' };
 
 function readFilterParamsFromUrl() {
   const params = new URLSearchParams(window.location.search);
@@ -21,6 +22,7 @@ function readFilterParamsFromUrl() {
     stage: params.get(FILTER_PARAMS.stage) ?? 'all',
     technology: params.get(FILTER_PARAMS.technology) ?? 'all',
     interval: params.get(FILTER_PARAMS.interval) ?? 'all',
+    mechanism: params.get(FILTER_PARAMS.mechanism) ?? 'all',
   };
 }
 
@@ -39,11 +41,12 @@ type Props = {
 
 export default function ProgramExplorer({ programs, deliveryTechnologies, companyLinksByProgramCompany, basePath, asOfDate, latestEventDateByProgram }: Props) {
   const [query, setQuery] = useState('');
-  const [{ stage, technology, interval }, setUrlFilters] = useState(defaultUrlFilters);
+  const [{ stage, technology, interval, mechanism }, setUrlFilters] = useState(defaultUrlFilters);
   const [hydratedFromUrl, setHydratedFromUrl] = useState(false);
   const setStage = (value: string) => setUrlFilters((current) => ({ ...current, stage: value }));
   const setTechnology = (value: string) => setUrlFilters((current) => ({ ...current, technology: value }));
   const setIntervalFilter = (value: string) => setUrlFilters((current) => ({ ...current, interval: value }));
+  const setMechanism = (value: string) => setUrlFilters((current) => ({ ...current, mechanism: value }));
   const [recordType, setRecordType] = useState('all');
 
   // Applied post-mount (not in the lazy initializer) so the first client render
@@ -57,15 +60,15 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, compan
   useEffect(() => {
     if (!hydratedFromUrl) return;
     const params = new URLSearchParams(window.location.search);
-    (['stage', 'technology', 'interval'] as const).forEach((key) => {
-      const value = key === 'stage' ? stage : key === 'technology' ? technology : interval;
+    (['stage', 'technology', 'interval', 'mechanism'] as const).forEach((key) => {
+      const value = key === 'stage' ? stage : key === 'technology' ? technology : key === 'interval' ? interval : mechanism;
       if (value === 'all') params.delete(FILTER_PARAMS[key]);
       else params.set(FILTER_PARAMS[key], value);
     });
     const search = params.toString();
     const nextUrl = `${window.location.pathname}${search ? `?${search}` : ''}${window.location.hash}`;
     window.history.replaceState(window.history.state, '', nextUrl);
-  }, [stage, technology, interval, hydratedFromUrl]);
+  }, [stage, technology, interval, mechanism, hydratedFromUrl]);
 
   const technologyById = useMemo(
     () => new Map(deliveryTechnologies.map((item) => [item.id, item])),
@@ -80,6 +83,7 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, compan
         program.programName,
         ...program.payloadComponents,
         program.deliveryTechnology,
+        getDurationMechanismLabel(program.durationMechanismId),
         program.productTarget?.description,
       ]
         .filter(Boolean)
@@ -91,9 +95,10 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, compan
         && (technology === 'all' || program.deliveryTechnologyId === technology)
         && (interval === 'all' || getProductTargetIntervalBuckets(program.productTarget).includes(interval as IntervalBucketId))
         && (recordType === 'all' || program.recordType === recordType)
+        && (mechanism === 'all' || program.durationMechanismId === mechanism)
       );
     });
-  }, [programs, query, stage, technology, interval, recordType]);
+  }, [programs, query, stage, technology, interval, mechanism, recordType]);
 
   return (
     <section className="filter-shell">
@@ -114,6 +119,10 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, compan
         <select className="control" value={interval} onChange={(event: ChangeEvent<HTMLSelectElement>) => setIntervalFilter(event.target.value)} aria-label="목표 투여 간격">
           <option value="all">모든 목표 간격</option>
           {Object.entries(intervalBucketLabels).map(([id, label]) => <option key={id} value={id}>{label}</option>)}
+        </select>
+        <select className="control" value={mechanism} onChange={(event: ChangeEvent<HTMLSelectElement>) => setMechanism(event.target.value)} aria-label="지속기전">
+          <option value="all">모든 지속기전</option>
+          {durationMechanisms.map((id) => <option key={id} value={id}>{getDurationMechanismLabel(id)}</option>)}
         </select>
         <select className="control" value={recordType} onChange={(event: ChangeEvent<HTMLSelectElement>) => setRecordType(event.target.value)} aria-label="레코드 유형">
           <option value="all">모든 유형</option>
@@ -148,7 +157,7 @@ export default function ProgramExplorer({ programs, deliveryTechnologies, compan
                         <span className="record-type-tag">{recordTypeLabel(program.recordType)}</span>
                       </td>
                       <td><span className="cell-title">{formatPayloadComponents(program.payloadComponents)}</span></td>
-                      <td><span className="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span className="cell-sub">{program.deliveryTechnology}</span></td>
+                      <td><span className="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span className="cell-sub">{program.deliveryTechnology}</span><span className="record-type-tag">{getDurationMechanismShortLabel(program.durationMechanismId)}</span></td>
                       <td>{formatIntervalClaim(program.productTarget)}</td>
                       <td><span className={getStageBadgeClass(program.developmentStage)}>{stageLabel(program.developmentStage)}</span></td>
                       <td><span className="cell-sub" style={{ maxWidth: 260 }}>{program.developmentStatus}</span></td>

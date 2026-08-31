@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { developmentStages } from './development-stages.js';
+import { durationMechanisms } from './duration-mechanisms.js';
 
 export const sourceSchema = z.object({
   label: z.string().min(1),
@@ -95,6 +96,7 @@ export const programSchema = z.object({
   recordType: z.enum(['sponsor-program', 'technology-watch']),
   deliveryTechnologyId: deliveryTechnologySchema.shape.id,
   deliveryTechnology: z.string().min(1),
+  durationMechanismId: z.enum(durationMechanisms).nullable(),
   productTarget: intervalClaimSchema.nullable(),
   route: z.string().min(1),
   developmentStage: z.enum(developmentStages),

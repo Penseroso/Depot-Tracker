@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "in-situ-forming-depot",
   "deliveryTechnology": "ULAP subcutaneous depot formulation",
+  "durationMechanismId": "formulation-depot",
   "productTarget": {
     "description": "월 1회",
     "minDays": 28,

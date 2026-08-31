@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "other",
   "deliveryTechnology": "LiquidGel long-acting formulation",
+  "durationMechanismId": "formulation-depot",
   "productTarget": {
     "description": "월 1회",
     "minDays": 28,

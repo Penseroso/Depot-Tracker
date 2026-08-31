@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "in-situ-forming-depot",
   "deliveryTechnology": "FluidCrystal lipid liquid-crystal in-situ depot",
+  "durationMechanismId": "formulation-depot",
   "productTarget": {
     "description": "격주 유도 용량 2회 후 월 1회 유지",
     "minDays": 28,

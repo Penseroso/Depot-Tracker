@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-microparticle",
   "deliveryTechnology": "IVL-DrugFluidic microfluidic microsphere",
+  "durationMechanismId": "formulation-depot",
   "productTarget": null,
   "route": "피하주사",
   "developmentStage": "Preclinical",

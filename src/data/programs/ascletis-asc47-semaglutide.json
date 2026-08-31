@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "in-situ-forming-depot",
   "deliveryTechnology": "ASC47 ULAP depot plus conventional semaglutide",
+  "durationMechanismId": "formulation-depot",
   "productTarget": null,
   "route": "피하주사",
   "developmentStage": "Registered Phase I",

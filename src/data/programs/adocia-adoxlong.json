@@ -5,6 +5,7 @@
   "recordType": "sponsor-program",
   "deliveryTechnologyId": "polymer-conjugate",
   "deliveryTechnology": "polymer–peptide conjugate",
+  "durationMechanismId": "molecular-half-life-extension",
   "productTarget": {
     "description": "월 1회",
     "minDays": 28,
