@@ -1,0 +1,61 @@
+{
+  "company": "Gan & Lee Pharmaceuticals / JW Pharmaceutical",
+  "programName": "Bofanglutide (GZR18)",
+  "payloadComponents": ["bofanglutide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "22탄소 지방이산(C22 fatty diacid) 결합 GLP-1 analog; 알부민 가역결합 기반 반감기 연장 설계",
+  "productTarget": {
+    "description": "2주 1회(Q2W)",
+    "minDays": 14,
+    "maxDays": 14
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase III",
+  "developmentStatus": "중국 Gan & Lee가 비만/과체중 및 제2형당뇨 적응증으로 다수 Phase III 등록 임상 진행 중(GRADUAL 시리즈 포함). 한국에서는 JW중외제약이 2026-04-09 한국 독점 개발 및 상업화 라이선스 계약을 체결했고, 2026-08-18 비만 적응증 국내 Phase III IND를 식약처에 제출함. 미국에서는 티르제파타이드 대비 head-to-head Phase II가 완료됐으나 topline 미공개.",
+  "lastVerifiedAt": "2026-08-31",
+  "readout": "중국 Phase III GRADUAL-1(비만/과체중, 2주 1회)에서 52주 시점 위약 미보정 체중감소가 24mg군 15.12%, 48mg군 18.54%로 언론 보도됨(peer-review 공개 전). 미국 Phase II head-to-head(NCT06737042, 티르제파타이드 대비)는 완료됐으나 결과 미공개. 한국 Phase III(300명, 위약대조, 2026년 12월 개시, 2029-03 평가종료 목표)는 아직 모집 전 IND 제출 단계임.",
+  "differentiator": "세마글루타이드보다 더 긴 C22 지방이산 사슬을 결합한 GLP-1 단일작용제로, 반감기 약 1주 확보를 통해 기존 주 1회 제제 대비 2배 긴 2주 1회 투여를 목표로 설계됨. 별도 depot 부형제나 미립구 없이 분자 자체의 알부민 결합 강화로 지속시간을 늘린 접근임.",
+  "caveat": "2주 1회는 스폰서의 현재 등록 임상(중국 GRADUAL-1/한국 Phase III IND) 목표이며, 같은 분자로 4주 1회(월 1회) 투여를 평가하는 별도 Phase III(GRADUAL-3, 중국)도 진행 중이어서 두 일정을 연속 범위로 혼동하지 않는다. 비만 Phase III topline(15.12%/18.54%) 수치는 언론 보도 기준이며 peer-review 논문이나 sponsor 1차 공개 자료로 아직 직접 확인되지 않았다. 한국 임상은 IND 제출 단계로 모집이 시작되지 않았고, 등록 근거인 NCT06728124는 중국 임상이다. Gan & Lee 공식 홈페이지는 별도 명명된 delivery-technology 플랫폼 브랜드를 제시하지 않아 deliveryTechnologyId를 'other'로 저장한다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 92,
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT06728124 (GZR18 Phase III, 비만/과체중, 중국)",
+      "url": "https://clinicaltrials.gov/study/NCT06728124",
+      "sourceType": "registry",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "Gan & Lee Pharmaceuticals - Bofanglutide Phase 2b results published in Signal Transduction and Targeted Therapy",
+      "url": "https://www.ganlee.com/detail/836.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "Gan & Lee Pharmaceuticals - JW Pharmaceutical exclusive license agreement announcement",
+      "url": "https://www.ganlee.com/detail/841.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "Gan & Lee Pharmaceuticals - GRADUAL-3 once-monthly Phase III initiation",
+      "url": "https://www.ganlee.com/detail/814.html",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "JW Pharmaceutical files phase 3 IND for biweekly obesity drug bofanglutide, Korea Biomedical Review, 2026-08-18",
+      "url": "https://www.koreabiomed.com/news/articleView.html?idxno=32816",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "JW Pharmaceutical files IND for biweekly obesity drug bofanglutide in Phase 3 trial, Herald Business, 2026-08-18",
+      "url": "https://mbiz.heraldcorp.com/article/10843405",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    }
+  ]
+}

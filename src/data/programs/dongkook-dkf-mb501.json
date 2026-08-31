@@ -1,0 +1,45 @@
+{
+  "company": "Dongkook Pharmaceutical",
+  "programName": "DKF-MB501",
+  "payloadComponents": ["semaglutide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "polymer-microparticle",
+  "deliveryTechnology": "DK-LADS 생분해성 미립구(마이크로스피어) 서방형 플랫폼",
+  "productTarget": null,
+  "route": "피하주사",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "제제 연구 및 비임상 단계. 연내 임상후보물질 및 공정 확보 후 비임상 독성시험, 임상시험용 의약품 생산을 거쳐 2027년 임상 1상 진입을 목표로 함(2026년 상반기~중반 국내 매체 보도 기준).",
+  "lastVerifiedAt": "2026-08-31",
+  "readout": "공식 sponsor 1차 자료로 직접 확인된 결과는 아직 없음. 국내 매체는 세마글루타이드에 DK-LADS 미립구 기술을 적용해 1회 투여로 3개월 이상 약효 지속을 목표로 한다고 보도함. 동국제약은 1999년 국내 최초로 미립구 의약품(류프로렐린 데포 등)을 상용화한 이력을 자체 기술 근거로 제시함.",
+  "differentiator": "자체 개발 생분해성 미립구 플랫폼 DK-LADS를 세마글루타이드에 적용, 주 1회 제제를 월 1회 이상 지속형으로 전환하는 것이 목표. 전립선암치료제 등 기존 미립구 상용화 경험을 비만 파이프라인으로 확장하는 전략.",
+  "caveat": "목표 투여간격(3개월 이상)은 스폰서의 개발 목표로 보도된 수치이며, 등록임상이나 sponsor 공식 파이프라인 페이지로 직접 확인되지 않아 productTarget을 저장하지 않음. 자동 조회한 동국제약 공식 파이프라인 페이지(dkpharm.co.kr/rnd/pipeline.php)는 DKF-MB501을 '승인' 단계로 표시했으나, 이는 다른 모든 소스(2025-11, 2026-02, 2026-06, 2026-08 언론 보도가 모두 비임상 단계로 일치 서술)와 정면으로 배치되고 동사가 승인받은 비만 제품이 없어 페이지 구조 파싱 오류로 판단, canonical stage 근거로 사용하지 않음. 후속 실행에서 브라우저로 직접 재확인 필요. 임상 1상 진입 시점(2027년)도 sponsor 계획이며 확정 일정이 아님.",
+  "confidence": "Medium",
+  "active": true,
+  "stageRank": 35,
+  "sources": [
+    {
+      "label": "동국제약, 독자 약물전달기술로 신약개발 속도낸다, ZDNet Korea, 2026-02-06",
+      "url": "https://zdnet.co.kr/view/?no=20260206102022",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "'에스테틱 강자' 동국제약, R&D 새판 짠다…DDS 기반 '비만치료제' 승부수, 블로터, 2025-11-20",
+      "url": "https://www.bloter.net/news/articleView.html?idxno=647927",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "'길목 통행권 쥔 곳이 강자'… GLP-1 미립구 물줄기 어디로 흐르나, 히트뉴스, 2026-06-18",
+      "url": "https://www.hitnews.co.kr/news/articleView.html?idxno=76944",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    },
+    {
+      "label": "[데일리팜]국산 비만치료제 시장 개화…후발주자 제형·기전 차별화, 데일리팜, 2026-08-12",
+      "url": "https://www.dailypharm.com/user/news/341318",
+      "sourceType": "secondary",
+      "accessedOn": "2026-08-31"
+    }
+  ]
+}
