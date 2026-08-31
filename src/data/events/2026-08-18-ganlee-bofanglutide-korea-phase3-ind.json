@@ -9,6 +9,12 @@
   "significance": "Medium",
   "sources": [
     {
+      "label": "JW Pharmaceutical 프레스룸 - 2주 1회 비만치료제 '보팡글루타이드' 임상 3상 IND 신청, 2026-08-18 (게시물 1335)",
+      "url": "https://www.jw-pharma.co.kr/pharma/ko/prcenter/all_list.jsp",
+      "sourceType": "company",
+      "accessedOn": "2026-08-31"
+    },
+    {
       "label": "JW Pharmaceutical files phase 3 IND for biweekly obesity drug bofanglutide, Korea Biomedical Review, 2026-08-18",
       "url": "https://www.koreabiomed.com/news/articleView.html?idxno=32816",
       "sourceType": "secondary",
