@@ -1,0 +1,16 @@
+{
+  "programSlug": "camurus-cam4072",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT05194124",
+  "phase": "Phase 3",
+  "recruitmentStatus": "completed",
+  "registryStatusRaw": "COMPLETED",
+  "countries": ["United States", "Canada", "Germany", "Netherlands", "Puerto Rico", "United Kingdom"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT05194124",
+    "url": "https://clinicaltrials.gov/study/NCT05194124",
+    "sourceType": "registry",
+    "accessedOn": "2026-09-01"
+  },
+  "lastVerifiedAt": "2026-09-01"
+}

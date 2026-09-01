@@ -1,0 +1,40 @@
+{
+  "company": "Stanford Appel Lab (academic technology watch)",
+  "programName": "PNP hydrogel–tirzepatide",
+  "payloadComponents": ["tirzepatide"],
+  "recordType": "technology-watch",
+  "deliveryTechnologyId": "injectable-hydrogel",
+  "deliveryTechnology": "cross-linked hydrogel",
+  "durationMechanismId": "formulation-depot",
+  "productTarget": null,
+  "route": "피하주사",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "Academic preclinical research",
+  "lastVerifiedAt": "2026-09-01",
+  "readout": "비미립구 depot 기술 레이더 항목. 기존 저장된 semaglutide PNP hydrogel(stanford-pnp-hydrogel)과 동일한 2026년 Advanced Therapeutics 논문에서 함께 보고된 tirzepatide 적재 PNP hydrogel. 당뇨 rat 모델에서 500 uL 단회 피하주사로 6주 이상 유효 약물농도 유지, 매일 투여 대비 유사한 혈당 및 체중 조절 효과 확인.",
+  "differentiator": "상용 및 GRAS 계열 재료의 물리적 혼합으로 형성되는 injectable polymer-nanoparticle hydrogel을 semaglutide 외 tirzepatide에도 적용한 별도 payload 레코드. 동일 저자군(Appel Lab), 동일 특허(WO2025024455A1)가 tirzepatide 적재 및 유변학적 특성(FIG 7A-7C)을 직접 청구.",
+  "caveat": "기업 개발 프로그램 아님(academic technology-watch). rat 직접 노출 확인 기간은 6주 이상이며, 사람 대상 자료 없음. semaglutide 레코드와 동일 논문/특허를 공유하나 payload가 달라 별도 Program으로 저장함(Data Contract: 동일 플랫폼이라도 payload가 다르면 별도 Program).",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 30,
+  "sources": [
+    {
+      "label": "d'Aquino AI, et al. Long-acting hydrogel-based depot formulations of tirzepatide and semaglutide for the management of type 2 diabetes and weight, Advanced Therapeutics 2026",
+      "url": "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adtp.202500329",
+      "sourceType": "publication",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "PMC full text",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12236481/",
+      "sourceType": "publication",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "WO2025024455A1 PNP hydrogel semaglutide/tirzepatide (tirzepatide-loaded hydrogel and rheology in FIGS. 7A-7C)",
+      "url": "https://patents.google.com/patent/WO2025024455A1/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-09-01"
+    }
+  ]
+}

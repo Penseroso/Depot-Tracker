@@ -1,0 +1,44 @@
+{
+  "company": "Peptron",
+  "programName": "PT404",
+  "payloadComponents": ["tirzepatide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "polymer-microparticle",
+  "deliveryTechnology": "SmartDepot PLGA microsphere",
+  "durationMechanismId": "formulation-depot",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "Peptron 공식 파이프라인 페이지가 PT404를 SmartDepot 기반 월 1회 tirzepatide 서방형 제형으로 직접 확인함. IND 신청 전 전임상 단계이며, 글로벌 제약사와 MTA(물질이전계약) 진행 중.",
+  "lastVerifiedAt": "2026-09-01",
+  "readout": "ADA 2023 학회 초록(781-P)에서 PT403(세마글루타이드)과 함께 PT404(티르제파타이드)의 월 1회 또는 격월 서방형 제형 전임상 개발 및 평가 결과를 공개함. SmartDepot 기술이 장기지속형 제형에 적용 가능함을 뒷받침하는 근거로, PT403/PT404 임상개발의 기반이 된다고 보고됨.",
+  "differentiator": "PT403(세마글루타이드)와 동일한 SmartDepot PLGA 미립구 플랫폼을 티르제파타이드에 적용한 별도 payload 프로그램. 기존 주 1회 tirzepatide 제제 대비 월 1회 투여를 목표로 함.",
+  "caveat": "전임상 단계로 사람 대상 PK/효능 자료, IND 제출 시점은 아직 공개되지 않음. ADA 2023 초록은 격월(bimonthly) 가능성도 함께 탐색했으나, Peptron 공식 페이지가 명시한 현재 목표는 월 1회이며 이를 productTarget으로 저장함. 특정 글로벌 제약사와의 MTA는 상대방이 특정되지 않아 별도 Event나 파트너십 사실로 기록하지 않음.",
+  "confidence": "Medium",
+  "active": true,
+  "stageRank": 30,
+  "sources": [
+    {
+      "label": "Peptron 공식 파이프라인 - PT403/PT404",
+      "url": "http://www.peptron.com/ds6_5_1.html",
+      "sourceType": "company",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "781-P: Sustained-Release Formulation Development and Preclinical Evaluations of Monthly or Bimonthly Injectable Semaglutide and Tirzepatide, ADA 2023, Diabetes Vol 72 Suppl 1",
+      "url": "https://diabetesjournals.org/diabetes/article/72/Supplement_1/781-P/149936/781-P-Sustained-Release-Formulation-Development",
+      "sourceType": "conference",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "PT404 preclinical monthly/bimonthly tirzepatide formulation, secondary summary",
+      "url": "https://synapse.patsnap.com/drug/dc93efae3e7e403391521517d2fe3ed9",
+      "sourceType": "secondary",
+      "accessedOn": "2026-09-01"
+    }
+  ]
+}

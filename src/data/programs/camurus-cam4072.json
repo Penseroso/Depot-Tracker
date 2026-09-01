@@ -1,0 +1,50 @@
+{
+  "company": "Rhythm Pharmaceuticals / Camurus",
+  "programName": "CAM4072 (weekly setmelanotide depot)",
+  "payloadComponents": ["setmelanotide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "in-situ-forming-depot",
+  "deliveryTechnology": "FluidCrystal lipid liquid-crystal in-situ depot",
+  "durationMechanismId": "formulation-depot",
+  "productTarget": {
+    "description": "주 1회",
+    "minDays": 7,
+    "maxDays": 7
+  },
+  "route": "피하주사",
+  "developmentStage": "Paused",
+  "developmentStatus": "Rhythm Pharmaceuticals 공식 10-K(FY2025, 2026년 제출)가 직접 확인: Rhythm이 후속 후보 RM-718 개발을 우선하며 주 1회 setmelanotide 제형(FluidCrystal 기반 CAM4072) 개발을 중단(paused)함. EU/영국 PIP(소아 임상계획)에서 주 1회 제형 관련 항목 제외를 2026년 1분기(Q1 2025 표기, 회사 표기 기준) 신청해 2분기 승인받음. RM-718이 최종 긍정적 유효성/안전성을 확인할 경우 주 1회 제형 개발은 완전히 종료(discontinue)될 예정.",
+  "lastVerifiedAt": "2026-09-01",
+  "readout": "희귀 유전성 비만질환(MC4R 경로 결함, Bardet-Biedl 증후군 등) 환자 대상 Phase 3 교차시험(NCT05194124, 30명, 13주 x 2기)에서 주 1회 setmelanotide/주 1회 위약 vs 매일 setmelanotide/매일 위약 비교 후 전원 주 1회 공개라벨 13주 연장 완료. 이전 Phase 1b/2에서는 매일 제형과 유사한 체중감소 및 안전성/내약성이 보고됨.",
+  "differentiator": "이미 상용화된 FluidCrystal 플랫폼(CAM2038 부프레노르핀, CAM2029 옥트레오타이드 등)을 setmelanotide에 적용해 매일 투여를 주 1회로 전환하려던 제형. 후속 분자 RM-718(고선택성, MC1R 비관여로 과다색소침착 부작용 감소 목표)이 대체 전략으로 우선순위를 가져가며 개발이 보류됨.",
+  "caveat": "이 레코드는 Camurus의 FluidCrystal 기반 depot 제형 자체(CAM4072)를 추적하는 항목으로, 후속 대체 분자인 RM-718(주 1회 통상 제형, depot 기술 미적용)과는 별개다. Phase 3 교차시험은 2023년 완료됐고 이후 정식 신약 신청은 진행되지 않았다. RM-718이 최종 성공할 경우 CAM4072는 공식 종료(discontinued)될 예정이며, 이 경우 developmentStage를 Discontinued로 갱신해야 한다.",
+  "confidence": "High",
+  "active": false,
+  "stageRank": 60,
+  "sources": [
+    {
+      "label": "Rhythm Pharmaceuticals, Inc. Form 10-K FY2025 (weekly setmelanotide formulation paused in favor of RM-718; PIP amendment)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001649904/000162828026012399/rytm-20251231.htm",
+      "sourceType": "filing",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "Rhythm Pharmaceuticals Announces Preliminary Data from Phase 2 Trial that Showed RM-718 Demonstrated Positive Efficacy Signal in Acquired Hypothalamic Obesity, 2026-08-04",
+      "url": "https://ir.rhythmtx.com/news-releases/news-release-details/rhythm-pharmaceuticals-announces-preliminary-data-phase-2-trial",
+      "sourceType": "company",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "Camurus R&D pipeline (CAM4072, weekly setmelanotide depot licensed to Rhythm)",
+      "url": "https://www.camurus.com/science/rd-pipeline/",
+      "sourceType": "company",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "Phase 3 Crossover Trial of Two Formulations of Setmelanotide in Participants With Specific Gene Defects in the MC4R Pathway, NCT05194124",
+      "url": "https://clinicaltrials.gov/study/NCT05194124",
+      "sourceType": "registry",
+      "accessedOn": "2026-09-01"
+    }
+  ]
+}
