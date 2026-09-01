@@ -1,3 +1,10 @@
+---
+role: mvp-scope
+status: active
+authority: authoritative
+update-boundary: Update when product scope, UI screens, or intentionally-excluded features change.
+---
+
 # MVP scope
 
 ## 포함

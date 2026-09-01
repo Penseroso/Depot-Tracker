@@ -29,7 +29,9 @@ AGENTS.md
   -> docs/RESEARCH_WORKFLOW.md
   -> docs/DATA_CONTRACT.md
   -> docs/SOURCE_AND_ENTRY_POLICY.md
+  -> docs/PATENT_AUDIT.md            # patent coverage audit 트랙일 때만
   -> docs/EDGE_CASES.md              # 필요할 때만
+  -> docs/MVP_SCOPE.md               # UI·제품 스코프 변경일 때만
   -> docs/source-access-handover/    # blocked source가 있을 때만
 ```
 
@@ -46,6 +48,9 @@ blocked-source handover. 다중 도메인, ADR, 대규모 fixture·projection �
 - `/programs/[slug]/` — 현재 상태 스냅샷(Current state), 최신 Event
   카드(Latest development), evidence snapshot, Event 타임라인, 연결 Study·
   Patent·전체 Source
+- `/companies/`, `/companies/[slug]/` — 확인된 후원사·개발사·파트너사
+  디렉터리, 공식 홈페이지·파이프라인 링크, 연결된 Program, Platform 특허
+  evidence(저장된 경우만)
 - `/updates/` — 프로그램에 연결된 material-change 피드
 - `/methodology/` — 단계·제형·출처·갱신 판단 기준
 - `/api/programs.csv`, `/api/studies.csv`, `/api/snapshot.json` — 정적 다운로드 endpoint
@@ -109,12 +114,24 @@ append-only로 누적합니다. Program에는 `latestUpdate`/`latestUpdateDate`�
 
 ## 조사 트랙과 전체 landscape 운영
 
+에이전트 조사는 네 개의 독립 트랙으로 나뉩니다(`docs/RESEARCH_WORKFLOW.md`).
+필요한 트랙만 선택해 실행하며, 모두 같은 검증·Draft PR·배포 파이프라인을
+공유합니다.
+
+- **event scan**: 등록된 Core 매체·보도자료를 주기적으로 스캔해 append-only
+  Event를 기록하고, 직접 연관된 Program 현재 상태만 동기화
+- **program refresh**: 저장된 Program(또는 전체 roster)을 직접 출처·registry와
+  대조해 최신화
+- **program discovery**: 미저장 후보를 STORED / EXCLUDED / DEFERRED로 분류
+- **patent coverage audit**: 저장 Program roster와 bounded Platform queue의
+  특허 evidence를 점검하고, 새로 드러난 후보는 discovery로 handoff
+
 ```text
 Scheduled agent research
-  -> program refresh: 저장된 Program과 직접 출처·registry 비교
-  -> refreshed roster와 alias를 discovery 기준선으로 고정
-  -> program discovery: 미저장 후보를 STORED / EXCLUDED / DEFERRED로 분류
-  -> discovery 독립 coverage pass
+  -> event scan / program refresh / program discovery / patent coverage audit
+     중 선언된 트랙 실행
+  -> (refresh + discovery 조합 시) refreshed roster와 alias를 discovery
+     기준선으로 고정 -> discovery 독립 coverage pass
   -> crossover fact를 bounded update 또는 handoff로 처리
   -> 필요한 JSON과 event만 수정
   -> validation + build
