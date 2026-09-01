@@ -20,18 +20,6 @@
       }
     }
   ],
-  "patentEvidence": [
-    {
-      "familyId": "WO2025147462",
-      "publicationNumber": "WO2025147462A1",
-      "grantNumber": null,
-      "earliestPriority": "2024-01-04",
-      "currentAssignee": "Nano Precision Medical, Inc.",
-      "jurisdiction": "WO (PCT); representative family record only",
-      "legalStatus": "Pending PCT record; national-phase status not exhaustively checked",
-      "url": "https://patents.google.com/patent/WO2025147462A1/en",
-      "accessedOn": "2026-07-30"
-    }
-  ],
-  "lastVerifiedAt": "2026-07-30"
+  "patentEvidence": [],
+  "lastVerifiedAt": "2026-09-01"
 }
