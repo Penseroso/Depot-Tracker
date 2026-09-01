@@ -1,0 +1,38 @@
+{
+  "company": "MBX Biosciences",
+  "programName": "MBX 6180",
+  "payloadComponents": ["mbx 6180"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "other",
+  "deliveryTechnology": "Precision Endocrine Peptide (PEP) triple agonist prodrug",
+  "durationMechanismId": "prodrug-conjugate-release",
+  "productTarget": {
+    "description": "월 1회",
+    "minDays": 28,
+    "maxDays": 31
+  },
+  "route": "피하주사",
+  "developmentStage": "IND-enabling",
+  "developmentStatus": "MBX 공식 파이프라인 페이지 및 2026-08-06 2분기 실적발표가 MBX 6180을 GLP-1/GIP/glucagon(GCG) 삼중작용 prodrug로 IND-enabling 단계에 있다고 직접 확인함.",
+  "lastVerifiedAt": "2026-09-01",
+  "readout": "2026년 4분기 학회에서 전임상 자료 공개 예정. 동일 PEP 플랫폼 기반의 MBX 4291(GLP-1/GIP), MBX 5765(amycretin)에 이어 세 번째 payload 조합으로 추가된 프로그램.",
+  "differentiator": "GLP-1, GIP, glucagon 수용체 활성을 단일 construct에 결합한 PEP prodrug로, 월 1회 투여를 지지하는 PK 프로파일을 목표로 설계됨.",
+  "caveat": "IND-enabling 연구 착수는 sponsor 공식 파이프라인 페이지 및 실적발표로 확인됐으나, 동물 효능 수치, 사람 PK, IND 제출 시점은 아직 공개되지 않았다.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 45,
+  "sources": [
+    {
+      "label": "MBX current pipeline (MBX 6180: IND-enabling, GLP-1/GIP/GCG triple agonist prodrug, once-monthly PK profile)",
+      "url": "https://mbxbio.com/our-pipeline/",
+      "sourceType": "company",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "MBX Biosciences Reports Second Quarter 2026 Financial Results and Corporate Highlights, 2026-08-06",
+      "url": "https://www.globenewswire.com/news-release/2026/08/06/3340221/0/en/MBX-Biosciences-Reports-Second-Quarter-2026-Financial-Results-and-Corporate-Highlights.html",
+      "sourceType": "company",
+      "accessedOn": "2026-09-01"
+    }
+  ]
+}

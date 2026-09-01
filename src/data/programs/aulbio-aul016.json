@@ -1,0 +1,46 @@
+{
+  "company": "AULBIO",
+  "programName": "AUL016",
+  "payloadComponents": ["tirzepatide"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "polymer-microparticle",
+  "deliveryTechnology": "Extenna 생분해성 고분자 미세구체(microsphere)",
+  "durationMechanismId": null,
+  "productTarget": null,
+  "route": "피하주사",
+  "developmentStage": "Preclinical",
+  "developmentStatus": "AULBIO가 BIO-Europe 자사 소개자료 및 BIO USA 2026 파트너링에서 GLP-1/GIP1 이중작용제 티르제파타이드 기반 장기지속형 주사제를 연구개발 중이라고 직접 확인함. 국내 매체(헤럴드경제, 2026-06-16)는 이를 'AUL016'으로 명명하고 월 1회 목표, 임상 진입 전 파이프라인 단계로 보도함.",
+  "lastVerifiedAt": "2026-09-01",
+  "readout": "AULBIO 자체 특허(KR20240167410A)가 티르제파타이드 함유 미세구체 조성물 및 제조방법을 직접 청구하며, 14일 이상(바람직하게는 25일 이상, 최대 50일 이상까지 연장 가능) 지속 방출을 명시함. 초기 버스트 방출 30% 이하, PLGA 기반 이중/단일 유화법으로 제조.",
+  "differentiator": "이미 임상 진입한 AUL009(세마글루타이드, 월 1회 목표)과 동일한 Extenna 미세구체 플랫폼을 티르제파타이드에 적용한 별도 payload 프로그램.",
+  "caveat": "AUL016이라는 프로그램 코드와 '월 1회' 목표는 국내 매체 보도로만 확인되며, AULBIO 공식 홈페이지 파이프라인 페이지는 접근 제약으로 직접 재확인하지 못함. AULBIO 자체 특허(KR20240167410A)는 회사 차원에서 티르제파타이드 미세구체 기술을 보유함을 직접 뒷받침하지만, 특허 문서 자체는 'AUL016'이라는 프로그램 코드를 명시하지 않아 특허와 언론 보도의 특정 코드 간 연결은 추론에 의존한다. dongkook-dkf-mb501의 durationMechanismId 처리 원칙과 동일하게, 이 레코드의 기전을 이 특정 프로그램에 직접 확인하는 비-2차 소스(특허, 학회, 공식 페이지)가 없어 durationMechanismId를 null로 둔다. 목표 투여간격(productTarget) 역시 sponsor 공식 자료로 직접 확인되지 않아 저장하지 않는다. 정식 IND, 등록 임상, 사람 대상 자료는 없음.",
+  "confidence": "Medium",
+  "active": true,
+  "stageRank": 25,
+  "sources": [
+    {
+      "label": "KR20240167410A - Microspheres containing tirzepatide, method for preparing the same, and pharmaceutical composition comprising the same (AULBIO)",
+      "url": "https://patents.google.com/patent/KR20240167410A/en",
+      "sourceType": "patent",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "AULBIO self-submitted company profile (BIO-Europe sponsor page): long-acting injectable formulations of semaglutide, tirzepatide, exenatide",
+      "url": "https://informaconnect.com/bioeurope/sponsors/aulbio/",
+      "sourceType": "company",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "\"위고비 비켜라\" 한달에 1회 투여, 韓 비만치료제…글로벌 시장 공략 나선다, 헤럴드경제, 2026-06-16",
+      "url": "https://biz.heraldcorp.com/article/10772806",
+      "sourceType": "secondary",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "아울바이오, 투여 연 52회에서 4회로 줄인 비만치료제 만든다, 아시아경제, 2026-08-06",
+      "url": "https://www.asiae.co.kr/article/2026080613565692782",
+      "sourceType": "secondary",
+      "accessedOn": "2026-09-01"
+    }
+  ]
+}
