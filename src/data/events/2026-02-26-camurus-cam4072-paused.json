@@ -1,0 +1,18 @@
+{
+  "programSlug": "camurus-cam4072",
+  "date": "2026-02-26",
+  "company": "Rhythm Pharmaceuticals / Camurus",
+  "programName": "CAM4072 (weekly setmelanotide depot)",
+  "category": "Status",
+  "headline": "Rhythm, RM-718 우선순위화로 주 1회 setmelanotide 제형 개발 보류",
+  "summary": "Rhythm Pharmaceuticals가 2025 회계연도 10-K(2026-02-26 SEC 제출)에서 후속 후보 RM-718 개발을 우선하며 FluidCrystal 기반 주 1회 setmelanotide 제형(CAM4072) 개발을 보류했다고 공식 확인함. 동 제형이 포함된 EU/영국 소아 임상계획(PIP)에서 주 1회 제형 관련 항목 제외를 2025년 1분기 신청해 2025년 2분기 승인받았다고 함께 공시함. RM-718이 최종 긍정적 유효성/안전성을 확인할 경우 CAM4072는 완전히 종료(discontinued)될 예정.",
+  "significance": "Medium",
+  "sources": [
+    {
+      "label": "Rhythm Pharmaceuticals, Inc. Form 10-K FY2025 (weekly setmelanotide formulation paused in favor of RM-718; PIP amendment)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001649904/000162828026012399/rytm-20251231.htm",
+      "sourceType": "filing",
+      "accessedOn": "2026-09-01"
+    }
+  ]
+}

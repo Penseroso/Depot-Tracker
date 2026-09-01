@@ -18,6 +18,19 @@
         "sourceType": "company",
         "accessedOn": "2026-07-30"
       }
+    },
+    {
+      "companySlug": "rhythm-pharmaceuticals",
+      "relationship": "license",
+      "status": "current",
+      "rightsHolderName": "Rhythm Pharmaceuticals, Inc.",
+      "basis": "Camurus and Rhythm announced a license agreement (2016) for an extended-release FluidCrystal formulation of setmelanotide (CAM4072); Rhythm's FY2025 10-K (filed 2026-02-26) confirms the relationship while disclosing that active development of that specific weekly formulation is paused in favor of RM-718. No evidence found that the license itself was terminated or reverted.",
+      "source": {
+        "label": "Rhythm and Camurus Announce License Agreement for Extended Release FluidCrystal Setmelanotide, 2016",
+        "url": "https://www.camurus.com/media/press-releases/2016/rhythm-and-camurus-announce-license-agreement-for-extended-release-fluidcrystal-setmelanotide/",
+        "sourceType": "company",
+        "accessedOn": "2026-09-01"
+      }
     }
   ],
   "patentEvidence": [
@@ -33,5 +46,5 @@
       "accessedOn": "2026-07-30"
     }
   ],
-  "lastVerifiedAt": "2026-07-30"
+  "lastVerifiedAt": "2026-09-01"
 }
