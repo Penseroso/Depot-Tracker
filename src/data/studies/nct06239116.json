@@ -1,0 +1,16 @@
+{
+  "programSlug": "rhythm-rm718",
+  "registry": "ClinicalTrials.gov",
+  "registryId": "NCT06239116",
+  "phase": "Phase 1 | Phase 2",
+  "recruitmentStatus": "recruiting",
+  "registryStatusRaw": "RECRUITING",
+  "countries": ["United States"],
+  "registrySource": {
+    "label": "ClinicalTrials.gov NCT06239116",
+    "url": "https://clinicaltrials.gov/study/NCT06239116",
+    "sourceType": "registry",
+    "accessedOn": "2026-09-01"
+  },
+  "lastVerifiedAt": "2026-09-01"
+}

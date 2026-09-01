@@ -1,0 +1,56 @@
+{
+  "company": "Rhythm Pharmaceuticals",
+  "programName": "RM-718",
+  "payloadComponents": ["rm-718"],
+  "recordType": "sponsor-program",
+  "deliveryTechnologyId": "in-situ-forming-depot",
+  "deliveryTechnology": "RM-718과 phospholipid excipient가 주사 후 drug-phospholipid co-precipitate를 형성하는 sustained-release depot",
+  "durationMechanismId": "formulation-depot",
+  "productTarget": {
+    "description": "주 1회",
+    "minDays": 7,
+    "maxDays": 7
+  },
+  "route": "피하주사",
+  "developmentStage": "Registered Phase I/II",
+  "developmentStatus": "ClinicalTrials.gov NCT06239116에 Phase 1 | Phase 2, Recruiting으로 등록된 Rhythm Pharmaceuticals sponsor Program. 건강한 비만 참가자와 MC4R 경로 손상 환자에서 주 1회 RM-718의 안전성, 내약성, PK를 평가 중.",
+  "lastVerifiedAt": "2026-09-01",
+  "readout": "2026년 8월 4일 acquired hypothalamic obesity 환자 대상 ongoing open-label Phase 2 preliminary data 공개. 16주 완료 7명의 평균 BMI가 baseline 대비 11.6% 감소했고, 전신성 과다색소침착 없이 주사부위에 국한된 경증 2건이 보고됨. 가장 흔한 이상반응은 주사부위 반응, 오심, 구토.",
+  "differentiator": "Phospholipid가 체액과 접촉해 RM-718을 포획한 nanometer-sized drug-phospholipid co-precipitate depot을 형성. Depot의 완만한 확산과 local phospholipase 분해로 RM-718을 서서히 제어 방출하는 주 1회 SC 제형.",
+  "caveat": "2026년 8월 결과는 ongoing open-label 시험의 sponsor-reported preliminary data이며 16주 평가 인원은 7명. NCT06239116은 현재 Recruiting이고 registry results는 미게시. CAM4072 FluidCrystal setmelanotide depot과는 다른 후속 sponsor Program.",
+  "confidence": "High",
+  "active": true,
+  "stageRank": 90,
+  "sources": [
+    {
+      "label": "ClinicalTrials.gov NCT06239116",
+      "url": "https://clinicaltrials.gov/study/NCT06239116",
+      "sourceType": "registry",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "Rhythm Pharmaceuticals Form 10-K FY2025 (RM-718 sustained-release phospholipid depot)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649904/000162828026012399/rytm-20251231.htm",
+      "sourceType": "filing",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "Rhythm Pharmaceuticals Form 10-K FY2024 (RM-718 sustained-release phospholipid depot)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649904/000155837025001889/rytm-20241231x10k.htm",
+      "sourceType": "filing",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "Rhythm Pharmaceuticals Form 10-K FY2023 (RM-718 sustained-release phospholipid depot)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649904/000155837024002181/rytm-20231231x10k.htm",
+      "sourceType": "filing",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "Rhythm Pharmaceuticals RM-718 preliminary Phase 2 acquired hypothalamic obesity data, 2026-08-04",
+      "url": "https://ir.rhythmtx.com/news-releases/news-release-details/rhythm-pharmaceuticals-announces-preliminary-data-phase-2-trial",
+      "sourceType": "company",
+      "accessedOn": "2026-09-01"
+    }
+  ]
+}

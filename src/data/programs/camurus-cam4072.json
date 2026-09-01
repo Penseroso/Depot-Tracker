@@ -13,15 +13,21 @@
   },
   "route": "피하주사",
   "developmentStage": "Paused",
-  "developmentStatus": "Rhythm Pharmaceuticals 공식 10-K(FY2025, 2026년 제출)가 직접 확인: Rhythm이 후속 후보 RM-718 개발을 우선하며 주 1회 setmelanotide 제형(FluidCrystal 기반 CAM4072) 개발을 중단(paused)함. EU/영국 PIP(소아 임상계획)에서 주 1회 제형 관련 항목 제외를 2026년 1분기(Q1 2025 표기, 회사 표기 기준) 신청해 2분기 승인받음. RM-718이 최종 긍정적 유효성/안전성을 확인할 경우 주 1회 제형 개발은 완전히 종료(discontinue)될 예정.",
+  "developmentStatus": "Rhythm Pharmaceuticals가 2023년 12월까지 RM-718 개발을 우선하며 FluidCrystal 기반 주 1회 setmelanotide 제형(CAM4072) 개발을 보류했음. RM-718에서 긍정적 유효성과 안전성이 확인되면 CAM4072 개발을 종료할 계획. EU/영국 PIP의 주 1회 제형 항목 제외를 2025년 1월 신청해 2025년 2분기 승인받음.",
   "lastVerifiedAt": "2026-09-01",
   "readout": "희귀 유전성 비만질환(MC4R 경로 결함, Bardet-Biedl 증후군 등) 환자 대상 Phase 3 교차시험(NCT05194124, ClinicalTrials.gov 등록 실제 등록 인원 19명, 13주 x 2기)에서 주 1회 setmelanotide/주 1회 위약 vs 매일 setmelanotide/매일 위약 비교 후 전원 주 1회 공개라벨 13주 연장 완료. 이전 Phase 1b/2에서는 매일 제형과 유사한 체중감소 및 안전성/내약성이 보고됨.",
   "differentiator": "이미 상용화된 FluidCrystal 플랫폼(CAM2038 부프레노르핀, CAM2029 옥트레오타이드 등)을 setmelanotide에 적용해 매일 투여를 주 1회로 전환하려던 제형. 후속 분자 RM-718(고선택성, MC1R 비관여로 과다색소침착 부작용 감소 목표)이 대체 전략으로 우선순위를 가져가며 개발이 보류됨.",
-  "caveat": "이 레코드는 Camurus의 FluidCrystal 기반 depot 제형 자체(CAM4072)를 추적하는 항목으로, 후속 대체 분자인 RM-718(주 1회 통상 제형, depot 기술 미적용, Rhythm 공식 자료, SEC 10-K, ClinicalTrials.gov NCT06239116 직접 재확인 결과 phospholipid depot 등 서방형 제형 근거 없음 — MC1R 비관여 설계에 따른 통상 제형의 주 1회 투여)과는 별개다. Phase 3 교차시험(NCT05194124, 실제 등록 19명)은 2023년 완료됐고 이후 정식 신약 신청은 진행되지 않았다. 개발 보류를 다룬 Event(2026-02-26-camurus-cam4072-paused)의 날짜는 이 사실을 직접 확인한 10-K 제출일이며, 10-K 본문상 실제 PIP 개정 신청은 2025년 1월, 승인은 2025년 2분기로 더 이르다. 이보다 앞선 최초 공개 시점(예: 2023년 12월 Rhythm R&D 이벤트)을 직접 확인했으나, 해당 이벤트 보도자료(2023-12-06, RM-718 최초 공개)는 주 1회 setmelanotide 제형 보류를 언급하지 않으며 오히려 별개 신규 후보로만 RM-718을 소개해, 2023년 보류 발표설은 직접 근거로 확인되지 않는다. 2025년 1~3분기 Rhythm 분기 실적 발표에서도 이 보류 사실이 별도로 먼저 공시된 근거를 찾지 못했다(SEC 10-Q/10-K 원문은 접근 차단(HTTP 403)으로 전체 대조 불가 — 도구 접근 한계이며 부재 증명 아님). 이에 따라 Event 날짜는 현재 직접 확인 가능한 가장 이른 공개 시점인 10-K 제출일(2026-02-26)로 유지한다. RM-718이 최종 성공할 경우 CAM4072는 공식 종료(discontinued)될 예정이며, 이 경우 developmentStage를 Discontinued로 갱신해야 한다.",
+  "caveat": "CAM4072 FluidCrystal depot과 RM-718 phospholipid co-precipitate depot은 서로 다른 sponsor Program. NCT05194124는 2023년 완료됐고 CAM4072는 현재 Paused 상태. 2024년 Q1 10-Q가 pause를 2023년 12월에 발표했다고 회고하지만 최초 공개일을 일 단위로 확정할 수 없어 정확한 Event 날짜는 DEFERRED_SCHEMA_CASE.",
   "confidence": "High",
   "active": false,
   "stageRank": 60,
   "sources": [
+    {
+      "label": "Rhythm Pharmaceuticals Form 10-Q Q1 2024 (CAM4072 pause announced in December 2023)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649904/000155837024007076/rytm-20240331x10q.htm",
+      "sourceType": "filing",
+      "accessedOn": "2026-09-01"
+    },
     {
       "label": "Rhythm Pharmaceuticals, Inc. Form 10-K FY2025 (weekly setmelanotide formulation paused in favor of RM-718; PIP amendment)",
       "url": "https://www.sec.gov/Archives/edgar/data/0001649904/000162828026012399/rytm-20251231.htm",

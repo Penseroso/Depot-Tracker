@@ -4,40 +4,34 @@
   "payloadComponents": ["tirzepatide"],
   "recordType": "technology-watch",
   "deliveryTechnologyId": "polymer-microparticle",
-  "deliveryTechnology": "InnoLAMP 고함량 미세구체(microsphere), 초기 방출 억제 기술",
+  "deliveryTechnology": "InnoLAMP high-drug-loading biodegradable polymer long-acting injectable microsphere",
   "durationMechanismId": "formulation-depot",
   "productTarget": null,
   "route": "피하주사",
   "developmentStage": "Preclinical",
-  "developmentStatus": "G2GBIO 공식 보도자료(2026-08-06)가 ADA 2026(2026-06-08, New Orleans) 학회 포스터에서 부사장 설은영이 tirzepatide 월 1회 서방형 제형의 설치류 전임상 PK 자료를 발표했음을 직접 확인. 정식 후보물질 코드가 부여되지 않았고, G2GBIO 공식 파이프라인 페이지(2026-09-01 재확인)에도 등재되지 않아 확정된 sponsor 개발 프로그램이 아닌 플랫폼 역량 시연(technology-watch)으로 분류함 — 이 판단은 코드 부재 및 파이프라인 미등재라는 사실 자체에 근거하며, 소스 권위 부족 때문이 아니다.",
+  "developmentStatus": "ADA 2026 공식 초록 2815-LB와 G2GBIO 공식 보도자료가 tirzepatide biodegradable polymer LAI의 설치류 PK 자료를 직접 확인. 후보 코드가 없고 G2GBIO 공식 pipeline에 등재되지 않은 platform feasibility watch.",
   "lastVerifiedAt": "2026-09-01",
-  "readout": "설치류 전임상에서 1회 투여 후 24시간 이내 초기 방출 5% 미만, 28일 이상 혈중농도 유지 확인. 1회 15mg 고함량 로딩 목표.",
-  "differentiator": "GB-7001(세마글루타이드 단독)에 이미 적용된 InnoLAMP 플랫폼을 Eli Lilly 자사 분자 tirzepatide에 시험 적용한 사례. G2GBIO가 tirzepatide 자체 개발권을 보유한다는 근거는 없다. 동일 payload를 다루는 Peptron PT404, AULBIO Extenna tirzepatide microsphere와는 별개의 독립 레코드.",
-  "caveat": "G2GBIO 자사 공식 보도자료(2026-08-06, \"지투지바이오, ADA서 '이중 및 삼중 작용제' 전임상 데이터 공개\")가 InnoLAMP 미세구체를 이용한 tirzepatide 제형의 초기 방출 억제(24시간 내 5% 미만) 및 28일 이상 혈중농도 유지를 직접 확인해 durationMechanismId를 formulation-depot으로 분류한다. ADA 학회 초록 원문 자체(개별 초록번호)는 diabetesjournals.org 접근 차단(HTTP 403)으로 직접 열람하지 못했고, 자사 보도자료에도 초록번호가 없다. 업계 뉴스레터(onthepen Substack)가 '2815-LB'라는 번호를 tirzepatide+retatrutide 공동 포스터로 보이는 제목과 함께 언급하나 이는 1차 출처가 아니어서 canonical source로 저장하지 않는다. productTarget은 null로 유지 — 이는 소스 부족이 아니라, G2GBIO가 소유권 없는 제3자(Eli Lilly) 분자에 플랫폼을 시험 적용한 역량 시연이며 G2GBIO 자신의 product target 공약이 아니기 때문이다(플랫폼/설계 잠재력은 productTarget이 아닌 prose에 기록). 정식 후보물질 코드, IND, 사람 대상 자료는 없다.",
+  "readout": "설치류에 1회 투여한 tirzepatide LAI에서 초기 방출이 24시간 내 5% 미만으로 제어됐고 혈장 농도가 1개월 초과 유지됨. 15mg 고함량 loading과 월 1회 SC 제형 가능성을 제시함.",
+  "differentiator": "InnoLAMP 고함량 microsphere로 conventional loading 대비 microsphere mass를 줄이면서 controlled release를 유지. G2GBIO의 tirzepatide 자체 개발권은 확인되지 않음. Peptron PT404와 AULBIO Extenna tirzepatide microsphere와는 별개 레코드.",
+  "caveat": "productTarget은 null로 유지. 소스 부족이 아니라, 확정된 sponsor 개발 Program이 아닌 platform feasibility watch이며 G2GBIO 자신의 product target 공약이 없기 때문. 정식 후보 코드, IND, 사람 대상 자료는 미공개.",
   "confidence": "High",
   "active": true,
   "stageRank": 10,
   "sources": [
     {
-      "label": "지투지바이오, ADA서 '이중 및 삼중 작용제' 전임상 데이터 공개, G2GBIO 공식 보도자료, 2026-08-06",
+      "label": "ADA 2026 abstract 2815-LB: A Novel, High Drug-Loading Long-Acting Injectable Enables One Monthly Subcutaneous Administration of Tirzepatide and Retatrutide",
+      "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/2815-LB/167270/2815-LB-A-Novel-High-Drug-Loading-Long-Acting",
+      "sourceType": "conference",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "지투지바이오, ADA서 '이중 및 삼중 작용제' 전임상 데이터 공개, 2026-08-06",
       "url": "https://www.g2gbio.com/board/board.php?bo_table=news&idx=65",
       "sourceType": "company",
       "accessedOn": "2026-09-01"
     },
     {
-      "label": "[ADA] G2GBIO demonstrates favorable PK profile for once-monthly dual- and triple-agonist obesity drugs, 더바이오, 2026-06-08",
-      "url": "https://www.thebionews.net/news/articleView.html?idxno=25290",
-      "sourceType": "secondary",
-      "accessedOn": "2026-09-01"
-    },
-    {
-      "label": "G2G Bio Demonstrates Potential for Once-Monthly Formulation of Dual and Triple Agonist Obesity Drugs, Asia Business Daily, 2026-06-08",
-      "url": "https://www.asiae.co.kr/en/article/2026060816162398095",
-      "sourceType": "secondary",
-      "accessedOn": "2026-09-01"
-    },
-    {
-      "label": "G2GBIO 공식 파이프라인 페이지 (CagriSema/tirzepatide/retatrutide 미등재 확인, 2026-09-01)",
+      "label": "G2GBIO 공식 pipeline",
       "url": "https://www.g2gbio.com/m31.php?cate=1",
       "sourceType": "company",
       "accessedOn": "2026-09-01"

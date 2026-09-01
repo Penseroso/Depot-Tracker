@@ -1,0 +1,25 @@
+{
+  "programSlug": "rhythm-rm718",
+  "studySlug": "nct06239116",
+  "date": "2024-03-25",
+  "company": "Rhythm Pharmaceuticals",
+  "programName": "RM-718",
+  "category": "Clinical",
+  "headline": "RM-718 첫 참가자 투여로 Phase 1 임상 개시",
+  "summary": "Rhythm Pharmaceuticals가 비만 참가자와 hypothalamic obesity 환자에서 주 1회 RM-718의 안전성, 내약성, PK를 평가하는 최초 임상의 첫 참가자 투여를 발표함.",
+  "significance": "High",
+  "sources": [
+    {
+      "label": "Rhythm Pharmaceuticals Announces First Patient Dosed in Phase 1 Trial Evaluating RM-718, 2024-03-25",
+      "url": "https://ir.rhythmtx.com/news-releases/news-release-details/rhythm-pharmaceuticals-announces-first-patient-dosed-phase-1/",
+      "sourceType": "company",
+      "accessedOn": "2026-09-01"
+    },
+    {
+      "label": "ClinicalTrials.gov NCT06239116",
+      "url": "https://clinicaltrials.gov/study/NCT06239116",
+      "sourceType": "registry",
+      "accessedOn": "2026-09-01"
+    }
+  ]
+}
