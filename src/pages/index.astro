@@ -42,17 +42,29 @@ const priority = programs.filter((program) => program.active).slice(0, 6);
     </div>
     <div class="panel data-table-wrap">
       <table class="data-table">
-        <thead><tr><th>프로그램</th><th>제형군</th><th>목표 간격</th><th>개발 단계</th><th>최근 변화</th></tr></thead>
+        <thead>
+          <tr>
+            <th style="min-width: 220px;">프로그램</th>
+            <th style="min-width: 180px;">제형군</th>
+            <th style="min-width: 130px;">목표 간격</th>
+            <th style="min-width: 110px;">개발 단계</th>
+            <th class="program-latest-date" style="min-width: 110px;">최근 변화</th>
+          </tr>
+        </thead>
         <tbody>
           {priority.map((program) => {
             const latestEvent = getLatestEventForProgram(program.slug, events);
             return (
               <tr>
                 <td><a class="row-link" href={`${base}/programs/${program.slug}/`}><span class="cell-title">{program.programName}</span><span class="cell-sub">{program.company}</span></a></td>
-                <td><span class="cell-title">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span><span class="cell-sub">{program.deliveryTechnology}</span><span class="record-type-tag">{getDurationMechanismShortLabel(program.durationMechanismId)}</span></td>
-                <td>{formatIntervalClaim(program.productTarget)}</td>
+                <td>
+                  <span class="cell-tech-name">{technologyById.get(program.deliveryTechnologyId)?.shortLabel ?? program.deliveryTechnologyId}</span>
+                  <span class="cell-sub">{program.deliveryTechnology}</span>
+                  <span class="mechanism-tag">{getDurationMechanismShortLabel(program.durationMechanismId)}</span>
+                </td>
+                <td><span class="cell-target">{formatIntervalClaim(program.productTarget)}</span></td>
                 <td><StageBadge stage={program.developmentStage} /></td>
-                <td>{latestEvent ? formatDate(latestEvent.date) : '—'}</td>
+                <td class="program-latest-date"><span class="cell-date">{latestEvent ? formatDate(latestEvent.date) : '—'}</span></td>
               </tr>
             );
           })}
